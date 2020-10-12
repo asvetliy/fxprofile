@@ -5,7 +5,7 @@ RUN mkdir -p /home/pyuser/app
 
 COPY . /home/pyuser/app
 WORKDIR /home/pyuser/app
-RUN apt-get update && apt-get install libmariadbclient-dev
+RUN apt-get update && apt-get install -y libmariadbclient-dev
 RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r /home/pyuser/app/app/requirements.txt
 RUN chown -R pyuser:pygroup /home/pyuser
 
