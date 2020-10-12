@@ -1,0 +1,16 @@
+{% load i18n %}
+{% blocktrans %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8">
+  <title>Trading account registration</title>
+</head>
+<body>
+<h2>Thank you for creating new trading account!</h2>
+<p>Account Number: {{ account_id }}</p>
+<p>Account Password: {{ pwd }}</p>
+<p>Invest Password: {{ inv_pwd }}</p>
+</body>
+</html>
+{% endblocktrans %}

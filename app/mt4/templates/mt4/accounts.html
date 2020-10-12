@@ -1,0 +1,88 @@
+{% extends 'fxprofile/base.html' %}
+{% load static i18n custom_filters %}
+{% block content %}
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-primary card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">assignment</i>
+          </div>
+          <h4 class="card-title">{{ title_category }}</h4>
+        </div>
+        <div class="card-body">
+          <div class="toolbar">
+          </div>
+          <div class="material-datatables">
+            <table id="accounts_table" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+                   width="100%" style="width:100%">
+              <thead>
+              <tr>
+                <th>{% trans 'MT4_ACCOUNTS_TABLE_NUMBER' %}</th>
+                <th>{% trans 'MT4_ACCOUNTS_TABLE_TYPE' %}</th>
+                <th>{% trans 'MT4_ACCOUNTS_TABLE_CURRENCY' %}</th>
+                <th>{% trans 'MT4_ACCOUNTS_TABLE_LEVERAGE' %}</th>
+                <th>{% trans 'MT4_ACCOUNTS_TABLE_BALANCE' %}</th>
+                <th>{% trans 'MT4_ACCOUNTS_TABLE_CREATEDAT' %}</th>
+                <th class="disabled-sorting text-right">{% trans 'MT4_ACCOUNTS_TABLE_ACTIONS' %}</th>
+              </tr>
+              </thead>
+              <tbody>
+              {% for account in mt4_accounts %}
+              <tr>
+                <td><a href="{% url 'mt4-account-action' account.id 'view' %}">{{ account.id }}</a></td>
+                <td>{{ account.type }}</td>
+                <td>{{ account.CURRENCY }}</td>
+                <td>{{ account.LEVERAGE }}</td>
+                <td>{{ account.BALANCE }}</td>
+                <td>{{ account.REGDATE|date:'Y-m-d H:i' }}</td>
+                <td class="text-right">
+                  <a href="{% url 'mt4-account-action' account.id 'view' %}" class="btn btn-link btn-info btn-just-icon">
+                    <i class="material-icons">search</i>
+                  </a>
+                </td>
+              </tr>
+              {% endfor %}
+              </tbody>
+              <tfoot>
+              <tr>
+                <th>{% trans 'MT4_ACCOUNTS_TABLE_NUMBER' %}</th>
+                <th>{% trans 'MT4_ACCOUNTS_TABLE_TYPE' %}</th>
+                <th>{% trans 'MT4_ACCOUNTS_TABLE_CURRENCY' %}</th>
+                <th>{% trans 'MT4_ACCOUNTS_TABLE_LEVERAGE' %}</th>
+                <th>{% trans 'MT4_ACCOUNTS_TABLE_BALANCE' %}</th>
+                <th>{% trans 'MT4_ACCOUNTS_TABLE_CREATEDAT' %}</th>
+                <th class="text-right">{% trans 'MT4_ACCOUNTS_TABLE_ACTIONS' %}</th>
+              </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+        <!-- end content-->
+      </div>
+      <!--  end card  -->
+    </div>
+    <!-- end col-md-12 -->
+  </div>
+  <!-- end row -->
+{% endblock %}
+{% block scripts %}
+  <script src="{% static 'js/plugins/jquery.dataTables.min.js' %}"></script>
+  <script>
+    $(document).ready(function () {
+      $('#accounts_table').DataTable({
+        "pagingType": "full_numbers",
+        "order": [[4, "desc"]],
+        "lengthMenu": [
+          [10, 25, 50, -1],
+          [10, 25, 50, "All"]
+        ],
+        responsive: true,
+        language: {
+          search: "_INPUT_",
+          searchPlaceholder: "Search records"
+        }
+      });
+    });
+  </script>
+{% endblock %}

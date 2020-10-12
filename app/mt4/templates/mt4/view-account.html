@@ -1,0 +1,275 @@
+{% extends 'fxprofile/base.html' %}
+{% load static i18n %}
+{% block content %}
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-header card-header-primary card-header-text">
+          <div class="card-text">
+            <h4 class="card-title">{% trans 'MT4_ACCOUNT_INFO_CARDTITLE' %}</h4>
+          </div>
+        </div>
+        <div class="card-body">
+          <form class="form-horizontal">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_NUMBER' %}</label>
+                  <div class="col-sm-9">
+                    <p class="form-control-lg">{{ mt4_account.LOGIN }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_PROFIT' %}</label>
+                  <div class="col-sm-9">
+                    <p class="form-control-lg">{{ profit }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_CURRENCY' %}</label>
+                  <div class="col-sm-9">
+                    <p class="form-control-lg">{{ mt4_account.CURRENCY }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_BALANCE' %}</label>
+                  <div class="col-sm-9">
+                    <p class="form-control-lg">{{ mt4_account.BALANCE }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_TYPE' %}</label>
+                  <div class="col-sm-9">
+                    <p class="form-control-lg">{{ user_account.account_type.name }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_EQUITY' %}</label>
+                  <div class="col-sm-9">
+                    <p class="form-control-lg">{{ mt4_account.EQUITY }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_LEVERAGE' %}</label>
+                  <div class="col-sm-9">
+                    <p class="form-control-lg">{{ mt4_account.LEVERAGE }}:1</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_MARGIN' %}</label>
+                  <div class="col-sm-9">
+                    <p class="form-control-lg">{{ mt4_account.MARGIN }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_CREATEDAT' %}</label>
+                  <div class="col-sm-9">
+                    <p class="form-control-lg">{{ mt4_account.REGDATE|date:'Y-m-d H:i' }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_MARGINFREE' %}</label>
+                  <div class="col-sm-9">
+                    <p class="form-control-lg">{{ mt4_account.MARGIN_FREE }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_LASTDATE' %}</label>
+                  <div class="col-sm-9">
+                    <p class="form-control-lg">{{ mt4_account.LASTDATE|date:'Y-m-d H:i' }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_MARGINLEVEL' %}</label>
+                  <div class="col-sm-9">
+                    <p class="form-control-lg">{{ mt4_account.MARGIN_LEVEL }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card card-chart">
+        <div class="card-header card-header-icon card-header-info">
+          <div class="card-icon">
+            <i class="material-icons">timeline</i>
+          </div>
+          <h4 class="card-title">{% trans 'MT4_ACCOUNT_CHART_PL_CARDTITLE' %}
+            <small> - {% trans 'MT4_ACCOUNT_CHART_PL_CARDTITLE_SMALL' %}</small>
+          </h4>
+        </div>
+        <div class="card-body">
+          <div id="profitChart" class="ct-chart" style="height: 260px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card card-chart">
+        <div class="card-header card-header-icon card-header-rose">
+          <div class="card-icon">
+            <i class="material-icons">pie_chart</i>
+          </div>
+          <h4 class="card-title">{% trans 'MT4_ACCOUNT_PIECHART_DWP_CARDTITLE' %}
+            <small>- {% trans 'MT4_ACCOUNT_PIECHART_DWP_CARDTITLE_SMALL' %}</small>
+          </h4>
+        </div>
+        <div class="card-body">
+          <div id="dwpPieChart" class="ct-chart" style="width: 100%; height: 260px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-primary card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">assignment</i>
+          </div>
+          <h4 class="card-title">{% trans 'MT4_ACCOUNT_TRADES_TABLE_TITLE' %}</h4>
+        </div>
+        <div class="card-body">
+          <div class="toolbar">
+          </div>
+          <div class="material-datatables">
+            <table id="trades_table" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+                   width="100%" style="width:100%">
+              <thead>
+              <tr>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_SYMBOL' %}</th>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_VOLUME' %}</th>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_SWAPS' %}</th>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_COMMISSION' %}</th>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_OPENPRICE' %}</th>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_CLOSEPRICE' %}</th>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_OPENTIME' %}</th>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_CLOSETIME' %}</th>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_PROFIT' %}</th>
+              </tr>
+              </thead>
+              <tbody>
+              {% for trade in trades %}
+                <tr>
+                  <td>{{ trade.SYMBOL }}</td>
+                  <td>{{ trade.trade_volume }}</td>
+                  <td>{{ trade.trade_swaps }}</td>
+                  <td>{{ trade.trade_commission }}</td>
+                  <td>{{ trade.trade_open_price }}</td>
+                  <td>{{ trade.trade_close_price }}</td>
+                  <td>{{ trade.OPEN_TIME|date:'Y-m-d H:i' }}</td>
+                  <td>{{ trade.CLOSE_TIME|date:'Y-m-d H:i' }}</td>
+                  <td class="{% if trade.PROFIT > 0 %}text-success{% else %}text-danger{% endif %}">
+                    {% if trade.PROFIT > 0 %}+{% endif %}{{ trade.trade_profit }}
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+              <tfoot>
+              <tr>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_SYMBOL' %}</th>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_VOLUME' %}</th>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_SWAPS' %}</th>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_COMMISSION' %}</th>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_OPENPRICE' %}</th>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_CLOSEPRICE' %}</th>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_OPENTIME' %}</th>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_CLOSETIME' %}</th>
+                <th>{% trans 'MT4_ACCOUNT_TRADES_TABLE_PROFIT' %}</th>
+              </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+        <!-- end content-->
+      </div>
+      <!--  end card  -->
+    </div>
+    <!-- end col-md-12 -->
+  </div>
+  <!-- end table row -->
+{% endblock %}
+{% block scripts %}
+  <script src="{% static 'js/plugins/jquery.dataTables.min.js' %}"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      function drawProfitChart() {
+        let data = google.visualization.arrayToDataTable([
+          ['Count', 'P/L'],
+          {{ pl_chart_data }}
+        ]);
+        let options = {
+          vAxis: {minValue: 0},
+          hAxis: {minValue: 0}
+        };
+        let chart = new google.visualization.AreaChart(document.getElementById('profitChart'));
+        chart.draw(data, options);
+      }
+
+      function drawDWPPieChart() {
+        let data = google.visualization.arrayToDataTable([
+          ['Type', 'Part'],
+          ['{% trans 'MT4_ACCOUNT_PIECHART_DWP_CHART_OWNMONEY' %}', {{ dwp_pie_own_money|floatformat }}],
+          ['{% trans 'MT4_ACCOUNT_PIECHART_DWP_CHART_PROFIT' %}', {{ dwp_pie_profit|floatformat }}],
+          ['{% trans 'MT4_ACCOUNT_PIECHART_DWP_CHART_NOMONEY' %}', {{ dwp_pie_nomoney|floatformat }}]
+        ]);
+        let options = {
+          title: '{% trans 'MT4_ACCOUNT_PIECHART_DWP_CHART_TITLE' %}',
+          is3D: true,
+        };
+        let chart = new google.visualization.PieChart(document.getElementById('dwpPieChart'));
+        chart.draw(data, options);
+      }
+
+      google.charts.load('current', {'packages': ['corechart']});
+      google.charts.setOnLoadCallback(drawProfitChart);
+      google.charts.setOnLoadCallback(drawDWPPieChart);
+
+      $('#trades_table').DataTable({
+        "pagingType": "full_numbers",
+        responsive: true,
+        language: {
+          search: "_INPUT_",
+          searchPlaceholder: "{% trans 'MT4_ACCOUNT_TRANSACTIONS_SEARCH_PLACEHOLDER' %}"
+        }
+      });
+    });
+  </script>
+{% endblock %}

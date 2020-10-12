@@ -1,0 +1,113 @@
+{% extends 'fxprofile/base.html' %}
+{% load static i18n %}
+{% load custom_filters %}
+{% block content %}
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-header ">
+          <h4 class="card-title">{% trans 'WALLET_HISTORY_CARD_TITLE' %}</h4>
+        </div>
+        <div class="card-body ">
+          <ul class="nav nav-pills nav-pills-warning" role="tablist">
+            {% for wallet in wallets %}
+              <li class="nav-item">
+                <a class="nav-link {% if forloop.counter == 1 %}active{% endif %}" data-toggle="tab"
+                   href="#link{{ forloop.counter }}" role="tablist">
+                  {{ wallet.wallet.currency.iso }} {% trans 'WALLET_HISTORY_CARD_TAB_WALLET' %}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+          <div class="tab-content tab-space">
+            {% for wallet in wallets %}
+              <div class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="link{{ forloop.counter }}">
+                <div class="card">
+                  <div class="card-header card-header-primary card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">assignment</i>
+                    </div>
+                    <h4 class="card-title">{{ wallet.wallet.currency.iso }} {% trans 'WALLET_HISTORY_CARD_TAB_WALLET' %}</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="toolbar">
+                      <!--Here extra buttons/actions for the toolbar-->
+                    </div>
+                    <div class="material-datatables">
+                      <table id="historytable{{ forloop.counter }}"
+                             class="table table-striped table-no-bordered table-hover"
+                             cellspacing="0"
+                             width="100%" style="width:100%">
+                        <thead>
+                        <tr>
+                          <th>{% trans 'WALLET_HISTORY_TABLE_AMOUNT' %}</th>
+                          <th>{% trans 'WALLET_HISTORY_TABLE_FROM_TO' %}</th>
+                          <th>{% trans 'WALLET_HISTORY_TABLE_TYPE' %}</th>
+                          <th>{% trans 'WALLET_HISTORY_TABLE_STATUS' %}</th>
+                          <th>{% trans 'WALLET_HISTORY_TABLE_DATE' %}</th>
+                          <th class="disabled-sorting">{% trans 'WALLET_HISTORY_TABLE_DESCRIPTION' %}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for transaction in wallet.transactions %}
+                          <tr>
+                            <td class="{% if transaction.amount > 0 %}text-success{% else %}text-danger{% endif %}">
+                              {% if transaction.amount > 0 %}+{% endif %}{{ transaction.transaction_amount }}</td>
+                            <td>{{ transaction.from_to_wallet }}</td>
+                            <td>{{ transaction.type.name|upper }}</td>
+                            <td class="{% if transaction.status_id < 5 %}{{ colors|get_at_index:transaction.status_id }}{% else %}{{ colors|get_at_index:3 }}{% endif %}">
+                              {{ transaction.status.name|upper }}
+                            </td>
+                            <td>{{ transaction.created_at|date:'Y-m-d H:i' }}</td>
+                            <td>{{ transaction.description }}</td>
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                          <th>{% trans 'WALLET_HISTORY_TABLE_AMOUNT' %}</th>
+                          <th>{% trans 'WALLET_HISTORY_TABLE_FROM_TO' %}</th>
+                          <th>{% trans 'WALLET_HISTORY_TABLE_TYPE' %}</th>
+                          <th>{% trans 'WALLET_HISTORY_TABLE_STATUS' %}</th>
+                          <th>{% trans 'WALLET_HISTORY_TABLE_DATE' %}</th>
+                          <th>{% trans 'WALLET_HISTORY_TABLE_DESCRIPTION' %}</th>
+                        </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
+                  <!-- end content-->
+                </div>
+                <!--  end card  -->
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end col-md-12 -->
+  </div>
+  <!-- end row -->
+{% endblock %}
+{% block scripts %}
+  <script src="{% static 'js/plugins/jquery.dataTables.min.js' %}"></script>
+  <script>
+    $(document).ready(function () {
+      {% for wallet in wallets %}
+        $('#historytable{{ forloop.counter }}').DataTable({
+          "pagingType": "full_numbers",
+          "order": [[4, "desc"]],
+          "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+          ],
+          responsive: true,
+          language: {
+            search: "_INPUT_",
+            searchPlaceholder: "{% trans 'WALLET_TABLES_SEARCH_PLACEHOLDER' %}"
+          }
+        });
+      {% endfor %}
+    });
+  </script>
+{% endblock %}

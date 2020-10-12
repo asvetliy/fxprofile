@@ -1,0 +1,179 @@
+{% extends 'fxprofile/base.html' %}
+{% load static i18n %}
+{% block content %}
+  <div class="col-md-8 col-12 mr-auto ml-auto">
+    <!--      Wizard container        -->
+    <div class="wizard-container">
+      <div class="card card-wizard active" data-color="green" id="wizard_transfer">
+        <form action="{% url 'wallet-transfer' %}" method="post">
+          <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+          {% csrf_token %}
+          <div class="card-header text-center">
+            <h3 class="card-title">{% trans 'WALLET_TRANSFER_CARD_TITLE' %}</h3>
+            <h5 class="card-description">{% trans 'WALLET_TRANSFER_CARD_DESCRIPTION' %}</h5>
+          </div>
+          <div class="wizard-navigation">
+            <ul class="nav nav-pills">
+              <li class="nav-item">
+                <a class="nav-link active" href="#account_tab" data-toggle="tab" role="tab">
+                  {% trans 'WALLET_TRANSFER_CARD_TAB1' %}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#info_tab" data-toggle="tab" role="tab">
+                  {% trans 'WALLET_TRANSFER_CARD_TAB2' %}
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane active" id="account_tab">
+                <h5 class="info-text">{% trans 'WALLET_DEPOSIT_CARD_INFO_TEXT1' %}</h5>
+                <div class="row justify-content-center">
+                  <div class="col-sm-6">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                  <i class="material-icons">monetization_on</i>
+                                                </span>
+                      </div>
+                      <div class="form-group">
+                        <label for="amount" class="bmd-label-floating">{% trans 'WALLET_DEPOSIT_CARD_AMOUNT' %}</label>
+                        <input type="text" class="form-control" id="amount" name="amount" required>
+                      </div>
+                    </div>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="material-icons">sync_alt</i>
+                                                </span>
+                      </div>
+                      <div class="form-group">
+                        <select id="transfer_type" name="transfer_type" class="selectpicker"
+                                data-style="select-with-transition"
+                                title="{% trans 'WALLET_DEPOSIT_CARD_CHOOSE_TYPE' %}">
+                          <option value="pt">{% trans 'WALLET_DEPOSIT_CARD_TYPE_PT' %}</option>
+                          <option value="tp">{% trans 'WALLET_DEPOSIT_CARD_TYPE_TP' %}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div id="from_personal_account_block" class="input-group d-none">
+                      <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="material-icons">account_balance_wallet</i>
+                                                </span>
+                      </div>
+                      <div class="form-group">
+                        <select id="from_personal_account" name="from_personal_account" class="selectpicker"
+                                data-style="select-with-transition"
+                                title="{% trans 'WALLET_DEPOSIT_CARD_CHOOSE_ACCOUNT' %}">
+                          {% for w in wallets %}
+                            <option currency="{{ w.currency.iso }}"
+                                    value="{{ w.id }}">{% trans 'WALLET_DEPOSIT_CARD_PERSONAL_ACCOUNT' %} {{ w.currency.iso }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                    <div id="from_trading_account_block" class="input-group d-none">
+                      <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="material-icons">account_balance_wallet</i>
+                                                </span>
+                      </div>
+                      <div class="form-group">
+                        <select id="from_trading_account" name="from_trading_account" class="selectpicker"
+                                data-style="select-with-transition"
+                                title="{% trans 'WALLET_DEPOSIT_CARD_CHOOSE_ACCOUNT' %}">
+                          {% for a in mt4_accounts %}
+                            <option currency="{{ a.currency.iso }}" value="{{ a.id }}">{{ a.id }}
+                              ({{ a.currency.iso }})
+                            </option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="info_tab">
+                <h5 class="info-text">{% trans 'WALLET_DEPOSIT_CARD_INFO_TEXT2' %}</h5>
+                <div class="row justify-content-center">
+                  <div class="col-sm-6">
+                    <div id="to_personal_account_block" class="input-group d-none">
+                      <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="material-icons">account_balance_wallet</i>
+                                                </span>
+                      </div>
+                      <div class="form-group">
+                        <select id="to_personal_account" name="to_personal_account" class="selectpicker"
+                                data-style="select-with-transition"
+                                title="{% trans 'WALLET_DEPOSIT_CARD_CHOOSE_ACCOUNT' %}">
+                          {% for w in wallets %}
+                            <option currency="{{ w.currency.iso }}"
+                                    value="{{ w.id }}">{% trans 'WALLET_DEPOSIT_CARD_PERSONAL_ACCOUNT' %} {{ w.currency.iso }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                    <div id="to_trading_account_block" class="input-group form-control-lg d-none">
+                      <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="material-icons">account_balance_wallet</i>
+                                                </span>
+                      </div>
+                      <div class="form-group">
+                        <select id="to_trading_account" name="to_trading_account" class="selectpicker"
+                                data-style="select-with-transition"
+                                title="{% trans 'WALLET_DEPOSIT_CARD_CHOOSE_ACCOUNT' %}">
+                          {% for a in mt4_accounts %}
+                            <option currency="{{ a.currency.iso }}" value="{{ a.id }}">{{ a.id }}
+                              ({{ a.currency.iso }})
+                            </option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-check" style="margin-left: 19px">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox"
+                               value="">{% trans 'WALLET_DEPOSIT_CARD_TERMS_CONDITIONS' %}
+                        <span class="form-check-sign"><span class="check"></span></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="mr-auto">
+              <input type="button" class="btn btn-previous btn-fill btn-default btn-wd disabled"
+                     name="previous" value="{% trans 'WALLET_CARD_BTN_PREV' %}">
+            </div>
+            <div class="ml-auto">
+              <input type="button" class="btn btn-next btn-fill btn-rose btn-wd"
+                     name="{% trans 'WALLET_CARD_BTN_NEXT' %}"
+                     value="Next">
+              <input type="submit" class="btn btn-finish btn-fill btn-rose btn-wd" name="{% trans 'WALLET_CARD_BTN_SUBMIT' %}"
+                     value="Agree" style="display: none;">
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- wizard container -->
+  </div>
+{% endblock content %}
+{% block scripts %}
+  <script src="{% static 'js/plugins/jquery.validate.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/plugins/jquery.bootstrap-wizard.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/plugins/wizard.js' %}" type="text/javascript"></script>
+  <script>
+    $(document).ready(function () {
+      wizard.initMaterialTransferWizard();
+    });
+  </script>
+{% endblock %}

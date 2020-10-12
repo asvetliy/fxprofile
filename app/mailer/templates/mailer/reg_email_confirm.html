@@ -1,0 +1,17 @@
+{% load i18n %}
+{% autoescape off %}
+{% blocktrans %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8">
+  <title>Trading account registration</title>
+</head>
+<body>
+  <p>Hi {{ user.username }},</p>
+  <p>Please click on the link below to confirm your registration:</p>
+  <a href="http://{{ domain }}{{ activation_url }}">Activate</a>
+</body>
+</html>
+{% endblocktrans %}
+{% endautoescape %}

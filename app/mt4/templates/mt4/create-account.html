@@ -1,0 +1,94 @@
+{% extends 'fxprofile/base.html' %}
+{% load static %}
+{% load recaptcha2 %}
+{% load i18n %}
+{% block head %}
+  {% recaptcha_init %}
+{% endblock %}
+{% block content %}
+  <div class="row">
+    <div class="col-md-6 ml-auto mr-auto">
+      <form id="create_account_form" action="{% url 'mt4-account-create' %}" method="POST">
+        {% csrf_token %}
+        <div class="card ">
+          <div class="card-header card-header-primary card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">contacts</i>
+            </div>
+            <h4 class="card-title">{{ title_category }}</h4>
+          </div>
+          <div class="card-body ml-auto mr-auto">
+            <div class="col">
+              <div class="form-group bmd-form-group">
+                <select class="selectpicker w-100" required name="account_type" data-style="select-with-transition"
+                        title="{% trans 'MT4_ACCOUNT_CREATE_CARD_ACC_TYPE' %}" data-size="7">
+                  <option value="1">STP</option>
+                  <option value="2">ECN</option>
+                  <option value="3">VIP</option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group bmd-form-group">
+                <select class="selectpicker w-100" required name="account_leverage" data-style="select-with-transition"
+                        title="{% trans 'MT4_ACCOUNT_CREATE_CARD_ACC_LEVERAGE' %}" data-size="7">
+                  {% for l in leverages %}
+                    <option value="{{ l }}">1 : {{ l }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group bmd-form-group">
+                <select class="selectpicker w-100" required name="account_currency" data-style="select-with-transition"
+                        title="{% trans 'MT4_ACCOUNT_CREATE_CARD_ACC_CURRENCY' %}" data-size="7">
+                  <option value="1">USD</option>
+                  <option value="2">EUR</option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group bmd-form-group">
+                {{ form.captcha }}
+                <input type="hidden" class="hiddenRecaptcha" required name="hiddenRecaptcha" id="hiddenRecaptcha">
+              </div>
+            </div>
+          </div>
+          <div class="card-footer ml-auto">
+            <button type="submit" class="btn btn-primary">{% trans 'MT4_ACCOUNT_CREATE_CARD_SUBMIT' %}
+              <div class="ripple-container"></div>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock content %}
+{% block scripts %}
+  <script src="{% static 'js/plugins/jquery.validate.min.js' %}"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      let $validator = $('form#create_account_form').validate({
+        ignore: ".ignore",
+        rules: {
+          hiddenRecaptcha: {
+            required: function () {
+              return grecaptcha.getResponse() === '';
+            }
+          }
+        },
+        highlight: function (element) {
+          $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
+          $(element).closest('.form-check').removeClass('has-success').addClass('has-danger');
+        },
+        success: function (element) {
+          $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+          $(element).closest('.form-check').removeClass('has-danger').addClass('has-success');
+        },
+        errorPlacement: function (error, element) {
+          $(element).closest('.form-group').append(error);
+        }
+      });
+    });
+  </script>
+{% endblock %}

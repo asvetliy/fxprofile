@@ -1,0 +1,1295 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-26 16:24+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: app/settings/base.py:128
+msgid "English"
+msgstr "English"
+
+#: app/settings/base.py:129
+msgid "Russian"
+msgstr "Russian"
+
+#: fxprofile/forms.py:48
+msgid "PROFILE_PHONE_VALIDATION_ERROR"
+msgstr "Номер телефона необходимо вводить в формате: «+999999999». До 15 цифр."
+
+#: fxprofile/templates/fxprofile/base.html:71
+msgid "PROFILE_USERMENU_EDIT_PROFILE"
+msgstr "Редактировать профиль"
+
+#: fxprofile/templates/fxprofile/base.html:73
+msgid "PROFILE_USERMENU_CHANGE_PWD"
+msgstr "Изменить Пароль"
+
+#: fxprofile/templates/fxprofile/base.html:75
+msgid "PROFILE_USERMENU_LOGOUT"
+msgstr "Выход"
+
+#: fxprofile/templates/fxprofile/base.html:125
+msgid "PROFILE_FOOTER_COMPANY_URL"
+msgstr "https://xyz.trading"
+
+#: fxprofile/templates/fxprofile/base.html:125
+msgid "PROFILE_FOOTER_COMPANY_TEXT"
+msgstr "XYZ TRADING"
+
+#: fxprofile/templates/fxprofile/base.html:130
+msgid ""
+"\n"
+"              &copy;\n"
+"              <script>document.write(new Date().getFullYear().toString())</"
+"script>\n"
+"              <a href=\"https://xyz.trading\" target=\"_blank\">xyz.trading</"
+"a> All Rights Reserved\n"
+"            "
+msgstr ""
+"\n"
+"            &copy;\n"
+"            <script>document.write(new Date().getFullYear().toString())</"
+"script>\n"
+"            <a href=\"https://xyz.trading\" target=\"_blank\">xyz.trading</"
+"a> Все права защищены\n"
+"            "
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:5
+msgid "PROFILE_SIDEBAR_LOGO_MINI"
+msgstr "XYZ"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:8
+msgid "PROFILE_SIDEBAR_LOGO_NORMAL"
+msgstr "TRADING"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:24
+msgid "PROFILE_SIDEBAR_EDIT_PROFILE_MINI"
+msgstr "РП"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:25
+msgid "PROFILE_SIDEBAR_EDIT_PROFILE_NORMAL"
+msgstr "Редактировать Профиль"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:30
+msgid "PROFILE_SIDEBAR_CHANGE_PWD_MINI"
+msgstr "ИП"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:31
+msgid "PROFILE_SIDEBAR_CHANGE_PWD_NORMAL"
+msgstr "Изменить Пароль"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:36
+msgid "PROFILE_SIDEBAR_VERIFY_MINI"
+msgstr "ВП"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:37
+msgid "PROFILE_SIDEBAR_VERIFY_NORMAL"
+msgstr "Верификация Профиля"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:48
+msgid "PROFILE_SIDEBAR_DASHBOARD"
+msgstr "Панель Управления"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:54
+msgid "PROFILE_SIDEBAR_ACCOUNTS_MANAGEMENT"
+msgstr "Управление Счетами"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:62
+msgid "PROFILE_SIDEBAR_ACCOUNT_REG_MINI"
+msgstr "СС"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:63
+msgid "PROFILE_SIDEBAR_ACCOUNT_REG_NORMAL"
+msgstr "Создание Счета"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:68
+msgid "PROFILE_SIDEBAR_ACCOUNT_VIEW_MINI"
+msgstr "ОС"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:69
+msgid "PROFILE_SIDEBAR_ACCOUNT_VIEW_NORMAL"
+msgstr "Обзор Счетов"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:78
+msgid "PROFILE_SIDEBAR_FUNDS_TRASFER"
+msgstr "Перевод Средств"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:86
+msgid "PROFILE_SIDEBAR_DEPOSIT_MINI"
+msgstr "Д"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:87
+msgid "PROFILE_SIDEBAR_DEPOSIT_NORMAL"
+msgstr "Депозит"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:92
+msgid "PROFILE_SIDEBAR_WITHDRAW_MINI"
+msgstr "В"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:93
+msgid "PROFILE_SIDEBAR_WITHDRAW_NORMAL"
+msgstr "Вывод"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:98
+msgid "PROFILE_SIDEBAR_TRANSFER_MINI"
+msgstr "П"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:99
+msgid "PROFILE_SIDEBAR_TRANSFER_NORMAL"
+msgstr "Перевод"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:104
+msgid "PROFILE_SIDEBAR_HISTORY_MINI"
+msgstr "И"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:105
+msgid "PROFILE_SIDEBAR_HISTORY_NORMAL"
+msgstr "История"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:116
+msgid "PROFILE_SIDEBAR_MT4CLIENT"
+msgstr "Скачать MT4 Терминал"
+
+#: fxprofile/templates/fxprofile/change-password.html:23
+msgid "PROFILE_CHANGEPWD_OLDPWD"
+msgstr "Старый пароль"
+
+#: fxprofile/templates/fxprofile/change-password.html:29
+msgid "PROFILE_CHANGEPWD_NEWPWD"
+msgstr "Новый пароль"
+
+#: fxprofile/templates/fxprofile/change-password.html:35
+msgid "PROFILE_CHANGEPWD_NEWPWD2"
+msgstr "Повторите новый пароль"
+
+#: fxprofile/templates/fxprofile/change-password.html:47
+msgid "PROFILE_CHANGEPWD_SUBMIT"
+msgstr "Отправить"
+
+#: fxprofile/templates/fxprofile/change-profile.html:16
+msgid "PROFILE_CHANGE_CARD_TITLE"
+msgstr "Изменить профиль"
+
+#: fxprofile/templates/fxprofile/change-profile.html:17
+msgid "PROFILE_CHANGE_CARD_TITLE_DESC"
+msgstr "Изменение персональных данных вашего профиля"
+
+#: fxprofile/templates/fxprofile/change-profile.html:26
+msgid "PROFILE_CHANGE_CARD_USERNAME"
+msgstr "Имя пользователя"
+
+#: fxprofile/templates/fxprofile/change-profile.html:32
+msgid "PROFILE_CHANGE_CARD_EMAIL"
+msgstr "Email"
+
+#: fxprofile/templates/fxprofile/change-profile.html:40
+msgid "PROFILE_CHANGE_CARD_FIRSTNAME"
+msgstr "Имя"
+
+#: fxprofile/templates/fxprofile/change-profile.html:46
+msgid "PROFILE_CHANGE_CARD_LASTNAME"
+msgstr "Фамилия"
+
+#: fxprofile/templates/fxprofile/change-profile.html:54
+msgid "PROFILE_CHANGE_CARD_COUNTRY"
+msgstr "Страна"
+
+#: fxprofile/templates/fxprofile/change-profile.html:62
+msgid "PROFILE_CHANGE_CARD_CITY"
+msgstr "Город"
+
+#: fxprofile/templates/fxprofile/change-profile.html:70
+msgid "PROFILE_CHANGE_CARD_PHONE"
+msgstr "Телефон"
+
+#: fxprofile/templates/fxprofile/change-profile.html:76
+msgid "PROFILE_CHANGE_CARD_PROMO"
+msgstr "Промо"
+
+#: fxprofile/templates/fxprofile/change-profile.html:89
+msgid "PROFILE_CHANGE_CARD_SUBMIT"
+msgstr "Отправить"
+
+#: fxprofile/templates/fxprofile/index.html:12
+msgid "PROFILE_NEED_VERIFY"
+msgstr ""
+"Требуется проверка персональных данных! Для получения более подробной "
+"информации, перейдите на "
+
+#: fxprofile/templates/fxprofile/index.html:13
+msgid "PROFILE_NEED_VERIFY_LINK"
+msgstr "страницу верификации"
+
+#: fxprofile/templates/fxprofile/index.html:26
+msgid "PROFILE_PERSONAL_ACCOUNT_WALLET"
+msgstr "Кошелек"
+
+#: fxprofile/templates/fxprofile/index.html:31
+msgid "PROFILE_PERSONAL_ACCOUNT_BALANCE_DESC"
+msgstr "Баланс персонального счета"
+
+#: fxprofile/views.py:17
+msgid "PROFILE_VIEW_TITLE"
+msgstr "Управление профилем"
+
+#: fxprofile/views.py:28
+msgid "PROFILE_CHANGE_PROFILE_TITLE"
+msgstr "Изменить персональную информацию"
+
+#: fxprofile/views.py:37
+msgid "PROFILE_CHANGE_SAVED_SUCCESS"
+msgstr "Изменения успешно сохранены"
+
+#: fxprofile/views.py:51
+msgid "PROFILE_CHANGE_PWD_TITLE"
+msgstr "Изменить персональную информацию"
+
+#: fxprofile/views.py:61
+msgid "PROFILE_PASSWORD_CHANGED_SUCCESS"
+msgstr "Пароль успешно изменен"
+
+#: mailer/templates/mailer/reg_email_confirm.html:3
+#, python-format
+msgid ""
+"\n"
+"<!DOCTYPE html>\n"
+"<html lang=\"%(lang)s\">\n"
+"<head>\n"
+"  <meta charset=\"UTF-8\">\n"
+"  <title>Trading account registration</title>\n"
+"</head>\n"
+"<body>\n"
+"  <p>Hi %(user.username)s,</p>\n"
+"  <p>Please click on the link below to confirm your registration:</p>\n"
+"  <a href=\"http://%(domain)s%(activation_url)s\">Activate</a>\n"
+"</body>\n"
+"</html>\n"
+msgstr ""
+"\n"
+"<!DOCTYPE html>\n"
+"<html lang=\"%(lang)s\">\n"
+"<head>\n"
+"  <meta charset=\"UTF-8\">\n"
+"  <title>Регистрация торгового счета</title>\n"
+"</head>\n"
+"<body>\n"
+"  <p>Здравствуйте, %(user.username)s,</p>\n"
+"  <p>Для подтверждения регистрации, пожалуйста, нажмите на ссылку ниже:</p>\n"
+"  <a href=\"http://%(domain)s%(activation_url)s\">Активировать профиль.</a>\n"
+"</body>\n"
+"</html>\n"
+
+#: mailer/templates/mailer/reg_email_confirm.txt:3
+#, python-format
+msgid ""
+"\n"
+"Hi %(user.username)s,\n"
+"\n"
+"Please click on the link below to confirm your registration:\n"
+"\n"
+"http://%(domain)s%(activation_url)s\n"
+msgstr ""
+"\n"
+"Здравствуйте, %(user.username)s,\n"
+"\n"
+"Пожалуйста, нажмите на ссылку ниже для завершения регистрации вашего "
+"профиля:\n"
+"\n"
+"http://%(domain)s%(activation_url)s\n"
+
+#: mailer/templates/mailer/trading_account_created.html:2
+#, python-format
+msgid ""
+"\n"
+"<!DOCTYPE html>\n"
+"<html lang=\"%(lang)s\">\n"
+"<head>\n"
+"  <meta charset=\"UTF-8\">\n"
+"  <title>Trading account registration</title>\n"
+"</head>\n"
+"<body>\n"
+"<h2>Thank you for creating new trading account!</h2>\n"
+"<p>Account Number: %(account_id)s</p>\n"
+"<p>Account Password: %(pwd)s</p>\n"
+"<p>Invest Password: %(inv_pwd)s</p>\n"
+"</body>\n"
+"</html>\n"
+msgstr ""
+"\n"
+"<!DOCTYPE html>\n"
+"<html lang=\"%(lang)s\">\n"
+"<head>\n"
+"  <meta charset=\"UTF-8\">\n"
+"  <title>Регистрация торгового счета</title>\n"
+"</head>\n"
+"<body>\n"
+"<h2>Вы создали новый торговвый счет!</h2>\n"
+"<p>Номер счета: %(account_id)s</p>\n"
+"<p>Мастер пароль: %(pwd)s</p>\n"
+"<p>Инвест пароль: %(inv_pwd)s</p>\n"
+"</body>\n"
+"</html>\n"
+
+#: mailer/templates/mailer/trading_account_created.txt:2
+#, python-format
+msgid ""
+"\n"
+"Thank you for creating new trading account!\n"
+"\n"
+"Account Number: %(account_id)s\n"
+"Account Password: %(pwd)s\n"
+"Invest Password: %(inv_pwd)s\n"
+msgstr ""
+"\n"
+"Вы создали новый счет на нашей платформе.\n"
+"\n"
+"Данные доступа вы можете найти ниже.\n"
+"\n"
+"Номер счета: %(account_id)s\n"
+"Мастер пароль: %(pwd)s\n"
+"Инвест пароль: %(inv_pwd)s\n"
+"\n"
+"Не предоставляйте данные доступа никому. Это может поставить под угрозу "
+"безопасность вашей торговли.\n"
+"Сотрудники компании ни при каких обстоятельствах не будут запрашивать у вас "
+"данные доступа к торговому счету.\n"
+
+#: mt4/signals.py:30
+msgid "MT4_ACCOUNT_CREATE_EMAIL_SUBJECT"
+msgstr "Ваш торговый аккаунт успешно создан"
+
+#: mt4/templates/mt4/accounts.html:21 mt4/templates/mt4/accounts.html:49
+msgid "MT4_ACCOUNTS_TABLE_NUMBER"
+msgstr "Номер"
+
+#: mt4/templates/mt4/accounts.html:22 mt4/templates/mt4/accounts.html:50
+msgid "MT4_ACCOUNTS_TABLE_TYPE"
+msgstr "Тип"
+
+#: mt4/templates/mt4/accounts.html:23 mt4/templates/mt4/accounts.html:51
+msgid "MT4_ACCOUNTS_TABLE_CURRENCY"
+msgstr "Валюта"
+
+#: mt4/templates/mt4/accounts.html:24 mt4/templates/mt4/accounts.html:52
+msgid "MT4_ACCOUNTS_TABLE_LEVERAGE"
+msgstr "Плечо"
+
+#: mt4/templates/mt4/accounts.html:25 mt4/templates/mt4/accounts.html:53
+msgid "MT4_ACCOUNTS_TABLE_BALANCE"
+msgstr "Баланс"
+
+#: mt4/templates/mt4/accounts.html:26 mt4/templates/mt4/accounts.html:54
+msgid "MT4_ACCOUNTS_TABLE_CREATEDAT"
+msgstr "Дата создания"
+
+#: mt4/templates/mt4/accounts.html:27 mt4/templates/mt4/accounts.html:55
+msgid "MT4_ACCOUNTS_TABLE_ACTIONS"
+msgstr "Действия"
+
+#: mt4/templates/mt4/create-account.html:24
+msgid "MT4_ACCOUNT_CREATE_CARD_ACC_TYPE"
+msgstr "Тип счета"
+
+#: mt4/templates/mt4/create-account.html:34
+msgid "MT4_ACCOUNT_CREATE_CARD_ACC_LEVERAGE"
+msgstr "Кредитное плечо"
+
+#: mt4/templates/mt4/create-account.html:44
+msgid "MT4_ACCOUNT_CREATE_CARD_ACC_CURRENCY"
+msgstr "Базовая валюта"
+
+#: mt4/templates/mt4/create-account.html:58
+msgid "MT4_ACCOUNT_CREATE_CARD_SUBMIT"
+msgstr "Отправить"
+
+#: mt4/templates/mt4/view-account.html:9
+msgid "MT4_ACCOUNT_INFO_CARDTITLE"
+msgstr "Информация по счету"
+
+#: mt4/templates/mt4/view-account.html:17
+msgid "MT4_ACCOUNT_INFO_NUMBER"
+msgstr "NUMBER"
+
+#: mt4/templates/mt4/view-account.html:25
+msgid "MT4_ACCOUNT_INFO_PROFIT"
+msgstr "PROFIT"
+
+#: mt4/templates/mt4/view-account.html:35
+msgid "MT4_ACCOUNT_INFO_CURRENCY"
+msgstr "CURRENCY"
+
+#: mt4/templates/mt4/view-account.html:43
+msgid "MT4_ACCOUNT_INFO_BALANCE"
+msgstr "BALANCE"
+
+#: mt4/templates/mt4/view-account.html:53
+msgid "MT4_ACCOUNT_INFO_TYPE"
+msgstr "TYPE"
+
+#: mt4/templates/mt4/view-account.html:61
+msgid "MT4_ACCOUNT_INFO_EQUITY"
+msgstr "EQUITY"
+
+#: mt4/templates/mt4/view-account.html:71
+msgid "MT4_ACCOUNT_INFO_LEVERAGE"
+msgstr "LEVERAGE"
+
+#: mt4/templates/mt4/view-account.html:79
+msgid "MT4_ACCOUNT_INFO_MARGIN"
+msgstr "MARGIN"
+
+#: mt4/templates/mt4/view-account.html:89
+msgid "MT4_ACCOUNT_INFO_CREATEDAT"
+msgstr "CREATED AT"
+
+#: mt4/templates/mt4/view-account.html:97
+msgid "MT4_ACCOUNT_INFO_MARGINFREE"
+msgstr "MARGIN FREE"
+
+#: mt4/templates/mt4/view-account.html:107
+msgid "MT4_ACCOUNT_INFO_LASTDATE"
+msgstr "LAST AT"
+
+#: mt4/templates/mt4/view-account.html:115
+msgid "MT4_ACCOUNT_INFO_MARGINLEVEL"
+msgstr "MARGIN LEVEL"
+
+#: mt4/templates/mt4/view-account.html:134
+msgid "MT4_ACCOUNT_CHART_PL_CARDTITLE"
+msgstr "Прибыль / Убыток"
+
+#: mt4/templates/mt4/view-account.html:135
+msgid "MT4_ACCOUNT_CHART_PL_CARDTITLE_SMALL"
+msgstr "График"
+
+#: mt4/templates/mt4/view-account.html:149
+msgid "MT4_ACCOUNT_PIECHART_DWP_CARDTITLE"
+msgstr "Средства счета"
+
+#: mt4/templates/mt4/view-account.html:150
+msgid "MT4_ACCOUNT_PIECHART_DWP_CARDTITLE_SMALL"
+msgstr "Пирог"
+
+#: mt4/templates/mt4/view-account.html:166
+msgid "MT4_ACCOUNT_TRADES_TABLE_TITLE"
+msgstr "История сделок"
+
+#: mt4/templates/mt4/view-account.html:176
+#: mt4/templates/mt4/view-account.html:206
+msgid "MT4_ACCOUNT_TRADES_TABLE_SYMBOL"
+msgstr "Пара"
+
+#: mt4/templates/mt4/view-account.html:177
+#: mt4/templates/mt4/view-account.html:207
+msgid "MT4_ACCOUNT_TRADES_TABLE_VOLUME"
+msgstr "Объем"
+
+#: mt4/templates/mt4/view-account.html:178
+#: mt4/templates/mt4/view-account.html:208
+msgid "MT4_ACCOUNT_TRADES_TABLE_SWAPS"
+msgstr "Своп"
+
+#: mt4/templates/mt4/view-account.html:179
+#: mt4/templates/mt4/view-account.html:209
+msgid "MT4_ACCOUNT_TRADES_TABLE_COMMISSION"
+msgstr "Комиссия"
+
+#: mt4/templates/mt4/view-account.html:180
+#: mt4/templates/mt4/view-account.html:210
+msgid "MT4_ACCOUNT_TRADES_TABLE_OPENPRICE"
+msgstr "Цена открытия"
+
+#: mt4/templates/mt4/view-account.html:181
+#: mt4/templates/mt4/view-account.html:211
+msgid "MT4_ACCOUNT_TRADES_TABLE_CLOSEPRICE"
+msgstr "Цена закрытия"
+
+#: mt4/templates/mt4/view-account.html:182
+#: mt4/templates/mt4/view-account.html:212
+msgid "MT4_ACCOUNT_TRADES_TABLE_OPENTIME"
+msgstr "Время открытия"
+
+#: mt4/templates/mt4/view-account.html:183
+#: mt4/templates/mt4/view-account.html:213
+msgid "MT4_ACCOUNT_TRADES_TABLE_CLOSETIME"
+msgstr "Время закрытия"
+
+#: mt4/templates/mt4/view-account.html:184
+#: mt4/templates/mt4/view-account.html:214
+msgid "MT4_ACCOUNT_TRADES_TABLE_PROFIT"
+msgstr "Прибыль"
+
+#: mt4/templates/mt4/view-account.html:249
+msgid "MT4_ACCOUNT_PIECHART_DWP_CHART_OWNMONEY"
+msgstr "Свои средства"
+
+#: mt4/templates/mt4/view-account.html:250
+msgid "MT4_ACCOUNT_PIECHART_DWP_CHART_PROFIT"
+msgstr "Прибыль"
+
+#: mt4/templates/mt4/view-account.html:251
+msgid "MT4_ACCOUNT_PIECHART_DWP_CHART_NOMONEY"
+msgstr "Нет средств"
+
+#: mt4/templates/mt4/view-account.html:254
+msgid "MT4_ACCOUNT_PIECHART_DWP_CHART_TITLE"
+msgstr "Пирог средств"
+
+#: mt4/templates/mt4/view-account.html:270
+msgid "MT4_ACCOUNT_TRANSACTIONS_SEARCH_PLACEHOLDER"
+msgstr "Поиск"
+
+#: mt4/views.py:71
+msgid "MT4_ACCOUNT_VIEW_TITLE"
+msgstr "Детальная информаци по счету"
+
+#: mt4/views.py:97
+msgid "MT4_ACCOUNT_REG_TITLE"
+msgstr "Создание торгового счета"
+
+#: mt4/views.py:127
+msgid "MT4_ACCOUNT_CREATE_SUCCESS"
+msgstr "Торговый счет успешно создан"
+
+#: mt4/views.py:129
+msgid "MT4_ACCOUNT_CREATE_FAIL"
+msgstr ""
+"Не удалось создать торговый аккаунт. Пожалуйста, исправьте все ошибки ниже."
+
+#: mt4/views.py:147
+msgid "MT4_ACCOUNTS_VIEW_TITLE"
+msgstr "Обзор счетов"
+
+#: users/admin.py:31
+msgid "Personal info"
+msgstr "Персональная информация"
+
+#: users/admin.py:32
+msgid "Permissions"
+msgstr "Разрешения"
+
+#: users/admin.py:35
+msgid "Important dates"
+msgstr "Важные даты"
+
+#: users/forms.py:45
+msgid "USERS_PHONE_VALIDATION_ERROR"
+msgstr "Номер телефона необходимо вводить в формате: «+999999999». До 15 цифр."
+
+#: users/forms.py:71
+msgid "USERS_LOGIN_FORM_USERNAME"
+msgstr "Имя пользователя"
+
+#: users/forms.py:75
+msgid "USERS_LOGIN_FORM_PWD"
+msgstr "Пароль"
+
+#: users/forms.py:90
+msgid "USERS_RESET_FORM_EMAIL"
+msgstr "Email"
+
+#: users/forms.py:101
+msgid "USERS_RESET_FORM_NEW_PWD"
+msgstr "Новый пароль"
+
+#: users/forms.py:109
+msgid "USERS_RESET_FORM_NEW_PWD2"
+msgstr "Повторите новый пароль"
+
+#: users/models.py:7
+msgid "COUNTRY"
+msgstr "СТРАНА"
+
+#: users/models.py:8
+msgid "CITY"
+msgstr "ГОРОД"
+
+#: users/templates/admin/partner_user_view.html:6
+msgid "Home"
+msgstr "Home"
+
+#: users/templates/admin/partner_user_view.html:9
+msgid "Manage"
+msgstr "Управление"
+
+#: users/templates/users/account_activation_invalid.html:4
+msgid "USERS_CONFIRMATION_LINK_INVALID"
+msgstr "Ссылка для подтверждения уже была использована."
+
+#: users/templates/users/account_activation_sent.html:4
+msgid "USERS_CONFIRMATION_LINK_SENT"
+msgstr ""
+"Пожалуйста, подтвердите свой адрес электронной почты для завершения "
+"регистрации. Проверьте входящие сообщения."
+
+#: users/templates/users/base.html:12
+msgid "USERS_BASE_TITLE"
+msgstr "XYZ.TRADING"
+
+#: users/templates/users/base.html:31
+msgid "USERS_NAVBAR_COMPANY_NAME"
+msgstr "XYZ TRADING"
+
+#: users/templates/users/base.html:44
+msgid "USERS_NAVBAR_REGISTER"
+msgstr "Регистрация"
+
+#: users/templates/users/base.html:49
+msgid "USERS_NAVBAR_LOGIN"
+msgstr "Вход"
+
+#: users/templates/users/base.html:71
+msgid "USERS_FOOTER_HOMEPAGE"
+msgstr "Главная"
+
+#: users/templates/users/base.html:76
+msgid "USERS_FOOTER_ABOUT"
+msgstr "О нас"
+
+#: users/templates/users/base.html:81
+msgid "USERS_FOOTER_TERMS"
+msgstr "Пользовательское Соглашение"
+
+#: users/templates/users/base.html:86
+msgid "USERS_FOOTER_LICENSE"
+msgstr "Лицензии"
+
+#: users/templates/users/base.html:92
+msgid ""
+"\n"
+"          &copy;\n"
+"          <script>document.write(new Date().getFullYear().toString())</"
+"script>\n"
+"          <a href=\"https://xyz.trading\" target=\"_blank\">xyz.trading</a> "
+"All Rights Reserved\n"
+"          "
+msgstr ""
+"\n"
+"            &copy;\n"
+"            <script>document.write(new Date().getFullYear().toString())</"
+"script>\n"
+"            <a href=\"https://xyz.trading\" target=\"_blank\">xyz.trading</"
+"a> Все права защищены\n"
+"            "
+
+#: users/templates/users/login.html:15
+msgid "USERS_LOGIN_CARD_TITLE"
+msgstr "Форма Входа"
+
+#: users/templates/users/login.html:42
+msgid "USERS_LOGIN_CARD_FORGOT"
+msgstr "Забыли пароль?"
+
+#: users/templates/users/login.html:56
+msgid "USERS_LOGIN_CARD_SUBMIT"
+msgstr "Вперед!"
+
+#: users/templates/users/password_reset.html:13
+#: users/templates/users/password_reset_confirm.html:10
+msgid "USERS_PWD_RESET_CARD_TITLE"
+msgstr "Форма Сброса Пароля"
+
+#: users/templates/users/password_reset.html:39
+#: users/templates/users/password_reset_confirm.html:40
+msgid "USERS_PWD_RESET_CARD_SUBMIT"
+msgstr "Отправить"
+
+#: users/templates/users/password_reset_complete.html:4
+msgid "USERS_PWD_RESET_SUCCESS_MESSAGE"
+msgstr "Ваш пароль был установлен. Вы можете войти с новым паролем сейчас."
+
+#: users/templates/users/password_reset_confirm.html:50
+msgid "USERS_PWD_RESET_ERROR_MESSAGE"
+msgstr ""
+"Ссылка для сброса пароля уже использовалась или просрочена. Пожалуйста, "
+"попробуйте еще раз."
+
+#: users/templates/users/password_reset_done.html:5
+msgid "USERS_PWD_RESET_DONE_MESSAGE_1"
+msgstr ""
+"Мы отправили вам письмо с инструкцией смены пароля. Проверьте входящие "
+"сообщения."
+
+#: users/templates/users/password_reset_done.html:7
+msgid "USERS_PWD_RESET_DONE_MESSAGE_2"
+msgstr ""
+"Если вы не получили письмо с инструкцией, убедитесь, что вы правильно ввели "
+"адрес электронной почты. Также проверьте свой папку СПАМ."
+
+#: users/templates/users/password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+"Вы получили данное письмо так как на сайте %(site_name)s была запрошена "
+"смена пароля для вашего профиля.\n"
+"Если вы не делали такого запроса, просто проигнорируйте данное письмо."
+
+#: users/templates/users/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr "Пожалуйста, пройдите по следующей ссылке и установите новый пароль:"
+
+#: users/templates/users/password_reset_email.html:8
+msgid "Your username, in case you’ve forgotten:"
+msgstr "Имя вашего профиля, на случай если вы забыли:"
+
+#: users/templates/users/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr "Спасибо, что пользуетесь нашими сервисами!"
+
+#: users/templates/users/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "Команда %(site_name)s"
+
+#: users/templates/users/registration.html:9
+msgid "USERS_REGISTRATION_TITLE"
+msgstr "Форма Регистрации"
+
+#: users/templates/users/registration.html:21
+msgid "USERS_REGISTRATION_USERNAME"
+msgstr "Имя пользователя"
+
+#: users/templates/users/registration.html:28
+msgid "USERS_REGISTRATION_EMAIL"
+msgstr "Email"
+
+#: users/templates/users/registration.html:37
+msgid "USERS_REGISTRATION_FIRSTNAME"
+msgstr "Имя"
+
+#: users/templates/users/registration.html:44
+msgid "USERS_REGISTRATION_LASTNAME"
+msgstr "Фамилия"
+
+#: users/templates/users/registration.html:53
+msgid "USERS_REGISTRATION_PWD"
+msgstr "Пароль"
+
+#: users/templates/users/registration.html:60
+msgid "USERS_REGISTRATION_PWD2"
+msgstr "Повторить пароль"
+
+#: users/templates/users/registration.html:69
+msgid "USERS_REGISTRATION_COUNTRY"
+msgstr "Страна"
+
+#: users/templates/users/registration.html:77
+msgid "USERS_REGISTRATION_CITY"
+msgstr "Город"
+
+#: users/templates/users/registration.html:85
+msgid "USERS_REGISTRATION_PHONE"
+msgstr "Телефон"
+
+#: users/templates/users/registration.html:91
+msgid "USERS_REGISTRATION_PROMOCODE"
+msgstr "Промо"
+
+#: users/templates/users/registration.html:100
+msgid ""
+"I have read and accept the «Client Agreement» and I understand the nature of "
+"financial\n"
+"                instruments and the risks involved, so, in light of my "
+"circumstances and financial position,\n"
+"                I confirm that using financial instruments provided by the "
+"Company correspond to my\n"
+"                investment objectives."
+msgstr ""
+"Я прочитал и принимаю «Клиентское соглашение» и понимаю природу финансовых\n"
+"                инструментов и связанных с их использованием рисков, "
+"поэтому, в свете моих обстоятельств и финансового положения,\n"
+"                подтверждаю, что использование финансовых инструментов, "
+"предоставляемых Компанией, соответствует моим\n"
+"                инвестиционным целям. Я понимаю, что маржинальная торговля "
+"связана с определенным риском потери моего торгового баланса."
+
+#: users/templates/users/registration.html:110
+msgid "USERS_REGISTRATION_SUBMIT"
+msgstr "Вход"
+
+#: users/views.py:19 users/views.py:56
+msgid "USERS_REG_TITLE"
+msgstr "Форма регистрации"
+
+#: users/views.py:45
+msgid "USERS_REG_EMAIL_CONFIRM_SUBJECT"
+msgstr "Сonfirmation email"
+
+#: users/views.py:84
+msgid "USER_LOGIN_PAGE_TITLE"
+msgstr "Login Page"
+
+#: verification/templates/verification/index.html:12
+msgid "VERIFICATION_PERSONAL_ACCOUNT_VERIFICATED"
+msgstr "Профиль верифицирован. Вы успешно прошли валидацию данных."
+
+#: verification/templates/verification/index.html:25
+msgid "VERIFICATION_REQUIRED_DOCUMENTS_TITLE"
+msgstr "Необходимые документы"
+
+#: verification/templates/verification/index.html:33
+msgid "VERIFICATION_REQUIRED_DOCUMENTS_TYPE"
+msgstr "Тип"
+
+#: verification/templates/verification/index.html:34
+msgid "VERIFICATION_REQUIRED_DOCUMENTS_STATUS"
+msgstr "Статус"
+
+#: verification/templates/verification/index.html:35
+msgid "VERIFICATION_REQUIRED_DOCUMENTS_DESCRIPTION"
+msgstr "Описание"
+
+#: verification/templates/verification/index.html:36
+msgid "VERIFICATION_REQUIRED_DOCUMENTS_ACTIONS"
+msgstr "Действие"
+
+#: verification/templates/verification/index.html:55
+msgid "VERIFICATION_REQUIRED_DOCUMENTS_UPLOAD"
+msgstr "Загрузить"
+
+#: verification/templates/verification/index.html:79
+msgid "VERIFICATION_REQUIRED_CARD_DOCUMENTS_TITLE"
+msgstr "Необходимые карты"
+
+#: verification/templates/verification/index.html:87
+msgid "VERIFICATION_REQUIRED_CARD_DOCUMENTS_TYPE"
+msgstr "Тип"
+
+#: verification/templates/verification/index.html:88
+msgid "VERIFICATION_REQUIRED_CARD_DOCUMENTS_STATUS"
+msgstr "Статус"
+
+#: verification/templates/verification/index.html:89
+msgid "VERIFICATION_REQUIRED_CARD_DOCUMENTS_CARD"
+msgstr "Карта"
+
+#: verification/templates/verification/index.html:90
+msgid "VERIFICATION_REQUIRED_CARD_DOCUMENTS_DESCRIPTION"
+msgstr "Описание"
+
+#: verification/templates/verification/index.html:91
+msgid "VERIFICATION_REQUIRED_CARD_DOCUMENTS_ACTIONS"
+msgstr "Действие"
+
+#: verification/templates/verification/index.html:112
+msgid "VERIFICATION_REQUIRED_CARD_DOCUMENTS_UPLOAD"
+msgstr "Загрузить"
+
+#: verification/templates/verification/index.html:135
+msgid "VERIFICATION_PENDING_REQUESTS_TITLE"
+msgstr "Запросы на очереди"
+
+#: verification/templates/verification/index.html:145
+#: verification/templates/verification/index.html:154
+msgid "VERIFICATION_PENDING_REQUESTS_TYPE"
+msgstr "Тип"
+
+#: verification/templates/verification/index.html:146
+#: verification/templates/verification/index.html:155
+msgid "VERIFICATION_PENDING_REQUESTS_FILE"
+msgstr "Файл"
+
+#: verification/templates/verification/index.html:147
+#: verification/templates/verification/index.html:156
+msgid "VERIFICATION_PENDING_REQUESTS_STATUS"
+msgstr "Статус"
+
+#: verification/templates/verification/index.html:148
+#: verification/templates/verification/index.html:157
+msgid "VERIFICATION_PENDING_REQUESTS_CREATEDAT"
+msgstr "Создан"
+
+#: verification/templates/verification/index.html:149
+#: verification/templates/verification/index.html:158
+msgid "VERIFICATION_PENDING_REQUESTS_COMMENT"
+msgstr "Комментарий"
+
+#: verification/templates/verification/index.html:189
+msgid "VERIFICATION_APPROVED_DOCUMENTS_TITLE"
+msgstr "Утвержденные документы"
+
+#: verification/templates/verification/index.html:199
+#: verification/templates/verification/index.html:208
+msgid "VERIFICATION_APPROVED_DOCUMENTS_TYPE"
+msgstr "Тип"
+
+#: verification/templates/verification/index.html:200
+#: verification/templates/verification/index.html:209
+msgid "VERIFICATION_APPROVED_DOCUMENTS_FILE"
+msgstr "Файл"
+
+#: verification/templates/verification/index.html:201
+#: verification/templates/verification/index.html:210
+msgid "VERIFICATION_APPROVED_DOCUMENTS_STATUS"
+msgstr "Статус"
+
+#: verification/templates/verification/index.html:202
+#: verification/templates/verification/index.html:211
+msgid "VERIFICATION_APPROVED_DOCUMENTS_CREATEDAT"
+msgstr "Создан"
+
+#: verification/templates/verification/index.html:203
+#: verification/templates/verification/index.html:212
+msgid "VERIFICATION_APPROVED_DOCUMENTS_COMMENT"
+msgstr "Комментарий"
+
+#: verification/templates/verification/index.html:243
+msgid "VERIFICATION_DECLINED_DOCUMENTS_TITLE"
+msgstr "Отклоненные документы"
+
+#: verification/templates/verification/index.html:253
+#: verification/templates/verification/index.html:262
+msgid "VERIFICATION_DECLINED_DOCUMENTS_TYPE"
+msgstr "Тип"
+
+#: verification/templates/verification/index.html:254
+#: verification/templates/verification/index.html:263
+msgid "VERIFICATION_DECLINED_DOCUMENTS_FILE"
+msgstr "Файл"
+
+#: verification/templates/verification/index.html:255
+#: verification/templates/verification/index.html:264
+msgid "VERIFICATION_DECLINED_DOCUMENTS_STATUS"
+msgstr "Статус"
+
+#: verification/templates/verification/index.html:256
+#: verification/templates/verification/index.html:265
+msgid "VERIFICATION_DECLINED_DOCUMENTS_CREATEDAT"
+msgstr "Создан"
+
+#: verification/templates/verification/index.html:257
+#: verification/templates/verification/index.html:266
+msgid "VERIFICATION_DECLINED_DOCUMENTS_COMMENT"
+msgstr "Комментарий"
+
+#: verification/templates/verification/index.html:305
+#: verification/templates/verification/index.html:318
+#: verification/templates/verification/index.html:331
+msgid "VERIFICATION_TABLES_SEARCH_PLACEHOLDER"
+msgstr "Искать записи"
+
+#: verification/validators.py:13
+#, python-format
+msgid "The maximum file size that can be uploaded is %d(max_file_size)MB"
+msgstr "Загружать файлы можно объёмом не более %d(max_file_size)MB"
+
+#: verification/validators.py:17
+msgid ""
+"File upload is only available for permitted file types (%(media_files_list))"
+msgstr ""
+"Можно загружать файли только разрешенных форматов (%d(media_files_list))"
+
+#: verification/views.py:20 verification/views.py:31 verification/views.py:42
+#, python-brace-format
+msgid "STATUS_{vr.status.name}"
+msgstr ""
+
+#: verification/views.py:57 verification/views.py:65 verification/views.py:73
+#: verification/views.py:80 verification/views.py:91
+msgid "STATUS_OPEN"
+msgstr "ОТКРЫТ"
+
+#: verification/views.py:97
+msgid "VERIFICATION_PAGE_TITLE"
+msgstr "Страница Верификации"
+
+#: verification/views.py:109
+msgid "VERIFICATION_UPLOAD_ERROR_MANYFILES"
+msgstr "Можно выбрать только 1 файл для загрузки"
+
+#: verification/views.py:126
+msgid "VERIFICATION_REQUEST_SUCCESSFULLY_CREATED"
+msgstr "Документ успешно подан на валидацию"
+
+#: verification/views.py:133
+msgid "VERIFICATION_UPLOAD_ERROR_NOFILE"
+msgstr "Ни один файл не был загружен"
+
+#: wallet/forms.py:35
+msgid "WALLET_FORM_ERROR_WRONG_FROMTO_ACCOUNTS"
+msgstr "ИЗ/В"
+
+#: wallet/templates/wallet/deposit.html:12
+msgid "WALLET_DEPOSIT_CARD_TITLE"
+msgstr "Пополнить счет"
+
+#: wallet/templates/wallet/deposit.html:13
+msgid "WALLET_DEPOSIT_CARD_DESCRIPTION"
+msgstr "Дополнительная информация об оплате, если это необходимо."
+
+#: wallet/templates/wallet/deposit.html:19
+msgid "WALLET_DEPOSIT_CARD_TAB1"
+msgstr "ready"
+
+#: wallet/templates/wallet/deposit.html:24
+msgid "WALLET_DEPOSIT_CARD_TAB2"
+msgstr "steady"
+
+#: wallet/templates/wallet/deposit.html:29
+msgid "WALLET_DEPOSIT_CARD_TAB3"
+msgstr "go!"
+
+#: wallet/templates/wallet/deposit.html:37
+#: wallet/templates/wallet/transfer.html:32
+msgid "WALLET_DEPOSIT_CARD_INFO_TEXT1"
+msgstr "Начнем с базовой информации"
+
+#: wallet/templates/wallet/deposit.html:47
+#: wallet/templates/wallet/transfer.html:42
+msgid "WALLET_DEPOSIT_CARD_AMOUNT"
+msgstr "Сумма"
+
+#: wallet/templates/wallet/deposit.html:61
+#: wallet/templates/wallet/transfer.html:70
+#: wallet/templates/wallet/transfer.html:87
+#: wallet/templates/wallet/transfer.html:112
+#: wallet/templates/wallet/transfer.html:129
+msgid "WALLET_DEPOSIT_CARD_CHOOSE_ACCOUNT"
+msgstr "Выберите счет"
+
+#: wallet/templates/wallet/deposit.html:72
+#: wallet/templates/wallet/transfer.html:100
+msgid "WALLET_DEPOSIT_CARD_INFO_TEXT2"
+msgstr "Выберите платежный метод"
+
+#: wallet/templates/wallet/deposit.html:84
+msgid "WALLET_DEPOSIT_CARD_CHOOSE_PAYMENT"
+msgstr "Платежная система"
+
+#: wallet/templates/wallet/deposit.html:95
+#: wallet/templates/wallet/transfer.html:141
+msgid "WALLET_DEPOSIT_CARD_TERMS_CONDITIONS"
+msgstr "Правила и Условия"
+
+#: wallet/templates/wallet/deposit.html:106
+msgid "WALLET_DEPOSIT_CARD_INFO_TEXT3"
+msgstr "Согласны ли вы?"
+
+#: wallet/templates/wallet/deposit.html:116
+#: wallet/templates/wallet/transfer.html:153
+#: wallet/templates/wallet/withdraw.html:81
+msgid "WALLET_CARD_BTN_PREV"
+msgstr "Предыдущий"
+
+#: wallet/templates/wallet/deposit.html:120
+#: wallet/templates/wallet/transfer.html:157
+#: wallet/templates/wallet/withdraw.html:85
+msgid "WALLET_CARD_BTN_NEXT"
+msgstr "Следующий"
+
+#: wallet/templates/wallet/deposit.html:122
+#: wallet/templates/wallet/transfer.html:159
+#: wallet/templates/wallet/withdraw.html:87
+msgid "WALLET_CARD_BTN_SUBMIT"
+msgstr "Подтвердить"
+
+#: wallet/templates/wallet/history.html:9
+msgid "WALLET_HISTORY_CARD_TITLE"
+msgstr "История транзакций"
+
+#: wallet/templates/wallet/history.html:17
+#: wallet/templates/wallet/history.html:30
+msgid "WALLET_HISTORY_CARD_TAB_WALLET"
+msgstr "Кошелек"
+
+#: wallet/templates/wallet/history.html:43
+#: wallet/templates/wallet/history.html:68
+msgid "WALLET_HISTORY_TABLE_AMOUNT"
+msgstr "Сумма"
+
+#: wallet/templates/wallet/history.html:44
+#: wallet/templates/wallet/history.html:69
+msgid "WALLET_HISTORY_TABLE_FROM_TO"
+msgstr "Из / В"
+
+#: wallet/templates/wallet/history.html:45
+#: wallet/templates/wallet/history.html:70
+msgid "WALLET_HISTORY_TABLE_TYPE"
+msgstr "Тип"
+
+#: wallet/templates/wallet/history.html:46
+#: wallet/templates/wallet/history.html:71
+msgid "WALLET_HISTORY_TABLE_STATUS"
+msgstr "Статус"
+
+#: wallet/templates/wallet/history.html:47
+#: wallet/templates/wallet/history.html:72
+msgid "WALLET_HISTORY_TABLE_DATE"
+msgstr "Дата"
+
+#: wallet/templates/wallet/history.html:48
+#: wallet/templates/wallet/history.html:73
+msgid "WALLET_HISTORY_TABLE_DESCRIPTION"
+msgstr "Описание"
+
+#: wallet/templates/wallet/history.html:107
+msgid "WALLET_TABLES_SEARCH_PLACEHOLDER"
+msgstr "Поиск"
+
+#: wallet/templates/wallet/transfer.html:12
+msgid "WALLET_TRANSFER_CARD_TITLE"
+msgstr "Перевод между счетами пользователей"
+
+#: wallet/templates/wallet/transfer.html:13
+msgid "WALLET_TRANSFER_CARD_DESCRIPTION"
+msgstr "Дополнительная информация о переводе, если необходимо."
+
+#: wallet/templates/wallet/transfer.html:19
+msgid "WALLET_TRANSFER_CARD_TAB1"
+msgstr "ready"
+
+#: wallet/templates/wallet/transfer.html:24
+msgid "WALLET_TRANSFER_CARD_TAB2"
+msgstr "go!"
+
+#: wallet/templates/wallet/transfer.html:55
+msgid "WALLET_DEPOSIT_CARD_CHOOSE_TYPE"
+msgstr "Выберите вид перевода"
+
+#: wallet/templates/wallet/transfer.html:56
+msgid "WALLET_DEPOSIT_CARD_TYPE_PT"
+msgstr "с персонального на торговый"
+
+#: wallet/templates/wallet/transfer.html:57
+msgid "WALLET_DEPOSIT_CARD_TYPE_TP"
+msgstr "с торгового на персональный"
+
+#: wallet/templates/wallet/transfer.html:73
+#: wallet/templates/wallet/transfer.html:115
+msgid "WALLET_DEPOSIT_CARD_PERSONAL_ACCOUNT"
+msgstr "Персональный счет"
+
+#: wallet/templates/wallet/withdraw.html:12
+msgid "WALLET_WITHDRAW_CARD_TITLE"
+msgstr "Вывести средства"
+
+#: wallet/templates/wallet/withdraw.html:13
+msgid "WALLET_WITHDRAW_CARD_DESCRIPTION"
+msgstr "Дополнительная информация о выводе, если необходимо."
+
+#: wallet/templates/wallet/withdraw.html:18
+msgid "WALLET_WITHDRAW_CARD_TAB1"
+msgstr "ready"
+
+#: wallet/templates/wallet/withdraw.html:21
+msgid "WALLET_WITHDRAW_CARD_TAB2"
+msgstr "go!"
+
+#: wallet/templates/wallet/withdraw.html:28
+msgid "WALLET_WITHDRAW_CARD_INFO_TEXT1"
+msgstr "Базовая информация о выводе средств."
+
+#: wallet/templates/wallet/withdraw.html:36
+msgid "WALLET_WITHDRAW_CARD_AMOUNT"
+msgstr "Сумма"
+
+#: wallet/templates/wallet/withdraw.html:46
+msgid "WALLET_WITHDRAW_CARD_CHOOSE_ACCOUNT"
+msgstr "Выберите счет"
+
+#: wallet/templates/wallet/withdraw.html:48
+msgid "WALLET_WITHDRAW_CARD_PERSONAL_ACCOUNT"
+msgstr "Персональный счет"
+
+#: wallet/templates/wallet/withdraw.html:59
+msgid "WALLET_WITHDRAW_CARD_CHOOSE_PAYMENT"
+msgstr "Платежный метод"
+
+#: wallet/templates/wallet/withdraw.html:72
+msgid "WALLET_WITHDRAW_CARD_INFO_TEXT2"
+msgstr "Укажите дополнительную информацию."
+
+#: wallet/views.py:25
+msgid "WALLET_DEPOSIT_PAGE_TITLE"
+msgstr "Депозит"
+
+#: wallet/views.py:39
+msgid "WALLET_WITHDRAW_PAGE_TITLE"
+msgstr "Вывод"
+
+#: wallet/views.py:60
+msgid "WALLET_WITHDRAW_VIA_PAYMENT"
+msgstr "Вывод через %(payment_name)s"
+
+#: wallet/views.py:62
+msgid "WALLET_WITHDRAW_CREATED_SUCCESSFULLY"
+msgstr "Заявка на вывод успешно создана"
+
+#: wallet/views.py:65
+msgid "WALLET_WITHDRAW_ERROR_NOT_VALID"
+msgstr "Не валидный запрос на вывод средств."
+
+#: wallet/views.py:76
+msgid "WALLET_TRANSFER_PAGE_TITLE"
+msgstr "Перевод средств"
+
+#: wallet/views.py:97
+msgid "WALLET_WITHDRAW_ERROR_WALLET_NOTEXIST"
+msgstr "Кошелек не существует"
+
+#: wallet/views.py:103
+msgid "WALLET_WITHDRAW_ERROR_ACCOUNT_NOTEXIST"
+msgstr "Торговый счет не существует"
+
+#: wallet/views.py:107
+msgid "WALLET_WITHDRAW_ERROR_CANT_TRANSFER"
+msgstr ""
+"Вы не можете переводить средства между счетами с разной базовой валютой"
+
+#: wallet/views.py:116
+msgid "WALLET_TRANSFER_TO_TRADING_ACCOUNT"
+msgstr "Перевод на торговый счет %(account_id)d"
+
+#: wallet/views.py:121 wallet/views.py:151
+msgid "WALLET_TRANSFER_ERROR_INSUFFICIENT_FUNDS"
+msgstr "Недостаточно средств"
+
+#: wallet/views.py:127
+msgid "WALLET_TRANSFER_ERROR_ACCOUNT_NOTEXIST"
+msgstr "Торговый счет не существует"
+
+#: wallet/views.py:133
+msgid "WALLET_TRANSFER_ERROR_WALLET_NOTEXIST"
+msgstr "Кошелек не существует"
+
+#: wallet/views.py:137
+msgid "WALLET_TRANSFER_ERROR_CANT_TRANSFER"
+msgstr ""
+"Вы не можете переводить средства между счетами с разной базовой валютой"
+
+#: wallet/views.py:146
+msgid "WALLET_TRANSFER_FROM_TRADING_ACCOUNT"
+msgstr "Перевод с торгового счета %(account_id)d"
+
+#: wallet/views.py:154 wallet/views.py:159
+msgid "WALLET_TRANSFER_ERROR_NOT_VALID"
+msgstr "Невозможно создать перевод"
+
+#: wallet/views.py:157
+msgid "WALLET_TRANSFER_CREATED_SUCCESSFULLY"
+msgstr "Заявка на перевод успешно создана"
+
+#: wallet/views.py:174
+msgid "WALLET_TRANSFER_HISTORY_PAGE_TITLE"
+msgstr "История транзакций"
+
+#~ msgid "WALLET_TRANSFER_CARD_TERMS_CONDITIONS"
+#~ msgstr "Правила и условия"

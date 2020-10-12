@@ -1,0 +1,8 @@
+{% load i18n %}
+{% blocktrans %}
+Thank you for creating new trading account!
+
+Account Number: {{ account_id }}
+Account Password: {{ pwd }}
+Invest Password: {{ inv_pwd }}
+{% endblocktrans %}

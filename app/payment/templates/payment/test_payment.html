@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Test Payment</h1>
+    <form method="post" action="/payments/test/process">
+        {% csrf_token %}
+        <input type="hidden" name="amount" value="{{ amount }}">
+        <input type="hidden" name="transaction_id" value="{{ transaction_id }}">
+        <input type="hidden" name="status" value="success">
+        <input type="submit" value="Success">
+    </form>
+    <form method="post" action="/payments/test/fail">
+        {% csrf_token %}
+        <input type="hidden" name="amount" value="{{ amount }}">
+        <input type="hidden" name="transaction_id" value="{{ transaction_id }}">
+        <input type="hidden" name="status" value="fail">
+        <input type="submit" value="Fail">
+    </form>
+</body>
+</html>
