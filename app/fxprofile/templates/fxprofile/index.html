@@ -1,38 +1,107 @@
 {% extends 'fxprofile/base.html' %}
-{% load i18n %}
+{% load static i18n %}
 {% block content %}
-  {% if not request.user.is_verificated %}
-    <div class="row">
-      <div class="col">
-        <div class="alert alert-danger alert-with-icon" data-notify="container">
-          <i class="material-icons" data-notify="icon">notifications</i>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <i class="material-icons">close</i>
-          </button>
-          <span data-notify="message">{% trans 'PROFILE_NEED_VERIFY' %} <a
-              href="{% url 'verification' %}" class="text-dark">{% trans 'PROFILE_NEED_VERIFY_LINK' %}</a>.</span>
+{% if not request.user.is_verificated %}
+<div class="row">
+  <div class="col">
+    <div class="alert alert-danger alert-with-icon" data-notify="container">
+      <i class="material-icons" data-notify="icon">notifications</i>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="material-icons">close</i>
+      </button>
+      <span data-notify="message">{% trans 'PROFILE_NEED_VERIFY' %} <a
+          href="{% url 'verification' %}" class="text-dark">{% trans 'PROFILE_NEED_VERIFY_LINK' %}</a>.</span>
+    </div>
+  </div>
+</div>
+{% endif %}
+<div class="row">
+  {% for wallet in wallets %}
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-header card-header-success card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">account_balance_wallet</i>
+        </div>
+        <p class="card-category">{{ wallet.currency.iso }} {% trans 'PROFILE_PERSONAL_ACCOUNT_WALLET' %}</p>
+        <h3 class="card-title">{{ wallet.currency.symbol }}{{ wallet.wallet_balance }}</h3>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <i class="material-icons">contact_support</i> {% trans 'PROFILE_PERSONAL_ACCOUNT_BALANCE_DESC' %}
         </div>
       </div>
     </div>
-  {% endif %}
-  <div class="row">
-    {% for wallet in wallets %}
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
-          <div class="card-header card-header-success card-header-icon">
-            <div class="card-icon">
-              <i class="material-icons">account_balance_wallet</i>
-            </div>
-            <p class="card-category">{{ wallet.currency.iso }} {% trans 'PROFILE_PERSONAL_ACCOUNT_WALLET' %}</p>
-            <h3 class="card-title">{{ wallet.currency.symbol }}{{ wallet.wallet_balance }}</h3>
-          </div>
-          <div class="card-footer">
-            <div class="stats">
-              <i class="material-icons">contact_support</i> {% trans 'PROFILE_PERSONAL_ACCOUNT_BALANCE_DESC' %}
-            </div>
+  </div>
+  {% endfor %}
+  <div class="col-lg-6 col-md-12">
+    <div class="card">
+      <div class="card-header card-header-tabs card-header-rose">
+        <div class="nav-tabs-navigation">
+          <div class="nav-tabs-wrapper">
+            <span class="nav-tabs-title">Quotes:</span>
+            <ul class="nav nav-tabs" data-tabs="tabs">
+              <li class="nav-item">
+                <a class="nav-link active" href="#profile" data-toggle="tab">
+                  <i class="material-icons">timeline</i> FOREX
+                  <div class="ripple-container"></div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#messages" data-toggle="tab">
+                  <i class="material-icons">monetization_on</i> CRYPTO
+                  <div class="ripple-container"></div>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    {% endfor %}
+      <div class="card-body">
+        <div class="tab-content">
+          <div class="tab-pane active" id="profile">
+            <table class="table table-hover">
+              <thead class="text-warning">
+                <tr>
+                  <th>SYMBOL</th>
+                  <th>BID</th>
+                  <th>ASK</th>
+                </tr>
+              </thead>
+              <tbody id="qForex">
+
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane" id="messages">
+            <table class="table table-hover">
+              <thead class="text-warning">
+                <tr>
+                  <th>SYMBOL</th>
+                  <th>BID</th>
+                  <th>ASK</th>
+                </tr>
+              </thead>
+              <tbody id="qCrypto">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 {% endblock content %}
+{% block scripts %}
+<script src="{% static 'js/plugins/quotes.js' %}" type="text/javascript"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    let subsQuotes = {
+      "qForex": ["EURUSD", "GBPUSD", "USDJPY", "EURGBP", "USDCAD", "GBPJPY", "AUDUSD", "EURCHF"],
+      "qCrypto": ["BTCUSD", "ETHUSD", "LTCUSD", "XRPUSD", "BCHUSD", "XLMUSD", "XMRUSD", "DASHUSD"],
+    };
+    let ws = quotes.initQuotesWidget("ws://localhost:8080/quotes", subsQuotes);
+  });
+</script>
+{% endblock %}

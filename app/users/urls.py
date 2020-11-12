@@ -10,7 +10,7 @@ urlpatterns = [
     path('account-activation-sent',
          auth_views.TemplateView.as_view(template_name='users/account_activation_sent.html'),
          name='account-activation-sent'),
-    url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+    url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,32})/$',
         views.activate, name='activate'),
     path('password-reset', views.UserPasswordResetView.as_view(), name='user-password-reset'),
     path('password-reset/done', views.UserPasswordResetDoneView.as_view(), name='user-password-reset-done'),
