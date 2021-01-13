@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'mt4.apps.Mt4Config',
     'django_countries',
     'snowpenguin.django.recaptcha2',
+    'django_logging',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_logging.middleware.DjangoLoggingMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -201,4 +203,10 @@ MT4_ACCOUNTS_SETTINGS = {
             }
         }
     }
+}
+
+# django-logging-json
+DJANGO_LOGGING = {
+    'LOG_LEVEL': 'info',
+    'INDENT_CONSOLE_LOG': None,
 }
