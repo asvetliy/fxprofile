@@ -5,7 +5,7 @@ RUN mkdir -p /home/pyuser/app
 
 COPY . /home/pyuser/app
 WORKDIR /home/pyuser/app/app
-RUN apt-get update && apt-get install -y gcc libmariadbclient-dev git
+RUN apt-get update && apt-get install -y gcc libmariadbclient-dev git gettext
 RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r /home/pyuser/app/app/requirements.txt
 RUN chown -R pyuser:pygroup /home/pyuser
 
@@ -15,5 +15,7 @@ RUN mkdir /home/pyuser/app_data
 RUN mkdir /home/pyuser/app_data/public
 RUN mkdir /home/pyuser/app_data/media
 RUN python /home/pyuser/app/app/manage.py collectstatic
+RUN python manage.py compilemessages -l en
+RUN python manage.py compilemessages -l ru
 
 CMD ["gunicorn", "app.wsgi"]
