@@ -101,7 +101,7 @@
       "qForex": ["EURUSD", "GBPUSD", "USDJPY", "EURGBP", "USDCAD", "GBPJPY", "AUDUSD", "EURCHF"],
       "qCrypto": ["BTCUSD", "ETHUSD", "LTCUSD", "XRPUSD", "BCHUSD", "XLMUSD", "XMRUSD", "DASHUSD"],
     };
-    let ws = quotes.initQuotesWidget("ws://localhost:8080/quotes", subsQuotes);
+    let ws = quotes.initQuotesWidget("wss://{{ request.get_host }}/quotes", subsQuotes);
   });
 </script>
 {% endblock %}
