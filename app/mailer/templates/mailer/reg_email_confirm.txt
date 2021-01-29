@@ -5,6 +5,6 @@ Hi {{ user.username }},
 
 Please click on the link below to confirm your registration:
 
-http://{{ domain }}{{ activation_url }}
+https://{{ domain }}{{ activation_url }}
 {% endblocktrans %}
 {% endautoescape %}
