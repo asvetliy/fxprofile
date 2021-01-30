@@ -16,15 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns
-# from django.conf.urls.static import static
 from django.conf.urls import url
 from django.contrib.admin.views.decorators import staff_member_required
-
 from django.views.static import serve
 from django.conf import settings
 
 
-@staff_member_required
+@staff_member_required(login_url=settings.LOGIN_URL)
 def protected_serve(request, path, document_root=None, show_indexes=False):
     return serve(request, path, document_root, show_indexes)
 
