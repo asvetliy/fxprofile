@@ -43,11 +43,14 @@ class AccountObject(object):
         self.country = user.country
         self.group_id = '3'
         self.send_reports = '0'
-        self.phone = user.phone
+        if user.phone:
+            self.phone = user.phone
         self.agent = '-'
         self.leverage = '500'
-        self.zipcode = user.promo
-        self.city = user.city
+        if user.promo:
+            self.zipcode = user.promo
+        if user.city:
+            self.city = user.city
         self.status = '0'
         self.doc_number = '-'
         self.name = f'{user.first_name} {user.last_name}'
