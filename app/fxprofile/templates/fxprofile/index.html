@@ -42,14 +42,20 @@
             <span class="nav-tabs-title">Quotes:</span>
             <ul class="nav nav-tabs" data-tabs="tabs">
               <li class="nav-item">
-                <a class="nav-link active" href="#profile" data-toggle="tab">
+                <a class="nav-link active" href="#forex_tab" data-toggle="tab">
                   <i class="material-icons">timeline</i> FOREX
                   <div class="ripple-container"></div>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#messages" data-toggle="tab">
+                <a class="nav-link" href="#crypto_tab" data-toggle="tab">
                   <i class="material-icons">monetization_on</i> CRYPTO
+                  <div class="ripple-container"></div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#shares_tab" data-toggle="tab">
+                  <i class="material-icons">trending_up</i> SHARES
                   <div class="ripple-container"></div>
                 </a>
               </li>
@@ -59,7 +65,7 @@
       </div>
       <div class="card-body">
         <div class="tab-content">
-          <div class="tab-pane active" id="profile">
+          <div class="tab-pane active" id="forex_tab">
             <table class="table table-hover">
               <thead class="text-warning">
                 <tr>
@@ -73,7 +79,7 @@
               </tbody>
             </table>
           </div>
-          <div class="tab-pane" id="messages">
+          <div class="tab-pane" id="crypto_tab">
             <table class="table table-hover">
               <thead class="text-warning">
                 <tr>
@@ -83,6 +89,20 @@
                 </tr>
               </thead>
               <tbody id="qCrypto">
+
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane" id="shares_tab">
+            <table class="table table-hover">
+              <thead class="text-warning">
+                <tr>
+                  <th>SYMBOL</th>
+                  <th>BID</th>
+                  <th>ASK</th>
+                </tr>
+              </thead>
+              <tbody id="qShares">
 
               </tbody>
             </table>
@@ -99,7 +119,8 @@
   $(document).ready(function () {
     let subsQuotes = {
       "qForex": ["EURUSD", "GBPUSD", "USDJPY", "EURGBP", "USDCAD", "GBPJPY", "AUDUSD", "EURCHF"],
-      "qCrypto": ["BTCUSD", "ETHUSD", "LTCUSD", "XRPUSD", "BCHUSD", "XLMUSD", "XMRUSD", "DASHUSD"],
+      "qCrypto": ["BTCUSD", "ETHBTC", "LTCUSD", "XRPUSD", "BCHUSD", "XLMUSD", "XMRUSD", "DASHUSD"],
+      "qShares": ["#Barclays", "#Vodafone", "#Amazon", "#Apple", "#TeslaMotor", "#DeutscBank", "#USNDAQ100", "#Commerzbnk"],
     };
     let ws = quotes.initQuotesWidget("wss://{{ request.get_host }}/quotes", subsQuotes);
   });
