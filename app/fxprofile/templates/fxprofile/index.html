@@ -122,7 +122,7 @@
       "qCrypto": ["BTCUSD", "ETHBTC", "LTCUSD", "XRPUSD", "BCHUSD", "XLMUSD", "XMRUSD", "DASHUSD"],
       "qShares": ["#Barclays", "#Vodafone", "#Amazon", "#Apple", "#TeslaMotor", "#DeutscBank", "#USNDAQ100", "#Commerzbnk"],
     };
-    let ws = quotes.initQuotesWidget("wss://{{ request.get_host }}/quotes", subsQuotes);
+    let ws = quotes.initQuotesWidget("wss://{{ request.get_host }}/quotes", subsQuotes, {{ is_debug }});
   });
 </script>
 {% endblock %}

@@ -1,13 +1,17 @@
 let quotes = {
-  initQuotesWidget: function (wsUri, subsQuotes) {
+  initQuotesWidget: function (wsUri, subsQuotes, is_debug) {
     let ws = new WebSocket(wsUri);
-
-    ws.onopen = function (event) {
-      console.log("connected");
-    };
-    ws.onclose = function (event) {
-      console.log("disconnected");
-    };
+    if (is_debug) {
+      ws.onopen = function (event) {
+        console.log("connected");
+      };
+      ws.onclose = function (event) {
+        console.log("disconnected");
+      };
+      ws.onerror = function (event) {
+        console.log(event.data);
+      };
+    }
     ws.onmessage = function (event) {
       let quote = JSON.parse(event.data);
       let row = document.getElementById(quote.symbol.toLowerCase());
@@ -58,19 +62,14 @@ let quotes = {
         row.appendChild(col_bid);
         row.appendChild(col_ask);
 
-        if (subsQuotes.qForex.includes(quote.symbol)) {
-          let table = document.getElementById("qForex");
-          table.appendChild(row);
-        } else if (subsQuotes.qCrypto.includes(quote.symbol)) {
-          let table = document.getElementById("qCrypto");
-          table.appendChild(row);
+        for (const [qType, qSymbols] of Object.entries(subsQuotes)) {
+          if (qSymbols.includes(quote.symbol)) {
+            let table = document.getElementById(qType);
+            table.appendChild(row);
+          }
         }
       }
     };
-    ws.onerror = function (event) {
-      console.log(event.data);
-    };
-
     return ws;
   }
 };

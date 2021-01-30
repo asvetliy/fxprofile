@@ -4,6 +4,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 from .forms import UserUpdateForm, UserPasswordChangeForm
 
 
@@ -14,7 +15,8 @@ class ProfileView(LoginRequiredMixin, View):
         context = {
             'nav_dashboard': 'active',
             'wallets': request.user.wallet_set.all(),
-            'title_category': _('PROFILE_VIEW_TITLE')
+            'title_category': _('PROFILE_VIEW_TITLE'),
+            'is_debug': 1 if settings.DEBUG else 0
         }
         return render(request, 'fxprofile/index.html', context=context)
 
