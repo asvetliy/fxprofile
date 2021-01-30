@@ -28,7 +28,7 @@ def protected_serve(request, path, document_root=None, show_indexes=False):
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('aZ0tD3wP8wZ0/', admin.site.urls),
     url(r'^%s(?P<path>.*)$' % settings.MEDIA_URL[1:], protected_serve, {'document_root': settings.MEDIA_ROOT}),
 ]
 urlpatterns += i18n_patterns(
