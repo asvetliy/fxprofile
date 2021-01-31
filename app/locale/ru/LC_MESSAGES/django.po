@@ -557,7 +557,7 @@ msgstr "Поиск"
 
 #: mt4/views.py:71
 msgid "MT4_ACCOUNT_VIEW_TITLE"
-msgstr "Детальная информаци по счету"
+msgstr "Детальная информация по счету"
 
 #: mt4/views.py:97
 msgid "MT4_ACCOUNT_REG_TITLE"
