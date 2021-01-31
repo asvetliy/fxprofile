@@ -14,7 +14,7 @@ USER pyuser
 RUN mkdir /home/pyuser/app_data
 RUN mkdir /home/pyuser/app_data/public
 RUN mkdir /home/pyuser/app_data/media
-RUN python /home/pyuser/app/app/manage.py collectstatic
+RUN python /home/pyuser/app/app/manage.py collectstatic --clear
 RUN python /home/pyuser/app/app/manage.py compilemessages -l en
 RUN python /home/pyuser/app/app/manage.py compilemessages -l ru
 
