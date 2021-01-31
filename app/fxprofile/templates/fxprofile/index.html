@@ -59,6 +59,12 @@
                   <div class="ripple-container"></div>
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#commodities_tab" data-toggle="tab">
+                  <i class="material-icons">trending_up</i> COMMODITIES
+                  <div class="ripple-container"></div>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -107,6 +113,20 @@
               </tbody>
             </table>
           </div>
+          <div class="tab-pane" id="commodities_tab">
+            <table class="table table-hover">
+              <thead class="text-warning">
+                <tr>
+                  <th>SYMBOL</th>
+                  <th>BID</th>
+                  <th>ASK</th>
+                </tr>
+              </thead>
+              <tbody id="qCommodities">
+
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -121,6 +141,7 @@
       "qForex": ["EURUSD", "GBPUSD", "USDJPY", "EURGBP", "USDCAD", "GBPJPY", "AUDUSD", "EURCHF"],
       "qCrypto": ["BTCUSD", "ETHBTC", "LTCUSD", "XRPUSD", "BCHUSD", "XLMUSD", "XMRUSD", "DASHUSD"],
       "qShares": ["#Barclays", "#Vodafone", "#Amazon", "#Apple", "#TeslaMotor", "#DeutscBank", "#USNDAQ100", "#Commerzbnk"],
+      "qCommodities": ["GOLD", "SILVER", "BRENT", "WTI", "NAT.GAS", "GOLDEURO", "SILVEREURO", "PLATINUM"],
     };
     let ws = quotes.initQuotesWidget("wss://{{ request.get_host }}/quotes", subsQuotes, {{ is_debug }});
   });
