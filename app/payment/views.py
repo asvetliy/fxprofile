@@ -13,7 +13,10 @@ class PaymentURLDispatcher(View):
             return None
 
     def post(self, request, payment, action):
-        payment_system = PaymentSystem.objects.get(code=payment)
+        try:
+            payment_system = PaymentSystem.objects.get(code=payment)
+        except PaymentSystem.DoesNotExist:
+            return page_not_found(request, None)
         if payment_system and payment_system.is_enabled:
             scheme_class = self._get_scheme_class(payment_system.cls)
             p = scheme_class()
@@ -24,7 +27,10 @@ class PaymentURLDispatcher(View):
         return page_not_found(request, None)
 
     def get(self, request, payment, action):
-        payment_system = PaymentSystem.objects.get(code=payment)
+        try:
+            payment_system = PaymentSystem.objects.get(code=payment)
+        except PaymentSystem.DoesNotExist:
+            return page_not_found(request, None)
         if payment_system and payment_system.is_enabled:
             scheme_class = self._get_scheme_class(payment_system.cls)
             if scheme_class is None:
