@@ -1,10 +1,9 @@
 from django.views import View
 from django.views.defaults import page_not_found
 from .models import PaymentSystem
-from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class PaymentURLDispatcher(LoginRequiredMixin, View):
+class PaymentURLDispatcher(View):
     @staticmethod
     def _get_scheme_class(kls):
         schemes_module = __import__('payment.schemes')
