@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'wallet.apps.WalletConfig',
     'wallet.templatetags.custom_filters',
     'mt4.apps.Mt4Config',
+    'questions.apps.QuestionsConfig',
     'django_countries',
     'snowpenguin.django.recaptcha2',
     'django_logging',

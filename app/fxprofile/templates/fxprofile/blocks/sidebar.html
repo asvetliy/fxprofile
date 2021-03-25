@@ -14,10 +14,10 @@
         <img src="{% static 'img/default-avatar.png' %}"/>
       </div>
       <div class="user-info">
-        <a data-toggle="collapse" href="#collapseExample" class="username">
+        <a data-toggle="collapse" href="#userInfoCollapse" class="username">
           <span>{{ user.first_name }} {{ user.last_name }}<b class="caret"></b></span>
         </a>
-        <div class="collapse {{ nav_profile_collapsed }}" id="collapseExample">
+        <div class="collapse {{ nav_profile_collapsed }}" id="userInfoCollapse">
           <ul class="nav">
             <li class="nav-item {{ nav_change_profile }}">
               <a class="nav-link" href="{% url 'profile-change' %}">
@@ -49,13 +49,13 @@
         </a>
       </li>
       <li class="nav-item {{ nav_acc_management }}">
-        <a class="nav-link" data-toggle="collapse" href="#pagesExamples">
+        <a class="nav-link" data-toggle="collapse" href="#accountManagementCollapse">
           <i class="material-icons">account_balance_wallet</i>
           <p> {% trans 'PROFILE_SIDEBAR_ACCOUNTS_MANAGEMENT' %}
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse {{ nav_acc_collapsed }}" id="pagesExamples">
+        <div class="collapse {{ nav_acc_collapsed }}" id="accountManagementCollapse">
           <ul class="nav">
             <li class="nav-item  {{ nav_acc_registration }}">
               <a class="nav-link" href="{% url 'mt4-account-create' %}">
@@ -73,13 +73,13 @@
         </div>
       </li>
       <li class="nav-item {{ nav_funds }}">
-        <a class="nav-link" data-toggle="collapse" href="#componentsExamples">
+        <a class="nav-link" data-toggle="collapse" href="#fundsCollapse">
           <i class="material-icons">credit_card</i>
           <p> {% trans 'PROFILE_SIDEBAR_FUNDS_TRASFER' %}
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse {{ nav_funds_collapsed }}" id="componentsExamples">
+        <div class="collapse {{ nav_funds_collapsed }}" id="fundsCollapse">
           <ul class="nav">
             <li class="nav-item {{ nav_funds_deposit }}">
               <a class="nav-link" href="{% url 'wallet-deposit' %}">
@@ -108,10 +108,34 @@
           </ul>
         </div>
       </li>
+      <li class="nav-item {{ nav_ask_question }}">
+        <a class="nav-link" data-toggle="collapse" href="#askQuestionCollapse">
+          <i class="material-icons">question_answer</i>
+          <p> {% trans 'PROFILE_SIDEBAR_ASK_QUESTION' %}
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse {{ nav_ask_question_collapsed }}" id="askQuestionCollapse">
+          <ul class="nav">
+            <li class="nav-item  {{ nav_question_create }}">
+              <a class="nav-link" href="{% url 'question-ticket-create' %}">
+                <span class="sidebar-mini"> {% trans 'PROFILE_SIDEBAR_QUESTION_CREATE_MINI' %} </span>
+                <span class="sidebar-normal"> {% trans 'PROFILE_SIDEBAR_QUESTION_CREATE_NORMAL' %} </span>
+              </a>
+            </li>
+            <li class="nav-item  {{ nav_question_view }}">
+              <a class="nav-link" href="{% url 'question-tickets' %}">
+                <span class="sidebar-mini"> {% trans 'PROFILE_SIDEBAR_QUESTION_VIEW_MINI' %} </span>
+                <span class="sidebar-normal"> {% trans 'PROFILE_SIDEBAR_QUESTION_VIEW_NORMAL' %} </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
     </ul>
     <ul class="nav">
       <li class="nav-item {{ nav_mt4client }}">
-        <a class="nav-link" href="http://xyz.trading/xyztrading4setup.exe">
+        <a class="nav-link" href="https://xyz.trading/xyztrading4setup.exe">
           <i class="material-icons">cloud_download</i>
           <p> {% trans 'PROFILE_SIDEBAR_MT4CLIENT' %} </p>
         </a>

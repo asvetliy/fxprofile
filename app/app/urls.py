@@ -52,6 +52,10 @@ urlpatterns += i18n_patterns(
     prefix_default_language=False
 )
 urlpatterns += i18n_patterns(
+    path('', include('questions.urls')),
+    prefix_default_language=False
+)
+urlpatterns += i18n_patterns(
     path('', include('verification.urls')),
     prefix_default_language=False
 )

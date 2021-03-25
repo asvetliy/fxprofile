@@ -1,0 +1,77 @@
+{% extends 'fxprofile/base.html' %}
+{% load static recaptcha2 i18n %}
+{% block head %}
+  {% recaptcha_init %}
+{% endblock %}
+{% block content %}
+  <div class="row">
+    <div class="col-md-6 ml-auto mr-auto">
+      <form id="create_ticket_form" action="{% url 'question-ticket-create' %}" method="POST">
+        {% csrf_token %}
+        <div class="card ">
+          <div class="card-header card-header-primary card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">question_answer</i>
+            </div>
+            <h4 class="card-title">{{ title_category }}</h4>
+          </div>
+          <div class="card-body">
+            <div class="col">
+              <div class="form-group">
+                <label>{% trans 'QUESTION_CREATE_FORM_TEXTAREA_TITLE' %}</label>
+                <div class="form-group bmd-form-group">
+                  <label class="bmd-label-floating">{% trans 'QUESTION_CREATE_FORM_TEXTAREA_LABEL' %}</label>
+                  <textarea id="ticket_text" name="ticket_text" class="form-control" rows="5"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group bmd-form-group">
+                {{ form.captcha }}
+                <input type="hidden" class="hiddenRecaptcha" required name="hiddenRecaptcha" id="hiddenRecaptcha">
+              </div>
+            </div>
+          </div>
+          <div class="card-footer ml-auto">
+            <button type="submit" class="btn btn-primary">{% trans 'QUESTION_CREATE_TICKET_SUBMIT' %}
+              <div class="ripple-container"></div>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock content %}
+{% block scripts %}
+  <script src="{% static 'js/plugins/jquery.validate.min.js' %}"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      let $validator = $('form#create_ticket_form').validate({
+        ignore: ".ignore",
+        rules: {
+          hiddenRecaptcha: {
+            required: function () {
+              return grecaptcha.getResponse() === '';
+            }
+          },
+          question_text: {
+            required: true,
+            maxlength: 300,
+            minlength: 1
+          }
+        },
+        highlight: function (element) {
+          $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
+          $(element).closest('.form-check').removeClass('has-success').addClass('has-danger');
+        },
+        success: function (element) {
+          $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+          $(element).closest('.form-check').removeClass('has-danger').addClass('has-success');
+        },
+        errorPlacement: function (error, element) {
+          $(element).closest('.form-group').append(error);
+        }
+      });
+    });
+  </script>
+{% endblock %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-26 16:24+0300\n"
+"POT-Creation-Date: 2021-03-25 00:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: app/settings/base.py:128
+#: app/settings/base.py:131
 msgid "English"
 msgstr "English"
 
-#: app/settings/base.py:129
+#: app/settings/base.py:132
 msgid "Russian"
 msgstr "Russian"
 
@@ -32,35 +32,27 @@ msgstr "Russian"
 msgid "PROFILE_PHONE_VALIDATION_ERROR"
 msgstr "Номер телефона необходимо вводить в формате: «+999999999». До 15 цифр."
 
-#: fxprofile/templates/fxprofile/base.html:71
-msgid "PROFILE_USERMENU_EDIT_PROFILE"
-msgstr "Редактировать профиль"
-
-#: fxprofile/templates/fxprofile/base.html:73
-msgid "PROFILE_USERMENU_CHANGE_PWD"
-msgstr "Изменить Пароль"
-
-#: fxprofile/templates/fxprofile/base.html:75
-msgid "PROFILE_USERMENU_LOGOUT"
-msgstr "Выход"
-
-#: fxprofile/templates/fxprofile/base.html:125
+#: fxprofile/templates/404.html:75 fxprofile/templates/500.html:75
+#: fxprofile/templates/fxprofile/base.html:128
 msgid "PROFILE_FOOTER_COMPANY_URL"
 msgstr "https://xyz.trading"
 
-#: fxprofile/templates/fxprofile/base.html:125
+#: fxprofile/templates/404.html:75 fxprofile/templates/500.html:75
+#: fxprofile/templates/fxprofile/base.html:128
 msgid "PROFILE_FOOTER_COMPANY_TEXT"
 msgstr "XYZ TRADING"
 
-#: fxprofile/templates/fxprofile/base.html:130
+#: fxprofile/templates/404.html:90 fxprofile/templates/500.html:90
+#: fxprofile/templates/fxprofile/base.html:133
+#: users/templates/users/base.html:92
 msgid ""
 "\n"
-"              &copy;\n"
-"              <script>document.write(new Date().getFullYear().toString())</"
+"          &copy;\n"
+"          <script>document.write(new Date().getFullYear().toString())</"
 "script>\n"
-"              <a href=\"https://xyz.trading\" target=\"_blank\">xyz.trading</"
-"a> All Rights Reserved\n"
-"            "
+"          <a href=\"https://xyz.trading\" target=\"_blank\">xyz.trading</a> "
+"All Rights Reserved\n"
+"          "
 msgstr ""
 "\n"
 "            &copy;\n"
@@ -69,6 +61,18 @@ msgstr ""
 "            <a href=\"https://xyz.trading\" target=\"_blank\">xyz.trading</"
 "a> Все права защищены\n"
 "            "
+
+#: fxprofile/templates/fxprofile/base.html:94
+msgid "PROFILE_USERMENU_EDIT_PROFILE"
+msgstr "Редактировать профиль"
+
+#: fxprofile/templates/fxprofile/base.html:96
+msgid "PROFILE_USERMENU_CHANGE_PWD"
+msgstr "Изменить Пароль"
+
+#: fxprofile/templates/fxprofile/base.html:98
+msgid "PROFILE_USERMENU_LOGOUT"
+msgstr "Выход"
 
 #: fxprofile/templates/fxprofile/blocks/sidebar.html:5
 msgid "PROFILE_SIDEBAR_LOGO_MINI"
@@ -162,7 +166,27 @@ msgstr "И"
 msgid "PROFILE_SIDEBAR_HISTORY_NORMAL"
 msgstr "История"
 
-#: fxprofile/templates/fxprofile/blocks/sidebar.html:116
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:114
+msgid "PROFILE_SIDEBAR_ASK_QUESTION"
+msgstr "Задать вопрос"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:122
+msgid "PROFILE_SIDEBAR_QUESTION_CREATE_MINI"
+msgstr "СТ"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:123
+msgid "PROFILE_SIDEBAR_QUESTION_CREATE_NORMAL"
+msgstr "Создать Тикет"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:128
+msgid "PROFILE_SIDEBAR_QUESTION_VIEW_MINI"
+msgstr "ОТ"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:129
+msgid "PROFILE_SIDEBAR_QUESTION_VIEW_NORMAL"
+msgstr "Обзор Тикетов"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:140
 msgid "PROFILE_SIDEBAR_MT4CLIENT"
 msgstr "Скачать MT4 Терминал"
 
@@ -244,23 +268,23 @@ msgstr "Кошелек"
 msgid "PROFILE_PERSONAL_ACCOUNT_BALANCE_DESC"
 msgstr "Баланс персонального счета"
 
-#: fxprofile/views.py:17
+#: fxprofile/views.py:18
 msgid "PROFILE_VIEW_TITLE"
 msgstr "Управление профилем"
 
-#: fxprofile/views.py:28
+#: fxprofile/views.py:30
 msgid "PROFILE_CHANGE_PROFILE_TITLE"
 msgstr "Изменить персональную информацию"
 
-#: fxprofile/views.py:37
+#: fxprofile/views.py:39
 msgid "PROFILE_CHANGE_SAVED_SUCCESS"
 msgstr "Изменения успешно сохранены"
 
-#: fxprofile/views.py:51
+#: fxprofile/views.py:53
 msgid "PROFILE_CHANGE_PWD_TITLE"
 msgstr "Изменить персональную информацию"
 
-#: fxprofile/views.py:61
+#: fxprofile/views.py:63
 msgid "PROFILE_PASSWORD_CHANGED_SUCCESS"
 msgstr "Пароль успешно изменен"
 
@@ -277,7 +301,7 @@ msgid ""
 "<body>\n"
 "  <p>Hi %(user.username)s,</p>\n"
 "  <p>Please click on the link below to confirm your registration:</p>\n"
-"  <a href=\"http://%(domain)s%(activation_url)s\">Activate</a>\n"
+"  <a href=\"https://%(domain)s%(activation_url)s\">Activate</a>\n"
 "</body>\n"
 "</html>\n"
 msgstr ""
@@ -291,7 +315,7 @@ msgstr ""
 "<body>\n"
 "  <p>Здравствуйте, %(user.username)s,</p>\n"
 "  <p>Для подтверждения регистрации, пожалуйста, нажмите на ссылку ниже:</p>\n"
-"  <a href=\"http://%(domain)s%(activation_url)s\">Активировать профиль.</a>\n"
+"  <a href=\"https://%(domain)s%(activation_url)s\">Активировать профиль.</a>\n"
 "</body>\n"
 "</html>\n"
 
@@ -303,7 +327,7 @@ msgid ""
 "\n"
 "Please click on the link below to confirm your registration:\n"
 "\n"
-"http://%(domain)s%(activation_url)s\n"
+"https://%(domain)s%(activation_url)s\n"
 msgstr ""
 "\n"
 "Здравствуйте, %(user.username)s,\n"
@@ -311,7 +335,7 @@ msgstr ""
 "Пожалуйста, нажмите на ссылку ниже для завершения регистрации вашего "
 "профиля:\n"
 "\n"
-"http://%(domain)s%(activation_url)s\n"
+"https://%(domain)s%(activation_url)s\n"
 
 #: mailer/templates/mailer/trading_account_created.html:2
 #, python-format
@@ -576,6 +600,94 @@ msgstr ""
 msgid "MT4_ACCOUNTS_VIEW_TITLE"
 msgstr "Обзор счетов"
 
+#: questions/templates/questions/create-ticket.html:21
+msgid "QUESTION_CREATE_FORM_TEXTAREA_TITLE"
+msgstr "Ваш вопрос"
+
+#: questions/templates/questions/create-ticket.html:23
+msgid "QUESTION_CREATE_FORM_TEXTAREA_LABEL"
+msgstr ""
+"Оставьте свой вопрос здесь, и он будет рассмотрен в ближайшее время (максимум 300 символов)"
+
+#: questions/templates/questions/create-ticket.html:36
+msgid "QUESTION_CREATE_TICKET_SUBMIT"
+msgstr "Создать"
+
+#: questions/templates/questions/tickets.html:21
+#: questions/templates/questions/tickets.html:45
+msgid "QUESTIONS_TABLE_ID"
+msgstr "ИД"
+
+#: questions/templates/questions/tickets.html:22
+#: questions/templates/questions/tickets.html:46
+msgid "QUESTIONS_TABLE_STATUS"
+msgstr "Статус"
+
+#: questions/templates/questions/tickets.html:23
+#: questions/templates/questions/tickets.html:47
+msgid "QUESTIONS_TABLE_UPDATEAT"
+msgstr "Дата создания"
+
+#: questions/templates/questions/tickets.html:24
+#: questions/templates/questions/tickets.html:48
+msgid "QUESTIONS_TABLE_CREATEDAT"
+msgstr "Дата создания"
+
+#: questions/templates/questions/tickets.html:25
+#: questions/templates/questions/tickets.html:49
+msgid "QUESTIONS_TABLE_ACTIONS"
+msgstr "Действия"
+
+#: questions/templates/questions/tickets.html:77
+msgid "QUESTIONS_TABLE_SEARCH_PLACEHOLDER"
+msgstr "Искать записи"
+
+#: questions/templates/questions/view-ticket.html:94
+msgid "QUESTION_COMMENT_FORM_TEXTAREA_TITLE"
+msgstr "Ваш комментарий"
+
+#: questions/templates/questions/view-ticket.html:96
+msgid "QUESTION_COMMENT_FORM_TEXTAREA_LABEL"
+msgstr ""
+"Оставьте свой комментарий здесь (максимум 300 символов)"
+
+#: questions/templates/questions/view-ticket.html:109
+msgid "QUESTION_COMMENT_FORM_COMMENT_SUBMIT"
+msgstr "Добавить"
+
+#: questions/views.py:31
+msgid "QUESTION_COMMENT_ADD_DISABLED"
+msgstr "Вы не можете добавлять комментарии сейчас"
+
+#: questions/views.py:34
+msgid "QUESTION_COMMENT_ADD_FAIL"
+msgstr "Комментарий не добавлен. Пожалуйста, исправьте все ошибки ниже."
+
+#: questions/views.py:51
+msgid "QUESTION_TICKET_VIEW_TITLE"
+msgstr "Обзор Тикета"
+
+#: questions/views.py:67
+msgid "QUESTION_TICKET_ALREADY_EXIST"
+msgstr "У Вас уже есть один открый тикет"
+
+#: questions/views.py:73
+msgid "QUESTION_TICKET_CREATE_TITLE"
+msgstr "Форма Создания Тикета Вопроса"
+
+#: questions/views.py:92
+msgid "QUESTION_TICKET_CREATE_SUCCESS"
+msgstr "Тикет успешно создан"
+
+#: questions/views.py:94
+msgid "QUESTION_TICKET_CREATE_FAIL"
+msgstr ""
+"Не удалось создать тикет. Пожалуйста, исправьте все ошибки ниже."
+
+#: questions/views.py:105
+msgid "QUESTION_TICKETS_VIEW_TITLE"
+msgstr "Обзор тикетов"
+
 #: users/admin.py:31
 msgid "Personal info"
 msgstr "Персональная информация"
@@ -669,24 +781,6 @@ msgstr "Пользовательское Соглашение"
 #: users/templates/users/base.html:86
 msgid "USERS_FOOTER_LICENSE"
 msgstr "Лицензии"
-
-#: users/templates/users/base.html:92
-msgid ""
-"\n"
-"          &copy;\n"
-"          <script>document.write(new Date().getFullYear().toString())</"
-"script>\n"
-"          <a href=\"https://xyz.trading\" target=\"_blank\">xyz.trading</a> "
-"All Rights Reserved\n"
-"          "
-msgstr ""
-"\n"
-"            &copy;\n"
-"            <script>document.write(new Date().getFullYear().toString())</"
-"script>\n"
-"            <a href=\"https://xyz.trading\" target=\"_blank\">xyz.trading</"
-"a> Все права защищены\n"
-"            "
 
 #: users/templates/users/login.html:15
 msgid "USERS_LOGIN_CARD_TITLE"
@@ -1065,37 +1159,37 @@ msgstr "Сумма"
 msgid "WALLET_DEPOSIT_CARD_CHOOSE_ACCOUNT"
 msgstr "Выберите счет"
 
-#: wallet/templates/wallet/deposit.html:72
+#: wallet/templates/wallet/deposit.html:75
 #: wallet/templates/wallet/transfer.html:100
 msgid "WALLET_DEPOSIT_CARD_INFO_TEXT2"
 msgstr "Выберите платежный метод"
 
-#: wallet/templates/wallet/deposit.html:84
+#: wallet/templates/wallet/deposit.html:87
 msgid "WALLET_DEPOSIT_CARD_CHOOSE_PAYMENT"
 msgstr "Платежная система"
 
-#: wallet/templates/wallet/deposit.html:95
+#: wallet/templates/wallet/deposit.html:98
 #: wallet/templates/wallet/transfer.html:141
 msgid "WALLET_DEPOSIT_CARD_TERMS_CONDITIONS"
 msgstr "Правила и Условия"
 
-#: wallet/templates/wallet/deposit.html:106
+#: wallet/templates/wallet/deposit.html:109
 msgid "WALLET_DEPOSIT_CARD_INFO_TEXT3"
 msgstr "Согласны ли вы?"
 
-#: wallet/templates/wallet/deposit.html:116
+#: wallet/templates/wallet/deposit.html:119
 #: wallet/templates/wallet/transfer.html:153
 #: wallet/templates/wallet/withdraw.html:81
 msgid "WALLET_CARD_BTN_PREV"
 msgstr "Предыдущий"
 
-#: wallet/templates/wallet/deposit.html:120
+#: wallet/templates/wallet/deposit.html:123
 #: wallet/templates/wallet/transfer.html:157
 #: wallet/templates/wallet/withdraw.html:85
 msgid "WALLET_CARD_BTN_NEXT"
 msgstr "Следующий"
 
-#: wallet/templates/wallet/deposit.html:122
+#: wallet/templates/wallet/deposit.html:125
 #: wallet/templates/wallet/transfer.html:159
 #: wallet/templates/wallet/withdraw.html:87
 msgid "WALLET_CARD_BTN_SUBMIT"
@@ -1217,77 +1311,77 @@ msgstr "Платежный метод"
 msgid "WALLET_WITHDRAW_CARD_INFO_TEXT2"
 msgstr "Укажите дополнительную информацию."
 
-#: wallet/views.py:25
+#: wallet/views.py:27
 msgid "WALLET_DEPOSIT_PAGE_TITLE"
 msgstr "Депозит"
 
-#: wallet/views.py:39
+#: wallet/views.py:41
 msgid "WALLET_WITHDRAW_PAGE_TITLE"
 msgstr "Вывод"
 
-#: wallet/views.py:60
+#: wallet/views.py:62
 msgid "WALLET_WITHDRAW_VIA_PAYMENT"
 msgstr "Вывод через %(payment_name)s"
 
-#: wallet/views.py:62
+#: wallet/views.py:64
 msgid "WALLET_WITHDRAW_CREATED_SUCCESSFULLY"
 msgstr "Заявка на вывод успешно создана"
 
-#: wallet/views.py:65
+#: wallet/views.py:67
 msgid "WALLET_WITHDRAW_ERROR_NOT_VALID"
 msgstr "Не валидный запрос на вывод средств."
 
-#: wallet/views.py:76
+#: wallet/views.py:78
 msgid "WALLET_TRANSFER_PAGE_TITLE"
 msgstr "Перевод средств"
 
-#: wallet/views.py:97
+#: wallet/views.py:99
 msgid "WALLET_WITHDRAW_ERROR_WALLET_NOTEXIST"
 msgstr "Кошелек не существует"
 
-#: wallet/views.py:103
+#: wallet/views.py:105
 msgid "WALLET_WITHDRAW_ERROR_ACCOUNT_NOTEXIST"
 msgstr "Торговый счет не существует"
 
-#: wallet/views.py:107
+#: wallet/views.py:109
 msgid "WALLET_WITHDRAW_ERROR_CANT_TRANSFER"
 msgstr ""
 "Вы не можете переводить средства между счетами с разной базовой валютой"
 
-#: wallet/views.py:116
+#: wallet/views.py:118
 msgid "WALLET_TRANSFER_TO_TRADING_ACCOUNT"
 msgstr "Перевод на торговый счет %(account_id)d"
 
-#: wallet/views.py:121 wallet/views.py:151
+#: wallet/views.py:123 wallet/views.py:153
 msgid "WALLET_TRANSFER_ERROR_INSUFFICIENT_FUNDS"
 msgstr "Недостаточно средств"
 
-#: wallet/views.py:127
+#: wallet/views.py:129
 msgid "WALLET_TRANSFER_ERROR_ACCOUNT_NOTEXIST"
 msgstr "Торговый счет не существует"
 
-#: wallet/views.py:133
+#: wallet/views.py:135
 msgid "WALLET_TRANSFER_ERROR_WALLET_NOTEXIST"
 msgstr "Кошелек не существует"
 
-#: wallet/views.py:137
+#: wallet/views.py:139
 msgid "WALLET_TRANSFER_ERROR_CANT_TRANSFER"
 msgstr ""
 "Вы не можете переводить средства между счетами с разной базовой валютой"
 
-#: wallet/views.py:146
+#: wallet/views.py:148
 msgid "WALLET_TRANSFER_FROM_TRADING_ACCOUNT"
 msgstr "Перевод с торгового счета %(account_id)d"
 
-#: wallet/views.py:154 wallet/views.py:159
+#: wallet/views.py:156 wallet/views.py:161
 msgid "WALLET_TRANSFER_ERROR_NOT_VALID"
 msgstr "Невозможно создать перевод"
 
-#: wallet/views.py:157
+#: wallet/views.py:159
 msgid "WALLET_TRANSFER_CREATED_SUCCESSFULLY"
 msgstr "Заявка на перевод успешно создана"
 
-#: wallet/views.py:174
+#: wallet/views.py:176
 msgid "WALLET_TRANSFER_HISTORY_PAGE_TITLE"
 msgstr "История транзакций"
 

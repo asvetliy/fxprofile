@@ -1,0 +1,151 @@
+{% extends 'fxprofile/base.html' %}
+{% load static recaptcha2 i18n %}
+{% block head %}
+  {% recaptcha_init %}
+{% endblock %}
+{% block content %}
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="timeline">
+        {% for qm in question_messages %}
+          {% if qm.status_id < 3 %}
+            {% if forloop.first and request.user.id == qm.user.id %}
+              <li class="timeline">
+                <div class="timeline-badge danger">
+                  <i class="material-icons">contact_support</i>
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <span class="badge badge-pill {% if qm.status_id == 1 %}badge-info{% else %}badge-primary{% endif %}">Request Message</span>
+                  </div>
+                  <div class="timeline-body">
+                    <p>{{ qm.text }}</p>
+                  </div>
+                  <h6>
+                    <i class="ti-time"></i> {{ qm.created_at|date:'Y-m-d H:i' }}
+                  </h6>
+                </div>
+              </li>
+            {% elif request.user.id != qm.user.id %}
+              <li class="timeline-inverted">
+                <div class="timeline-badge success">
+                  <i class="material-icons">feedback</i>
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <span class="badge badge-pill badge-success">Support Team</span>
+                  </div>
+                  <div class="timeline-body">
+                    <p>{{ qm.text }}</p>
+                  </div>
+                  <h6>
+                    <i class="ti-time"></i> {{ qm.created_at|date:'Y-m-d H:i' }}
+                  </h6>
+                </div>
+              </li>
+            {% else %}
+              <li class="timeline">
+                <div class="timeline-badge {% if qm.status_id == 1 %}info{% else %}primary{% endif %}">
+                  <i class="material-icons">comment</i>
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <span
+                        class="badge badge-pill {% if qm.status_id == 1 %}badge-info{% else %}badge-primary{% endif %}">Comment</span>
+                  </div>
+                  <div class="timeline-body">
+                    <p>{{ qm.text }}</p>
+                  </div>
+                  <h6>
+                    <i class="ti-time"></i> {{ qm.created_at|date:'Y-m-d H:i' }}
+                  </h6>
+                </div>
+              </li>
+            {% endif %}
+            {% if forloop.last and question_request.status_id > 2 %}
+              <li class="timeline-inverted">
+                <div class="timeline-badge danger">
+                  <i class="material-icons">lock</i>
+                </div>
+              </li>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% if is_comment_available %}
+    <div class="row">
+      <div class="col-md-6 mr-auto ml-auto">
+        <form id="create_comment_form" action="{% url 'question-ticket-action' question_request.id 'add_comment' %}"
+              method="POST">
+          {% csrf_token %}
+          <div class="card ">
+            <div class="card-header card-header-primary card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">question_answer</i>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="col">
+                <div class="form-group">
+                  <label>{% trans 'QUESTION_COMMENT_FORM_TEXTAREA_TITLE' %}</label>
+                  <div class="form-group bmd-form-group">
+                    <label class="bmd-label-floating">{% trans 'QUESTION_COMMENT_FORM_TEXTAREA_LABEL' %}</label>
+                    <textarea id="ticket_text" name="ticket_text" class="form-control" rows="5"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group bmd-form-group">
+                  {{ form.captcha }}
+                  <input type="hidden" class="hiddenRecaptcha" required name="hiddenRecaptcha" id="hiddenRecaptcha">
+                </div>
+              </div>
+            </div>
+            <div class="card-footer ml-auto">
+              <button type="submit" class="btn btn-primary">{% trans 'QUESTION_COMMENT_FORM_COMMENT_SUBMIT' %}
+                <div class="ripple-container"></div>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
+{% if is_comment_available %}
+  {% block scripts %}
+    <script src="{% static 'js/plugins/jquery.validate.min.js' %}"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        let $validator = $('form#create_comment_form').validate({
+          ignore: ".ignore",
+          rules: {
+            hiddenRecaptcha: {
+              required: function () {
+                return grecaptcha.getResponse() === '';
+              }
+            },
+            question_text: {
+              required: true,
+              maxlength: 300,
+              minlength: 1
+            }
+          },
+          highlight: function (element) {
+            $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
+            $(element).closest('.form-check').removeClass('has-success').addClass('has-danger');
+          },
+          success: function (element) {
+            $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+            $(element).closest('.form-check').removeClass('has-danger').addClass('has-success');
+          },
+          errorPlacement: function (error, element) {
+            $(element).closest('.form-group').append(error);
+          }
+        });
+      });
+    </script>
+  {% endblock %}
+{% endif %}

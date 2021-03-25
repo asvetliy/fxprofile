@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-26 16:24+0300\n"
+"POT-Creation-Date: 2021-03-25 00:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app/settings/base.py:128
+#: app/settings/base.py:131
 msgid "English"
 msgstr "English"
 
-#: app/settings/base.py:129
+#: app/settings/base.py:132
 msgid "Russian"
 msgstr "Russian"
 
@@ -32,36 +32,40 @@ msgstr ""
 "Phone number must be entered in the format: \"+999999999\". Up to 15 digits "
 "allowed."
 
-#: fxprofile/templates/fxprofile/base.html:71
-msgid "PROFILE_USERMENU_EDIT_PROFILE"
-msgstr "Edit Profile"
-
-#: fxprofile/templates/fxprofile/base.html:73
-msgid "PROFILE_USERMENU_CHANGE_PWD"
-msgstr "Change Password"
-
-#: fxprofile/templates/fxprofile/base.html:75
-msgid "PROFILE_USERMENU_LOGOUT"
-msgstr "Logout"
-
-#: fxprofile/templates/fxprofile/base.html:125
+#: fxprofile/templates/404.html:75 fxprofile/templates/500.html:75
+#: fxprofile/templates/fxprofile/base.html:128
 msgid "PROFILE_FOOTER_COMPANY_URL"
 msgstr "https://xyz.trading"
 
-#: fxprofile/templates/fxprofile/base.html:125
+#: fxprofile/templates/404.html:75 fxprofile/templates/500.html:75
+#: fxprofile/templates/fxprofile/base.html:128
 msgid "PROFILE_FOOTER_COMPANY_TEXT"
 msgstr "XYZ TRADING"
 
-#: fxprofile/templates/fxprofile/base.html:130
+#: fxprofile/templates/404.html:90 fxprofile/templates/500.html:90
+#: fxprofile/templates/fxprofile/base.html:133
+#: users/templates/users/base.html:92
 msgid ""
 "\n"
-"              &copy;\n"
-"              <script>document.write(new Date().getFullYear().toString())</"
+"          &copy;\n"
+"          <script>document.write(new Date().getFullYear().toString())</"
 "script>\n"
-"              <a href=\"https://xyz.trading\" target=\"_blank\">xyz.trading</"
-"a> All Rights Reserved\n"
-"            "
+"          <a href=\"https://xyz.trading\" target=\"_blank\">xyz.trading</a> "
+"All Rights Reserved\n"
+"          "
 msgstr ""
+
+#: fxprofile/templates/fxprofile/base.html:94
+msgid "PROFILE_USERMENU_EDIT_PROFILE"
+msgstr "Edit Profile"
+
+#: fxprofile/templates/fxprofile/base.html:96
+msgid "PROFILE_USERMENU_CHANGE_PWD"
+msgstr "Change Password"
+
+#: fxprofile/templates/fxprofile/base.html:98
+msgid "PROFILE_USERMENU_LOGOUT"
+msgstr "Logout"
 
 #: fxprofile/templates/fxprofile/blocks/sidebar.html:5
 msgid "PROFILE_SIDEBAR_LOGO_MINI"
@@ -155,7 +159,27 @@ msgstr "H"
 msgid "PROFILE_SIDEBAR_HISTORY_NORMAL"
 msgstr "History"
 
-#: fxprofile/templates/fxprofile/blocks/sidebar.html:116
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:114
+msgid "PROFILE_SIDEBAR_ASK_QUESTION"
+msgstr "Ask Question"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:122
+msgid "PROFILE_SIDEBAR_QUESTION_CREATE_MINI"
+msgstr "CT"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:123
+msgid "PROFILE_SIDEBAR_QUESTION_CREATE_NORMAL"
+msgstr "Create Ticket"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:128
+msgid "PROFILE_SIDEBAR_QUESTION_VIEW_MINI"
+msgstr "VT"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:129
+msgid "PROFILE_SIDEBAR_QUESTION_VIEW_NORMAL"
+msgstr "View Tickets"
+
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:140
 msgid "PROFILE_SIDEBAR_MT4CLIENT"
 msgstr "Download MT4 Terminal"
 
@@ -237,23 +261,23 @@ msgstr "Wallet"
 msgid "PROFILE_PERSONAL_ACCOUNT_BALANCE_DESC"
 msgstr "Personal account balance"
 
-#: fxprofile/views.py:17
+#: fxprofile/views.py:18
 msgid "PROFILE_VIEW_TITLE"
 msgstr "Dashboard"
 
-#: fxprofile/views.py:28
+#: fxprofile/views.py:30
 msgid "PROFILE_CHANGE_PROFILE_TITLE"
 msgstr "Profile Change"
 
-#: fxprofile/views.py:37
+#: fxprofile/views.py:39
 msgid "PROFILE_CHANGE_SAVED_SUCCESS"
 msgstr "Changes saved successfully"
 
-#: fxprofile/views.py:51
+#: fxprofile/views.py:53
 msgid "PROFILE_CHANGE_PWD_TITLE"
 msgstr "Profile Change"
 
-#: fxprofile/views.py:61
+#: fxprofile/views.py:63
 msgid "PROFILE_PASSWORD_CHANGED_SUCCESS"
 msgstr "Password changed successfully"
 
@@ -270,7 +294,7 @@ msgid ""
 "<body>\n"
 "  <p>Hi %(user.username)s,</p>\n"
 "  <p>Please click on the link below to confirm your registration:</p>\n"
-"  <a href=\"http://%(domain)s%(activation_url)s\">Activate</a>\n"
+"  <a href=\"https://%(domain)s%(activation_url)s\">Activate</a>\n"
 "</body>\n"
 "</html>\n"
 msgstr ""
@@ -283,7 +307,7 @@ msgid ""
 "\n"
 "Please click on the link below to confirm your registration:\n"
 "\n"
-"http://%(domain)s%(activation_url)s\n"
+"https://%(domain)s%(activation_url)s\n"
 msgstr ""
 
 #: mailer/templates/mailer/trading_account_created.html:2
@@ -521,6 +545,94 @@ msgstr "No trading account created. Please fix errors bellow."
 msgid "MT4_ACCOUNTS_VIEW_TITLE"
 msgstr "View Accounts"
 
+#: questions/templates/questions/create-ticket.html:21
+msgid "QUESTION_CREATE_FORM_TEXTAREA_TITLE"
+msgstr "Your question"
+
+#: questions/templates/questions/create-ticket.html:23
+msgid "QUESTION_CREATE_FORM_TEXTAREA_LABEL"
+msgstr ""
+"Submit your question here and it will be reviewed shortly (maximum 300 "
+"characters)"
+
+#: questions/templates/questions/create-ticket.html:36
+msgid "QUESTION_CREATE_TICKET_SUBMIT"
+msgstr "Create"
+
+#: questions/templates/questions/tickets.html:21
+#: questions/templates/questions/tickets.html:45
+msgid "QUESTIONS_TABLE_ID"
+msgstr "ID"
+
+#: questions/templates/questions/tickets.html:22
+#: questions/templates/questions/tickets.html:46
+msgid "QUESTIONS_TABLE_STATUS"
+msgstr "Status"
+
+#: questions/templates/questions/tickets.html:23
+#: questions/templates/questions/tickets.html:47
+msgid "QUESTIONS_TABLE_UPDATEAT"
+msgstr "Update Date"
+
+#: questions/templates/questions/tickets.html:24
+#: questions/templates/questions/tickets.html:48
+msgid "QUESTIONS_TABLE_CREATEDAT"
+msgstr "Creation Date"
+
+#: questions/templates/questions/tickets.html:25
+#: questions/templates/questions/tickets.html:49
+msgid "QUESTIONS_TABLE_ACTIONS"
+msgstr "Actions"
+
+#: questions/templates/questions/tickets.html:77
+msgid "QUESTIONS_TABLE_SEARCH_PLACEHOLDER"
+msgstr "Search records"
+
+#: questions/templates/questions/view-ticket.html:94
+msgid "QUESTION_COMMENT_FORM_TEXTAREA_TITLE"
+msgstr "Your comment"
+
+#: questions/templates/questions/view-ticket.html:96
+msgid "QUESTION_COMMENT_FORM_TEXTAREA_LABEL"
+msgstr ""
+"Submit your comment here (maximum 300 characters)"
+
+#: questions/templates/questions/view-ticket.html:109
+msgid "QUESTION_COMMENT_FORM_COMMENT_SUBMIT"
+msgstr "Add"
+
+#: questions/views.py:31
+msgid "QUESTION_COMMENT_ADD_DISABLED"
+msgstr "You cant add comment for now"
+
+#: questions/views.py:34
+msgid "QUESTION_COMMENT_ADD_FAIL"
+msgstr "No comment added. Please fix errors bellow."
+
+#: questions/views.py:51
+msgid "QUESTION_TICKET_VIEW_TITLE"
+msgstr "View Ticket"
+
+#: questions/views.py:67
+msgid "QUESTION_TICKET_ALREADY_EXIST"
+msgstr "You already have one open ticket"
+
+#: questions/views.py:73
+msgid "QUESTION_TICKET_CREATE_TITLE"
+msgstr "Question Ticket Creation Form"
+
+#: questions/views.py:92
+msgid "QUESTION_TICKET_CREATE_SUCCESS"
+msgstr "Ticket created successfully"
+
+#: questions/views.py:94
+msgid "QUESTION_TICKET_CREATE_FAIL"
+msgstr "No tickets created. Please fix errors bellow."
+
+#: questions/views.py:105
+msgid "QUESTION_TICKETS_VIEW_TITLE"
+msgstr "View Tickets"
+
 #: users/admin.py:31
 msgid "Personal info"
 msgstr "Personal info"
@@ -615,17 +727,6 @@ msgstr "Terms and Conditions"
 #: users/templates/users/base.html:86
 msgid "USERS_FOOTER_LICENSE"
 msgstr "Licenses"
-
-#: users/templates/users/base.html:92
-msgid ""
-"\n"
-"          &copy;\n"
-"          <script>document.write(new Date().getFullYear().toString())</"
-"script>\n"
-"          <a href=\"https://xyz.trading\" target=\"_blank\">xyz.trading</a> "
-"All Rights Reserved\n"
-"          "
-msgstr ""
 
 #: users/templates/users/login.html:15
 msgid "USERS_LOGIN_CARD_TITLE"
@@ -993,37 +1094,37 @@ msgstr "Amount"
 msgid "WALLET_DEPOSIT_CARD_CHOOSE_ACCOUNT"
 msgstr "Choose Account"
 
-#: wallet/templates/wallet/deposit.html:72
+#: wallet/templates/wallet/deposit.html:75
 #: wallet/templates/wallet/transfer.html:100
 msgid "WALLET_DEPOSIT_CARD_INFO_TEXT2"
 msgstr "Choose Payment System"
 
-#: wallet/templates/wallet/deposit.html:84
+#: wallet/templates/wallet/deposit.html:87
 msgid "WALLET_DEPOSIT_CARD_CHOOSE_PAYMENT"
 msgstr "Payment System"
 
-#: wallet/templates/wallet/deposit.html:95
+#: wallet/templates/wallet/deposit.html:98
 #: wallet/templates/wallet/transfer.html:141
 msgid "WALLET_DEPOSIT_CARD_TERMS_CONDITIONS"
 msgstr "Terms & Conditions"
 
-#: wallet/templates/wallet/deposit.html:106
+#: wallet/templates/wallet/deposit.html:109
 msgid "WALLET_DEPOSIT_CARD_INFO_TEXT3"
 msgstr "Are you agree policy?"
 
-#: wallet/templates/wallet/deposit.html:116
+#: wallet/templates/wallet/deposit.html:119
 #: wallet/templates/wallet/transfer.html:153
 #: wallet/templates/wallet/withdraw.html:81
 msgid "WALLET_CARD_BTN_PREV"
 msgstr "Previous"
 
-#: wallet/templates/wallet/deposit.html:120
+#: wallet/templates/wallet/deposit.html:123
 #: wallet/templates/wallet/transfer.html:157
 #: wallet/templates/wallet/withdraw.html:85
 msgid "WALLET_CARD_BTN_NEXT"
 msgstr "Next"
 
-#: wallet/templates/wallet/deposit.html:122
+#: wallet/templates/wallet/deposit.html:125
 #: wallet/templates/wallet/transfer.html:159
 #: wallet/templates/wallet/withdraw.html:87
 msgid "WALLET_CARD_BTN_SUBMIT"
@@ -1145,75 +1246,75 @@ msgstr "Payment System"
 msgid "WALLET_WITHDRAW_CARD_INFO_TEXT2"
 msgstr "What else do we need to know?"
 
-#: wallet/views.py:25
+#: wallet/views.py:27
 msgid "WALLET_DEPOSIT_PAGE_TITLE"
 msgstr "Deposit"
 
-#: wallet/views.py:39
+#: wallet/views.py:41
 msgid "WALLET_WITHDRAW_PAGE_TITLE"
 msgstr "Withdraw"
 
-#: wallet/views.py:60
+#: wallet/views.py:62
 msgid "WALLET_WITHDRAW_VIA_PAYMENT"
 msgstr "Withdraw via %(payment_name)s"
 
-#: wallet/views.py:62
+#: wallet/views.py:64
 msgid "WALLET_WITHDRAW_CREATED_SUCCESSFULLY"
 msgstr "Withdraw request successfully created"
 
-#: wallet/views.py:65
+#: wallet/views.py:67
 msgid "WALLET_WITHDRAW_ERROR_NOT_VALID"
 msgstr "Withdraw request not valid"
 
-#: wallet/views.py:76
+#: wallet/views.py:78
 msgid "WALLET_TRANSFER_PAGE_TITLE"
 msgstr "Transfer Funds"
 
-#: wallet/views.py:97
+#: wallet/views.py:99
 msgid "WALLET_WITHDRAW_ERROR_WALLET_NOTEXIST"
 msgstr "Wallet does not exist"
 
-#: wallet/views.py:103
+#: wallet/views.py:105
 msgid "WALLET_WITHDRAW_ERROR_ACCOUNT_NOTEXIST"
 msgstr "Trading account does not exist"
 
-#: wallet/views.py:107
+#: wallet/views.py:109
 msgid "WALLET_WITHDRAW_ERROR_CANT_TRANSFER"
 msgstr "You cant transfer funds between different account currencies"
 
-#: wallet/views.py:116
+#: wallet/views.py:118
 msgid "WALLET_TRANSFER_TO_TRADING_ACCOUNT"
 msgstr "Transfer to trading account %(account_id)d"
 
-#: wallet/views.py:121 wallet/views.py:151
+#: wallet/views.py:123 wallet/views.py:153
 msgid "WALLET_TRANSFER_ERROR_INSUFFICIENT_FUNDS"
 msgstr "Insufficient funds"
 
-#: wallet/views.py:127
+#: wallet/views.py:129
 msgid "WALLET_TRANSFER_ERROR_ACCOUNT_NOTEXIST"
 msgstr "Trading account does not exist"
 
-#: wallet/views.py:133
+#: wallet/views.py:135
 msgid "WALLET_TRANSFER_ERROR_WALLET_NOTEXIST"
 msgstr "Wallet does not exist"
 
-#: wallet/views.py:137
+#: wallet/views.py:139
 msgid "WALLET_TRANSFER_ERROR_CANT_TRANSFER"
 msgstr "You cant transfer funds between different account currencies"
 
-#: wallet/views.py:146
+#: wallet/views.py:148
 msgid "WALLET_TRANSFER_FROM_TRADING_ACCOUNT"
 msgstr "Transfer from trading account %(account_id)d"
 
-#: wallet/views.py:154 wallet/views.py:159
+#: wallet/views.py:156 wallet/views.py:161
 msgid "WALLET_TRANSFER_ERROR_NOT_VALID"
 msgstr "Transfer request not valid"
 
-#: wallet/views.py:157
+#: wallet/views.py:159
 msgid "WALLET_TRANSFER_CREATED_SUCCESSFULLY"
 msgstr "Transfer request successfully created"
 
-#: wallet/views.py:174
+#: wallet/views.py:176
 msgid "WALLET_TRANSFER_HISTORY_PAGE_TITLE"
 msgstr "Transactions History"
 

@@ -19,6 +19,7 @@ class BaseScheme(object):
 
     def init_payment(self, request):
         account_id = request.POST['account']
+        account_type = request.POST['account_type']
         payment_system_id = request.POST['payment_system']
         amount = self.amount_to_balance(request.POST['amount'])
 
