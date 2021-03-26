@@ -44,6 +44,29 @@ class CardInline(admin.TabularInline):
 
 class VerificationInline(admin.TabularInline):
     model = Verification
+    fields = ('boolean_declaration', 'boolean_identification', 'boolean_invoice', )
+    readonly_fields = ('boolean_declaration', 'boolean_identification', 'boolean_invoice', )
+
+    def boolean_declaration(self, obj: Verification):
+        return bool(obj.declaration)
+
+    boolean_declaration.admin_order_field = 'declaration'
+    boolean_declaration.short_description = 'declaration'
+    boolean_declaration.boolean = True
+
+    def boolean_identification(self, obj: Verification):
+        return bool(obj.identification)
+
+    boolean_identification.admin_order_field = 'identification'
+    boolean_identification.short_description = 'identification'
+    boolean_identification.boolean = True
+
+    def boolean_invoice(self, obj: Verification):
+        return bool(obj.invoice)
+
+    boolean_invoice.admin_order_field = 'invoice'
+    boolean_invoice.short_description = 'invoice'
+    boolean_invoice.boolean = True
 
 
 class VerificationRequestInline(admin.TabularInline):
