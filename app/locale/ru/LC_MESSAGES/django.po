@@ -607,7 +607,7 @@ msgstr "Ваш вопрос"
 #: questions/templates/questions/create-ticket.html:23
 msgid "QUESTION_CREATE_FORM_TEXTAREA_LABEL"
 msgstr ""
-"Оставьте свой вопрос здесь, и он будет рассмотрен в ближайшее время (максимум 300 символов)"
+"Оставьте свой вопрос здесь и он будет рассмотрен в ближайшее время (максимум 300 символов)"
 
 #: questions/templates/questions/create-ticket.html:36
 msgid "QUESTION_CREATE_TICKET_SUBMIT"
@@ -917,7 +917,7 @@ msgstr ""
 
 #: users/templates/users/registration.html:110
 msgid "USERS_REGISTRATION_SUBMIT"
-msgstr "Вход"
+msgstr "Зарегистрироваться"
 
 #: users/views.py:19 users/views.py:56
 msgid "USERS_REG_TITLE"
@@ -1181,13 +1181,13 @@ msgstr "Согласны ли вы?"
 #: wallet/templates/wallet/transfer.html:153
 #: wallet/templates/wallet/withdraw.html:81
 msgid "WALLET_CARD_BTN_PREV"
-msgstr "Предыдущий"
+msgstr "Назад"
 
 #: wallet/templates/wallet/deposit.html:123
 #: wallet/templates/wallet/transfer.html:157
 #: wallet/templates/wallet/withdraw.html:85
 msgid "WALLET_CARD_BTN_NEXT"
-msgstr "Следующий"
+msgstr "Далее"
 
 #: wallet/templates/wallet/deposit.html:125
 #: wallet/templates/wallet/transfer.html:159

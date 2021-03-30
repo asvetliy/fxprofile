@@ -105,7 +105,7 @@ class PartnerUserAdmin(admin.ModelAdmin):
     list_filter = ('is_verificated', 'date_joined', )
     list_display_links = ('username', )
     search_fields = ('username', 'email', )
-    inlines = (WalletInline, VerificationInline, CardInline, VerificationRequestInline, TransactionInline, )
+    inlines = (VerificationInline, CardInline, VerificationRequestInline, WalletInline, TransactionInline, )
     exclude = ('is_staff', 'password', 'groups', 'user_permissions', 'avatar', 'birth_date', 'about_me', 'is_superuser', )
 
     def has_change_permission(self, request, obj=None):

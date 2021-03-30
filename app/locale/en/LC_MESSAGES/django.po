@@ -853,7 +853,7 @@ msgstr ""
 
 #: users/templates/users/registration.html:110
 msgid "USERS_REGISTRATION_SUBMIT"
-msgstr "Sign In"
+msgstr "Sign Up"
 
 #: users/views.py:19 users/views.py:56
 msgid "USERS_REG_TITLE"
