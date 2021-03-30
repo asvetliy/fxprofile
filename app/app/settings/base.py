@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 from django.utils.translation import ugettext_lazy as _
+from django.urls import reverse_lazy
 from django.contrib.messages import constants as message_constants
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -136,9 +137,9 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
 
-LOGIN_URL = '/login'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/login'
+LOGIN_URL = reverse_lazy('user-login')
+LOGIN_REDIRECT_URL = reverse_lazy('profile-index')
+LOGOUT_REDIRECT_URL = reverse_lazy('user-login')
 
 TIME_ZONE = 'UTC'
 
