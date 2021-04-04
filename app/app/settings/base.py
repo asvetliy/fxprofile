@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'django_countries',
     'snowpenguin.django.recaptcha2',
     'django_logging',
+    'logpipe',
+    'pamm_kafka.apps.PammKafkaConfig',
 ]
 
 MIDDLEWARE = [
@@ -211,4 +213,22 @@ MT4_ACCOUNTS_SETTINGS = {
 DJANGO_LOGGING = {
     'LOG_LEVEL': 'info',
     'INDENT_CONSOLE_LOG': None,
+}
+
+LOGPIPE = {
+    # Required Settings
+    'OFFSET_BACKEND': 'logpipe.backend.kafka.ModelOffsetStore',
+    'CONSUMER_BACKEND': 'logpipe.backend.kafka.Consumer',
+    'KAFKA_BOOTSTRAP_SERVERS': [
+        'kafka:9092'
+    ],
+    'KAFKA_CONSUMER_KWARGS': {
+        'group_id': 'fxprofile-pamm',
+    },
+
+    # Optional Settings
+    # 'KAFKA_SEND_TIMEOUT': 10,
+    # 'KAFKA_MAX_SEND_RETRIES': 0,
+    # 'MIN_MESSAGE_LAG_MS': 0,
+    # 'DEFAULT_FORMAT': 'json',
 }
