@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'django_countries',
     'snowpenguin.django.recaptcha2',
     'django_logging',
-    'logpipe',
     'pamm_kafka.apps.PammKafkaConfig',
 ]
 
@@ -215,20 +214,28 @@ DJANGO_LOGGING = {
     'INDENT_CONSOLE_LOG': None,
 }
 
-LOGPIPE = {
+PAMM_KAFKA = {
     # Required Settings
-    'OFFSET_BACKEND': 'logpipe.backend.kafka.ModelOffsetStore',
-    'CONSUMER_BACKEND': 'logpipe.backend.kafka.Consumer',
+    'OFFSET_BACKEND': 'pamm_kafka.backend.kafka.ModelOffsetStore',
+    'CONSUMER_BACKEND': 'pamm_kafka.backend.kafka.Consumer',
     'KAFKA_BOOTSTRAP_SERVERS': [
-        'kafka:9092'
+        'kafka.xyz.test:9092'
     ],
     'KAFKA_CONSUMER_KWARGS': {
         'group_id': 'fxprofile-pamm',
+        'security_protocol': 'SASL_SSL',
+        'sasl_mechanism': os.getenv('DJANGO_LOGPIPE_CONSUMER_SASL_MECHANISM', 'PLAIN'),
+        'sasl_plain_username': os.getenv('DJANGO_LOGPIPE_CONSUMER_SASL_USERNAME', 'client'),
+        'sasl_plain_password': os.getenv('DJANGO_LOGPIPE_CONSUMER_SASL_PASSWORD', ''),
+        'ssl_cafile': os.getenv('DJANGO_LOGPIPE_CONSUMER_SSL_CA', ''),
+        'ssl_certfile': os.getenv('DJANGO_LOGPIPE_CONSUMER_SSL_CERT', ''),
+        'ssl_keyfile': os.getenv('DJANGO_LOGPIPE_CONSUMER_SSL_KEY', ''),
+        'ssl_password': os.getenv('DJANGO_LOGPIPE_CONSUMER_SSL_PASSWORD', ''),
     },
 
     # Optional Settings
     # 'KAFKA_SEND_TIMEOUT': 10,
     # 'KAFKA_MAX_SEND_RETRIES': 0,
-    # 'MIN_MESSAGE_LAG_MS': 0,
-    # 'DEFAULT_FORMAT': 'json',
+    'MIN_MESSAGE_LAG_MS': 0,
+    'DEFAULT_FORMAT': 'json',
 }
