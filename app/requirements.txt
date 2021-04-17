@@ -1,9 +1,8 @@
-asgiref==3.3.1
+asgiref==3.3.4
 certifi==2020.12.5
 chardet==4.0.0
-Django==3.1.7
+Django==3.2
 django-countries==7.1
--e git+https://github.com/asvetliy/django-logging.git@a792c706398773cf0a93e79e73ec53404bcaf2fb#egg=django_logging_json
 django-recaptcha2==1.4.1
 djangorestframework==3.12.4
 elasticsearch==7.12.0

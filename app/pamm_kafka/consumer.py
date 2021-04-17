@@ -1,12 +1,13 @@
+import itertools
+import time
+
 from django.db import transaction
 from rest_framework.exceptions import ValidationError
 from .exceptions import InvalidMessageError, IgnoredMessageTypeError, UnknownMessageTypeError, UnknownMessageVersionError
 from .backend import get_offset_backend, get_consumer_backend
 from .format import parse
 from . import settings
-import itertools
-from django_logging import log
-import time
+from json_logging import log
 
 
 def consumer_error_handler(inner):
@@ -21,12 +22,12 @@ def consumer_error_handler(inner):
 
         # Message format was invalid in some way: log error and move on.
         except InvalidMessageError as e:
-            log.error("Failed to deserialize message in topic {}. Details: {}".format(inner.consumer.topic_name, e))
+            log.error(f'Failed to deserialize message in topic {inner.consumer.topic_name}. Details: {e}')
             inner.commit(e.message)
 
         # Message type has been explicitly ignored: skip it silently and move on.
         except IgnoredMessageTypeError as e:
-            log.debug("Skipping ignored message type in topic {}. Details: {}".format(inner.consumer.topic_name, e))
+            log.debug(f'Skipping ignored message type in topic {inner.consumer.topic_name}. Details: {e}')
             inner.commit(e.message)
 
         # Message type is unknown: log error and move on.
@@ -121,13 +122,13 @@ class Consumer(object):
     def _unserialize(self, message):
         data = parse(message.value)
         if 'type' not in data:
-            raise InvalidMessageError('Received message missing a top-level "type" key.')
+            raise InvalidMessageError
 
         message_type = data['type']
         if message_type in self.ignored_message_types:
-            raise IgnoredMessageTypeError('Received message with ignored type "%s" in topic %s' % (message_type, message.topic))
+            raise IgnoredMessageTypeError
         if message_type not in self.serializer_classes:
-            raise UnknownMessageTypeError('Received message with unknown type "%s" in topic %s' % (message_type, message.topic))
+            raise UnknownMessageTypeError
 
         serializer_class = self.serializer_classes[message_type]
 

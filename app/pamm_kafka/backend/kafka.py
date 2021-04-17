@@ -1,9 +1,10 @@
+import kafka
+
 from django.apps import apps
 from ..exceptions import MissingTopicError
 from .. import settings
 from . import Record, get_offset_backend
-import kafka
-from django_logging import log
+from json_logging import log
 
 
 class ModelOffsetStore(object):
@@ -77,7 +78,7 @@ class Consumer(object):
         p = []
         partitions = self.client.partitions_for_topic(self.topic_name)
         if not partitions:
-            raise MissingTopicError('Could not find topic %s. Does it exist?' % self.topic_name)
+            raise MissingTopicError(f'Could not find topic {self.topic_name}. Does it exist?')
         for partition in partitions:
             tp = kafka.TopicPartition(self.topic_name, partition=partition)
             p.append(tp)

@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'questions.apps.QuestionsConfig',
     'django_countries',
     'snowpenguin.django.recaptcha2',
-    'django_logging',
+    'json_logging.apps.JsonLoggingConfig',
     'pamm_kafka.apps.PammKafkaConfig',
 ]
 
@@ -65,7 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_logging.middleware.DjangoLoggingMiddleware',
+    'json_logging.middleware.DjangoLoggingMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -156,6 +156,8 @@ RECAPTCHA_LOGIN_FAILED_TRIES = 3
 # Site key: 6Lc5AuAUAAAAANo2eJX2gfhTKl-S1TGyU9lIup8R
 # Secret key: 6Lc5AuAUAAAAAAohDU92CxZIe6RFKf5mx87SVrl1
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
@@ -212,6 +214,7 @@ MT4_ACCOUNTS_SETTINGS = {
 DJANGO_LOGGING = {
     'LOG_LEVEL': 'info',
     'INDENT_CONSOLE_LOG': None,
+    'CONSOLE_LOG': True,
 }
 
 PAMM_KAFKA = {
