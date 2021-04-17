@@ -32,17 +32,17 @@ def consumer_error_handler(inner):
 
         # Message type is unknown: log error and move on.
         except UnknownMessageTypeError as e:
-            log.error("Skipping unknown message type in topic {}. Details: {}".format(inner.consumer.topic_name, e))
+            log.error(f'Skipping unknown message type in topic {inner.consumer.topic_name}. Details: {e}')
             inner.commit(e.message)
 
         # Message version is unknown: log error and move on.
         except UnknownMessageVersionError as e:
-            log.error("Skipping unknown message version in topic {}. Details: {}".format(inner.consumer.topic_name, e))
+            log.error(f'Skipping unknown message version in topic {inner.consumer.topic_name}. Details: {e}')
             inner.commit(e.message)
 
         # Serializer for message type flagged message as invalid: log warning and move on.
         except ValidationError as e:
-            log.warning("Skipping invalid message in topic {}. Details: {}".format(inner.consumer.topic_name, e))
+            log.warning(f'Skipping invalid message in topic {inner.consumer.topic_name}. Details: {e}')
             inner.commit(e.message)
 
         pass

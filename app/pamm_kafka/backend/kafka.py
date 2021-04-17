@@ -8,13 +8,16 @@ from json_logging import log
 
 
 class ModelOffsetStore(object):
+
     def commit(self, consumer, message):
         KafkaOffset = apps.get_model(app_label='pamm_kafka', model_name='KafkaOffset')
-        log.debug('Commit offset "%s" for topic "%s", partition "%s" to %s' % (
-            message.offset, message.topic, message.partition, self.__class__.__name__))
+        log.debug(
+            f'Commit offset "{message.offset}" for topic "{message.topic}", partition "{message.partition}"'
+            f' to {self.__class__.__name__}')
         obj, created = KafkaOffset.objects.get_or_create(
             topic=message.topic,
-            partition=message.partition)
+            partition=message.partition
+        )
         obj.offset = message.offset + 1
         obj.save()
 
@@ -23,17 +26,19 @@ class ModelOffsetStore(object):
         tp = kafka.TopicPartition(topic=topic, partition=partition)
         try:
             obj = KafkaOffset.objects.get(topic=topic, partition=partition)
-            log.debug('Seeking to offset "%s" on topic "%s", partition "%s"' % (obj.offset, topic, partition))
+            log.debug(f'Seeking to offset "{obj.offset}" on topic "{topic}", partition "{partition}"')
             consumer.client.seek(tp, obj.offset)
         except KafkaOffset.DoesNotExist:
-            log.debug('Seeking to beginning of topic "%s", partition "%s"' % (topic, partition))
+            log.debug('Seeking to beginning of topic "{topic}", partition "{partition}"')
             consumer.client.seek_to_beginning(tp)
 
 
 class KafkaOffsetStore(object):
+
     def commit(self, consumer, message):
-        log.debug('Commit offset "%s" for topic "%s", partition "%s" to %s' % (
-            message.offset, message.topic, message.partition, self.__class__.__name__))
+        log.debug(
+            f'Commit offset "{message.offset}" for topic "{message.topic}", partition "{message.partition}"'
+            f' to {self.__class__.__name__}')
         consumer.client.commit()
 
     def seek(self, consumer, topic, partition):

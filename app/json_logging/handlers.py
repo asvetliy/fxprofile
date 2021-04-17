@@ -6,7 +6,7 @@ from logging import StreamHandler, DEBUG
 from logging.handlers import RotatingFileHandler
 from . import settings
 from .constants import LogTypes
-from .log_object import ErrorLogObject, SqlLogObject
+from .log_object import ErrorLogObject, SqlLogObject, LogObject
 
 
 def message_from_record(record):
@@ -54,23 +54,6 @@ class DebugFileHandler(DefaultFileHandler):
         return super(DebugFileHandler, self).emit(record)
 
 
-# class ConsoleHandler(StreamHandler):
-#     def emit(self, record):
-#         return super(ConsoleHandler, self).emit(record)
-#
-#     def format(self, record):
-#         if isinstance(record.msg, LogObject) or isinstance(record.msg, SqlLogObject):
-#             created = int(record.created)
-#             message = {record.levelname: {datetime.datetime.fromtimestamp(created).isoformat(): record.msg.to_dict}}
-#             return json.dumps(message, sort_keys=True, indent=settings.INDENT_CONSOLE_LOG)
-#         elif isinstance(record.msg, ErrorLogObject):
-#             return str(record.msg)
-#         elif isinstance(record.msg, dict):
-#             created = int(record.created)
-#             message = {record.levelname: {created: record.msg}}
-#             return json.dumps(message, sort_keys=True, indent=settings.INDENT_CONSOLE_LOG)
-#         else:
-#             return super(ConsoleHandler, self).format(record)
 class ConsoleHandler(StreamHandler):
     @staticmethod
     def format_message(record):
@@ -82,6 +65,9 @@ class ConsoleHandler(StreamHandler):
         if type(record.msg) == str:
             msg['type'] = LogTypes.TYPE_MESSAGE
             msg['message'] = record.msg
+        elif isinstance(record.msg, LogObject) or isinstance(record.msg, SqlLogObject):
+            msg['type'] = LogTypes.TYPE_MESSAGE
+            msg['event'] = record.msg.to_dict
         else:
             msg['context'] = record.msg
             if type(record.args) == dict:

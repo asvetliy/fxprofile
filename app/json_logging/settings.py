@@ -1,5 +1,6 @@
 import sys
 import os.path
+
 from django.core.exceptions import ImproperlyConfigured
 from django.conf import settings as django_settings
 
