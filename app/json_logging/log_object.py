@@ -1,7 +1,6 @@
 import abc
 import json
 import six
-import sys
 import traceback
 
 from django.http import HttpResponseServerError
@@ -136,11 +135,7 @@ class ErrorLogObject(BaseLogObject):
         )
         if not settings.DEBUG:
             result['raw'] = str(exception)
-        if sys.version_info.major >= 3 and sys.version_info.minor >= 5:
-            _traceback = traceback.TracebackException.from_exception(exception).exc_traceback
-        else:
-            _, _, _traceback = traceback.sys.exc_info()
-
+        _, _, _traceback = traceback.sys.exc_info()
         for line in cls.format_traceback(_traceback):
             result['traceback'].append(line)
         return result

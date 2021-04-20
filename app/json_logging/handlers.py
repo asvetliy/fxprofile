@@ -65,7 +65,7 @@ class ConsoleHandler(StreamHandler):
         if type(record.msg) == str:
             msg['type'] = LogTypes.TYPE_MESSAGE
             msg['message'] = record.msg
-        elif isinstance(record.msg, LogObject) or isinstance(record.msg, SqlLogObject):
+        elif type(record.msg) in (LogObject, SqlLogObject, ErrorLogObject):
             msg['type'] = LogTypes.TYPE_MESSAGE
             msg['event'] = record.msg.to_dict
         else:
