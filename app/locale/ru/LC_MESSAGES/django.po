@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-25 00:39+0000\n"
+"POT-Creation-Date: 2021-05-16 20:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: app/settings/base.py:131
+#: app/settings/base.py:134
 msgid "English"
 msgstr "English"
 
-#: app/settings/base.py:132
+#: app/settings/base.py:135
 msgid "Russian"
 msgstr "Russian"
 
@@ -607,7 +607,8 @@ msgstr "Ваш вопрос"
 #: questions/templates/questions/create-ticket.html:23
 msgid "QUESTION_CREATE_FORM_TEXTAREA_LABEL"
 msgstr ""
-"Оставьте свой вопрос здесь и он будет рассмотрен в ближайшее время (максимум 300 символов)"
+"Оставьте свой вопрос здесь и он будет рассмотрен в ближайшее время (максимум "
+"300 символов)"
 
 #: questions/templates/questions/create-ticket.html:36
 msgid "QUESTION_CREATE_TICKET_SUBMIT"
@@ -642,16 +643,15 @@ msgstr "Действия"
 msgid "QUESTIONS_TABLE_SEARCH_PLACEHOLDER"
 msgstr "Искать записи"
 
-#: questions/templates/questions/view-ticket.html:94
+#: questions/templates/questions/view-ticket.html:92
 msgid "QUESTION_COMMENT_FORM_TEXTAREA_TITLE"
 msgstr "Ваш комментарий"
 
-#: questions/templates/questions/view-ticket.html:96
+#: questions/templates/questions/view-ticket.html:94
 msgid "QUESTION_COMMENT_FORM_TEXTAREA_LABEL"
-msgstr ""
-"Оставьте свой комментарий здесь (максимум 300 символов)"
+msgstr "Оставьте свой комментарий здесь (максимум 300 символов)"
 
-#: questions/templates/questions/view-ticket.html:109
+#: questions/templates/questions/view-ticket.html:107
 msgid "QUESTION_COMMENT_FORM_COMMENT_SUBMIT"
 msgstr "Добавить"
 
@@ -681,12 +681,39 @@ msgstr "Тикет успешно создан"
 
 #: questions/views.py:94
 msgid "QUESTION_TICKET_CREATE_FAIL"
-msgstr ""
-"Не удалось создать тикет. Пожалуйста, исправьте все ошибки ниже."
+msgstr "Не удалось создать тикет. Пожалуйста, исправьте все ошибки ниже."
 
 #: questions/views.py:105
 msgid "QUESTION_TICKETS_VIEW_TITLE"
 msgstr "Обзор тикетов"
+
+#: templates/admin/submit_line.html:4
+msgid "Save"
+msgstr ""
+
+#: templates/admin/submit_line.html:7
+msgid "Delete"
+msgstr ""
+
+#: templates/admin/submit_line.html:9
+msgid "Save as new"
+msgstr ""
+
+#: templates/admin/submit_line.html:10
+msgid "Save and add another"
+msgstr ""
+
+#: templates/admin/submit_line.html:11
+msgid "Save and continue editing"
+msgstr ""
+
+#: templates/admin/submit_line.html:11
+msgid "Save and view"
+msgstr ""
+
+#: templates/admin/submit_line.html:12
+msgid "Close"
+msgstr ""
 
 #: users/admin.py:31
 msgid "Personal info"
@@ -1159,37 +1186,37 @@ msgstr "Сумма"
 msgid "WALLET_DEPOSIT_CARD_CHOOSE_ACCOUNT"
 msgstr "Выберите счет"
 
-#: wallet/templates/wallet/deposit.html:75
+#: wallet/templates/wallet/deposit.html:72
 #: wallet/templates/wallet/transfer.html:100
 msgid "WALLET_DEPOSIT_CARD_INFO_TEXT2"
 msgstr "Выберите платежный метод"
 
-#: wallet/templates/wallet/deposit.html:87
+#: wallet/templates/wallet/deposit.html:84
 msgid "WALLET_DEPOSIT_CARD_CHOOSE_PAYMENT"
 msgstr "Платежная система"
 
-#: wallet/templates/wallet/deposit.html:98
+#: wallet/templates/wallet/deposit.html:95
 #: wallet/templates/wallet/transfer.html:141
 msgid "WALLET_DEPOSIT_CARD_TERMS_CONDITIONS"
 msgstr "Правила и Условия"
 
-#: wallet/templates/wallet/deposit.html:109
+#: wallet/templates/wallet/deposit.html:106
 msgid "WALLET_DEPOSIT_CARD_INFO_TEXT3"
 msgstr "Согласны ли вы?"
 
-#: wallet/templates/wallet/deposit.html:119
+#: wallet/templates/wallet/deposit.html:116
 #: wallet/templates/wallet/transfer.html:153
 #: wallet/templates/wallet/withdraw.html:81
 msgid "WALLET_CARD_BTN_PREV"
 msgstr "Назад"
 
-#: wallet/templates/wallet/deposit.html:123
+#: wallet/templates/wallet/deposit.html:120
 #: wallet/templates/wallet/transfer.html:157
 #: wallet/templates/wallet/withdraw.html:85
 msgid "WALLET_CARD_BTN_NEXT"
 msgstr "Далее"
 
-#: wallet/templates/wallet/deposit.html:125
+#: wallet/templates/wallet/deposit.html:122
 #: wallet/templates/wallet/transfer.html:159
 #: wallet/templates/wallet/withdraw.html:87
 msgid "WALLET_CARD_BTN_SUBMIT"
@@ -1311,77 +1338,77 @@ msgstr "Платежный метод"
 msgid "WALLET_WITHDRAW_CARD_INFO_TEXT2"
 msgstr "Укажите дополнительную информацию."
 
-#: wallet/views.py:27
+#: wallet/views.py:25
 msgid "WALLET_DEPOSIT_PAGE_TITLE"
 msgstr "Депозит"
 
-#: wallet/views.py:41
+#: wallet/views.py:39
 msgid "WALLET_WITHDRAW_PAGE_TITLE"
 msgstr "Вывод"
 
-#: wallet/views.py:62
+#: wallet/views.py:60
 msgid "WALLET_WITHDRAW_VIA_PAYMENT"
 msgstr "Вывод через %(payment_name)s"
 
-#: wallet/views.py:64
+#: wallet/views.py:62
 msgid "WALLET_WITHDRAW_CREATED_SUCCESSFULLY"
 msgstr "Заявка на вывод успешно создана"
 
-#: wallet/views.py:67
+#: wallet/views.py:65
 msgid "WALLET_WITHDRAW_ERROR_NOT_VALID"
 msgstr "Не валидный запрос на вывод средств."
 
-#: wallet/views.py:78
+#: wallet/views.py:76
 msgid "WALLET_TRANSFER_PAGE_TITLE"
 msgstr "Перевод средств"
 
-#: wallet/views.py:99
+#: wallet/views.py:97
 msgid "WALLET_WITHDRAW_ERROR_WALLET_NOTEXIST"
 msgstr "Кошелек не существует"
 
-#: wallet/views.py:105
+#: wallet/views.py:103
 msgid "WALLET_WITHDRAW_ERROR_ACCOUNT_NOTEXIST"
 msgstr "Торговый счет не существует"
 
-#: wallet/views.py:109
+#: wallet/views.py:107
 msgid "WALLET_WITHDRAW_ERROR_CANT_TRANSFER"
 msgstr ""
 "Вы не можете переводить средства между счетами с разной базовой валютой"
 
-#: wallet/views.py:118
+#: wallet/views.py:116
 msgid "WALLET_TRANSFER_TO_TRADING_ACCOUNT"
 msgstr "Перевод на торговый счет %(account_id)d"
 
-#: wallet/views.py:123 wallet/views.py:153
+#: wallet/views.py:121 wallet/views.py:151
 msgid "WALLET_TRANSFER_ERROR_INSUFFICIENT_FUNDS"
 msgstr "Недостаточно средств"
 
-#: wallet/views.py:129
+#: wallet/views.py:127
 msgid "WALLET_TRANSFER_ERROR_ACCOUNT_NOTEXIST"
 msgstr "Торговый счет не существует"
 
-#: wallet/views.py:135
+#: wallet/views.py:133
 msgid "WALLET_TRANSFER_ERROR_WALLET_NOTEXIST"
 msgstr "Кошелек не существует"
 
-#: wallet/views.py:139
+#: wallet/views.py:137
 msgid "WALLET_TRANSFER_ERROR_CANT_TRANSFER"
 msgstr ""
 "Вы не можете переводить средства между счетами с разной базовой валютой"
 
-#: wallet/views.py:148
+#: wallet/views.py:146
 msgid "WALLET_TRANSFER_FROM_TRADING_ACCOUNT"
 msgstr "Перевод с торгового счета %(account_id)d"
 
-#: wallet/views.py:156 wallet/views.py:161
+#: wallet/views.py:154 wallet/views.py:159
 msgid "WALLET_TRANSFER_ERROR_NOT_VALID"
 msgstr "Невозможно создать перевод"
 
-#: wallet/views.py:159
+#: wallet/views.py:157
 msgid "WALLET_TRANSFER_CREATED_SUCCESSFULLY"
 msgstr "Заявка на перевод успешно создана"
 
-#: wallet/views.py:176
+#: wallet/views.py:174
 msgid "WALLET_TRANSFER_HISTORY_PAGE_TITLE"
 msgstr "История транзакций"
 

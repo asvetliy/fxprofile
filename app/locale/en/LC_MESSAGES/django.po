@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-25 00:38+0000\n"
+"POT-Creation-Date: 2021-05-16 20:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app/settings/base.py:131
+#: app/settings/base.py:134
 msgid "English"
 msgstr "English"
 
-#: app/settings/base.py:132
+#: app/settings/base.py:135
 msgid "Russian"
 msgstr "Russian"
 
@@ -588,16 +588,15 @@ msgstr "Actions"
 msgid "QUESTIONS_TABLE_SEARCH_PLACEHOLDER"
 msgstr "Search records"
 
-#: questions/templates/questions/view-ticket.html:94
+#: questions/templates/questions/view-ticket.html:92
 msgid "QUESTION_COMMENT_FORM_TEXTAREA_TITLE"
 msgstr "Your comment"
 
-#: questions/templates/questions/view-ticket.html:96
+#: questions/templates/questions/view-ticket.html:94
 msgid "QUESTION_COMMENT_FORM_TEXTAREA_LABEL"
-msgstr ""
-"Submit your comment here (maximum 300 characters)"
+msgstr "Submit your comment here (maximum 300 characters)"
 
-#: questions/templates/questions/view-ticket.html:109
+#: questions/templates/questions/view-ticket.html:107
 msgid "QUESTION_COMMENT_FORM_COMMENT_SUBMIT"
 msgstr "Add"
 
@@ -632,6 +631,34 @@ msgstr "No tickets created. Please fix errors bellow."
 #: questions/views.py:105
 msgid "QUESTION_TICKETS_VIEW_TITLE"
 msgstr "View Tickets"
+
+#: templates/admin/submit_line.html:4
+msgid "Save"
+msgstr ""
+
+#: templates/admin/submit_line.html:7
+msgid "Delete"
+msgstr ""
+
+#: templates/admin/submit_line.html:9
+msgid "Save as new"
+msgstr ""
+
+#: templates/admin/submit_line.html:10
+msgid "Save and add another"
+msgstr ""
+
+#: templates/admin/submit_line.html:11
+msgid "Save and continue editing"
+msgstr ""
+
+#: templates/admin/submit_line.html:11
+msgid "Save and view"
+msgstr ""
+
+#: templates/admin/submit_line.html:12
+msgid "Close"
+msgstr ""
 
 #: users/admin.py:31
 msgid "Personal info"
@@ -1094,37 +1121,37 @@ msgstr "Amount"
 msgid "WALLET_DEPOSIT_CARD_CHOOSE_ACCOUNT"
 msgstr "Choose Account"
 
-#: wallet/templates/wallet/deposit.html:75
+#: wallet/templates/wallet/deposit.html:72
 #: wallet/templates/wallet/transfer.html:100
 msgid "WALLET_DEPOSIT_CARD_INFO_TEXT2"
 msgstr "Choose Payment System"
 
-#: wallet/templates/wallet/deposit.html:87
+#: wallet/templates/wallet/deposit.html:84
 msgid "WALLET_DEPOSIT_CARD_CHOOSE_PAYMENT"
 msgstr "Payment System"
 
-#: wallet/templates/wallet/deposit.html:98
+#: wallet/templates/wallet/deposit.html:95
 #: wallet/templates/wallet/transfer.html:141
 msgid "WALLET_DEPOSIT_CARD_TERMS_CONDITIONS"
 msgstr "Terms & Conditions"
 
-#: wallet/templates/wallet/deposit.html:109
+#: wallet/templates/wallet/deposit.html:106
 msgid "WALLET_DEPOSIT_CARD_INFO_TEXT3"
 msgstr "Are you agree policy?"
 
-#: wallet/templates/wallet/deposit.html:119
+#: wallet/templates/wallet/deposit.html:116
 #: wallet/templates/wallet/transfer.html:153
 #: wallet/templates/wallet/withdraw.html:81
 msgid "WALLET_CARD_BTN_PREV"
 msgstr "Previous"
 
-#: wallet/templates/wallet/deposit.html:123
+#: wallet/templates/wallet/deposit.html:120
 #: wallet/templates/wallet/transfer.html:157
 #: wallet/templates/wallet/withdraw.html:85
 msgid "WALLET_CARD_BTN_NEXT"
 msgstr "Next"
 
-#: wallet/templates/wallet/deposit.html:125
+#: wallet/templates/wallet/deposit.html:122
 #: wallet/templates/wallet/transfer.html:159
 #: wallet/templates/wallet/withdraw.html:87
 msgid "WALLET_CARD_BTN_SUBMIT"
@@ -1246,75 +1273,75 @@ msgstr "Payment System"
 msgid "WALLET_WITHDRAW_CARD_INFO_TEXT2"
 msgstr "What else do we need to know?"
 
-#: wallet/views.py:27
+#: wallet/views.py:25
 msgid "WALLET_DEPOSIT_PAGE_TITLE"
 msgstr "Deposit"
 
-#: wallet/views.py:41
+#: wallet/views.py:39
 msgid "WALLET_WITHDRAW_PAGE_TITLE"
 msgstr "Withdraw"
 
-#: wallet/views.py:62
+#: wallet/views.py:60
 msgid "WALLET_WITHDRAW_VIA_PAYMENT"
 msgstr "Withdraw via %(payment_name)s"
 
-#: wallet/views.py:64
+#: wallet/views.py:62
 msgid "WALLET_WITHDRAW_CREATED_SUCCESSFULLY"
 msgstr "Withdraw request successfully created"
 
-#: wallet/views.py:67
+#: wallet/views.py:65
 msgid "WALLET_WITHDRAW_ERROR_NOT_VALID"
 msgstr "Withdraw request not valid"
 
-#: wallet/views.py:78
+#: wallet/views.py:76
 msgid "WALLET_TRANSFER_PAGE_TITLE"
 msgstr "Transfer Funds"
 
-#: wallet/views.py:99
+#: wallet/views.py:97
 msgid "WALLET_WITHDRAW_ERROR_WALLET_NOTEXIST"
 msgstr "Wallet does not exist"
 
-#: wallet/views.py:105
+#: wallet/views.py:103
 msgid "WALLET_WITHDRAW_ERROR_ACCOUNT_NOTEXIST"
 msgstr "Trading account does not exist"
 
-#: wallet/views.py:109
+#: wallet/views.py:107
 msgid "WALLET_WITHDRAW_ERROR_CANT_TRANSFER"
 msgstr "You cant transfer funds between different account currencies"
 
-#: wallet/views.py:118
+#: wallet/views.py:116
 msgid "WALLET_TRANSFER_TO_TRADING_ACCOUNT"
 msgstr "Transfer to trading account %(account_id)d"
 
-#: wallet/views.py:123 wallet/views.py:153
+#: wallet/views.py:121 wallet/views.py:151
 msgid "WALLET_TRANSFER_ERROR_INSUFFICIENT_FUNDS"
 msgstr "Insufficient funds"
 
-#: wallet/views.py:129
+#: wallet/views.py:127
 msgid "WALLET_TRANSFER_ERROR_ACCOUNT_NOTEXIST"
 msgstr "Trading account does not exist"
 
-#: wallet/views.py:135
+#: wallet/views.py:133
 msgid "WALLET_TRANSFER_ERROR_WALLET_NOTEXIST"
 msgstr "Wallet does not exist"
 
-#: wallet/views.py:139
+#: wallet/views.py:137
 msgid "WALLET_TRANSFER_ERROR_CANT_TRANSFER"
 msgstr "You cant transfer funds between different account currencies"
 
-#: wallet/views.py:148
+#: wallet/views.py:146
 msgid "WALLET_TRANSFER_FROM_TRADING_ACCOUNT"
 msgstr "Transfer from trading account %(account_id)d"
 
-#: wallet/views.py:156 wallet/views.py:161
+#: wallet/views.py:154 wallet/views.py:159
 msgid "WALLET_TRANSFER_ERROR_NOT_VALID"
 msgstr "Transfer request not valid"
 
-#: wallet/views.py:159
+#: wallet/views.py:157
 msgid "WALLET_TRANSFER_CREATED_SUCCESSFULLY"
 msgstr "Transfer request successfully created"
 
-#: wallet/views.py:176
+#: wallet/views.py:174
 msgid "WALLET_TRANSFER_HISTORY_PAGE_TITLE"
 msgstr "Transactions History"
 
