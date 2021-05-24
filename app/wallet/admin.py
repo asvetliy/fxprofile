@@ -40,6 +40,9 @@ class WalletAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return False
 
+    def has_change_permission(self, request, obj=None):
+        return False
+
     def wallet_balance(self, obj: Wallet):
         return obj.get_balance()
 
