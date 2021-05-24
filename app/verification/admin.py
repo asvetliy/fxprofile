@@ -17,9 +17,9 @@ class VerificationRequestAdmin(admin.ModelAdmin):
 
 @admin.register(Card)
 class CardAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'number', 'is_verificated', )
+    list_display = ('id', 'user', 'number', 'is_verified', )
     autocomplete_fields = ('user', )
-    list_filter = ('is_verificated', )
+    list_filter = ('is_verified', )
     list_per_page = 20
     list_display_links = ('id', 'number', )
     search_fields = ('number', 'user__username', )

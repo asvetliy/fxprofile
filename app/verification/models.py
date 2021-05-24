@@ -49,7 +49,7 @@ class Card(models.Model):
     number = models.CharField(max_length=16, blank=False, null=False)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, models.CASCADE)
     type = models.ForeignKey(CardsType, models.DO_NOTHING, null=True, blank=False, default=None)
-    is_verificated = models.BooleanField(null=False, default=False, blank=False)
+    is_verified = models.BooleanField(null=False, default=False, blank=False)
 
     def __str__(self):
         return self.number

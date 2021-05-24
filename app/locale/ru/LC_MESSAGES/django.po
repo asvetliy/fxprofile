@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-16 20:40+0300\n"
+"POT-Creation-Date: 2021-05-24 13:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: app/settings/base.py:134
+#: app/settings/base.py:132
 msgid "English"
 msgstr "English"
 
-#: app/settings/base.py:135
+#: app/settings/base.py:133
 msgid "Russian"
 msgstr "Russian"
 
@@ -315,7 +315,8 @@ msgstr ""
 "<body>\n"
 "  <p>Здравствуйте, %(user.username)s,</p>\n"
 "  <p>Для подтверждения регистрации, пожалуйста, нажмите на ссылку ниже:</p>\n"
-"  <a href=\"https://%(domain)s%(activation_url)s\">Активировать профиль.</a>\n"
+"  <a href=\"https://%(domain)s%(activation_url)s\">Активировать профиль.</"
+"a>\n"
 "</body>\n"
 "</html>\n"
 
@@ -426,19 +427,19 @@ msgstr "Дата создания"
 msgid "MT4_ACCOUNTS_TABLE_ACTIONS"
 msgstr "Действия"
 
-#: mt4/templates/mt4/create-account.html:24
+#: mt4/templates/mt4/create-account.html:22
 msgid "MT4_ACCOUNT_CREATE_CARD_ACC_TYPE"
 msgstr "Тип счета"
 
-#: mt4/templates/mt4/create-account.html:34
+#: mt4/templates/mt4/create-account.html:32
 msgid "MT4_ACCOUNT_CREATE_CARD_ACC_LEVERAGE"
 msgstr "Кредитное плечо"
 
-#: mt4/templates/mt4/create-account.html:44
+#: mt4/templates/mt4/create-account.html:42
 msgid "MT4_ACCOUNT_CREATE_CARD_ACC_CURRENCY"
 msgstr "Базовая валюта"
 
-#: mt4/templates/mt4/create-account.html:58
+#: mt4/templates/mt4/create-account.html:56
 msgid "MT4_ACCOUNT_CREATE_CARD_SUBMIT"
 msgstr "Отправить"
 

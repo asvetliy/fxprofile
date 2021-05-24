@@ -1,4 +1,4 @@
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from django.apps import apps
 from django.contrib.auth import get_user_model
@@ -17,7 +17,7 @@ def create_user_wallets(sender, instance, created, **kwargs):
             Wallet.objects.create(user=instance, currency=currency)
 
 
-@receiver(post_save, sender=Transaction)
+@receiver([post_save, post_delete], sender=Transaction)
 def balance_changed(sender, instance, created, **kwargs):
     wallet = instance.get_wallet()
     balance = Transaction.objects.filter(wallet=wallet, status_id=1).aggregate(Sum('amount'))
