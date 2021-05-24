@@ -21,7 +21,7 @@ class UserAdmin(BaseUserAdmin):
             'classes': ('wide', ),
             'fields': (
                 'username', 'email', 'first_name', 'last_name', 'password1', 'password2',
-                'country', 'city', 'promo', 'phone', 'is_active', 'is_staff', 'is_superuser',
+                'country', 'city', 'promo', 'phone', 'is_active', 'is_staff', 'is_superuser', 'is_verified',
             )
         }
          ),
@@ -30,7 +30,7 @@ class UserAdmin(BaseUserAdmin):
         (None, {'fields': ('username', 'password')}),
         (_('Personal info'), {'fields': ('first_name', 'last_name', 'email', 'promo', )}),
         (_('Permissions'), {
-            'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions', ),
+            'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions', 'is_verified', ),
         }),
         (_('Important dates'), {'fields': ('last_login', 'date_joined', )}),
     )
@@ -101,8 +101,8 @@ class TransactionInline(admin.TabularInline):
 
 @admin.register(PartnerUser)
 class PartnerUserAdmin(admin.ModelAdmin):
-    list_display = ('id', 'username', 'email', 'email_confirmed', 'is_verificated', 'date_joined', )
-    list_filter = ('is_verificated', 'date_joined', )
+    list_display = ('id', 'username', 'email', 'email_confirmed', 'is_verified', 'date_joined', )
+    list_filter = ('is_verified', 'date_joined', )
     list_display_links = ('username', )
     search_fields = ('username', 'email', )
     inlines = (VerificationInline, CardInline, VerificationRequestInline, WalletInline, TransactionInline, )

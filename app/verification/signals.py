@@ -9,7 +9,7 @@ UserModel = get_user_model()
 def is_user_verificated(user):
     cards = Card.objects.filter(user=user)
     for c in cards:
-        if not c.is_verificated:
+        if not c.is_verified:
             return False
     v = Verification.objects.get(user=user)
     if len(cards) and not v.declaration:
@@ -56,17 +56,17 @@ def is_card_verificated(card: Card):
 
 
 def check_verification_status(instance: VerificationRequest):
-    is_verificated = is_user_verificated(instance.user)
-    if is_verificated != instance.user.is_verificated:
-        instance.user.is_verificated = is_verificated
+    is_verified = is_user_verificated(instance.user)
+    if is_verified != instance.user.is_verified:
+        instance.user.is_verified = is_verified
         instance.user.save()
 
 
 def check_card_verification_status(instance: VerificationRequest):
     if instance.card:
-        is_verificated = is_card_verificated(instance.card)
-        if is_verificated != instance.card.is_verificated:
-            instance.card.is_verificated = is_verificated
+        is_verified = is_card_verificated(instance.card)
+        if is_verified != instance.card.is_verified:
+            instance.card.is_verified = is_verified
             instance.card.save()
 
 

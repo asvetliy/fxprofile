@@ -82,7 +82,7 @@ class VerificationView(LoginRequiredMixin, View):
                 })
             if rt.name in ['CARD_FRONT', 'CARD_BACK', ]:
                 for c in cards:
-                    if not c.is_verificated and c.id not in exclude_card_verifications[rt.name]:
+                    if not c.is_verified and c.id not in exclude_card_verifications[rt.name]:
                         upload_card_forms.append({
                             'id': rt.id,
                             'type': _(rt.name),

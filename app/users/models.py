@@ -12,7 +12,7 @@ class User(AbstractUser):
     about_me = models.TextField(max_length=1024, null=True, blank=True)
     phone = models.CharField(max_length=17, blank=True, default=None, null=True)
     promo = models.CharField(max_length=64, blank=True, default=None, null=True)
-    is_verificated = models.BooleanField(default=False, blank=False, null=False)
+    is_verified = models.BooleanField(default=False, blank=False, null=False)
 
     def __str__(self):
         return self.username

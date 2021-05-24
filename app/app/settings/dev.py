@@ -10,8 +10,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'appdata',
         'USER': 'root',
-        'PASSWORD': 'kA8rZ2cH2qW4oK7uK1uQ5aV5iX0nX7fK',
-        'HOST': os.environ.get('SQL_HOST', 'localhost'),
+        'PASSWORD': os.environ.get('SQL_PASSWORD', '123qweasd'),
+        'HOST': os.environ.get('SQL_HOST', '0.0.0.0'),
         'PORT': '3306',
     }
 }
