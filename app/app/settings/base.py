@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'questions.apps.QuestionsConfig',
     'django_countries',
     'snowpenguin.django.recaptcha2',
-    'django_logging',
+    'json_logging.apps.JsonLoggingConfig',
+    'pamm_kafka.apps.PammKafkaConfig',
 ]
 
 MIDDLEWARE = [
@@ -64,7 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_logging.middleware.DjangoLoggingMiddleware',
+    'json_logging.middleware.DjangoLoggingMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -155,6 +156,8 @@ RECAPTCHA_LOGIN_FAILED_TRIES = 3
 # Site key: 6Lc5AuAUAAAAANo2eJX2gfhTKl-S1TGyU9lIup8R
 # Secret key: 6Lc5AuAUAAAAAAohDU92CxZIe6RFKf5mx87SVrl1
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
@@ -211,4 +214,31 @@ MT4_ACCOUNTS_SETTINGS = {
 DJANGO_LOGGING = {
     'LOG_LEVEL': 'info',
     'INDENT_CONSOLE_LOG': None,
+    'CONSOLE_LOG': True,
+}
+
+PAMM_KAFKA = {
+    # Required Settings
+    'OFFSET_BACKEND': 'pamm_kafka.backend.kafka.ModelOffsetStore',
+    'CONSUMER_BACKEND': 'pamm_kafka.backend.kafka.Consumer',
+    'KAFKA_BOOTSTRAP_SERVERS': [
+        'kafka.xyz.test:9092'
+    ],
+    'KAFKA_CONSUMER_KWARGS': {
+        'group_id': 'fxprofile-pamm',
+        'security_protocol': 'SASL_SSL',
+        'sasl_mechanism': os.getenv('DJANGO_LOGPIPE_CONSUMER_SASL_MECHANISM', 'PLAIN'),
+        'sasl_plain_username': os.getenv('DJANGO_LOGPIPE_CONSUMER_SASL_USERNAME', 'client'),
+        'sasl_plain_password': os.getenv('DJANGO_LOGPIPE_CONSUMER_SASL_PASSWORD', ''),
+        'ssl_cafile': os.getenv('DJANGO_LOGPIPE_CONSUMER_SSL_CA', ''),
+        'ssl_certfile': os.getenv('DJANGO_LOGPIPE_CONSUMER_SSL_CERT', ''),
+        'ssl_keyfile': os.getenv('DJANGO_LOGPIPE_CONSUMER_SSL_KEY', ''),
+        'ssl_password': os.getenv('DJANGO_LOGPIPE_CONSUMER_SSL_PASSWORD', ''),
+    },
+
+    # Optional Settings
+    # 'KAFKA_SEND_TIMEOUT': 10,
+    # 'KAFKA_MAX_SEND_RETRIES': 0,
+    'MIN_MESSAGE_LAG_MS': 0,
+    'DEFAULT_FORMAT': 'json',
 }
