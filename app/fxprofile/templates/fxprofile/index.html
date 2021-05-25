@@ -140,8 +140,8 @@
     let subsQuotes = {
       "qForex": ["EURUSD", "GBPUSD", "USDJPY", "EURGBP", "USDCAD", "GBPJPY", "AUDUSD", "EURCHF"],
       "qCrypto": ["BTCUSD", "ETHBTC", "LTCUSD", "XRPUSD", "BCHUSD", "XLMUSD", "XMRUSD", "DASHUSD"],
-      "qShares": ["#Barclays", "#Vodafone", "#Amazon", "#Apple", "#TeslaMotor", "#DeutscBank", "#USNDAQ100", "#Commerzbnk"],
-      "qCommodities": ["GOLD", "SILVER", "BRENT", "WTI", "NAT.GAS", "GOLDEURO", "SILVEREURO", "PLATINUM"],
+      "qShares": ["#MCD", "#Google", "#MSFT", "#Visa", "#TeslaMotor", "#PFE", "#KO", "#INTC"],
+      "qCommodities": ["GOLD", "SILVER", "BRENT", "WTI", "NAT.GAS", "#Kraft", "SILVEREURO", "PLATINUM"],
     };
     let ws = quotes.initQuotesWidget("wss://{{ request.get_host }}/quotes", subsQuotes, {{ is_debug }});
   });
