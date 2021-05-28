@@ -4,7 +4,6 @@ chardet==4.0.0
 Django==3.1.5
 django-cors-headers==3.7.0
 django-countries==7.0
--e git+https://github.com/AlexandrSvetliy/django-logging.git@a792c706398773cf0a93e79e73ec53404bcaf2fb#egg=django_logging_json
 django-logpipe==1.0.0
 django-recaptcha2==1.4.1
 djangorestframework==3.12.2
