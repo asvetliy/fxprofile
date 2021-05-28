@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
     'fxprofile.apps.FxprofileConfig',
     'users.apps.UsersConfig',
     'mailer.apps.MailerConfig',
@@ -54,12 +56,14 @@ INSTALLED_APPS = [
     'snowpenguin.django.recaptcha2',
     'json_logging.apps.JsonLoggingConfig',
     'pamm_kafka.apps.PammKafkaConfig',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -69,6 +73,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'app.urls'
+
+CORS_ORIGIN_WHITELIST = [
+    'https://xyz.trading',
+    'https://ca.xyz.trading',
+]
 
 TEMPLATES = [
     {

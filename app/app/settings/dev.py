@@ -16,6 +16,12 @@ DATABASES = {
     }
 }
 
+CORS_ORIGIN_WHITELIST = [
+    'https://xyz.trading',
+    'https://ca.xyz.trading',
+    'http://127.0.0.1:8001',
+    'http://127.0.0.1:8000',
+]
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True

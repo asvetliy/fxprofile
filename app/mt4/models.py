@@ -34,6 +34,25 @@ class Accounts(models.Model):
         verbose_name_plural = 'mt4 accounts'
 
 
+class Prices(models.Model):
+    use_in_migrations = False
+    SYMBOL = models.CharField(verbose_name='SYMBOL', db_column='SYMBOL', max_length=16, primary_key=True)
+    TIME = models.DateTimeField(verbose_name='TIME', db_column='TIME')
+    BID = models.FloatField(verbose_name='BID', db_column='BID')
+    ASK = models.FloatField(verbose_name='ASK', db_column='ASK')
+    LOW = models.FloatField(verbose_name='LOW', db_column='LOW')
+    HIGH = models.FloatField(verbose_name='HIGH', db_column='HIGH')
+    DIRECTION = models.IntegerField(verbose_name='DIRECTION', db_column='DIRECTION')
+    DIGITS = models.IntegerField(verbose_name='DIGITS', db_column='DIGITS')
+    SPREAD = models.IntegerField(verbose_name='SPREAD', db_column='SPREAD')
+    MODIFY_TIME = models.DateTimeField(verbose_name='MODIFY_TIME', db_column='MODIFY_TIME')
+
+    class Meta:
+        managed = False
+        db_table = 'MT4_PRICES'
+        verbose_name_plural = 'mt4 prices'
+
+
 class UserAccounts(models.Model):
     id = models.BigIntegerField(auto_created=False, primary_key=True, serialize=False, verbose_name='id', db_column='id')
     is_pamm = models.BooleanField()

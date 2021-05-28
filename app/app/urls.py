@@ -60,6 +60,10 @@ urlpatterns += i18n_patterns(
     prefix_default_language=False
 )
 urlpatterns += i18n_patterns(
+    path('', include('api.urls')),
+    prefix_default_language=False
+)
+urlpatterns += i18n_patterns(
     path('i18n/', include('django.conf.urls.i18n')),
     prefix_default_language=False
 )

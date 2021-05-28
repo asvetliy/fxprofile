@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-24 13:07+0000\n"
+"POT-Creation-Date: 2021-05-27 16:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: app/settings/base.py:132
+#: app/settings/base.py:133
 msgid "English"
 msgstr "English"
 
-#: app/settings/base.py:133
+#: app/settings/base.py:134
 msgid "Russian"
 msgstr "Russian"
 
@@ -600,6 +600,43 @@ msgstr ""
 #: mt4/views.py:147
 msgid "MT4_ACCOUNTS_VIEW_TITLE"
 msgstr "Обзор счетов"
+
+#: pamm_kafka/apps.py:11
+msgid "PammKafka"
+msgstr ""
+
+#: pamm_kafka/models.py:8
+msgid "Kafka Topic Name"
+msgstr ""
+
+#. Translators: Interal Model Field Help Text
+#: pamm_kafka/models.py:10
+msgid "The Kafka topic name"
+msgstr ""
+
+#: pamm_kafka/models.py:16
+msgid "Kafka Partition ID"
+msgstr ""
+
+#. Translators: Interal Model Field Help Text
+#: pamm_kafka/models.py:18
+msgid "The Kafka partition identifier"
+msgstr ""
+
+#. Translators: Internal Model Name (singular)
+#: pamm_kafka/models.py:23 pamm_kafka/models.py:31
+msgid "Kafka Offset"
+msgstr ""
+
+#. Translators: Interal Model Field Help Text
+#: pamm_kafka/models.py:25
+msgid "The current offset in the Kafka partition"
+msgstr ""
+
+#. Translators: Internal Model Name (plural)
+#: pamm_kafka/models.py:33
+msgid "Kafka Offsets"
+msgstr ""
 
 #: questions/templates/questions/create-ticket.html:21
 msgid "QUESTION_CREATE_FORM_TEXTAREA_TITLE"
