@@ -786,10 +786,10 @@ msgstr "About Us"
 
 #: users/templates/users/base.html:81
 msgid "USERS_FOOTER_TERMS"
-msgstr "Terms and Conditions"
+msgstr "Terms and Definitions"
 
 #: users/templates/users/base.html:86
-msgid "USERS_FOOTER_LICENSE"
+msgid "USERS_FOOTER_DOCUMENTS"
 msgstr "Licenses"
 
 #: users/templates/users/login.html:15

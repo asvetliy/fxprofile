@@ -841,11 +841,11 @@ msgstr "О нас"
 
 #: users/templates/users/base.html:81
 msgid "USERS_FOOTER_TERMS"
-msgstr "Пользовательское Соглашение"
+msgstr "Термины и Определения"
 
 #: users/templates/users/base.html:86
-msgid "USERS_FOOTER_LICENSE"
-msgstr "Лицензии"
+msgid "USERS_FOOTER_DOCUMENTS"
+msgstr "Документы"
 
 #: users/templates/users/login.html:15
 msgid "USERS_LOGIN_CARD_TITLE"
