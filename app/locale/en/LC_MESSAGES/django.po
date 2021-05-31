@@ -790,7 +790,7 @@ msgstr "Terms and Definitions"
 
 #: users/templates/users/base.html:86
 msgid "USERS_FOOTER_DOCUMENTS"
-msgstr "Licenses"
+msgstr "Documents"
 
 #: users/templates/users/login.html:15
 msgid "USERS_LOGIN_CARD_TITLE"

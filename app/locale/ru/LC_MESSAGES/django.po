@@ -35,7 +35,7 @@ msgstr "Номер телефона необходимо вводить в фо�
 #: fxprofile/templates/404.html:75 fxprofile/templates/500.html:75
 #: fxprofile/templates/fxprofile/base.html:128
 msgid "PROFILE_FOOTER_COMPANY_URL"
-msgstr "https://xyz.trading"
+msgstr "https://xyz.trading/ru/"
 
 #: fxprofile/templates/404.html:75 fxprofile/templates/500.html:75
 #: fxprofile/templates/fxprofile/base.html:128
