@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-04 21:54+0000\n"
+"POT-Creation-Date: 2021-06-06 22:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -288,6 +288,37 @@ msgstr "Изменить персональную информацию"
 msgid "PROFILE_PASSWORD_CHANGED_SUCCESS"
 msgstr "Пароль успешно изменен"
 
+#: mailer/templates/mailer/failed_payment.html:3
+#, python-format
+msgid ""
+"\n"
+"    <!DOCTYPE html>\n"
+"    <html lang=\"%(lang)s\">\n"
+"    <head>\n"
+"      <meta charset=\"UTF-8\">\n"
+"      <title>Received failed payment from - %(payment_system)s</title>\n"
+"    </head>\n"
+"    <body>\n"
+"    <p>Received failed payment from - %(payment_system)s.</p>\n"
+"    <p>Received data:<br>\n"
+"      <pre>\n"
+"        <code>%(received_data)s</code>\n"
+"      </pre>\n"
+"    </p>\n"
+"    </body>\n"
+"    </html>\n"
+"  "
+msgstr ""
+
+#: mailer/templates/mailer/failed_payment.txt:3
+#, python-format
+msgid ""
+"\n"
+"Received failed payment from - %(payment_system)s.\n"
+"Received data:\n"
+"%(received_data)s\n"
+msgstr ""
+
 #: mailer/templates/mailer/reg_email_confirm.html:3
 #, python-format
 msgid ""
@@ -337,6 +368,37 @@ msgstr ""
 "профиля:\n"
 "\n"
 "https://%(domain)s%(activation_url)s\n"
+
+#: mailer/templates/mailer/successful_payment.html:3
+#, python-format
+msgid ""
+"\n"
+"    <!DOCTYPE html>\n"
+"    <html lang=\"%(lang)s\">\n"
+"    <head>\n"
+"      <meta charset=\"UTF-8\">\n"
+"      <title>Received successful payment from - %(payment_system)s</title>\n"
+"    </head>\n"
+"    <body>\n"
+"    <p>Received successful payment from - %(payment_system)s.</p>\n"
+"    <p>Received data:<br>\n"
+"    <pre>\n"
+"        <code>%(received_data)s</code>\n"
+"      </pre>\n"
+"    </p>\n"
+"    </body>\n"
+"    </html>\n"
+"  "
+msgstr ""
+
+#: mailer/templates/mailer/successful_payment.txt:3
+#, python-format
+msgid ""
+"\n"
+"Received successful payment from - %(payment_system)s.\n"
+"Received data:\n"
+"%(received_data)s\n"
+msgstr ""
 
 #: mailer/templates/mailer/trading_account_created.html:2
 #, python-format
@@ -1260,25 +1322,92 @@ msgstr "Платежная система"
 #: wallet/templates/wallet/deposit.html:95
 #: wallet/templates/wallet/transfer.html:141
 msgid "WALLET_DEPOSIT_CARD_TERMS_CONDITIONS"
-msgstr "Правила и Условия"
+msgstr "Я прочитал и принимаю Политику Возврата"
 
 #: wallet/templates/wallet/deposit.html:106
 msgid "WALLET_DEPOSIT_CARD_INFO_TEXT3"
 msgstr "Согласны ли вы?"
 
+#: wallet/templates/wallet/deposit.html:108
+msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT1"
+msgstr ""
+"Политика возврата средств была разработана с целью снижения финансовых и "
+"юридических рисков Компании, соблюдения принципов Политики противодействия "
+"отмыванию денег и противодействия финансированию террористической деятельности."
+
+#: wallet/templates/wallet/deposit.html:110
+msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT2"
+msgstr ""
+"Компания имеет право в одностороннем порядке блокировать вход в личный профиль, "
+"приостанавливать торговую деятельность на счетах, отменять запросы на ввод-вывод "
+"или возврат денег, если источник денег или деятельность Клиента противоречит "
+"международным политикам в области борьбы с отмыванием денег и финансирование терроризма."
+
+#: wallet/templates/wallet/deposit.html:111
+msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT3"
+msgstr ""
+"Компания не отменяет реализованные коммерческие сделки, поэтому Компания имеет "
+"право совершить возврат средств Клиенту, если в течение месяца с момента пополнения, "
+"на счетах Клиента не была зарегистрирована торговая деятельность."
+
+#: wallet/templates/wallet/deposit.html:112
+msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT4"
+msgstr ""
+"Компания имеет право по определенным объективным причинам и в случае необходимости "
+"возвращать деньги, полученные через любую платежную систему, включая кредитные / "
+"дебетовые карты. При этом возврат денег будет осуществляться только на электронные "
+"кошельки и/или банковские реквизиты, которые Клиент использовал при вводе денег."
+
+#: wallet/templates/wallet/deposit.html:113
+msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT5"
+msgstr ""
+"В случае, если Компания классифицирует деятельность Клиента как ненадлежащую или "
+"противоречит обычной цели использования услуг компании, если существует прямое "
+"или косвенное, незаконное или несправедливое намерение, Компания имеет право "
+"действовать в соответствии с данной политикой без предварительного уведомления "
+"в адрес Клиента."
+
+#: wallet/templates/wallet/deposit.html:114
+msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT6"
+msgstr ""
+"При пополнении торгового счета банковской картой Клиент обязуется не подавать "
+"заявку на отзыв платежа в случае когда тот который уже зачислен на торговый "
+"счет в банк или иммитенту кредитной / дебетовой карты, как в срок, так и после "
+"завершения использования услуг Компании. В случае, если Компания все же получает "
+"заявку и спорном статусе соответствующей транзакции, Компания оставляет за собой "
+"право заблокировать вход в личный профиль и заморозить текущий остаток Клиента. "
+"При этом остаток средств будет отправлен на личный счет Клиента только после "
+"оплаты Клиентом всех связанных с этим издержек Компании и сопутствующих комиссий."
+
+#: wallet/templates/wallet/deposit.html:115
+msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT7"
+msgstr ""
+"Компания принимает все необходимые меры для предотвращения и блокирования счета "
+"Клиента для ввода и вывода средств со стороны третьих лиц. Ввод и вывод средств "
+"со счета может осуществляться только владельцем этой учетной записи."
+
 #: wallet/templates/wallet/deposit.html:116
+msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT8"
+msgstr ""
+"В случае информации о использовании Клиентом платежных реквизитов третьих лиц "
+"для ввода и вывода средств на персональный профиль клиента Компания оставляет "
+"за собой право блокировать вход в личный профиль или/и приостанавливать торговую "
+"деятельность на счетах Клиента без предварительного уведомления и до получения "
+"от клиента всей необходимой документации подтверждающей легальность данных действий."
+
+#: wallet/templates/wallet/deposit.html:127
 #: wallet/templates/wallet/transfer.html:153
 #: wallet/templates/wallet/withdraw.html:81
 msgid "WALLET_CARD_BTN_PREV"
 msgstr "Назад"
 
-#: wallet/templates/wallet/deposit.html:120
+#: wallet/templates/wallet/deposit.html:131
 #: wallet/templates/wallet/transfer.html:157
 #: wallet/templates/wallet/withdraw.html:85
 msgid "WALLET_CARD_BTN_NEXT"
 msgstr "Далее"
 
-#: wallet/templates/wallet/deposit.html:122
+#: wallet/templates/wallet/deposit.html:133
 #: wallet/templates/wallet/transfer.html:159
 #: wallet/templates/wallet/withdraw.html:87
 msgid "WALLET_CARD_BTN_SUBMIT"
@@ -1473,6 +1602,3 @@ msgstr "Заявка на перевод успешно создана"
 #: wallet/views.py:174
 msgid "WALLET_TRANSFER_HISTORY_PAGE_TITLE"
 msgstr "История транзакций"
-
-#~ msgid "WALLET_TRANSFER_CARD_TERMS_CONDITIONS"
-#~ msgstr "Правила и условия"

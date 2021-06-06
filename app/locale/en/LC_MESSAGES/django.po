@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-04 21:54+0000\n"
+"POT-Creation-Date: 2021-06-06 22:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -281,6 +281,37 @@ msgstr "Profile Change"
 msgid "PROFILE_PASSWORD_CHANGED_SUCCESS"
 msgstr "Password changed successfully"
 
+#: mailer/templates/mailer/failed_payment.html:3
+#, python-format
+msgid ""
+"\n"
+"    <!DOCTYPE html>\n"
+"    <html lang=\"%(lang)s\">\n"
+"    <head>\n"
+"      <meta charset=\"UTF-8\">\n"
+"      <title>Received failed payment from - %(payment_system)s</title>\n"
+"    </head>\n"
+"    <body>\n"
+"    <p>Received failed payment from - %(payment_system)s.</p>\n"
+"    <p>Received data:<br>\n"
+"      <pre>\n"
+"        <code>%(received_data)s</code>\n"
+"      </pre>\n"
+"    </p>\n"
+"    </body>\n"
+"    </html>\n"
+"  "
+msgstr ""
+
+#: mailer/templates/mailer/failed_payment.txt:3
+#, python-format
+msgid ""
+"\n"
+"Received failed payment from - %(payment_system)s.\n"
+"Received data:\n"
+"%(received_data)s\n"
+msgstr ""
+
 #: mailer/templates/mailer/reg_email_confirm.html:3
 #, python-format
 msgid ""
@@ -308,6 +339,37 @@ msgid ""
 "Please click on the link below to confirm your registration:\n"
 "\n"
 "https://%(domain)s%(activation_url)s\n"
+msgstr ""
+
+#: mailer/templates/mailer/successful_payment.html:3
+#, python-format
+msgid ""
+"\n"
+"    <!DOCTYPE html>\n"
+"    <html lang=\"%(lang)s\">\n"
+"    <head>\n"
+"      <meta charset=\"UTF-8\">\n"
+"      <title>Received successful payment from - %(payment_system)s</title>\n"
+"    </head>\n"
+"    <body>\n"
+"    <p>Received successful payment from - %(payment_system)s.</p>\n"
+"    <p>Received data:<br>\n"
+"    <pre>\n"
+"        <code>%(received_data)s</code>\n"
+"      </pre>\n"
+"    </p>\n"
+"    </body>\n"
+"    </html>\n"
+"  "
+msgstr ""
+
+#: mailer/templates/mailer/successful_payment.txt:3
+#, python-format
+msgid ""
+"\n"
+"Received successful payment from - %(payment_system)s.\n"
+"Received data:\n"
+"%(received_data)s\n"
 msgstr ""
 
 #: mailer/templates/mailer/trading_account_created.html:2
@@ -1194,25 +1256,95 @@ msgstr "Payment System"
 #: wallet/templates/wallet/deposit.html:95
 #: wallet/templates/wallet/transfer.html:141
 msgid "WALLET_DEPOSIT_CARD_TERMS_CONDITIONS"
-msgstr "Terms & Conditions"
+msgstr "I have read and accept the Refund / Return Policy"
 
 #: wallet/templates/wallet/deposit.html:106
 msgid "WALLET_DEPOSIT_CARD_INFO_TEXT3"
 msgstr "Are you agree policy?"
 
+#: wallet/templates/wallet/deposit.html:108
+msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT1"
+msgstr ""
+"The policy of funds return was developed for the purpose of reduction "
+"of financial and legal risks of the Company, observance of the principles "
+"of the Policy of counteraction of money-laundering and counteraction of "
+"financing of terrorist activity."
+
+#: wallet/templates/wallet/deposit.html:110
+msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT2"
+msgstr ""
+"The Company has the right unilaterally block an entrance to the private "
+"profile, to suspend the trade activity on accounts, to cancel the demand "
+"for input-output, or to make return of money if the source of money or "
+"activity of the Client contradicts to the international AML Policy of "
+"money laundering and financing of terrorism."
+
+#: wallet/templates/wallet/deposit.html:111
+msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT3"
+msgstr ""
+"The Company doesn't cancel the realized commercial transactions therefore "
+"the Company has the right to return money to the sender if within a month "
+"from the moment of replenishment, there was no recorded activity on "
+"accounts of the Client."
+
+#: wallet/templates/wallet/deposit.html:112
+msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT4"
+msgstr ""
+"The Company has the right at certain objective reasons and in case of need "
+"to make return of money, received through any payment system, including "
+"credit/debit cards. Thus return of money will be executed on electronic "
+"purses, and bank details which the Client used at input of money."
+
+#: wallet/templates/wallet/deposit.html:113
+msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT5"
+msgstr ""
+"In case the Company classifies activity of the Client as inappropriate, "
+"or contradicting to the usual purpose of use of company services where there "
+"is direct, or indirect, illegal, or unfair intention, the Company has the right "
+"to work within this document, without informing the Client beforehand."
+
+#: wallet/templates/wallet/deposit.html:114
+msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT6"
+msgstr ""
+"At replenishment of the trading account by cash card, the Client undertakes "
+"not to submit the application for response of the payment which is already "
+"enlisted into the trading account to the bank, or to supplier of the "
+"credit/debit cash card, both in time, and after completion of use of Company's "
+"services. In case the Company nevertheless receives a payment comment according "
+"to the transaction, we reserve the right to block an entrance to the Private "
+"Profile and to freeze the current balance of the Client and to send money back "
+"on personal account of the Client, after payment of all services and commissions."
+
+#: wallet/templates/wallet/deposit.html:115
+msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT7"
+msgstr ""
+"The Company shall take all necessary measures to prevent and block both input, "
+"and withdrawal by third parties of money from the customer account. Input and "
+"output of money from the account can be carried out only by the owner of this account."
+
 #: wallet/templates/wallet/deposit.html:116
+msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT8"
+msgstr ""
+"In the case of information on the use by the Client of payment details of third "
+"parties for depositing and withdrawing funds to the accounts of the Client, the "
+"Company reserves the right to block the entry into a personal profile or / and "
+"suspend trading activity on the Client's accounts without prior notice and until "
+"the receipt of all necessary documentation from the Client confirming the "
+"legality of these actions."
+
+#: wallet/templates/wallet/deposit.html:127
 #: wallet/templates/wallet/transfer.html:153
 #: wallet/templates/wallet/withdraw.html:81
 msgid "WALLET_CARD_BTN_PREV"
 msgstr "Previous"
 
-#: wallet/templates/wallet/deposit.html:120
+#: wallet/templates/wallet/deposit.html:131
 #: wallet/templates/wallet/transfer.html:157
 #: wallet/templates/wallet/withdraw.html:85
 msgid "WALLET_CARD_BTN_NEXT"
 msgstr "Next"
 
-#: wallet/templates/wallet/deposit.html:122
+#: wallet/templates/wallet/deposit.html:133
 #: wallet/templates/wallet/transfer.html:159
 #: wallet/templates/wallet/withdraw.html:87
 msgid "WALLET_CARD_BTN_SUBMIT"
@@ -1405,6 +1537,3 @@ msgstr "Transfer request successfully created"
 #: wallet/views.py:174
 msgid "WALLET_TRANSFER_HISTORY_PAGE_TITLE"
 msgstr "Transactions History"
-
-#~ msgid "WALLET_TRANSFER_CARD_TERMS_CONDITIONS"
-#~ msgstr "Terms & Conditions"

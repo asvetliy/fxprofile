@@ -104,8 +104,19 @@
                 <div class="row justify-content-center">
                   <div class="col-sm-12">
                     <h5 class="info-text">{% trans 'WALLET_DEPOSIT_CARD_INFO_TEXT3' %}</h5>
+                    <div class="agreement-text" style="position: relative; height: 340px;">
+                      <p>{% trans 'WALLET_DEPOSIT_CARD_POLICY_TEXT1' %}</p>
+                      <ul>
+                        <li>{% trans 'WALLET_DEPOSIT_CARD_POLICY_TEXT2' %}</li>
+                        <li>{% trans 'WALLET_DEPOSIT_CARD_POLICY_TEXT3' %}</li>
+                        <li>{% trans 'WALLET_DEPOSIT_CARD_POLICY_TEXT4' %}</li>
+                        <li>{% trans 'WALLET_DEPOSIT_CARD_POLICY_TEXT5' %}</li>
+                        <li>{% trans 'WALLET_DEPOSIT_CARD_POLICY_TEXT6' %}</li>
+                        <li>{% trans 'WALLET_DEPOSIT_CARD_POLICY_TEXT7' %}</li>
+                        <li>{% trans 'WALLET_DEPOSIT_CARD_POLICY_TEXT8' %}</li>
+                      </ul>
+                    </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -136,6 +147,7 @@
   <script>
     $(document).ready(function () {
       wizard.initMaterialDepositWizard();
+      $('.agreement-text').perfectScrollbar();
     });
   </script>
 {% endblock %}
