@@ -7,7 +7,7 @@ def create_currencies(apps, schema_editor):
     Currency = apps.get_model('currency', 'Currency')
     Currency.objects.create(
         iso='RUB', symbol='₽', name='Russian ruble',
-        digest=2, is_default=False, is_base=False, is_enabled=True
+        digest=2, is_default=False, is_base=False, is_enabled=False
     )
 
 
