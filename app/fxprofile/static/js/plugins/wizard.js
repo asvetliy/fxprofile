@@ -27,8 +27,10 @@ wizard = {
       highlight: function (element) {
         $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
       },
-      success: function (element) {
+      success: function (label, element) {
         $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+        label.parent().removeClass('error');
+        label.remove();
       },
       errorPlacement: function (error, element) {
         $(element).closest('.form-group').append(error);
@@ -241,8 +243,10 @@ wizard = {
       highlight: function (element) {
         $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
       },
-      success: function (element) {
+      success: function (label, element) {
         $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+        label.parent().removeClass('error');
+        label.remove();
       },
       errorPlacement: function (error, element) {
         $(element).closest('.form-group').append(error);
@@ -322,7 +326,6 @@ wizard = {
       }
     });
 
-
     // Prepare the preview for profile picture
     $("#wizard-picture").change(function () {
       readURL(this);
@@ -350,8 +353,16 @@ wizard = {
       $(this).attr('disabled', true);
       let ps = $('#payment_system').val();
       if (ps) {
-        $('form').attr('action', '/payments/' + ps + '/init');
-        $('form').submit();
+        let lang = $('html').attr('lang');
+        let url = '';
+        let $f = $('form');
+        if (lang !== 'en') {
+          url = '/' + lang + '/payments/' + ps + '/init';
+        } else {
+          url = '/payments/' + ps + '/init';
+        }
+        $f.attr('action', url);
+        $f.submit();
       } else {
         $(this).attr('disabled', false);
       }
@@ -446,8 +457,10 @@ wizard = {
       highlight: function (element) {
         $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
       },
-      success: function (element) {
+      success: function (label, element) {
         $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+        label.parent().removeClass('error');
+        label.remove();
       },
       errorPlacement: function (error, element) {
         $(element).closest('.form-group').append(error);

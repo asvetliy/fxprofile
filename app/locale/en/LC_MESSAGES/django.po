@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-27 16:55+0000\n"
+"POT-Creation-Date: 2021-06-04 21:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app/settings/base.py:133
+#: app/settings/base.py:142
 msgid "English"
 msgstr "English"
 
-#: app/settings/base.py:134
+#: app/settings/base.py:143
 msgid "Russian"
 msgstr "Russian"
 
@@ -581,6 +581,30 @@ msgstr ""
 #: pamm_kafka/models.py:33
 msgid "Kafka Offsets"
 msgstr ""
+
+#: payment/templates/payment/paythrone.html:8
+msgid "PAYMENT_THANK_PAGE_TITLE"
+msgstr "Thank you!"
+
+#: payment/templates/payment/paythrone.html:9
+msgid "PAYMENT_THANK_PAGE_TITLE_DESCRIPTION"
+msgstr "Waiting for payment"
+
+#: payment/templates/payment/paythrone.html:17
+msgid "PAYMENT_THANK_PAGE_INFO_ALERT_TITLE"
+msgstr "ALERT INFO:"
+
+#: payment/templates/payment/paythrone.html:17
+msgid "PAYMENT_THANK_PAGE_INFO_ALERT_TEXT"
+msgstr "Please proceed with the payment on the payment system page..."
+
+#: payment/templates/payment/paythrone.html:23
+msgid "PAYMENT_THANK_PAGE_INFO_TEXT1"
+msgstr "Redirecting..."
+
+#: payment/templates/payment/paythrone.html:27
+msgid "PAYMENT_THANK_PAGE_BUTTON_TEXT"
+msgstr "Payment History"
 
 #: questions/templates/questions/create-ticket.html:21
 msgid "QUESTION_CREATE_FORM_TEXTAREA_TITLE"

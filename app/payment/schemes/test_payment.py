@@ -1,24 +1,20 @@
 from django.shortcuts import render
+
 from .base import BaseScheme
 
 
 class TestPayment(BaseScheme):
-    def init_payment(self, request):
-        super(TestPayment, self).init_payment(request)
+    def init_payment(self, request, context=None):
         context = {
             'amount': self.amount,
             'transaction_id': self.transaction_id
         }
-        return render(request, 'payment/test_payment.html', context=context)
+        return super(TestPayment, self).init_payment(request, context)
 
     def process_payment(self, request, params=None):
-        amount = request.POST['amount']
-        transaction_id = request.POST['transaction_id']
-        status = request.POST['status']
+        self.amount = request.POST['amount']
+        self.transaction_id = request.POST['transaction_id']
+        self.status = request.POST['status']
 
-        params = {
-            'amount': amount,
-            'transaction_id': transaction_id,
-            'status': status
-        }
-        return super(TestPayment, self).process_payment(request, params)
+        params = {}
+        return super(TestPayment, self).process_payment(request, params=params)

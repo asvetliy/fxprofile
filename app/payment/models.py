@@ -1,6 +1,5 @@
-import json
-
 from django.db import models
+from django.conf import settings
 
 
 class PaymentSystem(models.Model):
@@ -9,21 +8,16 @@ class PaymentSystem(models.Model):
     cls = models.CharField(max_length=32, blank=False)
     is_enabled = models.BooleanField(blank=False, default=False)
     withdraw = models.BooleanField(blank=False, default=False)
-    _config = models.TextField(
+    fee = models.IntegerField(blank=False, default=0)
+    position = models.IntegerField(blank=False, default=0)
+    payment_currency = models.ForeignKey(settings.CURRENCY_MODEL, models.CASCADE, blank=False, null=True)
+    config = models.JSONField(
         db_column='config',
         verbose_name='config',
         name='config',
-        blank=True,
-        default=None
+        blank=False,
+        default=dict
     )
 
-    def _get_config(self):
-        return json.loads(self._config)
-
-    def _set_config(self, value):
-        self._config = json.dumps(value)
-
-    config = property(_get_config, _set_config)
-
     class Meta:
-        db_table = "payment_systems"
+        db_table = 'payment_systems'

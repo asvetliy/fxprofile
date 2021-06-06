@@ -1,0 +1,63 @@
+{% extends 'fxprofile/base.html' %}
+{% load static i18n %}
+{% block content %}
+  <div class="col-md-8 col-12 mr-auto ml-auto">
+    <div class="wizard-container">
+      <div class="card card-wizard active" data-color="orange" id="wizard_deposit">
+        <div class="card-header text-center">
+          <h3 class="card-title">{% trans 'PAYMENT_THANK_PAGE_TITLE' %}</h3>
+          <h5 class="card-description">{% trans 'PAYMENT_THANK_PAGE_TITLE_DESCRIPTION' %}</h5>
+        </div>
+        <div class="section cd-section section-notifications" id="notifications">
+          <div class="alert alert-info">
+            <div class="container">
+              <div class="alert-icon">
+                <i class="material-icons">info_outline</i>
+              </div>
+              <b>{% trans 'PAYMENT_THANK_PAGE_INFO_ALERT_TITLE' %}</b> {% trans 'PAYMENT_THANK_PAGE_INFO_ALERT_TEXT' %}
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="card-body">
+          <h5 class="info-text">{% trans 'PAYMENT_THANK_PAGE_INFO_TEXT1' %}</h5>
+        </div>
+        <div class="card-footer">
+          <div class="ml-auto">
+            <a class="btn btn-finish btn-fill btn-rose btn-wd d-block" href="{% url 'wallet-history' %}">{% trans 'PAYMENT_THANK_PAGE_BUTTON_TEXT' %}</a>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+{% block head %}
+  <script async src="https://checkout.paythrone.com/v1/checkout.js" class="js-checkout-widget" data-config-create-button="false"></script>
+{% endblock %}
+{% block scripts %}
+  <script type="text/javascript">
+    $(document).ready(function () {
+      Pay.Api.Checkout.on('success', function () {
+        window.location.href = '{% url 'wallet-history' %}';
+      });
+      Pay.Api.Checkout.on('fail', function () {
+        window.location.href = '{% url 'wallet-deposit' %}';
+      });
+      Pay.Api.Checkout.on('close', function () {
+        window.location.href = '{% url 'wallet-deposit' %}';
+      });
+      Pay.Api.Checkout.open({
+        'price': '{{ amount }}',
+        'project': '{{ project }}',
+        'currency': '{{ currency }}',
+        'user': '{{ user_id }}',
+        'display_name': '{{ user_name }}',
+        'email': '{{ user_email }}',
+        'order_id': '{{ transaction_id }}',
+        'description': '{{ description }}',
+        'signature': '{{ signature }}'
+      });
+    });
+  </script>
+{% endblock %}

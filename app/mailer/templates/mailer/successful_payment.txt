@@ -1,0 +1,8 @@
+{% autoescape off %}
+{% load i18n %}
+{% blocktrans %}
+Received successful payment from - {{ payment_system }}.
+Received data:
+{{ received_data }}
+{% endblocktrans %}
+{% endautoescape %}

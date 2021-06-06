@@ -16,7 +16,7 @@ PaymentSystem = apps.get_model('payment', 'PaymentSystem')
 class WalletDepositView(View, LoginRequiredMixin):
     def get(self, request):
         wallets = Wallet.objects.filter(user=request.user)
-        payment_systems = PaymentSystem.objects.filter(is_enabled=True)
+        payment_systems = PaymentSystem.objects.filter(is_enabled=True).order_by('position')
         context = {
             'nav_funds_deposit': 'active',
             'nav_funds_collapsed': 'show',

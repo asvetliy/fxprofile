@@ -1,3 +1,4 @@
-from django.db import models
+from django.apps import apps
 
-# Create your models here.
+
+Prices = apps.get_model('mt4', 'Prices')

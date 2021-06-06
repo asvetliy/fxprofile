@@ -20,3 +20,17 @@ class Mailer(object):
     @classmethod
     def send_admin(cls, from_, to_):
         pass
+
+    @classmethod
+    def send_managers(cls, action: str, subject: str = '', params: dict = None):
+        mail_message_html = render_to_string(f'mailer/{action}.html', params)
+        mail_message_txt = render_to_string(f'mailer/{action}.txt', params)
+        send_mail(
+            subject=subject,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=settings.MANAGERS,
+            message=mail_message_txt,
+            html_message=mail_message_html,
+            fail_silently=False
+        )
+

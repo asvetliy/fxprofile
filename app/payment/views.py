@@ -19,8 +19,13 @@ class PaymentURLDispatcher(View):
             return page_not_found(request, None)
         if payment_system and payment_system.is_enabled:
             scheme_class = self._get_scheme_class(payment_system.cls)
-            p = scheme_class()
+            p = scheme_class(payment_system)
             if action == 'init':
+                wallet_id = request.POST.get('account', None)
+                amount = float(request.POST.get('amount', None))
+                if wallet_id:
+                    p.set_wallet(wallet_id)
+                p.amount = amount
                 return p.init_payment(request)
             if action == 'process':
                 return p.process_payment(request)
@@ -35,7 +40,7 @@ class PaymentURLDispatcher(View):
             scheme_class = self._get_scheme_class(payment_system.cls)
             if scheme_class is None:
                 return page_not_found(request, None)
-            p = scheme_class()
+            p = scheme_class(payment_system)
             if action == 'success':
                 return p.success_payment(request)
             if action == 'fail':

@@ -1,0 +1,20 @@
+{% load i18n %}
+{% autoescape off %}
+  {% blocktrans %}
+    <!DOCTYPE html>
+    <html lang="{{ lang }}">
+    <head>
+      <meta charset="UTF-8">
+      <title>Received failed payment from - {{ payment_system }}</title>
+    </head>
+    <body>
+    <p>Received failed payment from - {{ payment_system }}.</p>
+    <p>Received data:<br>
+      <pre>
+        <code>{{ received_data }}</code>
+      </pre>
+    </p>
+    </body>
+    </html>
+  {% endblocktrans %}
+{% endautoescape %}
