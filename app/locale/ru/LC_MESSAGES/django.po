@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 15:25+0000\n"
+"POT-Creation-Date: 2021-06-07 16:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: app/settings/base.py:142
+#: app/settings/base.py:143
 msgid "English"
 msgstr "English"
 
-#: app/settings/base.py:143
+#: app/settings/base.py:144
 msgid "Russian"
 msgstr "Russian"
 
@@ -700,29 +700,38 @@ msgstr ""
 msgid "Kafka Offsets"
 msgstr ""
 
+#: payment/templates/payment/p2pay.html:8
 #: payment/templates/payment/thank_page.html:8
 msgid "PAYMENT_THANK_PAGE_TITLE"
 msgstr "Спасибо!"
 
+#: payment/templates/payment/p2pay.html:9
 #: payment/templates/payment/thank_page.html:9
 msgid "PAYMENT_THANK_PAGE_TITLE_DESCRIPTION"
 msgstr "Ожидание платежа"
 
+#: payment/templates/payment/p2pay.html:17
 #: payment/templates/payment/thank_page.html:17
 msgid "PAYMENT_THANK_PAGE_INFO_ALERT_TITLE"
 msgstr "ИНФОРМАЦИЯ:"
 
+#: payment/templates/payment/p2pay.html:17
 #: payment/templates/payment/thank_page.html:17
 msgid "PAYMENT_THANK_PAGE_INFO_ALERT_TEXT"
 msgstr "Продолжайте оплату на странице платежной системы..."
 
-#: payment/templates/payment/thank_page.html:23
-msgid "PAYMENT_THANK_PAGE_INFO_TEXT1"
-msgstr "Перенаправление..."
+#: payment/templates/payment/p2pay.html:23
+msgid "PAYMENT_THANK_PAGE_INFO_WAITFOR_PAYMENT"
+msgstr "Пожалуйста, ожидайте обработки..."
 
+#: payment/templates/payment/p2pay.html:27
 #: payment/templates/payment/thank_page.html:28
 msgid "PAYMENT_THANK_PAGE_BUTTON_TEXT"
 msgstr "Платежная История"
+
+#: payment/templates/payment/thank_page.html:23
+msgid "PAYMENT_THANK_PAGE_INFO_TEXT1"
+msgstr "Перенаправление..."
 
 #: questions/templates/questions/create-ticket.html:21
 msgid "QUESTION_CREATE_FORM_TEXTAREA_TITLE"

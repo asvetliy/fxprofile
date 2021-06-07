@@ -9,6 +9,7 @@ from .models import PaymentSystem
 class PaymentSystemAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'code', 'cls', 'is_enabled', 'withdraw', 'config', )
     list_per_page = 20
+    readonly_fields = ('cls', 'code', )
     formfield_overrides = {
         JSONField: {'widget': JSONEditorWidget(width='100%', height='300px')},
     }
