@@ -78,6 +78,9 @@ class BaseScheme(object):
     def success_payment(self, request):
         return render(request, 'payment/success_payment.html')
 
+    def fail_payment(self, request):
+        return render(request, 'payment/fail_payment.html')
+
     def process_payment(self, request, params: dict = None):
         if self.transaction is None:
             if self.transaction_id is not None:

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 16:52+0000\n"
+"POT-Creation-Date: 2021-06-07 17:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -700,6 +700,33 @@ msgstr ""
 msgid "Kafka Offsets"
 msgstr ""
 
+#: payment/templates/payment/fail_payment.html:8
+msgid "PAYMENT_FAIL_PAGE_TITLE"
+msgstr "Оплата не прошла!"
+
+#: payment/templates/payment/fail_payment.html:9
+msgid "PAYMENT_FAIL_PAGE_TITLE_DESCRIPTION"
+msgstr "Ваш платежный запрос не выполнен"
+
+#: payment/templates/payment/fail_payment.html:17
+msgid "PAYMENT_FAIL_PAGE_INFO_ALERT_TITLE"
+msgstr "ИНФОРМАЦИЯ:"
+
+#: payment/templates/payment/fail_payment.html:17
+msgid "PAYMENT_FAIL_PAGE_INFO_ALERT_TEXT"
+msgstr "Пожалуйста, устраните проблемы с оплатой и повторите попытку позже..."
+
+#: payment/templates/payment/fail_payment.html:23
+msgid "PAYMENT_FAIL_PAGE_INFO_TEXT1"
+msgstr "Неудачный платеж..."
+
+#: payment/templates/payment/fail_payment.html:28
+#: payment/templates/payment/p2pay.html:27
+#: payment/templates/payment/success_payment.html:28
+#: payment/templates/payment/thank_page.html:28
+msgid "PAYMENT_THANK_PAGE_BUTTON_TEXT"
+msgstr "Платежная История"
+
 #: payment/templates/payment/p2pay.html:8
 #: payment/templates/payment/thank_page.html:8
 msgid "PAYMENT_THANK_PAGE_TITLE"
@@ -724,10 +751,25 @@ msgstr "Продолжайте оплату на странице платежн
 msgid "PAYMENT_THANK_PAGE_INFO_WAITFOR_PAYMENT"
 msgstr "Пожалуйста, ожидайте обработки..."
 
-#: payment/templates/payment/p2pay.html:27
-#: payment/templates/payment/thank_page.html:28
-msgid "PAYMENT_THANK_PAGE_BUTTON_TEXT"
-msgstr "Платежная История"
+#: payment/templates/payment/success_payment.html:8
+msgid "PAYMENT_SUCCESS_PAGE_TITLE"
+msgstr "Спасибо!"
+
+#: payment/templates/payment/success_payment.html:9
+msgid "PAYMENT_SUCCESS_PAGE_TITLE_DESCRIPTION"
+msgstr "Успешный платеж"
+
+#: payment/templates/payment/success_payment.html:17
+msgid "PAYMENT_SUCCESS_PAGE_INFO_ALERT_TITLE"
+msgstr "ИНФОРМАЦИЯ:"
+
+#: payment/templates/payment/success_payment.html:17
+msgid "PAYMENT_SUCCESS_PAGE_INFO_ALERT_TEXT"
+msgstr "Пожалуйста, проверьте свой баланс в личном кабинете ..."
+
+#: payment/templates/payment/success_payment.html:23
+msgid "PAYMENT_SUCCESS_PAGE_INFO_TEXT1"
+msgstr "Успешный платеж..."
 
 #: payment/templates/payment/thank_page.html:23
 msgid "PAYMENT_THANK_PAGE_INFO_TEXT1"
