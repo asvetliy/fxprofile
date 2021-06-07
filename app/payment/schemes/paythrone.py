@@ -11,6 +11,8 @@ from ..constants import PaymentStatus
 
 
 class PaythronePayment(BaseScheme):
+    NAME = 'Paythrone'
+
     def init_payment(self, request):
         super(PaythronePayment, self).init_payment(request)
         description = 'Account replenishment'
@@ -50,15 +52,15 @@ class PaythronePayment(BaseScheme):
             received_data = self.get_json_post_data(request)
             if request.POST['status'] == 'completed':
                 params = {'response': 'OK'}
-                Mailer.send_managers('successful_payment', 'Received successful payment from - Paythrone', {
+                Mailer.send_managers('successful_payment', f'Received successful payment from - {self.NAME}', {
                     'received_data': received_data,
-                    'payment_system': 'Paythrone',
+                    'payment_system': self.NAME,
                 })
                 return super(PaythronePayment, self).process_payment(request, params)
             elif request.POST['status'] == 'failed':
-                Mailer.send_managers('failed_payment', 'Received failed payment from - Paythrone', {
+                Mailer.send_managers('failed_payment', f'Received failed payment from - {self.NAME}', {
                     'received_data': received_data,
-                    'payment_system': 'Paythrone',
+                    'payment_system': self.NAME,
                 })
                 return HttpResponse('OK')
         return HttpResponse('ERROR')

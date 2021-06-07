@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-06 22:51+0000\n"
+"POT-Creation-Date: 2021-06-07 15:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -644,27 +644,27 @@ msgstr ""
 msgid "Kafka Offsets"
 msgstr ""
 
-#: payment/templates/payment/paythrone.html:8
+#: payment/templates/payment/thank_page.html:8
 msgid "PAYMENT_THANK_PAGE_TITLE"
 msgstr "Thank you!"
 
-#: payment/templates/payment/paythrone.html:9
+#: payment/templates/payment/thank_page.html:9
 msgid "PAYMENT_THANK_PAGE_TITLE_DESCRIPTION"
 msgstr "Waiting for payment"
 
-#: payment/templates/payment/paythrone.html:17
+#: payment/templates/payment/thank_page.html:17
 msgid "PAYMENT_THANK_PAGE_INFO_ALERT_TITLE"
 msgstr "ALERT INFO:"
 
-#: payment/templates/payment/paythrone.html:17
+#: payment/templates/payment/thank_page.html:17
 msgid "PAYMENT_THANK_PAGE_INFO_ALERT_TEXT"
 msgstr "Please proceed with the payment on the payment system page..."
 
-#: payment/templates/payment/paythrone.html:23
+#: payment/templates/payment/thank_page.html:23
 msgid "PAYMENT_THANK_PAGE_INFO_TEXT1"
 msgstr "Redirecting..."
 
-#: payment/templates/payment/paythrone.html:27
+#: payment/templates/payment/thank_page.html:28
 msgid "PAYMENT_THANK_PAGE_BUTTON_TEXT"
 msgstr "Payment History"
 
@@ -1265,27 +1265,27 @@ msgstr "Are you agree policy?"
 #: wallet/templates/wallet/deposit.html:108
 msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT1"
 msgstr ""
-"The policy of funds return was developed for the purpose of reduction "
-"of financial and legal risks of the Company, observance of the principles "
-"of the Policy of counteraction of money-laundering and counteraction of "
+"The policy of funds return was developed for the purpose of reduction of "
+"financial and legal risks of the Company, observance of the principles of "
+"the Policy of counteraction of money-laundering and counteraction of "
 "financing of terrorist activity."
 
 #: wallet/templates/wallet/deposit.html:110
 msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT2"
 msgstr ""
 "The Company has the right unilaterally block an entrance to the private "
-"profile, to suspend the trade activity on accounts, to cancel the demand "
-"for input-output, or to make return of money if the source of money or "
-"activity of the Client contradicts to the international AML Policy of "
-"money laundering and financing of terrorism."
+"profile, to suspend the trade activity on accounts, to cancel the demand for "
+"input-output, or to make return of money if the source of money or activity "
+"of the Client contradicts to the international AML Policy of money "
+"laundering and financing of terrorism."
 
 #: wallet/templates/wallet/deposit.html:111
 msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT3"
 msgstr ""
 "The Company doesn't cancel the realized commercial transactions therefore "
 "the Company has the right to return money to the sender if within a month "
-"from the moment of replenishment, there was no recorded activity on "
-"accounts of the Client."
+"from the moment of replenishment, there was no recorded activity on accounts "
+"of the Client."
 
 #: wallet/templates/wallet/deposit.html:112
 msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT4"
@@ -1298,9 +1298,9 @@ msgstr ""
 #: wallet/templates/wallet/deposit.html:113
 msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT5"
 msgstr ""
-"In case the Company classifies activity of the Client as inappropriate, "
-"or contradicting to the usual purpose of use of company services where there "
-"is direct, or indirect, illegal, or unfair intention, the Company has the right "
+"In case the Company classifies activity of the Client as inappropriate, or "
+"contradicting to the usual purpose of use of company services where there is "
+"direct, or indirect, illegal, or unfair intention, the Company has the right "
 "to work within this document, without informing the Client beforehand."
 
 #: wallet/templates/wallet/deposit.html:114
@@ -1308,29 +1308,31 @@ msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT6"
 msgstr ""
 "At replenishment of the trading account by cash card, the Client undertakes "
 "not to submit the application for response of the payment which is already "
-"enlisted into the trading account to the bank, or to supplier of the "
-"credit/debit cash card, both in time, and after completion of use of Company's "
-"services. In case the Company nevertheless receives a payment comment according "
-"to the transaction, we reserve the right to block an entrance to the Private "
-"Profile and to freeze the current balance of the Client and to send money back "
-"on personal account of the Client, after payment of all services and commissions."
+"enlisted into the trading account to the bank, or to supplier of the credit/"
+"debit cash card, both in time, and after completion of use of Company's "
+"services. In case the Company nevertheless receives a payment comment "
+"according to the transaction, we reserve the right to block an entrance to "
+"the Private Profile and to freeze the current balance of the Client and to "
+"send money back on personal account of the Client, after payment of all "
+"services and commissions."
 
 #: wallet/templates/wallet/deposit.html:115
 msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT7"
 msgstr ""
-"The Company shall take all necessary measures to prevent and block both input, "
-"and withdrawal by third parties of money from the customer account. Input and "
-"output of money from the account can be carried out only by the owner of this account."
+"The Company shall take all necessary measures to prevent and block both "
+"input, and withdrawal by third parties of money from the customer account. "
+"Input and output of money from the account can be carried out only by the "
+"owner of this account."
 
 #: wallet/templates/wallet/deposit.html:116
 msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT8"
 msgstr ""
-"In the case of information on the use by the Client of payment details of third "
-"parties for depositing and withdrawing funds to the accounts of the Client, the "
-"Company reserves the right to block the entry into a personal profile or / and "
-"suspend trading activity on the Client's accounts without prior notice and until "
-"the receipt of all necessary documentation from the Client confirming the "
-"legality of these actions."
+"In the case of information on the use by the Client of payment details of "
+"third parties for depositing and withdrawing funds to the accounts of the "
+"Client, the Company reserves the right to block the entry into a personal "
+"profile or / and suspend trading activity on the Client's accounts without "
+"prior notice and until the receipt of all necessary documentation from the "
+"Client confirming the legality of these actions."
 
 #: wallet/templates/wallet/deposit.html:127
 #: wallet/templates/wallet/transfer.html:153
