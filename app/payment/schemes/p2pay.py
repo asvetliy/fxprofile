@@ -24,7 +24,7 @@ class P2PayPayment(BaseScheme):
             'amount': self.converted_amount_str,
             'order_currency': self.from_currency,
             'order_amount': self.str_amount,
-        })
+        }, indent=2)
         Mailer.send_managers('successful_payment', f'Received initial payment from - {self.NAME}', {
             'received_data': received_data,
             'payment_system': {self.NAME},
