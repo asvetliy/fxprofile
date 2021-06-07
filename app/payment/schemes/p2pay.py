@@ -27,7 +27,7 @@ class P2PayPayment(BaseScheme):
         }, indent=2)
         Mailer.send_managers('successful_payment', f'Received initial payment from - {self.NAME}', {
             'received_data': received_data,
-            'payment_system': {self.NAME},
+            'payment_system': self.NAME,
         })
         return render(request, f'payment/{self.system.code}.html', context={})
 
