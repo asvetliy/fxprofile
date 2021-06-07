@@ -8,7 +8,7 @@ def create_p2pay_payment(apps, schema_editor):
         name='P2Pay',
         is_enabled=True,
         code='p2pay',
-        config=dict,
+        config={},
         payment_currency=Currency.objects.get(iso='RUB'),
         fee=5,
         position=3,
