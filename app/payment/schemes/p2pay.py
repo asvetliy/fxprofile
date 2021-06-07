@@ -8,11 +8,11 @@ from mailer import Mailer
 from .base import BaseScheme
 
 
-class FreekassaPayment(BaseScheme):
+class P2PayPayment(BaseScheme):
     NAME = 'P2Pay'
 
     def init_payment(self, request):
-        super(FreekassaPayment, self).init_payment(request)
+        super(P2PayPayment, self).init_payment(request)
         received_data = json.dumps({
             'user': {
                 'username': request.user.username,
