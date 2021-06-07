@@ -15,7 +15,8 @@ class PaymentSystem(models.Model):
         db_column='config',
         verbose_name='config',
         name='config',
-        blank=False,
+        blank=True,
+        null=True,
         default=dict
     )
 
