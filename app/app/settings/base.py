@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'json_logging.apps.JsonLoggingConfig',
     'pamm_kafka.apps.PammKafkaConfig',
     'api.apps.ApiConfig',
+    'django_json_widget',
 ]
 
 MIDDLEWARE = [
