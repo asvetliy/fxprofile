@@ -41,11 +41,17 @@ class UserAdmin(BaseUserAdmin):
 class CardInline(admin.TabularInline):
     model = Card
 
+    def has_view_permission(self, request, obj=None):
+        return True
+
 
 class VerificationInline(admin.TabularInline):
     model = Verification
     fields = ('boolean_declaration', 'boolean_identification', 'boolean_invoice', )
     readonly_fields = ('boolean_declaration', 'boolean_identification', 'boolean_invoice', )
+
+    def has_view_permission(self, request, obj=None):
+        return True
 
     def boolean_declaration(self, obj: Verification):
         return bool(obj.declaration)
@@ -73,11 +79,17 @@ class VerificationRequestInline(admin.TabularInline):
     model = VerificationRequest
     exclude = ('file', )
 
+    def has_view_permission(self, request, obj=None):
+        return True
+
 
 class WalletInline(admin.TabularInline):
     model = Wallet
     fields = ('currency', 'wallet_balance', )
     readonly_fields = ('wallet_balance', )
+
+    def has_view_permission(self, request, obj=None):
+        return True
 
     def wallet_balance(self, obj: Wallet):
         return obj.get_balance()
@@ -91,6 +103,9 @@ class TransactionInline(admin.TabularInline):
 
     fields = ('wallet', 'type', 'transaction_amount', 'from_to_wallet', 'status', 'description', )
     readonly_fields = ('transaction_amount', )
+
+    def has_view_permission(self, request, obj=None):
+        return True
 
     def transaction_amount(self, obj: Transaction):
         return obj.transaction_amount
