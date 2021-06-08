@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 from django.urls import reverse
 
-from .models import UserAccounts, Accounts
+from .models import UserAccounts, Accounts, Prices
 
 
 @admin.register(UserAccounts)
@@ -25,4 +25,20 @@ class AccountsAdmin(admin.ModelAdmin):
     list_display = ('LOGIN', 'GROUP', 'BALANCE', 'EQUITY', 'MARGIN', )
     search_fields = ('LOGIN', )
     list_per_page = 20
+
+
+@admin.register(Prices)
+class PricesAdmin(admin.ModelAdmin):
+    list_display = ('SYMBOL', 'BID', 'ASK', 'LOW', 'HIGH', 'MODIFY_TIME', )
+    search_fields = ('SYMBOL', )
+    list_per_page = 20
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
 
