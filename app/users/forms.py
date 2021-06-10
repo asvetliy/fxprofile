@@ -57,7 +57,7 @@ class UserRegistrationForm(UserCreationForm):
     )
     birth_date = forms.DateField(
         required=True,
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
     )
 
     class Meta:
