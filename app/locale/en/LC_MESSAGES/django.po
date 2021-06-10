@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-10 14:18+0000\n"
+"POT-Creation-Date: 2021-06-10 19:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,17 +33,17 @@ msgstr ""
 "allowed."
 
 #: fxprofile/templates/404.html:75 fxprofile/templates/500.html:75
-#: fxprofile/templates/fxprofile/base.html:128
+#: fxprofile/templates/fxprofile/base.html:126
 msgid "PROFILE_FOOTER_COMPANY_URL"
 msgstr "https://xyz.trading"
 
 #: fxprofile/templates/404.html:75 fxprofile/templates/500.html:75
-#: fxprofile/templates/fxprofile/base.html:128
+#: fxprofile/templates/fxprofile/base.html:126
 msgid "PROFILE_FOOTER_COMPANY_TEXT"
 msgstr "XYZ TRADING"
 
 #: fxprofile/templates/404.html:90 fxprofile/templates/500.html:90
-#: fxprofile/templates/fxprofile/base.html:133
+#: fxprofile/templates/fxprofile/base.html:131
 #: users/templates/users/base.html:92
 msgid ""
 "\n"
@@ -55,15 +55,15 @@ msgid ""
 "          "
 msgstr ""
 
-#: fxprofile/templates/fxprofile/base.html:94
+#: fxprofile/templates/fxprofile/base.html:92
 msgid "PROFILE_USERMENU_EDIT_PROFILE"
 msgstr "Edit Profile"
 
-#: fxprofile/templates/fxprofile/base.html:96
+#: fxprofile/templates/fxprofile/base.html:94
 msgid "PROFILE_USERMENU_CHANGE_PWD"
 msgstr "Change Password"
 
-#: fxprofile/templates/fxprofile/base.html:98
+#: fxprofile/templates/fxprofile/base.html:96
 msgid "PROFILE_USERMENU_LOGOUT"
 msgstr "Logout"
 
@@ -281,6 +281,49 @@ msgstr "Profile Change"
 msgid "PROFILE_PASSWORD_CHANGED_SUCCESS"
 msgstr "Password changed successfully"
 
+#: mailer/templates/mailer/base/base_email.html:49
+msgid "Email notification from xyz.trading"
+msgstr ""
+
+#: mailer/templates/mailer/base/base_email.html:63
+msgid "View in browser"
+msgstr ""
+
+#: mailer/templates/mailer/base/base_email.html:80
+msgid "XYZ Trading"
+msgstr ""
+
+#: mailer/templates/mailer/base/base_email.html:94
+msgid "Open Demo"
+msgstr ""
+
+#: mailer/templates/mailer/base/base_email.html:109
+msgid "Start trading"
+msgstr ""
+
+#: mailer/templates/mailer/base/base_email.html:135
+msgid "XYZ Trading mail banner"
+msgstr ""
+
+#: mailer/templates/mailer/base/base_email.html:193
+#: users/templates/users/password_reset_email.html:11
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: mailer/templates/mailer/base/base_email.html:193
+msgid "The xyz.trading team"
+msgstr ""
+
+#: mailer/templates/mailer/base/base_email.html:216
+msgid "Email: support@xyz.trading"
+msgstr ""
+
+#: mailer/templates/mailer/base/base_email.html:243
+msgid ""
+"We are a team with years of experience in providing quality and reliable "
+"trading and investment solutions."
+msgstr ""
+
 #: mailer/templates/mailer/failed_payment.html:3
 #, python-format
 msgid ""
@@ -312,33 +355,31 @@ msgid ""
 "%(received_data)s\n"
 msgstr ""
 
-#: mailer/templates/mailer/reg_email_confirm.html:3
-#, python-format
-msgid ""
-"\n"
-"<!DOCTYPE html>\n"
-"<html lang=\"%(lang)s\">\n"
-"<head>\n"
-"  <meta charset=\"UTF-8\">\n"
-"  <title>Trading account registration</title>\n"
-"</head>\n"
-"<body>\n"
-"  <p>Hi %(user.username)s,</p>\n"
-"  <p>Please click on the link below to confirm your registration:</p>\n"
-"  <a href=\"https://%(domain)s%(activation_url)s\">Activate</a>\n"
-"</body>\n"
-"</html>\n"
+#: mailer/templates/mailer/reg_email_confirm.html:78
+msgid "Please click on the link below to confirm your registration:"
+msgstr ""
+
+#: mailer/templates/mailer/reg_email_confirm.html:111
+msgid "Activate"
 msgstr ""
 
 #: mailer/templates/mailer/reg_email_confirm.txt:3
 #, python-format
 msgid ""
 "\n"
-"Hi %(user.username)s,\n"
+"Email notification from xyz.trading\n"
+"\n"
+"Registration confirmation.\n"
 "\n"
 "Please click on the link below to confirm your registration:\n"
 "\n"
 "https://%(domain)s%(activation_url)s\n"
+"\n"
+"Thanks for using our site!\n"
+"\n"
+"The xyz.trading team\n"
+"\n"
+"Email: support@xyz.trading\n"
 msgstr ""
 
 #: mailer/templates/mailer/successful_payment.html:3
@@ -972,26 +1013,22 @@ msgstr ""
 "If you don’t receive an email, please make sure you’ve entered the address "
 "you registered with, and check your spam folder."
 
-#: users/templates/users/password_reset_email.html:2
+#: users/templates/users/password_reset_email.html:3
 #, python-format
 msgid ""
 "You're receiving this email because you requested a password reset for your "
 "user account at %(site_name)s."
 msgstr ""
 
-#: users/templates/users/password_reset_email.html:4
+#: users/templates/users/password_reset_email.html:5
 msgid "Please go to the following page and choose a new password:"
 msgstr ""
 
-#: users/templates/users/password_reset_email.html:8
+#: users/templates/users/password_reset_email.html:9
 msgid "Your username, in case you’ve forgotten:"
 msgstr ""
 
-#: users/templates/users/password_reset_email.html:10
-msgid "Thanks for using our site!"
-msgstr ""
-
-#: users/templates/users/password_reset_email.html:12
+#: users/templates/users/password_reset_email.html:13
 #, python-format
 msgid "The %(site_name)s team"
 msgstr ""
@@ -1040,11 +1077,11 @@ msgstr "Date of Birth"
 msgid "USERS_REGISTRATION_PHONE"
 msgstr "Phone"
 
-#: users/templates/users/registration.html:101
+#: users/templates/users/registration.html:102
 msgid "USERS_REGISTRATION_PROMOCODE"
 msgstr "Promo Code"
 
-#: users/templates/users/registration.html:110
+#: users/templates/users/registration.html:111
 msgid ""
 "I have read and accept the «Client Agreement» and I understand the nature of "
 "financial\n"
@@ -1055,7 +1092,7 @@ msgid ""
 "                  investment objectives."
 msgstr ""
 
-#: users/templates/users/registration.html:120
+#: users/templates/users/registration.html:121
 msgid "USERS_REGISTRATION_SUBMIT"
 msgstr "Sign Up"
 
@@ -1065,7 +1102,7 @@ msgstr "Registration Form"
 
 #: users/views.py:45
 msgid "USERS_REG_EMAIL_CONFIRM_SUBJECT"
-msgstr "Subject of confirmation email"
+msgstr "[XYZ.TRADING] Confirmation of registration"
 
 #: users/views.py:84
 msgid "USER_LOGIN_PAGE_TITLE"

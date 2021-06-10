@@ -20,7 +20,7 @@ class UserAdmin(BaseUserAdmin):
         (None, {
             'classes': ('wide', ),
             'fields': (
-                'username', 'email', 'first_name', 'last_name', 'password1', 'password2',
+                'username', 'email', 'first_name', 'last_name', 'birth_date', 'password1', 'password2',
                 'country', 'city', 'promo', 'phone', 'is_active', 'is_staff', 'is_superuser', 'is_verified',
             )
         }
@@ -28,7 +28,7 @@ class UserAdmin(BaseUserAdmin):
     )
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
-        (_('Personal info'), {'fields': ('first_name', 'last_name', 'email', 'promo', )}),
+        (_('Personal info'), {'fields': ('first_name', 'last_name', 'email', 'birth_date', 'phone', 'promo', )}),
         (_('Permissions'), {
             'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions', 'is_verified', ),
         }),

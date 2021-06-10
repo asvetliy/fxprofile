@@ -34,20 +34,13 @@ class UserCreationView(View):
             user.save()
 
             current_site = get_current_site(request)
-            # subject = 'Activate Your MySite Account'
-            # message = render_to_string('users/account_activation_email.html', {
-            #     'user': user,
-            #     'domain': current_site.domain,
-            #     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-            #     'token': account_activation_token.make_token(user),
-            # })
-            # user.email_user(subject, message)
             Mailer.send('reg_email_confirm', user, subject=_('USERS_REG_EMAIL_CONFIRM_SUBJECT'), params={
                 'domain': current_site.domain,
                 'activation_url': reverse('activate', kwargs={
                     'uidb64': urlsafe_base64_encode(force_bytes(user.pk)),
                     'token': account_activation_token.make_token(user)
-                })
+                }),
+                'title': _('USERS_REG_EMAIL_CONFIRM_SUBJECT'),
             })
             return redirect('account-activation-sent')
         else:

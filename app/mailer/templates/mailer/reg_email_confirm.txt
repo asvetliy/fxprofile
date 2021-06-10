@@ -1,10 +1,18 @@
 {% autoescape off %}
 {% load i18n %}
 {% blocktrans %}
-Hi {{ user.username }},
+Email notification from xyz.trading
+
+Registration confirmation.
 
 Please click on the link below to confirm your registration:
 
 https://{{ domain }}{{ activation_url }}
+
+Thanks for using our site!
+
+The xyz.trading team
+
+Email: support@xyz.trading
 {% endblocktrans %}
 {% endautoescape %}
