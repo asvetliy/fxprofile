@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 17:16+0000\n"
+"POT-Creation-Date: 2021-06-10 14:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -353,11 +353,10 @@ msgid ""
 "    </head>\n"
 "    <body>\n"
 "    <p>Received successful payment from - %(payment_system)s.</p>\n"
-"    <p>Received data:<br>\n"
+"    <p>Received data:</p>\n"
 "    <pre>\n"
-"        <code>%(received_data)s</code>\n"
-"      </pre>\n"
-"    </p>\n"
+"      <code>%(received_data)s</code>\n"
+"    </pre>\n"
 "    </body>\n"
 "    </html>\n"
 "  "
@@ -852,31 +851,31 @@ msgstr ""
 "Phone number must be entered in the format: \"+999999999\". Up to 15 digits "
 "allowed."
 
-#: users/forms.py:71
+#: users/forms.py:75
 msgid "USERS_LOGIN_FORM_USERNAME"
 msgstr "Username"
 
-#: users/forms.py:75
+#: users/forms.py:79
 msgid "USERS_LOGIN_FORM_PWD"
 msgstr "Password"
 
-#: users/forms.py:90
+#: users/forms.py:94
 msgid "USERS_RESET_FORM_EMAIL"
 msgstr "Email"
 
-#: users/forms.py:101
+#: users/forms.py:105
 msgid "USERS_RESET_FORM_NEW_PWD"
 msgstr "New password"
 
-#: users/forms.py:109
+#: users/forms.py:113
 msgid "USERS_RESET_FORM_NEW_PWD2"
 msgstr "Confirm password"
 
-#: users/models.py:7
+#: users/models.py:9
 msgid "COUNTRY"
 msgstr "COUNTRY"
 
-#: users/models.py:8
+#: users/models.py:10
 msgid "CITY"
 msgstr "CITY"
 
@@ -997,62 +996,66 @@ msgstr ""
 msgid "The %(site_name)s team"
 msgstr ""
 
-#: users/templates/users/registration.html:9
+#: users/templates/users/registration.html:10
 msgid "USERS_REGISTRATION_TITLE"
 msgstr "Registration Form"
 
-#: users/templates/users/registration.html:21
+#: users/templates/users/registration.html:22
 msgid "USERS_REGISTRATION_USERNAME"
 msgstr "Username"
 
-#: users/templates/users/registration.html:28
+#: users/templates/users/registration.html:29
 msgid "USERS_REGISTRATION_EMAIL"
 msgstr "Email"
 
-#: users/templates/users/registration.html:37
+#: users/templates/users/registration.html:38
 msgid "USERS_REGISTRATION_FIRSTNAME"
 msgstr "First Name"
 
-#: users/templates/users/registration.html:44
+#: users/templates/users/registration.html:45
 msgid "USERS_REGISTRATION_LASTNAME"
 msgstr "Last Name"
 
-#: users/templates/users/registration.html:53
+#: users/templates/users/registration.html:54
 msgid "USERS_REGISTRATION_PWD"
 msgstr "Password"
 
-#: users/templates/users/registration.html:60
+#: users/templates/users/registration.html:61
 msgid "USERS_REGISTRATION_PWD2"
 msgstr "Confirm Password"
 
-#: users/templates/users/registration.html:69
+#: users/templates/users/registration.html:70
 msgid "USERS_REGISTRATION_COUNTRY"
 msgstr "Country"
 
-#: users/templates/users/registration.html:77
+#: users/templates/users/registration.html:79
 msgid "USERS_REGISTRATION_CITY"
 msgstr "City"
 
-#: users/templates/users/registration.html:85
+#: users/templates/users/registration.html:86
+msgid "USERS_REGISTRATION_BIRTHDATE"
+msgstr "Date of Birth"
+
+#: users/templates/users/registration.html:95
 msgid "USERS_REGISTRATION_PHONE"
 msgstr "Phone"
 
-#: users/templates/users/registration.html:91
+#: users/templates/users/registration.html:101
 msgid "USERS_REGISTRATION_PROMOCODE"
 msgstr "Promo Code"
 
-#: users/templates/users/registration.html:100
+#: users/templates/users/registration.html:110
 msgid ""
 "I have read and accept the «Client Agreement» and I understand the nature of "
 "financial\n"
-"                instruments and the risks involved, so, in light of my "
+"                  instruments and the risks involved, so, in light of my "
 "circumstances and financial position,\n"
-"                I confirm that using financial instruments provided by the "
+"                  I confirm that using financial instruments provided by the "
 "Company correspond to my\n"
-"                investment objectives."
+"                  investment objectives."
 msgstr ""
 
-#: users/templates/users/registration.html:110
+#: users/templates/users/registration.html:120
 msgid "USERS_REGISTRATION_SUBMIT"
 msgstr "Sign Up"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 17:16+0000\n"
+"POT-Creation-Date: 2021-06-10 14:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -381,11 +381,10 @@ msgid ""
 "    </head>\n"
 "    <body>\n"
 "    <p>Received successful payment from - %(payment_system)s.</p>\n"
-"    <p>Received data:<br>\n"
+"    <p>Received data:</p>\n"
 "    <pre>\n"
-"        <code>%(received_data)s</code>\n"
-"      </pre>\n"
-"    </p>\n"
+"      <code>%(received_data)s</code>\n"
+"    </pre>\n"
 "    </body>\n"
 "    </html>\n"
 "  "
@@ -906,31 +905,31 @@ msgstr "Важные даты"
 msgid "USERS_PHONE_VALIDATION_ERROR"
 msgstr "Номер телефона необходимо вводить в формате: «+999999999». До 15 цифр."
 
-#: users/forms.py:71
+#: users/forms.py:75
 msgid "USERS_LOGIN_FORM_USERNAME"
 msgstr "Имя пользователя"
 
-#: users/forms.py:75
+#: users/forms.py:79
 msgid "USERS_LOGIN_FORM_PWD"
 msgstr "Пароль"
 
-#: users/forms.py:90
+#: users/forms.py:94
 msgid "USERS_RESET_FORM_EMAIL"
 msgstr "Email"
 
-#: users/forms.py:101
+#: users/forms.py:105
 msgid "USERS_RESET_FORM_NEW_PWD"
 msgstr "Новый пароль"
 
-#: users/forms.py:109
+#: users/forms.py:113
 msgid "USERS_RESET_FORM_NEW_PWD2"
 msgstr "Повторите новый пароль"
 
-#: users/models.py:7
+#: users/models.py:9
 msgid "COUNTRY"
 msgstr "СТРАНА"
 
-#: users/models.py:8
+#: users/models.py:10
 msgid "CITY"
 msgstr "ГОРОД"
 
@@ -1055,59 +1054,63 @@ msgstr "Спасибо, что пользуетесь нашими сервис�
 msgid "The %(site_name)s team"
 msgstr "Команда %(site_name)s"
 
-#: users/templates/users/registration.html:9
+#: users/templates/users/registration.html:10
 msgid "USERS_REGISTRATION_TITLE"
 msgstr "Форма Регистрации"
 
-#: users/templates/users/registration.html:21
+#: users/templates/users/registration.html:22
 msgid "USERS_REGISTRATION_USERNAME"
 msgstr "Имя пользователя"
 
-#: users/templates/users/registration.html:28
+#: users/templates/users/registration.html:29
 msgid "USERS_REGISTRATION_EMAIL"
 msgstr "Email"
 
-#: users/templates/users/registration.html:37
+#: users/templates/users/registration.html:38
 msgid "USERS_REGISTRATION_FIRSTNAME"
 msgstr "Имя"
 
-#: users/templates/users/registration.html:44
+#: users/templates/users/registration.html:45
 msgid "USERS_REGISTRATION_LASTNAME"
 msgstr "Фамилия"
 
-#: users/templates/users/registration.html:53
+#: users/templates/users/registration.html:54
 msgid "USERS_REGISTRATION_PWD"
 msgstr "Пароль"
 
-#: users/templates/users/registration.html:60
+#: users/templates/users/registration.html:61
 msgid "USERS_REGISTRATION_PWD2"
 msgstr "Повторить пароль"
 
-#: users/templates/users/registration.html:69
+#: users/templates/users/registration.html:70
 msgid "USERS_REGISTRATION_COUNTRY"
 msgstr "Страна"
 
-#: users/templates/users/registration.html:77
+#: users/templates/users/registration.html:79
 msgid "USERS_REGISTRATION_CITY"
 msgstr "Город"
 
-#: users/templates/users/registration.html:85
+#: users/templates/users/registration.html:86
+msgid "USERS_REGISTRATION_BIRTHDATE"
+msgstr "Дата рождения"
+
+#: users/templates/users/registration.html:95
 msgid "USERS_REGISTRATION_PHONE"
 msgstr "Телефон"
 
-#: users/templates/users/registration.html:91
+#: users/templates/users/registration.html:101
 msgid "USERS_REGISTRATION_PROMOCODE"
 msgstr "Промо"
 
-#: users/templates/users/registration.html:100
+#: users/templates/users/registration.html:110
 msgid ""
 "I have read and accept the «Client Agreement» and I understand the nature of "
 "financial\n"
-"                instruments and the risks involved, so, in light of my "
+"                  instruments and the risks involved, so, in light of my "
 "circumstances and financial position,\n"
-"                I confirm that using financial instruments provided by the "
+"                  I confirm that using financial instruments provided by the "
 "Company correspond to my\n"
-"                investment objectives."
+"                  investment objectives."
 msgstr ""
 "Я прочитал и принимаю «Клиентское соглашение» и понимаю природу финансовых\n"
 "                инструментов и связанных с их использованием рисков, "
@@ -1117,7 +1120,7 @@ msgstr ""
 "                инвестиционным целям. Я понимаю, что маржинальная торговля "
 "связана с определенным риском потери моего торгового баланса."
 
-#: users/templates/users/registration.html:110
+#: users/templates/users/registration.html:120
 msgid "USERS_REGISTRATION_SUBMIT"
 msgstr "Зарегистрироваться"
 

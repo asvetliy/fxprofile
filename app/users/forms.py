@@ -48,12 +48,16 @@ class UserRegistrationForm(UserCreationForm):
         validators=[phone_regex],
         widget=forms.TextInput(attrs={'class': 'form-control'}),
         max_length=17,
-        required=False
+        required=True
     )
     promo = forms.CharField(
         required=False,
         max_length=64,
         widget=forms.NumberInput(attrs={'class': 'form-control'}),
+    )
+    birth_date = forms.DateField(
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
     )
 
     class Meta:
@@ -62,7 +66,7 @@ class UserRegistrationForm(UserCreationForm):
             'first_name', 'last_name',
             'email', 'password1', 'password2',
             'country', 'city', 'phone',
-            'promo', 'username'
+            'promo', 'username', 'birth_date',
         ]
 
 

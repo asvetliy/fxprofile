@@ -1,5 +1,6 @@
 {% extends 'users/base.html' %}
-{% load i18n %}
+{% load i18n static %}
+{% get_current_language as LANGUAGE_CODE %}
 {% block content %}
   <div class="col-lg-8 col-md-6 col-sm-8 ml-auto mr-auto">
     <form method="post" action="{% url 'user-reg' %}">
@@ -41,7 +42,7 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label class="bmd-label-floating" for="id_surename">{% trans 'USERS_REGISTRATION_LASTNAME' %}<span
+                <label class="bmd-label-floating" for="id_last_name">{% trans 'USERS_REGISTRATION_LASTNAME' %}<span
                     class="required">&nbsp;*</span></label>
                 {{ form.last_name }}
               </div>
@@ -66,7 +67,8 @@
           <div class="form-row">
             <div class="col-md-6">
               <div class="form-group">
-                <label class="" for="id_country">{% trans 'USERS_REGISTRATION_COUNTRY' %}<span class="required">&nbsp;*</span></label>
+                <label class="label-control" for="id_country">{% trans 'USERS_REGISTRATION_COUNTRY' %}<span
+                    class="required">&nbsp;*</span></label>
                 {{ form.country }}
               </div>
             </div>
@@ -74,8 +76,16 @@
           <div class="form-row">
             <div class="col-md-6">
               <div class="form-group">
-                <label class="bmd-label-floating" for="id_city">{% trans 'USERS_REGISTRATION_CITY' %}<span class="required">&nbsp;*</span></label>
+                <label class="bmd-label-floating" for="id_city">{% trans 'USERS_REGISTRATION_CITY' %}<span
+                    class="required">&nbsp;*</span></label>
                 {{ form.city }}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="label-control" for="id_birth_date">{% trans 'USERS_REGISTRATION_BIRTHDATE' %}<span
+                    class="required">&nbsp;*</span></label>
+                {{ form.birth_date }}
               </div>
             </div>
           </div>
@@ -98,9 +108,9 @@
               <label class="form-check-label">
                 <input required class="form-check-input" type="checkbox" value="">
                 {% blocktrans %}I have read and accept the «Client Agreement» and I understand the nature of financial
-                instruments and the risks involved, so, in light of my circumstances and financial position,
-                I confirm that using financial instruments provided by the Company correspond to my
-                investment objectives.{% endblocktrans %}
+                  instruments and the risks involved, so, in light of my circumstances and financial position,
+                  I confirm that using financial instruments provided by the Company correspond to my
+                  investment objectives.{% endblocktrans %}
                 <span class="form-check-sign"><span class="check"></span></span>
               </label>
             </div>
@@ -114,4 +124,27 @@
       </div>
     </form>
   </div>
+{% endblock %}
+{% block scripts %}
+  <script src="{% static 'js/plugins/moment.min.js' %}"></script>
+  <script src="{% static 'js/plugins/bootstrap-datetimepicker.min.js' %}"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#id_birth_date').datetimepicker({
+        format: "DD/MM/YYYY",
+        icons: {
+          time: "fa fa-clock-o",
+          date: "fa fa-calendar",
+          up: "fa fa-chevron-up",
+          down: "fa fa-chevron-down",
+          previous: 'fa fa-chevron-left',
+          next: 'fa fa-chevron-right',
+          today: 'fa fa-screenshot',
+          clear: 'fa fa-trash',
+          close: 'fa fa-remove'
+        },
+        locale: '{{ LANGUAGE_CODE }}'
+      });
+    });
+  </script>
 {% endblock %}

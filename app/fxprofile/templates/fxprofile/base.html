@@ -3,7 +3,6 @@
 {% get_available_languages as LANGUAGES %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
-
 <head>
   <title>{% block title %}{% endblock %}</title>
   <!-- Required meta tags -->
@@ -21,7 +20,6 @@
   <link href="{% static 'css/material-dashboard.min.css' %}" rel="stylesheet"/>
   {% block head %}{% endblock %}
 </head>
-
 <body>
 <div class="wrapper">
   {% block sidebar %}
