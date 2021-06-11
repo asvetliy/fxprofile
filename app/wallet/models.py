@@ -77,6 +77,10 @@ class Transaction(models.Model):
         null=True
     )
 
+    def __init__(self, *args, **kwargs):
+        self.changed_data = {}
+        super(Transaction, self).__init__(*args, **kwargs)
+
     def __str__(self):
         return str(self.id)
 
@@ -95,6 +99,23 @@ class Transaction(models.Model):
         return int_to_amount(self.amount, self.wallet.currency.digest)
 
     transaction_amount = property(_get_transaction_amount)
+
+    def save(self, *args, **kwargs):
+        if self.pk:
+            # If self.pk is not None then it's an update.
+            cls = self.__class__
+            old = cls.objects.get(pk=self.pk)
+            # This will get the current model state since super().save() isn't called yet.
+            new = self  # This gets the newly instantiated Mode object with the new values.
+            update_fields = {}
+            for field in cls._meta.get_fields():
+                try:
+                    if getattr(old, field.name) != getattr(new, field.name):
+                        update_fields[field.name] = getattr(old, field.name)
+                except Exception as e:  # Catch field does not exist exception
+                    pass
+            self.changed_data = update_fields
+        super(Transaction, self).save(*args, **kwargs)
 
     class Meta:
         db_table = 'transactions'

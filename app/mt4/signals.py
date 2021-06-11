@@ -37,7 +37,10 @@ def create_trading_account(sender, instance, created, **kwargs):
 @receiver(post_save, sender=Transaction)
 def transfer_funds(sender, instance, created, **kwargs):
     if created:
-        # if instance.type_id == 4:  # transfer_in
-        #     change_balance(instance, 'transfer to personal')
         if instance.type_id == 5:  # transfer_out
             change_balance(instance, 'transfer from personal')
+    else:
+        if 'status' in instance.changed_data and instance.changed_data['status'].id == 2 and instance.status_id == 1:
+            if instance.type_id == 4:  # transfer_in
+                change_balance(instance, 'transfer to personal')
+
