@@ -202,8 +202,8 @@ MT4_MASTER_PWD = 'JDhe4DCf4DdO'
 MT4_MASTER_BALANCE_PWD = 'hLi7LuSuOIlYOg9'
 MT4_ACCOUNTS_SETTINGS = {
     'MT4_REAL': {
-        'FROM': 330000,
-        'TO': 29000000,
+        'FROM': 5500000,
+        'TO': 9999999,
         'STEP': 7,
         'GROUPS': {
             1: {
