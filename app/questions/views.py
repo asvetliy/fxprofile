@@ -19,7 +19,7 @@ class TicketsURLDispatcher(LoginRequiredMixin, View):
             if form.is_valid():
                 ticket_text = form.cleaned_data.get('ticket_text', '')
                 question_request = request.user.questionrequest_set.get(id=ticket)
-                question_messages = QuestionMessage.objects.filter(request=question_request).last()
+                question_messages = QuestionMessage.objects.filter(request=question_request).order_by('created_at').last()
                 if question_messages.user.id != request.user.id and question_request.status_id <= 2:
                     QuestionMessage.objects.create(
                         user=request.user,
