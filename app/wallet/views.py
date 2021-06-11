@@ -55,7 +55,7 @@ class WalletWithdrawView(View, LoginRequiredMixin):
                     amount=ftoi(form.cleaned_data.get('amount') * -1),
                     wallet_id=form.cleaned_data.get('account'),
                     user=request.user,
-                    from_to_wallet=form.cleaned_data.get('payment_system'),
+                    from_to_wallet=form.cleaned_data.get('to_wallet'),
                     type_id=2,
                     status_id=2,
                     description=_('WALLET_WITHDRAW_VIA_PAYMENT') % {'payment_name': payment_system.name}

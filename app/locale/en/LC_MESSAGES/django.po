@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-10 19:56+0000\n"
+"POT-Creation-Date: 2021-06-11 18:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -355,11 +355,11 @@ msgid ""
 "%(received_data)s\n"
 msgstr ""
 
-#: mailer/templates/mailer/reg_email_confirm.html:78
+#: mailer/templates/mailer/reg_email_confirm.html:61
 msgid "Please click on the link below to confirm your registration:"
 msgstr ""
 
-#: mailer/templates/mailer/reg_email_confirm.html:111
+#: mailer/templates/mailer/reg_email_confirm.html:94
 msgid "Activate"
 msgstr ""
 
@@ -474,19 +474,19 @@ msgstr "Creation Date"
 msgid "MT4_ACCOUNTS_TABLE_ACTIONS"
 msgstr "Actions"
 
-#: mt4/templates/mt4/create-account.html:22
+#: mt4/templates/mt4/create-account.html:37
 msgid "MT4_ACCOUNT_CREATE_CARD_ACC_TYPE"
 msgstr "Account Type"
 
-#: mt4/templates/mt4/create-account.html:32
+#: mt4/templates/mt4/create-account.html:47
 msgid "MT4_ACCOUNT_CREATE_CARD_ACC_LEVERAGE"
 msgstr "Account Leverage"
 
-#: mt4/templates/mt4/create-account.html:42
+#: mt4/templates/mt4/create-account.html:57
 msgid "MT4_ACCOUNT_CREATE_CARD_ACC_CURRENCY"
 msgstr "Account Currency"
 
-#: mt4/templates/mt4/create-account.html:56
+#: mt4/templates/mt4/create-account.html:71
 msgid "MT4_ACCOUNT_CREATE_CARD_SUBMIT"
 msgstr "Submit"
 
@@ -1096,15 +1096,15 @@ msgstr ""
 msgid "USERS_REGISTRATION_SUBMIT"
 msgstr "Sign Up"
 
-#: users/views.py:19 users/views.py:56
+#: users/views.py:19 users/views.py:49
 msgid "USERS_REG_TITLE"
 msgstr "Registration Form"
 
-#: users/views.py:45
+#: users/views.py:37 users/views.py:43
 msgid "USERS_REG_EMAIL_CONFIRM_SUBJECT"
 msgstr "[XYZ.TRADING] Confirmation of registration"
 
-#: users/views.py:84
+#: users/views.py:77
 msgid "USER_LOGIN_PAGE_TITLE"
 msgstr "Login Page"
 
@@ -1293,7 +1293,7 @@ msgstr "Verification request successfully created"
 msgid "VERIFICATION_UPLOAD_ERROR_NOFILE"
 msgstr "No files are uploaded"
 
-#: wallet/forms.py:35
+#: wallet/forms.py:36
 msgid "WALLET_FORM_ERROR_WRONG_FROMTO_ACCOUNTS"
 msgstr "FROM/TO"
 
@@ -1427,19 +1427,19 @@ msgstr ""
 
 #: wallet/templates/wallet/deposit.html:127
 #: wallet/templates/wallet/transfer.html:153
-#: wallet/templates/wallet/withdraw.html:81
+#: wallet/templates/wallet/withdraw.html:92
 msgid "WALLET_CARD_BTN_PREV"
 msgstr "Previous"
 
 #: wallet/templates/wallet/deposit.html:131
 #: wallet/templates/wallet/transfer.html:157
-#: wallet/templates/wallet/withdraw.html:85
+#: wallet/templates/wallet/withdraw.html:96
 msgid "WALLET_CARD_BTN_NEXT"
 msgstr "Next"
 
 #: wallet/templates/wallet/deposit.html:133
 #: wallet/templates/wallet/transfer.html:159
-#: wallet/templates/wallet/withdraw.html:87
+#: wallet/templates/wallet/withdraw.html:98
 msgid "WALLET_CARD_BTN_SUBMIT"
 msgstr "Agree"
 
@@ -1559,6 +1559,10 @@ msgstr "Payment System"
 msgid "WALLET_WITHDRAW_CARD_INFO_TEXT2"
 msgstr "What else do we need to know?"
 
+#: wallet/templates/wallet/withdraw.html:80
+msgid "WALLET_WITHDRAW_TO_WALLET"
+msgstr "Wallet for withdrawal"
+
 #: wallet/views.py:25
 msgid "WALLET_DEPOSIT_PAGE_TITLE"
 msgstr "Deposit"
@@ -1567,66 +1571,66 @@ msgstr "Deposit"
 msgid "WALLET_WITHDRAW_PAGE_TITLE"
 msgstr "Withdraw"
 
-#: wallet/views.py:60
+#: wallet/views.py:61
 msgid "WALLET_WITHDRAW_VIA_PAYMENT"
 msgstr "Withdraw via %(payment_name)s"
 
-#: wallet/views.py:62
+#: wallet/views.py:63
 msgid "WALLET_WITHDRAW_CREATED_SUCCESSFULLY"
 msgstr "Withdraw request successfully created"
 
-#: wallet/views.py:65
+#: wallet/views.py:66
 msgid "WALLET_WITHDRAW_ERROR_NOT_VALID"
 msgstr "Withdraw request not valid"
 
-#: wallet/views.py:76
+#: wallet/views.py:77
 msgid "WALLET_TRANSFER_PAGE_TITLE"
 msgstr "Transfer Funds"
 
-#: wallet/views.py:97
+#: wallet/views.py:98
 msgid "WALLET_WITHDRAW_ERROR_WALLET_NOTEXIST"
 msgstr "Wallet does not exist"
 
-#: wallet/views.py:103
+#: wallet/views.py:104
 msgid "WALLET_WITHDRAW_ERROR_ACCOUNT_NOTEXIST"
 msgstr "Trading account does not exist"
 
-#: wallet/views.py:107
+#: wallet/views.py:108
 msgid "WALLET_WITHDRAW_ERROR_CANT_TRANSFER"
 msgstr "You cant transfer funds between different account currencies"
 
-#: wallet/views.py:116
+#: wallet/views.py:117
 msgid "WALLET_TRANSFER_TO_TRADING_ACCOUNT"
 msgstr "Transfer to trading account %(account_id)d"
 
-#: wallet/views.py:121 wallet/views.py:151
+#: wallet/views.py:122 wallet/views.py:152
 msgid "WALLET_TRANSFER_ERROR_INSUFFICIENT_FUNDS"
 msgstr "Insufficient funds"
 
-#: wallet/views.py:127
+#: wallet/views.py:128
 msgid "WALLET_TRANSFER_ERROR_ACCOUNT_NOTEXIST"
 msgstr "Trading account does not exist"
 
-#: wallet/views.py:133
+#: wallet/views.py:134
 msgid "WALLET_TRANSFER_ERROR_WALLET_NOTEXIST"
 msgstr "Wallet does not exist"
 
-#: wallet/views.py:137
+#: wallet/views.py:138
 msgid "WALLET_TRANSFER_ERROR_CANT_TRANSFER"
 msgstr "You cant transfer funds between different account currencies"
 
-#: wallet/views.py:146
+#: wallet/views.py:147
 msgid "WALLET_TRANSFER_FROM_TRADING_ACCOUNT"
 msgstr "Transfer from trading account %(account_id)d"
 
-#: wallet/views.py:154 wallet/views.py:159
+#: wallet/views.py:155 wallet/views.py:160
 msgid "WALLET_TRANSFER_ERROR_NOT_VALID"
 msgstr "Transfer request not valid"
 
-#: wallet/views.py:157
+#: wallet/views.py:158
 msgid "WALLET_TRANSFER_CREATED_SUCCESSFULLY"
 msgstr "Transfer request successfully created"
 
-#: wallet/views.py:174
+#: wallet/views.py:175
 msgid "WALLET_TRANSFER_HISTORY_PAGE_TITLE"
 msgstr "Transactions History"
