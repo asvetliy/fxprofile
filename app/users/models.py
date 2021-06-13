@@ -21,9 +21,3 @@ class User(AbstractUser):
 
     class Meta:
         db_table = 'users'
-
-
-class PartnerUser(User):
-
-    class Meta:
-        proxy = True
