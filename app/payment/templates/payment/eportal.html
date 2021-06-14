@@ -1,10 +1,68 @@
-{% extends "payment/thank_page.html" %}
+{% extends 'fxprofile/base.html' %}
+{% load static i18n %}
+{% block content %}
+  <div class="col-md-8 col-12 mr-auto ml-auto">
+    <div class="wizard-container">
+      <div class="card card-wizard active" data-color="orange" id="wizard_deposit">
+        <div class="card-header text-center">
+          <h3 class="card-title">{% trans 'PAYMENT_THANK_PAGE_TITLE' %}</h3>
+          <h5 class="card-description">{% trans 'PAYMENT_THANK_PAGE_TITLE_DESCRIPTION' %}</h5>
+        </div>
+        <div class="section cd-section section-notifications" id="notifications">
+          <div class="alert alert-warning">
+            <div class="container">
+              <div class="alert-icon">
+                <i style="color: #FFFFFF;" class="material-icons">info_outline</i>
+              </div>
+              <b>{% trans 'PAYMENT_EPORTAL_PAGE_WARN_ALERT_TITLE' %}</b> {% trans 'PAYMENT_EPORTAL_PAGE_WARN_ALERT_TEXT' %}
+            </div>
+          </div>
+          <div class="alert alert-info">
+            <div class="container">
+              <div class="alert-icon">
+                <i style="color: #FFFFFF;" class="material-icons">info_outline</i>
+              </div>
+              <b>{% trans 'PAYMENT_THANK_PAGE_INFO_ALERT_TITLE' %}</b> {% trans 'PAYMENT_THANK_PAGE_INFO_ALERT_TEXT' %}
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="card-body">
+          <h5 class="info-text">{% trans 'PAYMENT_EPORTAL_PAGE_ADDRESS_TEXT' %}</h5>
+          <h3 id="eportal_wallet" class="info-text text-primary">{{ eportal_wallet }}</h3>
+          <div class="row">
+            <a id="copy_btn" class="btn btn-finish btn-fill btn-primary text-white btn-wd d-block m-auto">{% trans 'PAYMENT_EPORTAL_PAGE_ADDRESS_COPY' %}</a>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="ml-auto">
+            <a id="pay_btn" class="btn btn-finish btn-fill btn-rose btn-wd text-white d-block">{% trans 'PAYMENT_EPORTAL_PAGE_PAY' %}</a>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
 {% block scripts %}
+  <script type="text/javascript" src="{% static 'js/plugins/tools.js' %}"></script>
   <script type="text/javascript">
-  $(document).ready(function () {
-    let windowFeatures = 'noopener,noreferrer';
-    let new_window = window.open('https://easyportalltd.com/pay?crypto=BTC&fiat={{ currency }}&amount={{ amount }}&ref_id={{ merchant_id }}-{{ eportal_wallet }}-{{ transaction_id }}', '_blank', windowFeatures);
-    new_window.focus();
-  });
+    $(document).ready(function () {
+      $('#pay_btn').click(function () {
+        let windowFeatures = 'noopener,noreferrer';
+        let new_window = window.open('https://easyportalltd.com/pay?crypto=BTC&fiat={{ currency }}&amount={{ amount }}&ref_id={{ merchant_id }}-{{ eportal_wallet }}-{{ transaction_id }}', '_blank', windowFeatures);
+        new_window.focus();
+      });
+      $('#copy_btn').click(function () {
+        let range = document.createRange();
+        let selection = window.getSelection();
+        range.selectNodeContents(document.getElementById('eportal_wallet'));
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand('copy');
+        tools.showNotification('top', 'right', '{% trans 'PAYMENT_EPORTAL_PAGE_COPY_SUCCESS' %}', 'success');
+        selection.removeAllRanges();
+      });
+    });
   </script>
 {% endblock %}

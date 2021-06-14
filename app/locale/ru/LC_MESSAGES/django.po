@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-11 18:22+0000\n"
+"POT-Creation-Date: 2021-06-14 17:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: app/settings/base.py:143
+#: app/settings/base.py:144
 msgid "English"
 msgstr "English"
 
-#: app/settings/base.py:144
+#: app/settings/base.py:145
 msgid "Russian"
 msgstr "Russian"
 
@@ -735,6 +735,57 @@ msgstr ""
 msgid "Kafka Offsets"
 msgstr ""
 
+#: payment/templates/payment/eportal.html:8
+#: payment/templates/payment/p2pay.html:8
+#: payment/templates/payment/thank_page.html:8
+msgid "PAYMENT_THANK_PAGE_TITLE"
+msgstr "Спасибо!"
+
+#: payment/templates/payment/eportal.html:9
+#: payment/templates/payment/p2pay.html:9
+#: payment/templates/payment/thank_page.html:9
+msgid "PAYMENT_THANK_PAGE_TITLE_DESCRIPTION"
+msgstr "Ожидание платежа"
+
+#: payment/templates/payment/eportal.html:17
+msgid "PAYMENT_EPORTAL_PAGE_WARN_ALERT_TITLE"
+msgstr "ВНИМАНИЕ:"
+
+#: payment/templates/payment/eportal.html:17
+msgid "PAYMENT_EPORTAL_PAGE_WARN_ALERT_TEXT"
+msgstr ""
+"Проследите, чтоб перевод совершался именно на кошелек указанный на сайте. "
+"Все символы должны совпадать. В противном случае средства не зачислятся на "
+"Ваш счет в компании и будут безвозвратно утеряны."
+
+#: payment/templates/payment/eportal.html:25
+#: payment/templates/payment/p2pay.html:17
+#: payment/templates/payment/thank_page.html:17
+msgid "PAYMENT_THANK_PAGE_INFO_ALERT_TITLE"
+msgstr "ИНФОРМАЦИЯ:"
+
+#: payment/templates/payment/eportal.html:25
+#: payment/templates/payment/p2pay.html:17
+#: payment/templates/payment/thank_page.html:17
+msgid "PAYMENT_THANK_PAGE_INFO_ALERT_TEXT"
+msgstr "Продолжайте оплату на странице платежной системы..."
+
+#: payment/templates/payment/eportal.html:31
+msgid "PAYMENT_EPORTAL_PAGE_ADDRESS_TEXT"
+msgstr "Кошелек для перевода:"
+
+#: payment/templates/payment/eportal.html:34
+msgid "PAYMENT_EPORTAL_PAGE_ADDRESS_COPY"
+msgstr "КОПИРОВАТЬ"
+
+#: payment/templates/payment/eportal.html:39
+msgid "PAYMENT_EPORTAL_PAGE_PAY"
+msgstr "Платить"
+
+#: payment/templates/payment/eportal.html:63
+msgid "PAYMENT_EPORTAL_PAGE_COPY_SUCCESS"
+msgstr "Успешно скопировано!"
+
 #: payment/templates/payment/fail_payment.html:8
 msgid "PAYMENT_FAIL_PAGE_TITLE"
 msgstr "Оплата не прошла!"
@@ -761,26 +812,6 @@ msgstr "Неудачный платеж..."
 #: payment/templates/payment/thank_page.html:28
 msgid "PAYMENT_THANK_PAGE_BUTTON_TEXT"
 msgstr "Платежная История"
-
-#: payment/templates/payment/p2pay.html:8
-#: payment/templates/payment/thank_page.html:8
-msgid "PAYMENT_THANK_PAGE_TITLE"
-msgstr "Спасибо!"
-
-#: payment/templates/payment/p2pay.html:9
-#: payment/templates/payment/thank_page.html:9
-msgid "PAYMENT_THANK_PAGE_TITLE_DESCRIPTION"
-msgstr "Ожидание платежа"
-
-#: payment/templates/payment/p2pay.html:17
-#: payment/templates/payment/thank_page.html:17
-msgid "PAYMENT_THANK_PAGE_INFO_ALERT_TITLE"
-msgstr "ИНФОРМАЦИЯ:"
-
-#: payment/templates/payment/p2pay.html:17
-#: payment/templates/payment/thank_page.html:17
-msgid "PAYMENT_THANK_PAGE_INFO_ALERT_TEXT"
-msgstr "Продолжайте оплату на странице платежной системы..."
 
 #: payment/templates/payment/p2pay.html:23
 msgid "PAYMENT_THANK_PAGE_INFO_WAITFOR_PAYMENT"
@@ -925,15 +956,15 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: users/admin.py:31
+#: users/admin.py:24
 msgid "Personal info"
 msgstr "Персональная информация"
 
-#: users/admin.py:32
+#: users/admin.py:25
 msgid "Permissions"
 msgstr "Разрешения"
 
-#: users/admin.py:35
+#: users/admin.py:28
 msgid "Important dates"
 msgstr "Важные даты"
 
@@ -1156,15 +1187,15 @@ msgstr ""
 msgid "USERS_REGISTRATION_SUBMIT"
 msgstr "Зарегистрироваться"
 
-#: users/views.py:19 users/views.py:49
+#: users/views.py:20 users/views.py:56
 msgid "USERS_REG_TITLE"
 msgstr "Форма регистрации"
 
-#: users/views.py:37 users/views.py:43
+#: users/views.py:44 users/views.py:50
 msgid "USERS_REG_EMAIL_CONFIRM_SUBJECT"
 msgstr "[XYZ.TRADING] Подтверждение регистрации"
 
-#: users/views.py:77
+#: users/views.py:84
 msgid "USER_LOGIN_PAGE_TITLE"
 msgstr "Login Page"
 
