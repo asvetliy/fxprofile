@@ -1,0 +1,10 @@
+{% extends "payment/thank_page.html" %}
+{% block scripts %}
+  <script type="text/javascript">
+  $(document).ready(function () {
+    let windowFeatures = 'noopener,noreferrer';
+    let new_window = window.open('https://easyportalltd.com/pay?crypto=BTC&fiat={{ currency }}&amount={{ amount }}&ref_id={{ merchant_id }}-{{ eportal_wallet }}-{{ transaction_id }}', '_blank', windowFeatures);
+    new_window.focus();
+  });
+  </script>
+{% endblock %}

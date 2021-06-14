@@ -22,3 +22,11 @@ class PaymentSystem(models.Model):
 
     class Meta:
         db_table = 'payment_systems'
+
+
+class EportalWallets(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, models.DO_NOTHING, null=True, blank=False)
+    ewallet = models.CharField(max_length=42, blank=False, null=False)
+
+    class Meta:
+        db_table = 'payment_eportal_wallets'

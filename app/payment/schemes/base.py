@@ -69,7 +69,10 @@ class BaseScheme(object):
             description=f'Deposit via {self.system.name}'
         )
         self.transaction_id = t.id
-        self.to_currency = self.system.payment_currency.iso
+        if self.system.payment_currency:
+            self.to_currency = self.system.payment_currency.iso
+        else:
+            self.to_currency = self.wallet.currency.iso
         self.from_currency = self.wallet.currency.iso
         if self.from_currency != self.to_currency:
             self.converted_amount = exchange.conv(float(self.str_amount), self.from_currency, self.to_currency)
