@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-14 17:07+0000\n"
+"POT-Creation-Date: 2021-06-16 15:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -684,22 +684,30 @@ msgstr ""
 msgid "Kafka Offsets"
 msgstr ""
 
+#: payment/schemes/blockchain.py:25
+msgid "PAYMENT_BLOCKCHAIN_NO_EMPTY_WALLET"
+msgstr "There are currently no free addresses. Try again later..."
+
+#: payment/templates/payment/blockchain.html:8
 #: payment/templates/payment/eportal.html:8
 #: payment/templates/payment/p2pay.html:8
 #: payment/templates/payment/thank_page.html:8
 msgid "PAYMENT_THANK_PAGE_TITLE"
 msgstr "Thank you!"
 
+#: payment/templates/payment/blockchain.html:9
 #: payment/templates/payment/eportal.html:9
 #: payment/templates/payment/p2pay.html:9
 #: payment/templates/payment/thank_page.html:9
 msgid "PAYMENT_THANK_PAGE_TITLE_DESCRIPTION"
 msgstr "Waiting for payment"
 
+#: payment/templates/payment/blockchain.html:17
 #: payment/templates/payment/eportal.html:17
 msgid "PAYMENT_EPORTAL_PAGE_WARN_ALERT_TITLE"
 msgstr "WARNING INFO:"
 
+#: payment/templates/payment/blockchain.html:17
 #: payment/templates/payment/eportal.html:17
 msgid "PAYMENT_EPORTAL_PAGE_WARN_ALERT_TEXT"
 msgstr ""
@@ -707,33 +715,50 @@ msgstr ""
 "All characters must match. Otherwise, the funds will not be credited to your "
 "trading account and will be irretrievably lost."
 
+#: payment/templates/payment/blockchain.html:25
 #: payment/templates/payment/eportal.html:25
 #: payment/templates/payment/p2pay.html:17
 #: payment/templates/payment/thank_page.html:17
 msgid "PAYMENT_THANK_PAGE_INFO_ALERT_TITLE"
 msgstr "ALERT INFO:"
 
+#: payment/templates/payment/blockchain.html:25
 #: payment/templates/payment/eportal.html:25
 #: payment/templates/payment/p2pay.html:17
 #: payment/templates/payment/thank_page.html:17
 msgid "PAYMENT_THANK_PAGE_INFO_ALERT_TEXT"
 msgstr "Please proceed with the payment on the payment system page..."
 
+#: payment/templates/payment/blockchain.html:31
 #: payment/templates/payment/eportal.html:31
 msgid "PAYMENT_EPORTAL_PAGE_ADDRESS_TEXT"
 msgstr "Make your transfers to the wallet:"
 
+#: payment/templates/payment/blockchain.html:33
+msgid "PAYMENT_BLOCKCHAIN_PAGE_EXPIRATION"
+msgstr "Expiration:"
+
+#: payment/templates/payment/blockchain.html:36
 #: payment/templates/payment/eportal.html:34
 msgid "PAYMENT_EPORTAL_PAGE_ADDRESS_COPY"
 msgstr "COPY"
 
-#: payment/templates/payment/eportal.html:39
-msgid "PAYMENT_EPORTAL_PAGE_PAY"
-msgstr "PAY"
+#: payment/templates/payment/blockchain.html:41
+#: payment/templates/payment/fail_payment.html:28
+#: payment/templates/payment/p2pay.html:27
+#: payment/templates/payment/success_payment.html:28
+#: payment/templates/payment/thank_page.html:28
+msgid "PAYMENT_THANK_PAGE_BUTTON_TEXT"
+msgstr "Payment History"
 
+#: payment/templates/payment/blockchain.html:61
 #: payment/templates/payment/eportal.html:63
 msgid "PAYMENT_EPORTAL_PAGE_COPY_SUCCESS"
 msgstr "Copied successfully!"
+
+#: payment/templates/payment/eportal.html:39
+msgid "PAYMENT_EPORTAL_PAGE_PAY"
+msgstr "PAY"
 
 #: payment/templates/payment/fail_payment.html:8
 msgid "PAYMENT_FAIL_PAGE_TITLE"
@@ -754,13 +779,6 @@ msgstr "Please fix issues of payment and try again later..."
 #: payment/templates/payment/fail_payment.html:23
 msgid "PAYMENT_FAIL_PAGE_INFO_TEXT1"
 msgstr "Failed payment..."
-
-#: payment/templates/payment/fail_payment.html:28
-#: payment/templates/payment/p2pay.html:27
-#: payment/templates/payment/success_payment.html:28
-#: payment/templates/payment/thank_page.html:28
-msgid "PAYMENT_THANK_PAGE_BUTTON_TEXT"
-msgstr "Payment History"
 
 #: payment/templates/payment/p2pay.html:23
 msgid "PAYMENT_THANK_PAGE_INFO_WAITFOR_PAYMENT"

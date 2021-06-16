@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.apps import apps
 from django.http import HttpResponse
 
-from wallet.helpers import ftoi, itos, ftos
+from wallet.helpers import ftoi, itos, ftos, itof
 from exchange import exchange
 from json_logging import log
 
@@ -34,8 +34,17 @@ class BaseScheme(object):
     def set_wallet(self, wallet_id):
         self.wallet = Wallet.objects.get(id=wallet_id)
 
-    def set_transaction(self, transaction_id):
-        self.transaction = Transaction.objects.get(id=transaction_id)
+    def set_transaction_by_id(self, transaction_id):
+        try:
+            self.transaction = Transaction.objects.get(id=transaction_id)
+            self.transaction_id = transaction_id
+        except Transaction.DoesNotExist:
+            self.transaction = None
+            self.transaction_id = None
+
+    def set_transaction(self, transaction: Transaction):
+        self.transaction = transaction
+        self.transaction_id = transaction.id
 
     def get_amount_with_fee(self, amount: int) -> int:
         if self.system.fee > 0:
@@ -53,22 +62,29 @@ class BaseScheme(object):
         self.system = PaymentSystem.objects.get(code=payment_system_id)
 
     def init_payment(self, request):
-        self.amount = float(request.POST.get('amount', 0))
-        self.int_amount = ftoi(self.amount, self.wallet.currency.digest)
-        self.fee_amount = self.get_amount_with_fee(self.int_amount)
-        self.str_amount = itos(self.fee_amount, self.wallet.currency.digest)
-
-        transaction_type = TransactionType.objects.get(name='deposit')
-        t = Transaction.objects.create(
-            wallet=self.wallet,
-            amount=self.int_amount,
-            user=request.user,
-            from_to_wallet=self.system.name,
-            type=transaction_type,
-            status_id=PaymentStatus.PROCESS,
-            description=f'Deposit via {self.system.name}'
-        )
-        self.transaction_id = t.id
+        if self.transaction is None:
+            self.amount = float(request.POST.get('amount', 0))
+            self.int_amount = ftoi(self.amount, self.wallet.currency.digest)
+            self.fee_amount = self.get_amount_with_fee(self.int_amount)
+            self.str_amount = itos(self.fee_amount, self.wallet.currency.digest)
+            transaction_type = TransactionType.objects.get(name='deposit')
+            t = Transaction.objects.create(
+                wallet=self.wallet,
+                amount=self.int_amount,
+                user=request.user,
+                from_to_wallet=self.system.name,
+                type=transaction_type,
+                status_id=PaymentStatus.PROCESS,
+                description=f'Deposit via {self.system.name}'
+            )
+            self.transaction = t
+            self.transaction_id = t.id
+        else:
+            self.wallet = self.transaction.wallet
+            self.amount = itof(self.transaction.amount, self.wallet.currency.digest)
+            self.int_amount = self.transaction.amount
+            self.fee_amount = self.get_amount_with_fee(self.int_amount)
+            self.str_amount = itos(self.fee_amount, self.wallet.currency.digest)
         if self.system.payment_currency:
             self.to_currency = self.system.payment_currency.iso
         else:
@@ -76,7 +92,10 @@ class BaseScheme(object):
         self.from_currency = self.wallet.currency.iso
         if self.from_currency != self.to_currency:
             self.converted_amount = exchange.conv(float(self.str_amount), self.from_currency, self.to_currency)
-            self.converted_amount_str = ftos(self.converted_amount, self.wallet.currency.digest)
+            self.converted_amount_str = ftos(self.converted_amount, self.system.payment_currency.digest)
+        else:
+            self.converted_amount = itof(self.fee_amount, self.wallet.currency.digest)
+            self.converted_amount_str = self.str_amount
 
     def success_payment(self, request):
         return render(request, 'payment/success_payment.html')

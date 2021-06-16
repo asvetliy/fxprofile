@@ -47,7 +47,7 @@ class PaythronePayment(BaseScheme):
 
     def process_payment(self, request, params=None):
         self.transaction_id = request.POST['order_id']
-        self.set_transaction(self.transaction_id)
+        self.set_transaction_by_id(self.transaction_id)
         if self.transaction and self.transaction.status_id == PaymentStatus.PROCESS:
             received_data = self.get_json_post_data(request)
             if request.POST['status'] == 'completed':

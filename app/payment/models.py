@@ -1,5 +1,8 @@
 from django.db import models
+from django.apps import apps
 from django.conf import settings
+
+Transaction = apps.get_model('wallet', 'Transaction', require_ready=False)
 
 
 class PaymentSystem(models.Model):
@@ -24,9 +27,19 @@ class PaymentSystem(models.Model):
         db_table = 'payment_systems'
 
 
-class EportalWallets(models.Model):
+class EportalWallet(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, models.DO_NOTHING, null=True, blank=False)
     ewallet = models.CharField(max_length=42, blank=False, null=False)
 
     class Meta:
         db_table = 'payment_eportal_wallets'
+
+
+class BlockchainWallet(models.Model):
+    transaction = models.ForeignKey(Transaction, models.DO_NOTHING, null=True, blank=True, default=None)
+    bwallet = models.CharField(max_length=34, blank=False, null=False)
+    picked_at = models.DateTimeField(default=None, blank=True, null=True)
+    expired_at = models.DateTimeField(default=None, blank=True, null=True)
+
+    class Meta:
+        db_table = 'payment_blockchain_wallets'

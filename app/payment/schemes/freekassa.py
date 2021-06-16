@@ -48,7 +48,7 @@ class FreekassaPayment(BaseScheme):
         signature = self.create_signature(hash_list)
         if signature == request.POST.get('SIGN', ''):
             self.transaction_id = request.POST.get('MERCHANT_ORDER_ID', '')
-            self.set_transaction(self.transaction_id)
+            self.set_transaction_by_id(self.transaction_id)
             if self.transaction and self.transaction.status_id == PaymentStatus.PROCESS:
                 received_data = self.get_json_post_data(request)
                 params = {'response': 'YES'}

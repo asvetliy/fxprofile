@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 from .base import BaseScheme
-from ..models import EportalWallets
+from ..models import EportalWallet
 
 
 class EportalPayment(BaseScheme):
@@ -11,9 +11,9 @@ class EportalPayment(BaseScheme):
     def init_payment(self, request):
         super(EportalPayment, self).init_payment(request)
         try:
-            eportal_wallet = EportalWallets.objects.get(user=request.user)
-        except EportalWallets.DoesNotExist:
-            eportal_wallet = EportalWallets.objects.filter(user=None).first()
+            eportal_wallet = EportalWallet.objects.get(user=request.user)
+        except EportalWallet.DoesNotExist:
+            eportal_wallet = EportalWallet.objects.filter(user=None).first()
             eportal_wallet.user = request.user
             eportal_wallet.save()
         context = {
