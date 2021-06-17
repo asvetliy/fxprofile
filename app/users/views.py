@@ -63,7 +63,6 @@ class UserCreationView(View):
 class UserLoginView(auth_views.LoginView):
     form_class = UserAuthenticationForm
     template_name = 'users/login.html'
-    # success_url = '/'
     redirect_authenticated_user = True
 
     def dispatch(self, request, *args, **kwargs):
