@@ -66,3 +66,13 @@ class ChangePasswordView(LoginRequiredMixin, View):
         for k, e in form.error_messages.items():
             messages.add_message(request, messages.ERROR, e)
         return redirect('password-change')
+
+
+class WebTerminalView(LoginRequiredMixin, View):
+    def get(self, request):
+        form = UserPasswordChangeForm(request.user)
+        context = {
+            'nav_mt4terminal': 'active',
+            'title_category': _('PROFILE_MT4TERMINAL_TITLE'),
+        }
+        return render(request, 'fxprofile/web-terminal.html', context=context)

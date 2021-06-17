@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-16 15:34+0000\n"
+"POT-Creation-Date: 2021-06-17 17:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -190,6 +190,10 @@ msgstr "Обзор Тикетов"
 msgid "PROFILE_SIDEBAR_MT4CLIENT"
 msgstr "Скачать MT4 Терминал"
 
+#: fxprofile/templates/fxprofile/blocks/sidebar.html:148
+msgid "PROFILE_SIDEBAR_MT4TERMINAL"
+msgstr "MT4 Веб Терминал"
+
 #: fxprofile/templates/fxprofile/change-password.html:23
 msgid "PROFILE_CHANGEPWD_OLDPWD"
 msgstr "Старый пароль"
@@ -287,6 +291,10 @@ msgstr "Изменить персональную информацию"
 #: fxprofile/views.py:63
 msgid "PROFILE_PASSWORD_CHANGED_SUCCESS"
 msgstr "Пароль успешно изменен"
+
+#: fxprofile/views.py:76
+msgid "PROFILE_MT4TERMINAL_TITLE"
+msgstr "MT4 Веб Терминал"
 
 #: mailer/templates/mailer/base/base_email.html:49
 msgid "Email notification from xyz.trading"
