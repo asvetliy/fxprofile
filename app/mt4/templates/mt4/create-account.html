@@ -15,6 +15,21 @@
             </div>
             <h4 class="card-title">{{ title_category }}</h4>
           </div>
+          <br>
+          <div class="section cd-section section-notifications" id="notifications">
+            <div class="alert alert-info">
+              <div class="container">
+                <div class="alert-icon">
+                  <i class="material-icons" style="color: #FFFFFF;">info_outline</i>
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                </button>
+                <b>{% trans 'MT4_ACCOUNT_CREATE_CARD_INFO_TITLE' %}</b> {% trans 'MT4_ACCOUNT_CREATE_CARD_INFO_MESSAGE' %}
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
           <div class="card-body ml-auto mr-auto">
             <div class="col">
               <div class="form-group bmd-form-group">

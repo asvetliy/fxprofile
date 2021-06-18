@@ -27,5 +27,6 @@ class UserAdmin(BaseUserAdmin):
         }),
         (_('Important dates'), {'fields': ('last_login', 'date_joined', )}),
     )
-    list_display = ('username', 'email', 'country', 'is_active', 'is_staff', 'promo', )
+    list_display = ('username', 'email', 'country', 'is_active', 'is_staff', 'promo', 'date_joined', )
     list_per_page = 20
+    ordering = ('-date_joined', )
