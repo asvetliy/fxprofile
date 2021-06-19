@@ -1,14 +1,16 @@
 {% extends 'users/base.html' %}
-{% load i18n static %}
+{% load i18n static recaptcha2 %}
+{% block head %}
+  {% recaptcha_init %}
+{% endblock %}
 {% get_current_language as LANGUAGE_CODE %}
 {% block content %}
-  <div class="col-lg-8 col-md-6 col-sm-8 ml-auto mr-auto">
-    <form method="post" action="{% url 'user-reg' %}">
+  <div class="col-md-6 ml-auto mr-auto">
+    <form id="registration_form" method="post" action="{% url 'user-reg' %}">
       {% csrf_token %}
       <div class="card">
         <div class="card-header card-header-primary text-center">
           <h4 class="card-title">{% trans 'USERS_REGISTRATION_TITLE' %}</h4>
-          <!--            <p class="category">Category subtitle</p>-->
         </div>
         <div class="card-body">
           {% for field in form %}
@@ -19,14 +21,14 @@
           <div class="form-row">
             <div class="col-md-6">
               <div class="form-group bmd-form-group">
-                <label class="bmd-label-floating" for="id_username">{% trans 'USERS_REGISTRATION_USERNAME' %}<span
+                <label class="bmd-label-floating" for="{{ form.username.id_for_label }}">{% trans 'USERS_REGISTRATION_USERNAME' %}<span
                     class="required">&nbsp;*</span></label>
                 {{ form.username }}
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group bmd-form-group">
-                <label class="bmd-label-floating" for="id_email">{% trans 'USERS_REGISTRATION_EMAIL' %}<span
+                <label class="bmd-label-floating" for="{{ form.email.id_for_label }}">{% trans 'USERS_REGISTRATION_EMAIL' %}<span
                     class="required">&nbsp;*</span></label>
                 {{ form.email }}
               </div>
@@ -35,14 +37,14 @@
           <div class="form-row">
             <div class="col-md-6">
               <div class="form-group bmd-form-group">
-                <label class="bmd-label-floating" for="id_first_name">{% trans 'USERS_REGISTRATION_FIRSTNAME' %}<span
+                <label class="bmd-label-floating" for="{{ form.first_name.id_for_label }}">{% trans 'USERS_REGISTRATION_FIRSTNAME' %}<span
                     class="required">&nbsp;*</span></label>
                 {{ form.first_name }}
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label class="bmd-label-floating" for="id_last_name">{% trans 'USERS_REGISTRATION_LASTNAME' %}<span
+                <label class="bmd-label-floating" for="{{ form.last_name.id_for_label }}">{% trans 'USERS_REGISTRATION_LASTNAME' %}<span
                     class="required">&nbsp;*</span></label>
                 {{ form.last_name }}
               </div>
@@ -51,14 +53,14 @@
           <div class="form-row">
             <div class="col-md-6">
               <div class="form-group">
-                <label class="bmd-label-floating" for="id_password1">{% trans 'USERS_REGISTRATION_PWD' %}<span
+                <label class="bmd-label-floating" for="{{ form.password1.id_for_label }}">{% trans 'USERS_REGISTRATION_PWD' %}<span
                     class="required">&nbsp;*</span></label>
                 {{ form.password1 }}
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label class="bmd-label-floating" for="id_password2">{% trans 'USERS_REGISTRATION_PWD2' %}<span
+                <label class="bmd-label-floating" for="{{ form.password2.id_for_label }}">{% trans 'USERS_REGISTRATION_PWD2' %}<span
                     class="required">&nbsp;*</span></label>
                 {{ form.password2 }}
               </div>
@@ -67,7 +69,7 @@
           <div class="form-row">
             <div class="col-md-6">
               <div class="form-group">
-                <label class="label-control" for="id_country">{% trans 'USERS_REGISTRATION_COUNTRY' %}<span
+                <label class="label-control" for="{{ form.country.id_for_label }}">{% trans 'USERS_REGISTRATION_COUNTRY' %}<span
                     class="required">&nbsp;*</span></label>
                 {{ form.country }}
               </div>
@@ -76,30 +78,30 @@
           <div class="form-row">
             <div class="col-md-6">
               <div class="form-group">
-                <label class="bmd-label-floating" for="id_city">{% trans 'USERS_REGISTRATION_CITY' %}<span
+                <label class="bmd-label-floating" for="{{ form.city.id_for_label }}">{% trans 'USERS_REGISTRATION_CITY' %}<span
                     class="required">&nbsp;*</span></label>
                 {{ form.city }}
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label class="label-control" for="id_birth_date">{% trans 'USERS_REGISTRATION_BIRTHDATE' %}<span
+                <label class="label-control" for="{{ form.birth_date.id_for_label }}">{% trans 'USERS_REGISTRATION_BIRTHDATE' %}<span
                     class="required">&nbsp;*</span></label>
                 {{ form.birth_date }}
               </div>
             </div>
           </div>
           <div class="form-row">
-            <div class="col-md-2 mr-auto">
+            <div class="col-md-4 mr-auto">
               <div class="form-group">
-                <label class="bmd-label-floating" for="id_phone">{% trans 'USERS_REGISTRATION_PHONE' %}<span
+                <label class="bmd-label-floating" for="{{ form.phone.id_for_label }}">{% trans 'USERS_REGISTRATION_PHONE' %}<span
                     class="required">&nbsp;*</span></label></label>
                 {{ form.phone }}
               </div>
             </div>
-            <div class="col-md-2 ml-auto">
+            <div class="col-md-4 ml-auto">
               <div class="form-group">
-                <label class="bmd-label-floating" for="id_promo">{% trans 'USERS_REGISTRATION_PROMOCODE' %}</label>
+                <label class="bmd-label-floating" for="{{ form.promo.id_for_label }}">{% trans 'USERS_REGISTRATION_PROMOCODE' %}</label>
                 {{ form.promo }}
               </div>
             </div>
@@ -107,7 +109,7 @@
           <div class="form-group">
             <div class="form-check">
               <label class="form-check-label">
-                <input required class="form-check-input" type="checkbox" value="">
+                <input required class="form-check-input" type="checkbox" name="agreement" value="">
                 {% blocktrans %}I have read and accept the «Client Agreement» and I understand the nature of financial
                   instruments and the risks involved, so, in light of my circumstances and financial position,
                   I confirm that using financial instruments provided by the Company correspond to my
@@ -117,21 +119,28 @@
             </div>
           </div>
         </div>
-        <div class="card-footer ml-auto">
-          <button type="submit" class="btn btn-primary">{% trans 'USERS_REGISTRATION_SUBMIT' %}
-            <div class="ripple-container"></div>
-          </button>
+        <div class="card-footer">
+          <div class="form-group bmd-form-group mr-auto">
+            {{ form.captcha }}
+            <input type="hidden" class="hiddenRecaptcha" required name="hiddenRecaptcha" id="hiddenRecaptcha">
+          </div>
+          <div class="ml-auto">
+            <button id="form_submit" type="submit" class="btn btn-primary">{% trans 'USERS_REGISTRATION_SUBMIT' %}
+              <div class="ripple-container"></div>
+            </button>
+          </div>
         </div>
       </div>
     </form>
   </div>
 {% endblock %}
 {% block scripts %}
+  <script src="{% static 'js/plugins/jquery.validate.min.js' %}"></script>
   <script src="{% static 'js/plugins/moment.min.js' %}"></script>
   <script src="{% static 'js/plugins/bootstrap-datetimepicker.min.js' %}"></script>
   <script type="text/javascript">
     $(document).ready(function () {
-      $('#id_birth_date').datetimepicker({
+      $('#birth_date').datetimepicker({
         format: "YYYY-MM-DD",
         icons: {
           time: "fa fa-clock-o",
@@ -143,6 +152,90 @@
           today: 'fa fa-screenshot',
           clear: 'fa fa-trash',
           close: 'fa fa-remove'
+        }
+      });
+      jQuery.validator.addMethod("alphanumeric", function(value, element) {
+        return this.optional(element) || /^\w+$/i.test(value);
+      }, "{% trans 'English letters, numbers, and underscores only please' %}");
+      jQuery.validator.addMethod("cyr_alphanumeric", function(value, element) {
+        return this.optional(element) || /^[a-z]*$/i.test(value) || /^[а-я]*$/i.test(value);
+      }, "{% trans 'English and Cyrillic letters, only please' %}");
+      jQuery.validator.addMethod("valid_email", function(value, element) {
+        return this.optional(element) || /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i.test(value);
+      }, "{% trans 'Please enter a valid email address' %}");
+      jQuery.validator.addMethod("pwd_check", function(value, element) {
+        return this.optional(element) || /^(?=.*\d)(?=.*[A-Z])(?=.*\W).*$/i.test(value);
+      }, "{% trans 'Password must contain one capital letter, one numerical and one special character' %}");
+      jQuery.validator.addMethod("phone_check", function(value, element) {
+        return this.optional(element) || /^\+?1?\d{9,15}$/i.test(value);
+      }, '{% trans 'USERS_PHONE_VALIDATION_ERROR' %}');
+      jQuery.validator.addMethod(
+        "birthday_check",
+        function (e, t) {
+          let l=e.split("-");
+          let a=l[2],n=l[1],r=l[0],u=new Date;
+          u.setFullYear(r,n-1,a);
+          let s=new Date,w=new Date;
+          return w.setFullYear(u.getFullYear()+18,n-1,a),s-w>0
+        },
+        "{% trans 'Sorry, you must be 18 years of age to apply' %}"
+      );
+      jQuery.validator.addMethod(
+        "recaptcha",
+        function (e, t) {
+          return grecaptcha.getResponse() === '';
+        },
+        "{% trans 'This field is required' %}"
+      );
+      let $validator = $('#registration_form').validate({
+        ignore: ".ignore",
+        rules: {
+          hiddenRecaptcha: {
+            recaptcha: true,
+          },
+          username: {
+            alphanumeric: true,
+            rangelength: [4, 64],
+          },
+          first_name: {
+            cyr_alphanumeric: true,
+            rangelength: [1, 64],
+          },
+          last_name: {
+            cyr_alphanumeric: true,
+            rangelength: [1, 64],
+          },
+          email: {
+            valid_email: true,
+          },
+          password1: {
+            pwd_check: true,
+            minlength: 6
+          },
+          password2: {
+            equalTo : "#password1"
+          },
+          city: {
+            cyr_alphanumeric: true,
+          },
+          phone: {
+            phone_check: true,
+          },
+          birth_date: {
+            birthday_check: true,
+          }
+        },
+        highlight: function (element) {
+          $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
+          $(element).closest('.form-check').removeClass('has-success').addClass('has-danger');
+        },
+        success: function (element) {
+          $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+          $(element).closest('.form-check').removeClass('has-danger').addClass('has-success');
+          $(element).closest('.error').remove();
+        },
+        errorPlacement: function (error, element) {
+          $(element).closest('.form-group').append(error);
         }
       });
     });

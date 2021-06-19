@@ -19,7 +19,7 @@ class UserCreationView(View):
         context = {
             'title': _('USERS_REG_TITLE'),
             'page': 'registration',
-            'form': UserRegistrationForm()
+            'form': UserRegistrationForm(auto_id=True)
         }
         return render(request, 'users/registration.html', context=context)
 

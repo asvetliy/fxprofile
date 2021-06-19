@@ -3,7 +3,6 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, User
     SetPasswordForm
 from django_countries.fields import CountryField
 from django.core.validators import RegexValidator
-from django_countries.widgets import CountrySelectWidget
 from django.contrib.auth import password_validation
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
@@ -11,6 +10,7 @@ from snowpenguin.django.recaptcha2.fields import ReCaptchaField
 from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 
 from .models import User
+from .widgets import MyCountrySelectWidget
 
 
 class UserRegistrationForm(UserCreationForm):
@@ -22,7 +22,7 @@ class UserRegistrationForm(UserCreationForm):
         max_length=128,
         widget=forms.TextInput(attrs={'class': 'form-control'})
     )
-    country = CountryField().formfield(widget=CountrySelectWidget(
+    country = CountryField().formfield(widget=MyCountrySelectWidget(
         attrs={'class': 'form-control selectpicker', 'data-style': 'btn btn-link'},
         layout='{widget}<img class="img-country-flag" id="{flag_id}" src="{country.flag}">'
     ))
@@ -58,6 +58,9 @@ class UserRegistrationForm(UserCreationForm):
     birth_date = forms.DateField(
         required=True,
         widget=forms.TextInput(attrs={'class': 'form-control'}),
+    )
+    captcha = ReCaptchaField(
+        widget=ReCaptchaWidget()
     )
 
     class Meta:
