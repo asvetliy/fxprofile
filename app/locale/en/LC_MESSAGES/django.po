@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-18 10:43+0000\n"
+"POT-Creation-Date: 2021-06-20 00:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -951,29 +951,29 @@ msgstr "Permissions"
 msgid "Important dates"
 msgstr "Important dates"
 
-#: users/forms.py:45
+#: users/forms.py:45 users/templates/users/registration.html:171
 msgid "USERS_PHONE_VALIDATION_ERROR"
 msgstr ""
 "Phone number must be entered in the format: \"+999999999\". Up to 15 digits "
 "allowed."
 
-#: users/forms.py:75
+#: users/forms.py:78
 msgid "USERS_LOGIN_FORM_USERNAME"
 msgstr "Username"
 
-#: users/forms.py:79
+#: users/forms.py:82
 msgid "USERS_LOGIN_FORM_PWD"
 msgstr "Password"
 
-#: users/forms.py:94
+#: users/forms.py:97
 msgid "USERS_RESET_FORM_EMAIL"
 msgstr "Email"
 
-#: users/forms.py:105
+#: users/forms.py:108
 msgid "USERS_RESET_FORM_NEW_PWD"
 msgstr "New password"
 
-#: users/forms.py:113
+#: users/forms.py:116
 msgid "USERS_RESET_FORM_NEW_PWD2"
 msgstr "Confirm password"
 
@@ -1098,55 +1098,55 @@ msgstr ""
 msgid "The %(site_name)s team"
 msgstr ""
 
-#: users/templates/users/registration.html:10
+#: users/templates/users/registration.html:13
 msgid "USERS_REGISTRATION_TITLE"
 msgstr "Registration Form"
 
-#: users/templates/users/registration.html:22
+#: users/templates/users/registration.html:24
 msgid "USERS_REGISTRATION_USERNAME"
 msgstr "Username"
 
-#: users/templates/users/registration.html:29
+#: users/templates/users/registration.html:31
 msgid "USERS_REGISTRATION_EMAIL"
 msgstr "Email"
 
-#: users/templates/users/registration.html:38
+#: users/templates/users/registration.html:40
 msgid "USERS_REGISTRATION_FIRSTNAME"
 msgstr "First Name"
 
-#: users/templates/users/registration.html:45
+#: users/templates/users/registration.html:47
 msgid "USERS_REGISTRATION_LASTNAME"
 msgstr "Last Name"
 
-#: users/templates/users/registration.html:54
+#: users/templates/users/registration.html:56
 msgid "USERS_REGISTRATION_PWD"
 msgstr "Password"
 
-#: users/templates/users/registration.html:61
+#: users/templates/users/registration.html:63
 msgid "USERS_REGISTRATION_PWD2"
 msgstr "Confirm Password"
 
-#: users/templates/users/registration.html:70
+#: users/templates/users/registration.html:72
 msgid "USERS_REGISTRATION_COUNTRY"
 msgstr "Country"
 
-#: users/templates/users/registration.html:79
+#: users/templates/users/registration.html:81
 msgid "USERS_REGISTRATION_CITY"
 msgstr "City"
 
-#: users/templates/users/registration.html:86
+#: users/templates/users/registration.html:88
 msgid "USERS_REGISTRATION_BIRTHDATE"
 msgstr "Date of Birth"
 
-#: users/templates/users/registration.html:95
+#: users/templates/users/registration.html:97
 msgid "USERS_REGISTRATION_PHONE"
 msgstr "Phone"
 
-#: users/templates/users/registration.html:102
+#: users/templates/users/registration.html:104
 msgid "USERS_REGISTRATION_PROMOCODE"
 msgstr "Promo Code"
 
-#: users/templates/users/registration.html:111
+#: users/templates/users/registration.html:113
 msgid ""
 "I have read and accept the «Client Agreement» and I understand the nature of "
 "financial\n"
@@ -1157,9 +1157,55 @@ msgid ""
 "                  investment objectives."
 msgstr ""
 
-#: users/templates/users/registration.html:121
+#: users/templates/users/registration.html:128
 msgid "USERS_REGISTRATION_SUBMIT"
 msgstr "Sign Up"
+
+#: users/templates/users/registration.html:159
+msgid "English letters, numbers, and underscores only please"
+msgstr ""
+
+#: users/templates/users/registration.html:162
+msgid "English and Cyrillic letters, only please"
+msgstr ""
+
+#: users/templates/users/registration.html:165
+msgid "Please enter a valid email address"
+msgstr ""
+
+#: users/templates/users/registration.html:168
+msgid ""
+"Password must contain one capital letter, one numerical and one special "
+"character"
+msgstr ""
+
+#: users/templates/users/registration.html:181
+msgid "Sorry, you must be 18 years of age to apply"
+msgstr ""
+
+#: users/templates/users/registration.html:185
+msgid "Please enter only positive digits"
+msgstr ""
+
+#: users/templates/users/registration.html:187
+msgid "This field is required"
+msgstr ""
+
+#: users/templates/users/registration.html:188
+msgid "Please enter the same value again"
+msgstr ""
+
+#: users/templates/users/registration.html:189
+msgid "Please enter no more than {0} characters"
+msgstr ""
+
+#: users/templates/users/registration.html:190
+msgid "Please enter at least {0} characters"
+msgstr ""
+
+#: users/templates/users/registration.html:191
+msgid "Please enter a value between {0} and {1} characters long"
+msgstr ""
 
 #: users/views.py:20 users/views.py:56
 msgid "USERS_REG_TITLE"

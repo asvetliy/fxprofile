@@ -180,18 +180,23 @@
         },
         "{% trans 'Sorry, you must be 18 years of age to apply' %}"
       );
-      jQuery.validator.addMethod(
-        "recaptcha",
-        function (e, t) {
-          return grecaptcha.getResponse() === '';
-        },
-        "{% trans 'This field is required' %}"
-      );
+      jQuery.validator.addMethod("digits", function(value, element) {
+        return this.optional(element) || /^\d*$/.test(value)
+      }, '{% trans 'Please enter only positive digits' %}');
+      jQuery.extend(jQuery.validator.messages, {
+        required: "{% trans 'This field is required' %}",
+        equalTo: "{% trans 'Please enter the same value again' %}",
+        maxlength: jQuery.validator.format("{% trans 'Please enter no more than {0} characters' %}"),
+        minlength: jQuery.validator.format("{% trans 'Please enter at least {0} characters' %}"),
+        rangelength: jQuery.validator.format("{% trans 'Please enter a value between {0} and {1} characters long' %}"),
+      });
       let $validator = $('#registration_form').validate({
         ignore: ".ignore",
         rules: {
           hiddenRecaptcha: {
-            recaptcha: true,
+            required: function () {
+              return grecaptcha.getResponse() === '';
+            }
           },
           username: {
             alphanumeric: true,
@@ -220,6 +225,9 @@
           },
           phone: {
             phone_check: true,
+          },
+          promo: {
+            digits: true,
           },
           birth_date: {
             birthday_check: true,
