@@ -2,12 +2,13 @@ from datetime import date
 
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.utils.translation import ugettext_lazy as _
+
+from django_countries.fields import CountryField
 
 
 class User(AbstractUser):
-    country = models.CharField(_('COUNTRY'), max_length=64, blank=False, null=True)
-    city = models.CharField(_('CITY'), max_length=64, blank=False, null=True)
+    country = CountryField()
+    city = models.CharField(max_length=64, blank=False, null=True)
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
     birth_date = models.DateField(null=False, blank=False, default=date(1990, 1, 1))
     email_confirmed = models.BooleanField(default=False, blank=False)

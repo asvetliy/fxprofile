@@ -93,6 +93,7 @@ class PartnerUserAdmin(admin.ModelAdmin):
     search_fields = ('username', 'email', )
     inlines = (VerificationInline, CardInline, VerificationRequestInline, WalletInline, TransactionInline, )
     exclude = ('is_staff', 'password', 'groups', 'user_permissions', 'avatar', 'birth_date', 'about_me', 'is_superuser', )
+    list_per_page = 20
 
     def has_change_permission(self, request, obj=None):
         return False
