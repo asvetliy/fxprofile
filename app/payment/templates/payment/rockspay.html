@@ -8,23 +8,16 @@
           <h3 class="card-title">{% trans 'PAYMENT_THANK_PAGE_TITLE' %}</h3>
           <h5 class="card-description">{% trans 'PAYMENT_THANK_PAGE_TITLE_DESCRIPTION' %}</h5>
         </div>
-        <div class="section cd-section section-notifications" id="notifications">
-          <div class="alert alert-info">
-            <div class="container">
-              <div class="alert-icon">
-                <i style="color: #FFFFFF;" class="material-icons">info_outline</i>
-              </div>
-              <b>{% trans 'PAYMENT_THANK_PAGE_INFO_ALERT_TITLE' %}</b> {% trans 'PAYMENT_THANK_PAGE_INFO_ALERT_TEXT' %}
-            </div>
-          </div>
-          <div class="clearfix"></div>
-        </div>
         <div class="card-body">
-          <h5 class="info-text">{% trans 'PAYMENT_EPORTAL_PAGE_ADDRESS_TEXT' %}</h5>
+          <div class="alert alert-info alert-with-icon" style="margin-top: 0" data-notify="container">
+            <i class="material-icons" data-notify="icon">notifications</i>
+            <span data-notify="icon" class="now-ui-icons ui-1_bell-53"></span>
+            <span data-notify="message" class="font-weight-bold">{% trans 'PAYMENT_ROCKSPAY_INFO_TEXT' %}</span>
+          </div>
           <h4 class="info-text text-success font-weight-bold">{% trans 'PAYMENT_ROCKSPAY_AMOUNT' %} {{ amount }} ({{ currency }})</h4>
+
           <h4 class="info-text text-danger font-weight-bold">{% trans 'PAYMENT_BLOCKCHAIN_PAGE_EXPIRATION' %} <span id="timer">00:00:00</span></h4>
-          <h2 id="eportal_wallet" class="info-text text-primary font-weight-bold"><i class="material-icons">credit_card</i> {{ card_number }}</h2>
-          <h4 class="info-text text-info font-weight-bold">{% trans 'PAYMENT_ROCKSPAY_INFO_TEXT' %}</h4>
+          <h2 class="info-text text-primary font-weight-bold"><i class="material-icons">credit_card</i> <span id="card_number">{{ card_number }}</span></h2>
           <div class="row">
             <form method="get" action="/payments/rockspay/check" class="d-block m-auto">
               <input type="hidden" name="invoice_id" id="invoice_id" value="{{ invoice_id }}" />
@@ -37,10 +30,13 @@
   </div>
 {% endblock content %}
 {% block scripts %}
+  <script type="text/javascript" src="{% static 'js/plugins/tools.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/plugins/timer.js' %}"></script>
   <script type="text/javascript">
     $(document).ready(function () {
       timer.init('timer', '{{ expired_at }}', '{% url 'wallet-deposit' %}');
+      let $card_number = document.getElementById('card_number');
+      $card_number.innerText = tools.maskCard($card_number);
     });
   </script>
 {% endblock %}

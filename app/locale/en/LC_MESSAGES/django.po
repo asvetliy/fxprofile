@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-24 12:35+0000\n"
+"POT-Creation-Date: 2021-06-24 15:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -742,7 +742,6 @@ msgstr ""
 #: payment/templates/payment/blockchain.html:25
 #: payment/templates/payment/eportal.html:25
 #: payment/templates/payment/p2pay.html:17
-#: payment/templates/payment/rockspay.html:17
 #: payment/templates/payment/thank_page.html:17
 #: payment/templates/payment/wait_payment.html:17
 msgid "PAYMENT_THANK_PAGE_INFO_ALERT_TITLE"
@@ -751,19 +750,17 @@ msgstr "ALERT INFO:"
 #: payment/templates/payment/blockchain.html:25
 #: payment/templates/payment/eportal.html:25
 #: payment/templates/payment/p2pay.html:17
-#: payment/templates/payment/rockspay.html:17
 #: payment/templates/payment/thank_page.html:17
 msgid "PAYMENT_THANK_PAGE_INFO_ALERT_TEXT"
 msgstr "Please proceed with the payment on the payment system page..."
 
 #: payment/templates/payment/blockchain.html:31
 #: payment/templates/payment/eportal.html:31
-#: payment/templates/payment/rockspay.html:23
 msgid "PAYMENT_EPORTAL_PAGE_ADDRESS_TEXT"
 msgstr "Make your transfers to the wallet:"
 
 #: payment/templates/payment/blockchain.html:33
-#: payment/templates/payment/rockspay.html:25
+#: payment/templates/payment/rockspay.html:19
 msgid "PAYMENT_BLOCKCHAIN_PAGE_EXPIRATION"
 msgstr "Expiration:"
 
@@ -814,15 +811,15 @@ msgstr "Failed payment..."
 msgid "PAYMENT_THANK_PAGE_INFO_WAITFOR_PAYMENT"
 msgstr "Please wait for processing..."
 
-#: payment/templates/payment/rockspay.html:24
-msgid "PAYMENT_ROCKSPAY_AMOUNT"
-msgstr "Amount to be paid:"
-
-#: payment/templates/payment/rockspay.html:27
+#: payment/templates/payment/rockspay.html:15
 msgid "PAYMENT_ROCKSPAY_INFO_TEXT"
 msgstr "In your Client-Bank, make a card-to-card transfer"
 
-#: payment/templates/payment/rockspay.html:31
+#: payment/templates/payment/rockspay.html:17
+msgid "PAYMENT_ROCKSPAY_AMOUNT"
+msgstr "Amount to be paid:"
+
+#: payment/templates/payment/rockspay.html:24
 msgid "PAYMENT_ROCKSPAY_SEND_CHECK"
 msgstr "Confirm transfer"
 
