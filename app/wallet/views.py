@@ -1,3 +1,5 @@
+import json
+
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib import messages
@@ -5,6 +7,7 @@ from django.apps import apps
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import gettext_lazy as _
+from django.utils.safestring import SafeString
 
 from .models import Wallet, Transaction
 from .forms import *
@@ -17,13 +20,25 @@ class WalletDepositView(View, LoginRequiredMixin):
     def get(self, request):
         wallets = Wallet.objects.filter(user=request.user)
         payment_systems = PaymentSystem.objects.filter(is_enabled=True).order_by('position')
+        ps = dict()
+        afs = dict()
+        for payment_system in payment_systems:
+            ps[payment_system.code] = {
+                "min_amount": payment_system.min_amount,
+                "max_amount": payment_system.max_amount,
+            }
+            afs[payment_system.code] = payment_system.config.get('additional_fields', None)
+        payment_systems_json = json.dumps(ps)
+        additional_fields_json = json.dumps(afs)
         context = {
             'nav_funds_deposit': 'active',
             'nav_funds_collapsed': 'show',
             'nav_funds': 'active',
             'wallets': wallets,
             'title_category': _('WALLET_DEPOSIT_PAGE_TITLE'),
-            'payment_systems': payment_systems
+            'payment_systems': payment_systems,
+            'payment_systems_json': SafeString(payment_systems_json),
+            'additional_fields_json': SafeString(additional_fields_json),
         }
         return render(request, 'wallet/deposit.html', context=context)
 

@@ -12,8 +12,10 @@ class PaymentSystem(models.Model):
     is_enabled = models.BooleanField(blank=False, default=False)
     withdraw = models.BooleanField(blank=False, default=False)
     fee = models.IntegerField(blank=False, default=0)
+    min_amount = models.IntegerField(blank=False, default=0)
+    max_amount = models.IntegerField(blank=False, default=0)
     position = models.IntegerField(blank=False, default=0)
-    payment_currency = models.ForeignKey(settings.CURRENCY_MODEL, models.CASCADE, blank=False, null=True)
+    payment_currency = models.ForeignKey(settings.CURRENCY_MODEL, models.CASCADE, blank=True, null=True)
     config = models.JSONField(
         db_column='config',
         verbose_name='config',

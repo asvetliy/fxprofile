@@ -45,4 +45,6 @@ class PaymentURLDispatcher(View):
                 return p.success_payment(request)
             if action == 'fail':
                 return p.fail_payment(request)
+            if action == 'check':
+                return p.check_payment(request)
         return page_not_found(request, None)

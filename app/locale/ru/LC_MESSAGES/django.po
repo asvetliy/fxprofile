@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-20 00:07+0000\n"
+"POT-Creation-Date: 2021-06-24 12:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -755,17 +755,25 @@ msgstr ""
 msgid "PAYMENT_BLOCKCHAIN_NO_EMPTY_WALLET"
 msgstr "На данный момент нет свободных адресов. Попробуйте позже..."
 
+#: payment/schemes/rockspay.py:110
+msgid "PAYMENT_ROCKSPAY_FAIL_STATUS_CODE"
+msgstr "Платежная система отправила неверный код статуса: %s"
+
 #: payment/templates/payment/blockchain.html:8
 #: payment/templates/payment/eportal.html:8
 #: payment/templates/payment/p2pay.html:8
+#: payment/templates/payment/rockspay.html:8
 #: payment/templates/payment/thank_page.html:8
+#: payment/templates/payment/wait_payment.html:8
 msgid "PAYMENT_THANK_PAGE_TITLE"
 msgstr "Спасибо!"
 
 #: payment/templates/payment/blockchain.html:9
 #: payment/templates/payment/eportal.html:9
 #: payment/templates/payment/p2pay.html:9
+#: payment/templates/payment/rockspay.html:9
 #: payment/templates/payment/thank_page.html:9
+#: payment/templates/payment/wait_payment.html:9
 msgid "PAYMENT_THANK_PAGE_TITLE_DESCRIPTION"
 msgstr "Ожидание платежа"
 
@@ -785,23 +793,28 @@ msgstr ""
 #: payment/templates/payment/blockchain.html:25
 #: payment/templates/payment/eportal.html:25
 #: payment/templates/payment/p2pay.html:17
+#: payment/templates/payment/rockspay.html:17
 #: payment/templates/payment/thank_page.html:17
+#: payment/templates/payment/wait_payment.html:17
 msgid "PAYMENT_THANK_PAGE_INFO_ALERT_TITLE"
 msgstr "ИНФОРМАЦИЯ:"
 
 #: payment/templates/payment/blockchain.html:25
 #: payment/templates/payment/eportal.html:25
 #: payment/templates/payment/p2pay.html:17
+#: payment/templates/payment/rockspay.html:17
 #: payment/templates/payment/thank_page.html:17
 msgid "PAYMENT_THANK_PAGE_INFO_ALERT_TEXT"
 msgstr "Продолжайте оплату на странице платежной системы..."
 
 #: payment/templates/payment/blockchain.html:31
 #: payment/templates/payment/eportal.html:31
+#: payment/templates/payment/rockspay.html:23
 msgid "PAYMENT_EPORTAL_PAGE_ADDRESS_TEXT"
 msgstr "Кошелек для перевода:"
 
 #: payment/templates/payment/blockchain.html:33
+#: payment/templates/payment/rockspay.html:25
 msgid "PAYMENT_BLOCKCHAIN_PAGE_EXPIRATION"
 msgstr "Истечение:"
 
@@ -815,6 +828,7 @@ msgstr "КОПИРОВАТЬ"
 #: payment/templates/payment/p2pay.html:27
 #: payment/templates/payment/success_payment.html:28
 #: payment/templates/payment/thank_page.html:28
+#: payment/templates/payment/wait_payment.html:28
 msgid "PAYMENT_THANK_PAGE_BUTTON_TEXT"
 msgstr "Платежная История"
 
@@ -851,6 +865,20 @@ msgstr "Неудачный платеж..."
 msgid "PAYMENT_THANK_PAGE_INFO_WAITFOR_PAYMENT"
 msgstr "Пожалуйста, ожидайте обработки..."
 
+#: payment/templates/payment/rockspay.html:24
+msgid "PAYMENT_ROCKSPAY_AMOUNT"
+msgstr "Сумма к оплате:"
+
+#: payment/templates/payment/rockspay.html:27
+msgid "PAYMENT_ROCKSPAY_INFO_TEXT"
+msgstr ""
+"В вашем Клиент-Банке сделайте перевод с карты на карту. После чего, "
+"подтвердите перевод."
+
+#: payment/templates/payment/rockspay.html:31
+msgid "PAYMENT_ROCKSPAY_SEND_CHECK"
+msgstr "Подтвердить перевод"
+
 #: payment/templates/payment/success_payment.html:8
 msgid "PAYMENT_SUCCESS_PAGE_TITLE"
 msgstr "Спасибо!"
@@ -874,6 +902,14 @@ msgstr "Успешный платеж..."
 #: payment/templates/payment/thank_page.html:23
 msgid "PAYMENT_THANK_PAGE_INFO_TEXT1"
 msgstr "Перенаправление..."
+
+#: payment/templates/payment/wait_payment.html:17
+msgid "PAYMENT_WAIT_PAGE_INFO_ALERT_TEXT"
+msgstr "Пожалуйста, устраните проблемы с оплатой и повторите попытку позже..."
+
+#: payment/templates/payment/wait_payment.html:23
+msgid "PAYMENT_WAIT_PAGE_TEXT1"
+msgstr "Ваш платеж будет зачислен после обработки..."
 
 #: questions/templates/questions/create-ticket.html:21
 msgid "QUESTION_CREATE_FORM_TEXTAREA_TITLE"
@@ -990,15 +1026,15 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: users/admin.py:24
+#: users/admin.py:26
 msgid "Personal info"
 msgstr "Персональная информация"
 
-#: users/admin.py:25
+#: users/admin.py:28
 msgid "Permissions"
 msgstr "Разрешения"
 
-#: users/admin.py:28
+#: users/admin.py:34
 msgid "Important dates"
 msgstr "Важные даты"
 
@@ -1025,14 +1061,6 @@ msgstr "Новый пароль"
 #: users/forms.py:116
 msgid "USERS_RESET_FORM_NEW_PWD2"
 msgstr "Повторите новый пароль"
-
-#: users/models.py:9
-msgid "COUNTRY"
-msgstr "СТРАНА"
-
-#: users/models.py:10
-msgid "CITY"
-msgstr "ГОРОД"
 
 #: users/templates/admin/partner_user_view.html:6
 msgid "Home"
@@ -1222,11 +1250,11 @@ msgid "USERS_REGISTRATION_SUBMIT"
 msgstr "Зарегистрироваться"
 
 #: users/templates/users/registration.html:159
-msgid "English letters, numbers, and underscores only please"
+msgid "Latin letters, numbers, and underscores only please"
 msgstr "Только английские буквы, цифры и символы подчеркивания, пожалуйста"
 
 #: users/templates/users/registration.html:162
-msgid "English and Cyrillic letters, only please"
+msgid "Latin and Cyrillic letters, only please"
 msgstr "Английские и кириллические буквы, только пожалуйста"
 
 #: users/templates/users/registration.html:165
@@ -1484,24 +1512,20 @@ msgid "WALLET_DEPOSIT_CARD_TAB1"
 msgstr "ready"
 
 #: wallet/templates/wallet/deposit.html:24
-msgid "WALLET_DEPOSIT_CARD_TAB2"
-msgstr "steady"
-
-#: wallet/templates/wallet/deposit.html:29
 msgid "WALLET_DEPOSIT_CARD_TAB3"
 msgstr "go!"
 
-#: wallet/templates/wallet/deposit.html:37
+#: wallet/templates/wallet/deposit.html:32
 #: wallet/templates/wallet/transfer.html:32
 msgid "WALLET_DEPOSIT_CARD_INFO_TEXT1"
 msgstr "Начнем с базовой информации"
 
-#: wallet/templates/wallet/deposit.html:47
+#: wallet/templates/wallet/deposit.html:42
 #: wallet/templates/wallet/transfer.html:42
 msgid "WALLET_DEPOSIT_CARD_AMOUNT"
 msgstr "Сумма"
 
-#: wallet/templates/wallet/deposit.html:61
+#: wallet/templates/wallet/deposit.html:56
 #: wallet/templates/wallet/transfer.html:70
 #: wallet/templates/wallet/transfer.html:87
 #: wallet/templates/wallet/transfer.html:112
@@ -1510,24 +1534,14 @@ msgid "WALLET_DEPOSIT_CARD_CHOOSE_ACCOUNT"
 msgstr "Выберите счет"
 
 #: wallet/templates/wallet/deposit.html:72
-#: wallet/templates/wallet/transfer.html:100
-msgid "WALLET_DEPOSIT_CARD_INFO_TEXT2"
-msgstr "Выберите платежный метод"
-
-#: wallet/templates/wallet/deposit.html:84
 msgid "WALLET_DEPOSIT_CARD_CHOOSE_PAYMENT"
 msgstr "Платежная система"
 
-#: wallet/templates/wallet/deposit.html:95
-#: wallet/templates/wallet/transfer.html:141
-msgid "WALLET_DEPOSIT_CARD_TERMS_CONDITIONS"
-msgstr "Я прочитал и принимаю Политику Возврата"
-
-#: wallet/templates/wallet/deposit.html:106
+#: wallet/templates/wallet/deposit.html:90
 msgid "WALLET_DEPOSIT_CARD_INFO_TEXT3"
 msgstr "Согласны ли вы?"
 
-#: wallet/templates/wallet/deposit.html:108
+#: wallet/templates/wallet/deposit.html:92
 msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT1"
 msgstr ""
 "Политика возврата средств была разработана с целью снижения финансовых и "
@@ -1535,7 +1549,7 @@ msgstr ""
 "отмыванию денег и противодействия финансированию террористической "
 "деятельности."
 
-#: wallet/templates/wallet/deposit.html:110
+#: wallet/templates/wallet/deposit.html:94
 msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT2"
 msgstr ""
 "Компания имеет право в одностороннем порядке блокировать вход в личный "
@@ -1544,7 +1558,7 @@ msgstr ""
 "Клиента противоречит международным политикам в области борьбы с отмыванием "
 "денег и финансирование терроризма."
 
-#: wallet/templates/wallet/deposit.html:111
+#: wallet/templates/wallet/deposit.html:95
 msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT3"
 msgstr ""
 "Компания не отменяет реализованные коммерческие сделки, поэтому Компания "
@@ -1552,7 +1566,7 @@ msgstr ""
 "момента пополнения, на счетах Клиента не была зарегистрирована торговая "
 "деятельность."
 
-#: wallet/templates/wallet/deposit.html:112
+#: wallet/templates/wallet/deposit.html:96
 msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT4"
 msgstr ""
 "Компания имеет право по определенным объективным причинам и в случае "
@@ -1561,7 +1575,7 @@ msgstr ""
 "осуществляться только на электронные кошельки и/или банковские реквизиты, "
 "которые Клиент использовал при вводе денег."
 
-#: wallet/templates/wallet/deposit.html:113
+#: wallet/templates/wallet/deposit.html:97
 msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT5"
 msgstr ""
 "В случае, если Компания классифицирует деятельность Клиента как ненадлежащую "
@@ -1570,7 +1584,7 @@ msgstr ""
 "имеет право действовать в соответствии с данной политикой без "
 "предварительного уведомления в адрес Клиента."
 
-#: wallet/templates/wallet/deposit.html:114
+#: wallet/templates/wallet/deposit.html:98
 msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT6"
 msgstr ""
 "При пополнении торгового счета банковской картой Клиент обязуется не "
@@ -1583,7 +1597,7 @@ msgstr ""
 "на личный счет Клиента только после оплаты Клиентом всех связанных с этим "
 "издержек Компании и сопутствующих комиссий."
 
-#: wallet/templates/wallet/deposit.html:115
+#: wallet/templates/wallet/deposit.html:99
 msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT7"
 msgstr ""
 "Компания принимает все необходимые меры для предотвращения и блокирования "
@@ -1591,7 +1605,7 @@ msgstr ""
 "вывод средств со счета может осуществляться только владельцем этой учетной "
 "записи."
 
-#: wallet/templates/wallet/deposit.html:116
+#: wallet/templates/wallet/deposit.html:100
 msgid "WALLET_DEPOSIT_CARD_POLICY_TEXT8"
 msgstr ""
 "В случае информации о использовании Клиентом платежных реквизитов третьих "
@@ -1601,19 +1615,19 @@ msgstr ""
 "предварительного уведомления и до получения от клиента всей необходимой "
 "документации подтверждающей легальность данных действий."
 
-#: wallet/templates/wallet/deposit.html:127
+#: wallet/templates/wallet/deposit.html:111
 #: wallet/templates/wallet/transfer.html:153
 #: wallet/templates/wallet/withdraw.html:92
 msgid "WALLET_CARD_BTN_PREV"
 msgstr "Назад"
 
-#: wallet/templates/wallet/deposit.html:131
+#: wallet/templates/wallet/deposit.html:115
 #: wallet/templates/wallet/transfer.html:157
 #: wallet/templates/wallet/withdraw.html:96
 msgid "WALLET_CARD_BTN_NEXT"
 msgstr "Далее"
 
-#: wallet/templates/wallet/deposit.html:133
+#: wallet/templates/wallet/deposit.html:117
 #: wallet/templates/wallet/transfer.html:159
 #: wallet/templates/wallet/withdraw.html:98
 msgid "WALLET_CARD_BTN_SUBMIT"
@@ -1695,6 +1709,14 @@ msgstr "с торгового на персональный"
 msgid "WALLET_DEPOSIT_CARD_PERSONAL_ACCOUNT"
 msgstr "Персональный счет"
 
+#: wallet/templates/wallet/transfer.html:100
+msgid "WALLET_DEPOSIT_CARD_INFO_TEXT2"
+msgstr "Выберите платежный метод"
+
+#: wallet/templates/wallet/transfer.html:141
+msgid "WALLET_DEPOSIT_CARD_TERMS_CONDITIONS"
+msgstr "Я прочитал и принимаю Политику Возврата"
+
 #: wallet/templates/wallet/withdraw.html:12
 msgid "WALLET_WITHDRAW_CARD_TITLE"
 msgstr "Вывести средства"
@@ -1739,76 +1761,76 @@ msgstr "Укажите дополнительную информацию."
 msgid "WALLET_WITHDRAW_TO_WALLET"
 msgstr "Кошелек для вывода"
 
-#: wallet/views.py:25
+#: wallet/views.py:38
 msgid "WALLET_DEPOSIT_PAGE_TITLE"
 msgstr "Депозит"
 
-#: wallet/views.py:39
+#: wallet/views.py:54
 msgid "WALLET_WITHDRAW_PAGE_TITLE"
 msgstr "Вывод"
 
-#: wallet/views.py:61
+#: wallet/views.py:76
 msgid "WALLET_WITHDRAW_VIA_PAYMENT"
 msgstr "Вывод через %(payment_name)s"
 
-#: wallet/views.py:63
+#: wallet/views.py:78
 msgid "WALLET_WITHDRAW_CREATED_SUCCESSFULLY"
 msgstr "Заявка на вывод успешно создана"
 
-#: wallet/views.py:66
+#: wallet/views.py:81
 msgid "WALLET_WITHDRAW_ERROR_NOT_VALID"
 msgstr "Не валидный запрос на вывод средств."
 
-#: wallet/views.py:77
+#: wallet/views.py:92
 msgid "WALLET_TRANSFER_PAGE_TITLE"
 msgstr "Перевод средств"
 
-#: wallet/views.py:98
+#: wallet/views.py:113
 msgid "WALLET_WITHDRAW_ERROR_WALLET_NOTEXIST"
 msgstr "Кошелек не существует"
 
-#: wallet/views.py:104
+#: wallet/views.py:119
 msgid "WALLET_WITHDRAW_ERROR_ACCOUNT_NOTEXIST"
 msgstr "Торговый счет не существует"
 
-#: wallet/views.py:108
+#: wallet/views.py:123
 msgid "WALLET_WITHDRAW_ERROR_CANT_TRANSFER"
 msgstr ""
 "Вы не можете переводить средства между счетами с разной базовой валютой"
 
-#: wallet/views.py:117
+#: wallet/views.py:132
 msgid "WALLET_TRANSFER_TO_TRADING_ACCOUNT"
 msgstr "Перевод на торговый счет %(account_id)d"
 
-#: wallet/views.py:122 wallet/views.py:152
+#: wallet/views.py:137 wallet/views.py:167
 msgid "WALLET_TRANSFER_ERROR_INSUFFICIENT_FUNDS"
 msgstr "Недостаточно средств"
 
-#: wallet/views.py:128
+#: wallet/views.py:143
 msgid "WALLET_TRANSFER_ERROR_ACCOUNT_NOTEXIST"
 msgstr "Торговый счет не существует"
 
-#: wallet/views.py:134
+#: wallet/views.py:149
 msgid "WALLET_TRANSFER_ERROR_WALLET_NOTEXIST"
 msgstr "Кошелек не существует"
 
-#: wallet/views.py:138
+#: wallet/views.py:153
 msgid "WALLET_TRANSFER_ERROR_CANT_TRANSFER"
 msgstr ""
 "Вы не можете переводить средства между счетами с разной базовой валютой"
 
-#: wallet/views.py:147
+#: wallet/views.py:162
 msgid "WALLET_TRANSFER_FROM_TRADING_ACCOUNT"
 msgstr "Перевод с торгового счета %(account_id)d"
 
-#: wallet/views.py:155 wallet/views.py:160
+#: wallet/views.py:170 wallet/views.py:175
 msgid "WALLET_TRANSFER_ERROR_NOT_VALID"
 msgstr "Невозможно создать перевод"
 
-#: wallet/views.py:158
+#: wallet/views.py:173
 msgid "WALLET_TRANSFER_CREATED_SUCCESSFULLY"
 msgstr "Заявка на перевод успешно создана"
 
-#: wallet/views.py:175
+#: wallet/views.py:190
 msgid "WALLET_TRANSFER_HISTORY_PAGE_TITLE"
 msgstr "История транзакций"

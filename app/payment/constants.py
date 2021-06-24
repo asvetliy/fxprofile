@@ -5,3 +5,10 @@ class PaymentStatus(object):
     EXPIRE = 4
     ERROR = 5
     DECLINE = 6
+
+
+ROCKSPAY_CURRENCIES = {
+    'RUB': 1,
+    'USD': 2,
+    'EUR': 4,
+}
