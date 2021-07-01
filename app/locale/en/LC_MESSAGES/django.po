@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-24 15:21+0000\n"
+"POT-Creation-Date: 2021-06-25 15:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1211,6 +1211,7 @@ msgid "Please enter only positive digits"
 msgstr ""
 
 #: users/templates/users/registration.html:187
+#: wallet/templates/wallet/deposit.html:135
 msgid "This field is required"
 msgstr ""
 
@@ -1562,6 +1563,14 @@ msgstr "Next"
 #: wallet/templates/wallet/withdraw.html:98
 msgid "WALLET_CARD_BTN_SUBMIT"
 msgstr "Agree"
+
+#: wallet/templates/wallet/deposit.html:136
+msgid "Please enter a value greater than or equal to {0}."
+msgstr ""
+
+#: wallet/templates/wallet/deposit.html:137
+msgid "Please enter a value less than or equal to {0}."
+msgstr ""
 
 #: wallet/templates/wallet/history.html:9
 msgid "WALLET_HISTORY_CARD_TITLE"

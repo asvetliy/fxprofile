@@ -129,8 +129,13 @@
   <script src="{% static 'js/plugins/jquery.validate.min.js' %}" type="text/javascript"></script>
   <script src="{% static 'js/plugins/jquery.bootstrap-wizard.js' %}" type="text/javascript"></script>
   <script src="{% static 'js/plugins/wizard.js' %}" type="text/javascript"></script>
-  <script>
+  <script type="text/javascript">
     $(document).ready(function () {
+      jQuery.extend(jQuery.validator.messages, {
+        required: "{% trans 'This field is required' %}",
+        min: jQuery.validator.format("{% trans 'Please enter a value greater than or equal to {0}.' %}"),
+        max: jQuery.validator.format("{% trans 'Please enter a value less than or equal to {0}.' %}"),
+      });
       wizard.initMaterialDepositWizard('{{ payment_systems_json }}', '{{ additional_fields_json }}');
       $('.agreement-text').perfectScrollbar();
     });
