@@ -24,7 +24,7 @@
                 <div class="row">
                   <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_PROFIT' %}</label>
                   <div class="col-sm-9">
-                    <p class="form-control-lg">{{ profit }}</p>
+                    <p class="form-control-lg">{{ profit|floatformat:2 }}</p>
                   </div>
                 </div>
               </div>
@@ -42,7 +42,7 @@
                 <div class="row">
                   <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_BALANCE' %}</label>
                   <div class="col-sm-9">
-                    <p class="form-control-lg">{{ mt4_account.BALANCE }}</p>
+                    <p class="form-control-lg">{{ mt4_account.BALANCE|floatformat:2 }}</p>
                   </div>
                 </div>
               </div>
@@ -60,7 +60,7 @@
                 <div class="row">
                   <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_EQUITY' %}</label>
                   <div class="col-sm-9">
-                    <p class="form-control-lg">{{ mt4_account.EQUITY }}</p>
+                    <p class="form-control-lg">{{ mt4_account.EQUITY|floatformat:2 }}</p>
                   </div>
                 </div>
               </div>
@@ -78,7 +78,7 @@
                 <div class="row">
                   <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_MARGIN' %}</label>
                   <div class="col-sm-9">
-                    <p class="form-control-lg">{{ mt4_account.MARGIN }}</p>
+                    <p class="form-control-lg">{{ mt4_account.MARGIN|floatformat:2 }}</p>
                   </div>
                 </div>
               </div>
@@ -96,7 +96,7 @@
                 <div class="row">
                   <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_MARGINFREE' %}</label>
                   <div class="col-sm-9">
-                    <p class="form-control-lg">{{ mt4_account.MARGIN_FREE }}</p>
+                    <p class="form-control-lg">{{ mt4_account.MARGIN_FREE|floatformat:2 }}</p>
                   </div>
                 </div>
               </div>
@@ -114,7 +114,7 @@
                 <div class="row">
                   <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_MARGINLEVEL' %}</label>
                   <div class="col-sm-9">
-                    <p class="form-control-lg">{{ mt4_account.MARGIN_LEVEL }}</p>
+                    <p class="form-control-lg">{{ mt4_account.MARGIN_LEVEL|floatformat:2 }}</p>
                   </div>
                 </div>
               </div>

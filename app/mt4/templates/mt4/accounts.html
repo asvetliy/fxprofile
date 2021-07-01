@@ -34,7 +34,7 @@
                 <td>{{ account.type }}</td>
                 <td>{{ account.CURRENCY }}</td>
                 <td>{{ account.LEVERAGE }}</td>
-                <td>{{ account.BALANCE }}</td>
+                <td>{{ account.BALANCE|floatformat:2 }}</td>
                 <td>{{ account.REGDATE|date:'Y-m-d H:i' }}</td>
                 <td class="text-right">
                   <a href="{% url 'mt4-account-action' account.id 'view' %}" class="btn btn-link btn-info btn-just-icon">
