@@ -40,7 +40,7 @@ class AccountObject(object):
     def from_user(self, user):
         self.deposit = '0'
         self.email = user.email
-        self.country = user.country
+        self.country = user.country.code
         self.group_id = '3'
         self.send_reports = '0'
         if user.phone:
