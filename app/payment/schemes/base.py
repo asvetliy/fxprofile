@@ -91,7 +91,12 @@ class BaseScheme(object):
             self.to_currency = self.wallet.currency.iso
         self.from_currency = self.wallet.currency.iso
         if self.from_currency != self.to_currency:
-            self.converted_amount = exchange.conv(float(self.str_amount), self.from_currency, self.to_currency)
+            self.converted_amount = exchange.conv(
+                float(self.str_amount),
+                self.from_currency,
+                self.to_currency,
+                self.system.exchange_rounding
+            )
             self.converted_amount_str = ftos(self.converted_amount, self.system.payment_currency.digest)
         else:
             self.converted_amount = itof(self.fee_amount, self.wallet.currency.digest)

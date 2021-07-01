@@ -16,6 +16,7 @@ class PaymentSystem(models.Model):
     max_amount = models.IntegerField(blank=False, default=0)
     position = models.IntegerField(blank=False, default=0)
     payment_currency = models.ForeignKey(settings.CURRENCY_MODEL, models.CASCADE, blank=True, null=True)
+    exchange_rounding = models.BooleanField(blank=False, default=False)
     config = models.JSONField(
         db_column='config',
         verbose_name='config',
