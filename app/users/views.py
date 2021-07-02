@@ -49,6 +49,9 @@ class UserCreationView(View):
                 }),
                 'title': _('USERS_REG_EMAIL_CONFIRM_SUBJECT'),
             })
+            Mailer.send_managers('reg_success', subject=f'New user, {user.username}, successfully created', params={
+                'user': user,
+            })
             return redirect('account-activation-sent')
         else:
             context = {
@@ -99,6 +102,9 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.email_confirmed = True
         user.save()
+        Mailer.send_managers('email_confirm_success', subject=f'User, {user.username}, successfully confirmed email', params={
+            'user': user,
+        })
         login(request, user)
         return redirect('profile-index')
     else:

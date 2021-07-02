@@ -1,0 +1,1 @@
+User, {{ user.username }}, successfully confirmed email: {{ user.email }}

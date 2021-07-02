@@ -25,5 +25,5 @@ EMAIL_HOST_USER = 'noreply@xyz.trading'
 EMAIL_HOST_PASSWORD = 's5l^Ab06'
 
 ADMINS = [('Administrator', 'admin@xyz.trading')]
-MANAGERS = [('Support', 'support@xyz.trading')]
+MANAGERS = ['support@xyz.trading']
 DEFAULT_FROM_EMAIL = 'XYZ.TRADING <noreply@xyz.trading>'

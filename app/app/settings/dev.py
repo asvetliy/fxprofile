@@ -28,3 +28,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'htc.fail.hell@gmail.com'
 EMAIL_HOST_PASSWORD = 'b4c5fail00!'
+
+ADMINS = [('Administrator', 'htc.fail.hell@gmail.com')]
+MANAGERS = ['htc.fail.hell@gmail.com']

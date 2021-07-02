@@ -30,7 +30,11 @@ def create_trading_account(sender, instance, created, **kwargs):
         Mailer.send('trading_account_created', instance.user, subject=_('MT4_ACCOUNT_CREATE_EMAIL_SUBJECT'), params={
             'account_id': instance.id,
             'pwd': instance.pwd,
-            'inv_pwd': instance.inv_pwd
+            'inv_pwd': instance.inv_pwd,
+        })
+        Mailer.send_managers('mt4_account_created', subject=f'User, {instance.user.username}, created an trading account', params={
+            'user': instance.user,
+            'account_id': instance.id,
         })
 
 

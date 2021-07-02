@@ -25,7 +25,8 @@ class EportalWalletAdmin(admin.ModelAdmin):
 
 @admin.register(BlockchainWallet)
 class BlockchainWalletAdmin(admin.ModelAdmin):
-    list_display = ('id', 'transaction', 'bwallet', 'expired_at', 'picked_at', )
+    list_display = ('id', 'transaction', 'bwallet', 'expired_at', 'picked_at', 'is_used', )
     autocomplete_fields = ('transaction', )
     search_fields = ('bwallet', )
     list_per_page = 20
+    list_filter = ('is_used', )

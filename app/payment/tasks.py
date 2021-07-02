@@ -1,6 +1,6 @@
 from django.utils import timezone
 
-from .models import Transaction, BlockchainWallet
+from .models import BlockchainWallet
 
 
 def close_expired_blockchain_transactions():

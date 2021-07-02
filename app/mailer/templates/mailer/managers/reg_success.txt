@@ -1,0 +1,8 @@
+New user successfully created:
+
+Username: {{ user.username }}
+Email: {{ user.email }}
+First Name: {{ user.first_name }}
+Last Name: {{ user.last_name }}
+Country: {{ user.country.name }}
+Promo: {{ user.promo }}
