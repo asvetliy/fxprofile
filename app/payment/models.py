@@ -43,6 +43,7 @@ class BlockchainWallet(models.Model):
     bwallet = models.CharField(max_length=34, blank=False, null=False)
     picked_at = models.DateTimeField(default=None, blank=True, null=True)
     expired_at = models.DateTimeField(default=None, blank=True, null=True)
+    is_used = models.BooleanField(blank=False, default=False)
 
     class Meta:
         db_table = 'payment_blockchain_wallets'
