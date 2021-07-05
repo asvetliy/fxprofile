@@ -73,8 +73,8 @@ class RockspayPayment(BaseScheme):
             return redirect('wallet-deposit')
 
     def process_payment(self, request, params=None):
-        log.info(request.body)
-        callback = json.loads(request.body)
+        log.info(request.body.decode('utf-8'))
+        callback = json.loads(request.body.decode('utf-8'))
         signature = callback.get('signature', None)
         if signature == self.generate_signature([
             callback['data'].get('guid', ''),
