@@ -3,8 +3,6 @@ import requests
 import hmac
 import hashlib
 
-from time import time
-
 from django.http import HttpResponse
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
@@ -18,10 +16,8 @@ from ..constants import ROCKSPAY_CURRENCIES
 
 
 class RockspayPayment(BaseScheme):
-    NAME = 'Rockspay'
     API_URL = 'https://api.rockspay.ru'
     CREATE_INVOICE_URL = API_URL + '/v1/p2p/payments/invoice'
-    CHECK_INVOICE_URL = API_URL + '/v1/p2p/payments/invoice/%s/check'
 
     def generate_signature(self, data: list) -> str:
         hashable_str = ''.join(map(str, data))
@@ -29,7 +25,7 @@ class RockspayPayment(BaseScheme):
                         hashlib.sha512).hexdigest()
 
     def rockspay_init(self, request):
-        t = int(time())
+        t = int(timezone.now().timestamp())
         return requests.post(self.CREATE_INVOICE_URL, headers={
             'MERCHANT': self.system.config.get('merchant_id', ''),
             'SIGNATURE': self.generate_signature([
@@ -52,18 +48,6 @@ class RockspayPayment(BaseScheme):
             "nonce": t,
         })
 
-    def rockspay_check(self, request):
-        invoice_id = request.GET.get('invoice_id', None)
-        if invoice_id:
-            return requests.get(self.CHECK_INVOICE_URL % invoice_id, headers={
-                'MERCHANT': self.system.config.get('merchant_id', ''),
-                'SIGNATURE': self.generate_signature([
-                    invoice_id,
-                ]),
-                'Content-Type': 'application/json',
-            }).json()
-        return None
-
     def init_payment(self, request):
         super(RockspayPayment, self).init_payment(request)
         init_response = self.rockspay_init(request)
@@ -78,31 +62,7 @@ class RockspayPayment(BaseScheme):
                     )
                 return redirect('wallet-deposit')
             if response.get('isSuccess', None):
-                received_data = json.dumps({
-                    'user': {
-                        'username': request.user.username,
-                        'email': request.user.email,
-                        'id': request.user.id,
-                    },
-                    'transaction_id': self.transaction_id,
-                    'currency': self.to_currency,
-                    'amount': self.converted_amount_str,
-                    'order_currency': self.from_currency,
-                    'order_amount': self.str_amount,
-                    'payment_system_data': response,
-                }, indent=2)
-                Mailer.send_managers('successful_payment', f'Received initial payment from - {self.NAME}', {
-                    'received_data': received_data,
-                    'payment_system': self.NAME,
-                })
-                context = {
-                    'amount': self.converted_amount_str,
-                    'currency': self.to_currency,
-                    'card_number': response['value'].get('accountNumber', None),
-                    'expired_at': response['value'].get('duration', 3600) + int(timezone.now().timestamp()),
-                    'invoice_id': response['value'].get('guid', None),
-                }
-                return render(request, f'payment/{self.system.code}.html', context=context)
+                return redirect(f"https://rockspay.net/pay?type=1&guid={response['value'].get('guid', None)}", permanent=True)
         else:
             messages.add_message(
                 request,
@@ -143,26 +103,8 @@ class RockspayPayment(BaseScheme):
                     if self.transaction.status_id == 2:
                         self.transaction.status_id = 6
                         self.transaction.save()
-        Mailer.send_managers('successful_payment', f'Received callback from - {self.NAME}', {
+        Mailer.send_managers('successful_payment', f'Received callback from - {self.system.code}', {
             'received_data': json.dumps(callback),
-            'payment_system': self.NAME,
+            'payment_system': self.system.code,
         })
         return HttpResponse('')
-
-    def check_payment(self, request):
-        response = self.rockspay_check(request)
-        if response:
-            if response.get('isSuccess', None):
-                return redirect('/payments/rockspay/success')
-            elif response.get('isFailure', None):
-                for msg in response.get('failures'):
-                    messages.add_message(
-                        request,
-                        messages.ERROR,
-                        f"{msg.get('id', '')} - {msg.get('description', '')}",
-                    )
-                return redirect('/payments/rockspay/fail')
-        return redirect('/payments/rockspay/fail')
-
-    def success_payment(self, request):
-        return render(request, 'payment/wait_payment.html')

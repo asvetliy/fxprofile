@@ -12,8 +12,6 @@ from ..models import BlockchainWallet
 
 
 class BlockchainPayment(BaseScheme):
-    NAME = 'Blockchain'
-
     def init_payment(self, request):
         blockchain_wallet = BlockchainWallet.objects.filter(
             transaction__user__id=request.user.id,

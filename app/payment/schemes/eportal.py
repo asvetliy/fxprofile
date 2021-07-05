@@ -6,8 +6,6 @@ from ..models import EportalWallet
 
 
 class EportalPayment(BaseScheme):
-    NAME = 'Eportal'
-
     def init_payment(self, request):
         super(EportalPayment, self).init_payment(request)
         try:

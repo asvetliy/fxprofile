@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User init payment</title>
+</head>
+<body>
+<p>User, {{ user.username }}, initiated payment.</p>
+<ul style="list-style-type:none;">
+  <li>Email: {{ user.email }}</li>
+  <li>Payment System: {{ payment_system.NAME }}</li>
+  <li>Transaction ID: {{ payment_system.transaction_id }}</li>
+  <li>Payment Amount: {{ payment_system.amount|floatformat:2 }}</li>
+  <li>Amount with fee: {{ payment_system.str_amount }} ({{ payment_system.from_currency }})</li>
+  <li>Converted Amount: {{ payment_system.converted_amount_str }} ({{ payment_system.to_currency }})</li>
+</ul>
+</body>
+</html>

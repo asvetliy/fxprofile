@@ -9,8 +9,6 @@ from .base import BaseScheme
 
 
 class P2PayPayment(BaseScheme):
-    NAME = 'P2Pay'
-
     def init_payment(self, request):
         super(P2PayPayment, self).init_payment(request)
         received_data = json.dumps({
@@ -25,9 +23,9 @@ class P2PayPayment(BaseScheme):
             'order_currency': self.from_currency,
             'order_amount': self.str_amount,
         }, indent=2)
-        Mailer.send_managers('successful_payment', f'Received initial payment from - {self.NAME}', {
+        Mailer.send_managers('successful_payment', f'Received initial payment from - {self.system.code}', {
             'received_data': received_data,
-            'payment_system': self.NAME,
+            'payment_system': self.system.code,
         })
         return render(request, f'payment/{self.system.code}.html', context={})
 

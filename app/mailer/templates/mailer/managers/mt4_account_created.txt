@@ -1,1 +1,2 @@
 User, {{ user.username }}, successfully created an trading account: {{ account_number }}
+Email: {{ user.email }}

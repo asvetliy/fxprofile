@@ -1,4 +1,4 @@
-from .test_payment import *
+from .test import *
 from .paythrone import *
 from .freekassa import *
 from .p2pay import *

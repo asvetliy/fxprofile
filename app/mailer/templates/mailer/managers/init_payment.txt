@@ -1,0 +1,8 @@
+User, {{ user.username }}, initiated payment.
+
+Email: {{ user.email }}
+Payment System: {{ payment_system.NAME }}
+Transaction ID: {{ payment_system.transaction_id }}
+Payment Amount: {{ payment_system.amount|floatformat:2 }}
+Amount with fee: {{ payment_system.str_amount }} ({{ payment_system.from_currency }})
+Converted Amount: {{ payment_system.converted_amount_str }} ({{ payment_system.to_currency }})

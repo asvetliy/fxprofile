@@ -10,8 +10,6 @@ from ..constants import PaymentStatus
 
 
 class FreekassaPayment(BaseScheme):
-    NAME = 'Freekassa'
-
     @staticmethod
     def create_signature(hash_list: list):
         hash_string = ':'.join(hash_list)
@@ -52,9 +50,9 @@ class FreekassaPayment(BaseScheme):
             if self.transaction and self.transaction.status_id == PaymentStatus.PROCESS:
                 received_data = self.get_json_post_data(request)
                 params = {'response': 'YES'}
-                Mailer.send_managers('successful_payment', f'Received successful payment from - {self.NAME}', {
+                Mailer.send_managers('successful_payment', f'Received successful payment from - {self.system.code}', {
                     'received_data': received_data,
-                    'payment_system': {self.NAME},
+                    'payment_system': {self.system.code},
                 })
                 return super(FreekassaPayment, self).process_payment(request, params)
         return HttpResponse('ERROR')

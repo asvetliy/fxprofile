@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from wallet.helpers import ftoi, itos, ftos, itof
 from exchange import exchange
 from json_logging import log
+from mailer import Mailer
 
 from ..models import PaymentSystem
 from ..constants import PaymentStatus
@@ -101,17 +102,19 @@ class BaseScheme(object):
         else:
             self.converted_amount = itof(self.fee_amount, self.wallet.currency.digest)
             self.converted_amount_str = self.str_amount
+        Mailer.send_managers('init_payment', f'{self.system.code} payment initiated', {
+            'payment_system': self,
+            'user': request.user,
+        })
 
     def success_payment(self, request):
         return render(request, 'payment/success_payment.html')
-
-    def check_payment(self, request):
-        pass
 
     def fail_payment(self, request):
         return render(request, 'payment/fail_payment.html')
 
     def process_payment(self, request, params: dict = None):
+        log.info(request.body)
         if self.transaction is None:
             if self.transaction_id is not None:
                 self.transaction = Transaction.objects.get(id=self.transaction_id)

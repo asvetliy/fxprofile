@@ -9,6 +9,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import gettext_lazy as _
 from django.utils.safestring import SafeString
 
+from mailer import Mailer
+
 from .models import Wallet, Transaction
 from .forms import *
 from .helpers import *
@@ -75,6 +77,7 @@ class WalletWithdrawView(View, LoginRequiredMixin):
                     status_id=2,
                     description=_('WALLET_WITHDRAW_VIA_PAYMENT') % {'payment_name': payment_system.name}
                 )
+                # Mailer
                 messages.add_message(request, messages.SUCCESS, _('WALLET_WITHDRAW_CREATED_SUCCESSFULLY'))
                 return redirect('wallet-history')
 
