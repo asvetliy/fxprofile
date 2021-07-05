@@ -22,6 +22,7 @@ class RockspayPayment(BaseScheme):
 
     def generate_signature(self, data: list) -> str:
         hashable_str = ''.join(map(str, data))
+        log.info(f'hashable_str = {hashable_str}')
         return hmac.new(self.system.config.get('secret_key', '').encode('utf-8'), hashable_str.encode('utf-8'),
                         hashlib.sha512).hexdigest()
 
