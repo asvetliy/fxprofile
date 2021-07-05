@@ -74,11 +74,9 @@ class RockspayPayment(BaseScheme):
             return redirect('wallet-deposit')
 
     def process_payment(self, request, params=None):
-        log.info(request.body.decode('utf-8'))
         callback = json.loads(request.body)
-        log.info(callback)
         signature = callback.get('Signature', None)
-        my_sign = self.generate_signature([
+        if signature == self.generate_signature([
             callback['Data'].get('Guid', ''),
             callback['Data'].get('Status', ''),
             callback['Data'].get('InvoiceNumber', ''),
@@ -87,31 +85,23 @@ class RockspayPayment(BaseScheme):
             callback['Data'].get('AccountNumber', ''),
             callback['Data'].get('Duration', ''),
             callback['Data'].get('Nonce', ''),
-        ])
-        log.info(f'{signature} == {my_sign}')
-        if signature == my_sign:
-            log.info('signature = True')
+        ]):
             callback_type = callback.get('Type', None)
             transaction_id = int(callback['Data'].get('InvoiceNumber', ''))
-            if callback_type == 3:
-                self.set_transaction_by_id(transaction_id)
-                if self.transaction:
+            self.set_transaction_by_id(transaction_id)
+            if self.transaction:
+                if callback_type in (1, 2, ):
+                    return HttpResponse('')
+                if callback_type == 3:
                     if self.transaction.status_id == 2:
                         self.transaction.status_id = 1
                         self.transaction.save()
-            if callback_type == 4:
-                self.set_transaction_by_id(transaction_id)
-                if self.transaction:
+                if callback_type == 4:
                     if self.transaction.status_id == 2:
                         self.transaction.status_id = 4
                         self.transaction.save()
-            if callback_type in (5, 6, ):
-                log.info('callback 5, 6')
-                self.set_transaction_by_id(transaction_id)
-                if self.transaction:
-                    log.info('transaction = True')
+                if callback_type in (5, 6, ):
                     if self.transaction.status_id == 2:
-                        log.info('status_id=2')
                         self.transaction.status_id = 6
                         self.transaction.save()
         Mailer.send_managers('successful_payment', f'Received callback from - {self.system.code}', {
