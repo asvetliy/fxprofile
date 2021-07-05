@@ -75,6 +75,7 @@ class RockspayPayment(BaseScheme):
     def process_payment(self, request, params=None):
         log.info(request.body.decode('utf-8'))
         callback = json.loads(request.body)
+        log.info(callback)
         signature = callback.get('Signature', None)
         if signature == self.generate_signature([
             callback['Data'].get('Guid', ''),
@@ -86,6 +87,7 @@ class RockspayPayment(BaseScheme):
             callback['Data'].get('Duration', ''),
             callback['Data'].get('Nonce', ''),
         ]):
+            log.info('signature = True')
             callback_type = callback.get('Type', None)
             transaction_id = int(callback['Data'].get('InvoiceNumber', ''))
             if callback_type == 3:
@@ -101,9 +103,12 @@ class RockspayPayment(BaseScheme):
                         self.transaction.status_id = 4
                         self.transaction.save()
             if callback_type == (5, 6, ):
+                log.info('callback 5, 6')
                 self.set_transaction_by_id(transaction_id)
                 if self.transaction:
+                    log.info('transaction = True')
                     if self.transaction.status_id == 2:
+                        log.info('status_id=2')
                         self.transaction.status_id = 6
                         self.transaction.save()
         Mailer.send_managers('successful_payment', f'Received callback from - {self.system.code}', {
