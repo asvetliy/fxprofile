@@ -74,33 +74,33 @@ class RockspayPayment(BaseScheme):
 
     def process_payment(self, request, params=None):
         log.info(request.body.decode('utf-8'))
-        callback = json.loads(request.body.decode('utf-8'))
-        signature = callback.get('signature', None)
+        callback = json.loads(request.body)
+        signature = callback.get('Signature', None)
         if signature == self.generate_signature([
-            callback['data'].get('guid', ''),
-            callback['data'].get('status', ''),
-            callback['data'].get('invoiceNumber', ''),
-            callback['data'].get('currency', ''),
-            callback['data'].get('amount', ''),
-            callback['data'].get('accountNumber', ''),
-            callback['data'].get('duration', ''),
-            callback['data'].get('nonce', ''),
+            callback['Data'].get('Guid', ''),
+            callback['Data'].get('Status', ''),
+            callback['Data'].get('InvoiceNumber', ''),
+            callback['Data'].get('Currency', ''),
+            callback['Data'].get('Amount', ''),
+            callback['Data'].get('AccountNumber', ''),
+            callback['Data'].get('Duration', ''),
+            callback['Data'].get('Nonce', ''),
         ]):
-            callback_type = callback.get('type', None)
+            callback_type = callback.get('Type', None)
             if callback_type == 3:
-                self.set_transaction_by_id(callback['data'].get('invoiceNumber', ''))
+                self.set_transaction_by_id(callback['Data'].get('InvoiceNumber', ''))
                 if self.transaction:
                     if self.transaction.status_id == 2:
                         self.transaction.status_id = 1
                         self.transaction.save()
             if callback_type == 4:
-                self.set_transaction_by_id(callback['data'].get('invoiceNumber', ''))
+                self.set_transaction_by_id(callback['Data'].get('InvoiceNumber', ''))
                 if self.transaction:
                     if self.transaction.status_id == 2:
                         self.transaction.status_id = 4
                         self.transaction.save()
             if callback_type == (5, 6, ):
-                self.set_transaction_by_id(callback['data'].get('invoiceNumber', ''))
+                self.set_transaction_by_id(callback['Data'].get('InvoiceNumber', ''))
                 if self.transaction:
                     if self.transaction.status_id == 2:
                         self.transaction.status_id = 6
