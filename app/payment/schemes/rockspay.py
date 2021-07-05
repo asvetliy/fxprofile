@@ -87,20 +87,21 @@ class RockspayPayment(BaseScheme):
             callback['Data'].get('Nonce', ''),
         ]):
             callback_type = callback.get('Type', None)
+            transaction_id = int(callback['Data'].get('InvoiceNumber', ''))
             if callback_type == 3:
-                self.set_transaction_by_id(callback['Data'].get('InvoiceNumber', ''))
+                self.set_transaction_by_id(transaction_id)
                 if self.transaction:
                     if self.transaction.status_id == 2:
                         self.transaction.status_id = 1
                         self.transaction.save()
             if callback_type == 4:
-                self.set_transaction_by_id(callback['Data'].get('InvoiceNumber', ''))
+                self.set_transaction_by_id(transaction_id)
                 if self.transaction:
                     if self.transaction.status_id == 2:
                         self.transaction.status_id = 4
                         self.transaction.save()
             if callback_type == (5, 6, ):
-                self.set_transaction_by_id(callback['Data'].get('InvoiceNumber', ''))
+                self.set_transaction_by_id(transaction_id)
                 if self.transaction:
                     if self.transaction.status_id == 2:
                         self.transaction.status_id = 6
