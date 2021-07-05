@@ -12,7 +12,7 @@ from django.utils import timezone
 from json_logging import log
 from mailer import Mailer
 
-from .base import BaseScheme
+from .base import BaseScheme, ftos
 from ..constants import ROCKSPAY_CURRENCIES
 
 
@@ -83,7 +83,7 @@ class RockspayPayment(BaseScheme):
             callback['Data'].get('Status', ''),
             callback['Data'].get('InvoiceNumber', ''),
             callback['Data'].get('Currency', ''),
-            callback['Data'].get('Amount', ''),
+            ftos(callback['Data'].get('Amount', '')),
             callback['Data'].get('AccountNumber', ''),
             callback['Data'].get('Duration', ''),
             callback['Data'].get('Nonce', ''),
