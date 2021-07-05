@@ -77,7 +77,7 @@ class RockspayPayment(BaseScheme):
         callback = json.loads(request.body)
         log.info(callback)
         signature = callback.get('Signature', None)
-        if signature == self.generate_signature([
+        my_sign = self.generate_signature([
             callback['Data'].get('Guid', ''),
             callback['Data'].get('Status', ''),
             callback['Data'].get('InvoiceNumber', ''),
@@ -86,7 +86,9 @@ class RockspayPayment(BaseScheme):
             callback['Data'].get('AccountNumber', ''),
             callback['Data'].get('Duration', ''),
             callback['Data'].get('Nonce', ''),
-        ]):
+        ])
+        log.info(f'{signature} == {my_sign}')
+        if signature == my_sign:
             log.info('signature = True')
             callback_type = callback.get('Type', None)
             transaction_id = int(callback['Data'].get('InvoiceNumber', ''))
