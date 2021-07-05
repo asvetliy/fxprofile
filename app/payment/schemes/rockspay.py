@@ -105,7 +105,7 @@ class RockspayPayment(BaseScheme):
                     if self.transaction.status_id == 2:
                         self.transaction.status_id = 4
                         self.transaction.save()
-            if callback_type == (5, 6, ):
+            if callback_type in (5, 6, ):
                 log.info('callback 5, 6')
                 self.set_transaction_by_id(transaction_id)
                 if self.transaction:
