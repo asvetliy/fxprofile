@@ -6,9 +6,10 @@ import hashlib
 from django.http import HttpResponse
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.utils import timezone
 
+from json_logging import log
 from mailer import Mailer
 
 from .base import BaseScheme
@@ -72,6 +73,7 @@ class RockspayPayment(BaseScheme):
             return redirect('wallet-deposit')
 
     def process_payment(self, request, params=None):
+        log.info(request.body)
         callback = json.loads(request.body)
         signature = callback.get('signature', None)
         if signature == self.generate_signature([

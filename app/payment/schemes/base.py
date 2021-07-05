@@ -114,12 +114,4 @@ class BaseScheme(object):
         return render(request, 'payment/fail_payment.html')
 
     def process_payment(self, request, params: dict = None):
-        log.info(request.body)
-        if self.transaction is None:
-            if self.transaction_id is not None:
-                self.transaction = Transaction.objects.get(id=self.transaction_id)
-            else:
-                return HttpResponse('')
-        self.transaction.status_id = PaymentStatus.DONE
-        self.transaction.save()
-        return HttpResponse(params.get('response', ''))
+        return HttpResponse('')
