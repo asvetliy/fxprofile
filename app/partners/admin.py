@@ -6,6 +6,8 @@ from django.contrib import admin
 from django.utils.html import format_html
 from django.urls import reverse
 
+from rangefilter.filters import DateRangeFilter
+
 from .models import *
 
 
@@ -114,7 +116,7 @@ class PartnerUserAdmin(admin.ModelAdmin):
 class PartnerTransactionAdmin(admin.ModelAdmin):
     list_display = ('id', 'user_username', 'wallet', 'type', 'transaction_amount', 'from_to_wallet', 'status', 'description', 'user_promo', )
     search_fields = ('user__username', 'id', 'user__promo', )
-    list_filter = ('user__groups__name', 'type', 'status', )
+    list_filter = ('user__groups__name', 'type', 'status', ('created_at', DateRangeFilter), )
     list_per_page = 20
     actions = ['export_as_csv']
 

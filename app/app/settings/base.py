@@ -58,7 +58,8 @@ INSTALLED_APPS = [
     'pamm_kafka.apps.PammKafkaConfig',
     'api.apps.ApiConfig',
     'django_json_widget',
-    'partners.apps.PartnersConfig'
+    'partners.apps.PartnersConfig',
+    'rangefilter',
 ]
 
 MIDDLEWARE = [

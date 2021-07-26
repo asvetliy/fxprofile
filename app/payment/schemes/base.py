@@ -41,7 +41,7 @@ class BaseScheme(object):
             self.transaction_id = transaction_id
         except Transaction.DoesNotExist:
             self.transaction = None
-            self.transaction_id = None
+            self.transaction_id = 0
 
     def set_transaction(self, transaction: Transaction):
         self.transaction = transaction

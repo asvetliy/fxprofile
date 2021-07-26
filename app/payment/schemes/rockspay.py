@@ -96,16 +96,24 @@ class RockspayPayment(BaseScheme):
                     if self.transaction.status_id == 2:
                         self.transaction.status_id = 1
                         self.transaction.save()
+                        Mailer.send_managers('successful_payment', f'Received callback from - {self.system.code}', {
+                            'received_data': json.dumps(callback),
+                            'payment_system': self.system.code,
+                        })
                 if callback_type == 4:
                     if self.transaction.status_id == 2:
                         self.transaction.status_id = 4
                         self.transaction.save()
+                        Mailer.send_managers('failed_payment', f'Received callback from - {self.system.code}', {
+                            'received_data': json.dumps(callback),
+                            'payment_system': self.system.code,
+                        })
                 if callback_type in (5, 6, ):
                     if self.transaction.status_id == 2:
                         self.transaction.status_id = 6
                         self.transaction.save()
-        Mailer.send_managers('successful_payment', f'Received callback from - {self.system.code}', {
-            'received_data': json.dumps(callback),
-            'payment_system': self.system.code,
-        })
+                        Mailer.send_managers('failed_payment', f'Received callback from - {self.system.code}', {
+                            'received_data': json.dumps(callback),
+                            'payment_system': self.system.code,
+                        })
         return HttpResponse('')

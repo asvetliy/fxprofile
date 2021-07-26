@@ -1,4 +1,3 @@
-from datetime import timedelta
 from math import ceil
 
 from django.http import HttpResponse
@@ -15,7 +14,7 @@ class BlockchainPayment(BaseScheme):
     def init_payment(self, request):
         blockchain_wallet = BlockchainWallet.objects.filter(
             transaction__user__id=request.user.id,
-            expired_at__gte=timezone.now() - timedelta(minutes=1)
+            expired_at__gte=timezone.now() - timezone.timedelta(minutes=1)
         ).first()  # type: BlockchainWallet
         if not blockchain_wallet:
             blockchain_wallet = BlockchainWallet.objects.filter(transaction=None).first()
@@ -24,7 +23,7 @@ class BlockchainPayment(BaseScheme):
                 return redirect('wallet-deposit')
             super(BlockchainPayment, self).init_payment(request)
             picked_at = timezone.now()
-            expired_at = picked_at + timedelta(seconds=self.system.config.get('expire_time', 60*5))
+            expired_at = picked_at + timezone.timedelta(seconds=self.system.config.get('expire_time', 60*5))
             blockchain_wallet.transaction = self.transaction
             blockchain_wallet.expired_at = expired_at
             blockchain_wallet.picked_at = picked_at
