@@ -58,7 +58,7 @@
                             <td class="{% if transaction.status_id < 5 %}{{ colors|get_at_index:transaction.status_id }}{% else %}{{ colors|get_at_index:3 }}{% endif %}">
                               {{ transaction.status.name|upper }}
                             </td>
-                            <td>{{ transaction.created_at|date:'Y-m-d H:i' }}</td>
+                            <td>{{ transaction.created_at }}</td>
                             <td>{{ transaction.description }}</td>
                           </tr>
                         {% endfor %}

@@ -88,7 +88,7 @@
                 <div class="row">
                   <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_CREATEDAT' %}</label>
                   <div class="col-sm-9">
-                    <p class="form-control-lg">{{ mt4_account.REGDATE|date:'Y-m-d H:i' }}</p>
+                    <p class="form-control-lg">{{ mt4_account.REGDATE }}</p>
                   </div>
                 </div>
               </div>
@@ -106,7 +106,7 @@
                 <div class="row">
                   <label class="col-sm-3 col-form-label-lg">{% trans 'MT4_ACCOUNT_INFO_LASTDATE' %}</label>
                   <div class="col-sm-9">
-                    <p class="form-control-lg">{{ mt4_account.LASTDATE|date:'Y-m-d H:i' }}</p>
+                    <p class="form-control-lg">{{ mt4_account.LASTDATE }}</p>
                   </div>
                 </div>
               </div>
@@ -193,8 +193,8 @@
                   <td>{{ trade.trade_commission }}</td>
                   <td>{{ trade.trade_open_price }}</td>
                   <td>{{ trade.trade_close_price }}</td>
-                  <td>{{ trade.OPEN_TIME|date:'Y-m-d H:i' }}</td>
-                  <td>{{ trade.CLOSE_TIME|date:'Y-m-d H:i' }}</td>
+                  <td>{{ trade.OPEN_TIME }}</td>
+                  <td>{{ trade.CLOSE_TIME }}</td>
                   <td class="{% if trade.PROFIT > 0 %}text-success{% else %}text-danger{% endif %}">
                     {% if trade.PROFIT > 0 %}+{% endif %}{{ trade.trade_profit }}
                   </td>

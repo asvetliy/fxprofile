@@ -1,10 +1,10 @@
 import csv
-from time import time
 
 from django.http import HttpResponse
 from django.contrib import admin
 from django.utils.html import format_html
 from django.urls import reverse
+from django.utils import timezone
 
 from rangefilter.filters import DateRangeFilter
 
@@ -124,8 +124,11 @@ class PartnerTransactionAdmin(admin.ModelAdmin):
         meta = self.model._meta
         field_names = [field.name for field in meta.fields]
 
+        field_names.insert(3, 'transaction_amount')
+        field_names.remove('amount')
+
         response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = f'attachment; filename={meta}-{time()}.csv'
+        response['Content-Disposition'] = f'attachment; filename={meta}-{timezone.now().timestamp()}.csv'
 
         writer = csv.writer(response)
         writer.writerow(field_names)

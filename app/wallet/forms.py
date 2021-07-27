@@ -1,6 +1,32 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
+from .models import Transaction
+from .helpers import int_to_amount, amount_to_int
+
+
+class TransactionAdminForm(forms.ModelForm):
+    transaction_amount = forms.FloatField(required=True, localize=True)
+
+    def __init__(self, *args, **kwargs):
+        super(TransactionAdminForm, self).__init__(*args, **kwargs)
+        self.fields['transaction_amount'].initial = int_to_amount(
+            self.instance.amount,
+            self.instance.wallet.currency.digest
+        )
+
+    def save(self, commit=True):
+        if 'transaction_amount' in self.changed_data:
+            self.instance.amount = amount_to_int(
+                self.cleaned_data.get('transaction_amount'),
+                self.instance.wallet.currency.digest
+            )
+        return super(TransactionAdminForm, self).save(commit=commit)
+
+    class Meta:
+        model = Transaction
+        fields = '__all__'
+
 
 class WithdrawForm(forms.Form):
     amount = forms.FloatField(min_value=0, required=True)

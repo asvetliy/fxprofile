@@ -24,3 +24,7 @@ def balance_changed(sender, instance, created, **kwargs):
     if balance['amount__sum'] is not None:
         wallet.balance = balance['amount__sum']
         wallet.save()
+    else:
+        if wallet.balance > 0:
+            wallet.balance = 0
+            wallet.save()

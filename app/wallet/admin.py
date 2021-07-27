@@ -3,6 +3,7 @@ from django.utils.html import format_html
 from django.urls import reverse
 
 from .models import Transaction, Wallet
+from .forms import TransactionAdminForm
 
 
 @admin.register(Transaction)
@@ -12,6 +13,7 @@ class TransactionAdmin(admin.ModelAdmin):
     autocomplete_fields = ('wallet', 'user', )
     search_fields = ('wallet__user__username', 'id', )
     list_per_page = 20
+    form = TransactionAdminForm
 
     def user_username(self, obj: Transaction):
         url = reverse('admin:users_user_change', args=(obj.wallet.user_id, ))
@@ -25,6 +27,8 @@ class TransactionAdmin(admin.ModelAdmin):
 
     transaction_amount.admin_order_field = 'amount'
     transaction_amount.short_description = 'amount'
+
+    fields = ('wallet', 'user', 'transaction_amount', 'type', 'status', 'from_to_wallet', 'description', )
 
 
 @admin.register(Wallet)

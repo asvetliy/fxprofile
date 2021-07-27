@@ -30,8 +30,8 @@
                 <tr>
                   <td><a href="{% url 'question-ticket-action' question.id 'view' %}">{{ question.id }}</a></td>
                   <td class="{{ colors|get_at_index:question.status_id }}">{{ question.status }}</td>
-                  <td>{{ question.updated_at|date:'Y-m-d H:i' }}</td>
-                  <td>{{ question.created_at|date:'Y-m-d H:i' }}</td>
+                  <td>{{ question.updated_at }}</td>
+                  <td>{{ question.created_at }}</td>
                   <td class="text-right">
                     <a href="{% url 'question-ticket-action' question.id 'view' %}" class="btn btn-link btn-info btn-just-icon">
                       <i class="material-icons">search</i>
