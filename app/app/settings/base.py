@@ -11,9 +11,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from django.utils.translation import ugettext_lazy as _
-from django.urls import reverse_lazy
+
 from django.contrib.messages import constants as message_constants
+from django.urls import reverse_lazy
+from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -225,6 +226,8 @@ DJANGO_LOGGING = {
     'LOG_LEVEL': 'info',
     'INDENT_CONSOLE_LOG': None,
     'CONSOLE_LOG': True,
+    'ROTATE_MB': 10,
+    'ROTATE_COUNT': 10,
 }
 
 PAMM_KAFKA = {

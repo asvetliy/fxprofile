@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-25 15:33+0000\n"
+"POT-Creation-Date: 2021-07-28 16:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app/settings/base.py:144
+#: app/settings/base.py:146
 msgid "English"
 msgstr "English"
 
-#: app/settings/base.py:145
+#: app/settings/base.py:147
 msgid "Russian"
 msgstr "Russian"
 
@@ -332,7 +332,7 @@ msgid ""
 "trading and investment solutions."
 msgstr ""
 
-#: mailer/templates/mailer/failed_payment.html:3
+#: mailer/templates/mailer/managers/failed_payment.html:3
 #, python-format
 msgid ""
 "\n"
@@ -354,11 +354,41 @@ msgid ""
 "  "
 msgstr ""
 
-#: mailer/templates/mailer/failed_payment.txt:3
+#: mailer/templates/mailer/managers/failed_payment.txt:3
 #, python-format
 msgid ""
 "\n"
 "Received failed payment from - %(payment_system)s.\n"
+"Received data:\n"
+"%(received_data)s\n"
+msgstr ""
+
+#: mailer/templates/mailer/managers/successful_payment.html:3
+#, python-format
+msgid ""
+"\n"
+"    <!DOCTYPE html>\n"
+"    <html lang=\"%(lang)s\">\n"
+"    <head>\n"
+"      <meta charset=\"UTF-8\">\n"
+"      <title>Received successful payment from - %(payment_system)s</title>\n"
+"    </head>\n"
+"    <body>\n"
+"    <p>Received successful payment from - %(payment_system)s.</p>\n"
+"    <p>Received data:</p>\n"
+"    <pre>\n"
+"      <code>%(received_data)s</code>\n"
+"    </pre>\n"
+"    </body>\n"
+"    </html>\n"
+"  "
+msgstr ""
+
+#: mailer/templates/mailer/managers/successful_payment.txt:3
+#, python-format
+msgid ""
+"\n"
+"Received successful payment from - %(payment_system)s.\n"
 "Received data:\n"
 "%(received_data)s\n"
 msgstr ""
@@ -388,36 +418,6 @@ msgid ""
 "The xyz.trading team\n"
 "\n"
 "Email: support@xyz.trading\n"
-msgstr ""
-
-#: mailer/templates/mailer/successful_payment.html:3
-#, python-format
-msgid ""
-"\n"
-"    <!DOCTYPE html>\n"
-"    <html lang=\"%(lang)s\">\n"
-"    <head>\n"
-"      <meta charset=\"UTF-8\">\n"
-"      <title>Received successful payment from - %(payment_system)s</title>\n"
-"    </head>\n"
-"    <body>\n"
-"    <p>Received successful payment from - %(payment_system)s.</p>\n"
-"    <p>Received data:</p>\n"
-"    <pre>\n"
-"      <code>%(received_data)s</code>\n"
-"    </pre>\n"
-"    </body>\n"
-"    </html>\n"
-"  "
-msgstr ""
-
-#: mailer/templates/mailer/successful_payment.txt:3
-#, python-format
-msgid ""
-"\n"
-"Received successful payment from - %(payment_system)s.\n"
-"Received data:\n"
-"%(received_data)s\n"
 msgstr ""
 
 #: mailer/templates/mailer/trading_account_created.html:2
@@ -700,11 +700,15 @@ msgstr ""
 msgid "Kafka Offsets"
 msgstr ""
 
-#: payment/schemes/blockchain.py:25
+#: payment/schemes/betatransfer.py:62
+msgid "PAYMENT_BETATRANSFER_NOT_AVAILABLE"
+msgstr "The payment system temporarily unavailable. Please try later."
+
+#: payment/schemes/blockchain.py:22
 msgid "PAYMENT_BLOCKCHAIN_NO_EMPTY_WALLET"
 msgstr "There are currently no free addresses. Try again later..."
 
-#: payment/schemes/rockspay.py:110
+#: payment/schemes/rockspay.py:72
 msgid "PAYMENT_ROCKSPAY_FAIL_STATUS_CODE"
 msgstr "Payment system sent invalid status code: %s"
 
@@ -1212,6 +1216,7 @@ msgstr ""
 
 #: users/templates/users/registration.html:187
 #: wallet/templates/wallet/deposit.html:135
+#: wallet/templates/wallet/withdraw.html:115
 msgid "This field is required"
 msgstr ""
 
@@ -1231,7 +1236,7 @@ msgstr ""
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: users/views.py:20 users/views.py:56
+#: users/views.py:20 users/views.py:59
 msgid "USERS_REG_TITLE"
 msgstr "Registration Form"
 
@@ -1239,7 +1244,7 @@ msgstr "Registration Form"
 msgid "USERS_REG_EMAIL_CONFIRM_SUBJECT"
 msgstr "[XYZ.TRADING] Confirmation of registration"
 
-#: users/views.py:83
+#: users/views.py:86
 msgid "USER_LOGIN_PAGE_TITLE"
 msgstr "Login Page"
 
@@ -1428,7 +1433,7 @@ msgstr "Verification request successfully created"
 msgid "VERIFICATION_UPLOAD_ERROR_NOFILE"
 msgstr "No files are uploaded"
 
-#: wallet/forms.py:36
+#: wallet/forms.py:62
 msgid "WALLET_FORM_ERROR_WRONG_FROMTO_ACCOUNTS"
 msgstr "FROM/TO"
 
@@ -1700,74 +1705,74 @@ msgstr "What else do we need to know?"
 msgid "WALLET_WITHDRAW_TO_WALLET"
 msgstr "Wallet for withdrawal"
 
-#: wallet/views.py:38
+#: wallet/views.py:40
 msgid "WALLET_DEPOSIT_PAGE_TITLE"
 msgstr "Deposit"
 
-#: wallet/views.py:54
+#: wallet/views.py:56
 msgid "WALLET_WITHDRAW_PAGE_TITLE"
 msgstr "Withdraw"
 
-#: wallet/views.py:76
+#: wallet/views.py:78
 msgid "WALLET_WITHDRAW_VIA_PAYMENT"
 msgstr "Withdraw via %(payment_name)s"
 
-#: wallet/views.py:78
+#: wallet/views.py:81
 msgid "WALLET_WITHDRAW_CREATED_SUCCESSFULLY"
 msgstr "Withdraw request successfully created"
 
-#: wallet/views.py:81
+#: wallet/views.py:84
 msgid "WALLET_WITHDRAW_ERROR_NOT_VALID"
 msgstr "Withdraw request not valid"
 
-#: wallet/views.py:92
+#: wallet/views.py:95
 msgid "WALLET_TRANSFER_PAGE_TITLE"
 msgstr "Transfer Funds"
 
-#: wallet/views.py:113
+#: wallet/views.py:116
 msgid "WALLET_WITHDRAW_ERROR_WALLET_NOTEXIST"
 msgstr "Wallet does not exist"
 
-#: wallet/views.py:119
+#: wallet/views.py:122
 msgid "WALLET_WITHDRAW_ERROR_ACCOUNT_NOTEXIST"
 msgstr "Trading account does not exist"
 
-#: wallet/views.py:123
+#: wallet/views.py:126
 msgid "WALLET_WITHDRAW_ERROR_CANT_TRANSFER"
 msgstr "You cant transfer funds between different account currencies"
 
-#: wallet/views.py:132
+#: wallet/views.py:135
 msgid "WALLET_TRANSFER_TO_TRADING_ACCOUNT"
 msgstr "Transfer to trading account %(account_id)d"
 
-#: wallet/views.py:137 wallet/views.py:167
+#: wallet/views.py:140 wallet/views.py:170
 msgid "WALLET_TRANSFER_ERROR_INSUFFICIENT_FUNDS"
 msgstr "Insufficient funds"
 
-#: wallet/views.py:143
+#: wallet/views.py:146
 msgid "WALLET_TRANSFER_ERROR_ACCOUNT_NOTEXIST"
 msgstr "Trading account does not exist"
 
-#: wallet/views.py:149
+#: wallet/views.py:152
 msgid "WALLET_TRANSFER_ERROR_WALLET_NOTEXIST"
 msgstr "Wallet does not exist"
 
-#: wallet/views.py:153
+#: wallet/views.py:156
 msgid "WALLET_TRANSFER_ERROR_CANT_TRANSFER"
 msgstr "You cant transfer funds between different account currencies"
 
-#: wallet/views.py:162
+#: wallet/views.py:165
 msgid "WALLET_TRANSFER_FROM_TRADING_ACCOUNT"
 msgstr "Transfer from trading account %(account_id)d"
 
-#: wallet/views.py:170 wallet/views.py:175
+#: wallet/views.py:173 wallet/views.py:178
 msgid "WALLET_TRANSFER_ERROR_NOT_VALID"
 msgstr "Transfer request not valid"
 
-#: wallet/views.py:173
+#: wallet/views.py:176
 msgid "WALLET_TRANSFER_CREATED_SUCCESSFULLY"
 msgstr "Transfer request successfully created"
 
-#: wallet/views.py:190
+#: wallet/views.py:193
 msgid "WALLET_TRANSFER_HISTORY_PAGE_TITLE"
 msgstr "Transactions History"

@@ -5,5 +5,6 @@ from .p2pay import *
 from .eportal import *
 from .blockchain import *
 from .rockspay import *
+from .betatransfer import *
 
 # __all__ = ['base', 'test_payment']

@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.utils.html import format_html
 from django.urls import reverse
 
+from rangefilter.filters import DateRangeFilter
+
 from .models import Transaction, Wallet
 from .forms import TransactionAdminForm
 
@@ -9,7 +11,7 @@ from .forms import TransactionAdminForm
 @admin.register(Transaction)
 class TransactionAdmin(admin.ModelAdmin):
     list_display = ('id', 'wallet', 'transaction_amount', 'user_username', 'type', 'status', 'from_to_wallet', 'created_at', )
-    list_filter = ('type', 'status', 'created_at', )
+    list_filter = ('type', 'status', ('created_at', DateRangeFilter), )
     autocomplete_fields = ('wallet', 'user', )
     search_fields = ('wallet__user__username', 'id', )
     list_per_page = 20
