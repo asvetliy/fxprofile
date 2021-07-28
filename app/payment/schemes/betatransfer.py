@@ -30,7 +30,7 @@ class BetatransferPayment(BaseScheme):
             'paymentSystem': self.system.config.get('payment_method', ''),
             'urlSuccess': 'https://ca.xyz.trading/payments/betatransfer/success',
             'urlFail': 'https://ca.xyz.trading/payments/betatransfer/fail',
-            'urlResult': 'https://ca.xyz.trading/payments/betatransfer/callback',
+            'urlResult': 'https://ca.xyz.trading/payments/betatransfer/process',
             'sign': self.create_signature([
                 self.converted_amount_str,
                 self.to_currency.lower(),
@@ -38,7 +38,7 @@ class BetatransferPayment(BaseScheme):
                 self.system.config.get('payment_method', ''),
                 'https://ca.xyz.trading/payments/betatransfer/success',
                 'https://ca.xyz.trading/payments/betatransfer/fail',
-                'https://ca.xyz.trading/payments/betatransfer/callback',
+                'https://ca.xyz.trading/payments/betatransfer/process',
                 self.system.config.get('secret', ''),
             ]),
         })
