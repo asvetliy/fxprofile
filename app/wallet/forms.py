@@ -7,13 +7,16 @@ from .helpers import int_to_amount, amount_to_int
 
 class TransactionAdminForm(forms.ModelForm):
     transaction_amount = forms.FloatField(required=True, localize=True)
+    _is_new: bool
 
     def __init__(self, *args, **kwargs):
+        self._is_new = kwargs.get('instance') is None
         super(TransactionAdminForm, self).__init__(*args, **kwargs)
-        self.fields['transaction_amount'].initial = int_to_amount(
-            self.instance.amount,
-            self.instance.wallet.currency.digest
-        )
+        if not self._is_new:
+            self.fields['transaction_amount'].initial = int_to_amount(
+                self.instance.amount,
+                self.instance.wallet.currency.digest
+            )
 
     def save(self, commit=True):
         if 'transaction_amount' in self.changed_data:
