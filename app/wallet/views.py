@@ -69,18 +69,27 @@ class WalletWithdrawView(View, LoginRequiredMixin):
                 code=form.cleaned_data.get('payment_system')
             )
             if payment_system:
-                Transaction.objects.create(
-                    amount=ftoi(form.cleaned_data.get('amount') * -1),
-                    wallet_id=form.cleaned_data.get('account'),
-                    user=request.user,
-                    from_to_wallet=form.cleaned_data.get('to_wallet'),
-                    type_id=2,
-                    status_id=2,
-                    description=_('WALLET_WITHDRAW_VIA_PAYMENT') % {'payment_name': payment_system.name}
-                )
-                # Mailer
-                messages.add_message(request, messages.SUCCESS, _('WALLET_WITHDRAW_CREATED_SUCCESSFULLY'))
-                return redirect('wallet-history')
+                wallet = Wallet.objects.get(pk=form.cleaned_data.get('account'))
+                if wallet:
+                    if not wallet.has_amount(form.cleaned_data.get('amount')):
+                        messages.add_message(request, messages.ERROR, _('WALLET_WITHDRAW_INSUFFICIENT_FUNDS'))
+                        return redirect('wallet-withdraw')
+                    transaction = Transaction.objects.create(
+                        amount=ftoi(form.cleaned_data.get('amount') * -1),
+                        wallet_id=form.cleaned_data.get('account'),
+                        user=request.user,
+                        from_to_wallet=form.cleaned_data.get('to_wallet'),
+                        type_id=2,
+                        status_id=2,
+                        description=_('WALLET_WITHDRAW_VIA_PAYMENT') % {'payment_name': payment_system.name}
+                    )
+                    Mailer.send_managers('withdraw_created', 'New withdrawal request', {
+                        'transaction': transaction,
+                        'user': request.user,
+                        'payment_system': payment_system,
+                    })
+                    messages.add_message(request, messages.SUCCESS, _('WALLET_WITHDRAW_CREATED_SUCCESSFULLY'))
+                    return redirect('wallet-history')
 
         messages.add_message(request, messages.ERROR, _('WALLET_WITHDRAW_ERROR_NOT_VALID'))
         for k, e in form.error_messages.items():
@@ -135,7 +144,6 @@ class WalletTransferView(View, LoginRequiredMixin):
                         status_id=2,
                         description=_('WALLET_TRANSFER_TO_TRADING_ACCOUNT') % {'account_id': mt4_account.id}
                     )
-                    tr.user_ip = get_client_ip(request)
                     tr.save()
                 else:
                     messages.add_message(request, messages.ERROR, _('WALLET_TRANSFER_ERROR_INSUFFICIENT_FUNDS'))
@@ -165,7 +173,6 @@ class WalletTransferView(View, LoginRequiredMixin):
                         status_id=2,
                         description=_('WALLET_TRANSFER_FROM_TRADING_ACCOUNT') % {'account_id': mt4_account.id}
                     )
-                    tr.user_ip = get_client_ip(request)
                     tr.save()
                 else:
                     messages.add_message(request, messages.ERROR, _('WALLET_TRANSFER_ERROR_INSUFFICIENT_FUNDS'))

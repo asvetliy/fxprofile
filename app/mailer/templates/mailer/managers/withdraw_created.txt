@@ -1,0 +1,6 @@
+User, {{ user.username }}, created a withdrawal request.
+
+Email: {{ user.email }}
+Payment System: {{ payment_system.code }}
+Transaction ID: {{ transaction.id }}
+Withdraw Amount: {{ transaction.transaction_amount }}

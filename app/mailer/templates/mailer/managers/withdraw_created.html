@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User created a withdrawal request</title>
+</head>
+<body>
+<p>User, {{ user.username }}, created a withdrawal request.</p>
+<ul style="list-style-type:none;">
+  <li>Email: {{ user.email }}</li>
+  <li>Payment System: {{ payment_system.code }}</li>
+  <li>Transaction ID: {{ transaction.id }}</li>
+  <li>Withdraw Amount: {{ transaction.transaction_amount }}</li>
+</ul>
+</body>
+</html>

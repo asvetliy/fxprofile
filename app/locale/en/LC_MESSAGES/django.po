@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-28 16:09+0000\n"
+"POT-Creation-Date: 2021-08-03 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app/settings/base.py:146
+#: app/settings/base.py:147
 msgid "English"
 msgstr "English"
 
-#: app/settings/base.py:147
+#: app/settings/base.py:148
 msgid "Russian"
 msgstr "Russian"
 
@@ -1433,7 +1433,7 @@ msgstr "Verification request successfully created"
 msgid "VERIFICATION_UPLOAD_ERROR_NOFILE"
 msgstr "No files are uploaded"
 
-#: wallet/forms.py:62
+#: wallet/forms.py:66
 msgid "WALLET_FORM_ERROR_WRONG_FROMTO_ACCOUNTS"
 msgstr "FROM/TO"
 
@@ -1705,74 +1705,78 @@ msgstr "What else do we need to know?"
 msgid "WALLET_WITHDRAW_TO_WALLET"
 msgstr "Wallet for withdrawal"
 
-#: wallet/views.py:40
+#: wallet/views.py:41
 msgid "WALLET_DEPOSIT_PAGE_TITLE"
 msgstr "Deposit"
 
-#: wallet/views.py:56
+#: wallet/views.py:57
 msgid "WALLET_WITHDRAW_PAGE_TITLE"
 msgstr "Withdraw"
 
-#: wallet/views.py:78
+#: wallet/views.py:75
+msgid "WALLET_WITHDRAW_INSUFFICIENT_FUNDS"
+msgstr "Insufficient funds"
+
+#: wallet/views.py:84
 msgid "WALLET_WITHDRAW_VIA_PAYMENT"
 msgstr "Withdraw via %(payment_name)s"
 
-#: wallet/views.py:81
+#: wallet/views.py:87
 msgid "WALLET_WITHDRAW_CREATED_SUCCESSFULLY"
 msgstr "Withdraw request successfully created"
 
-#: wallet/views.py:84
+#: wallet/views.py:90
 msgid "WALLET_WITHDRAW_ERROR_NOT_VALID"
 msgstr "Withdraw request not valid"
 
-#: wallet/views.py:95
+#: wallet/views.py:101
 msgid "WALLET_TRANSFER_PAGE_TITLE"
 msgstr "Transfer Funds"
 
-#: wallet/views.py:116
+#: wallet/views.py:122
 msgid "WALLET_WITHDRAW_ERROR_WALLET_NOTEXIST"
 msgstr "Wallet does not exist"
 
-#: wallet/views.py:122
+#: wallet/views.py:128
 msgid "WALLET_WITHDRAW_ERROR_ACCOUNT_NOTEXIST"
 msgstr "Trading account does not exist"
 
-#: wallet/views.py:126
+#: wallet/views.py:132
 msgid "WALLET_WITHDRAW_ERROR_CANT_TRANSFER"
 msgstr "You cant transfer funds between different account currencies"
 
-#: wallet/views.py:135
+#: wallet/views.py:141
 msgid "WALLET_TRANSFER_TO_TRADING_ACCOUNT"
 msgstr "Transfer to trading account %(account_id)d"
 
-#: wallet/views.py:140 wallet/views.py:170
+#: wallet/views.py:145 wallet/views.py:174
 msgid "WALLET_TRANSFER_ERROR_INSUFFICIENT_FUNDS"
 msgstr "Insufficient funds"
 
-#: wallet/views.py:146
+#: wallet/views.py:151
 msgid "WALLET_TRANSFER_ERROR_ACCOUNT_NOTEXIST"
 msgstr "Trading account does not exist"
 
-#: wallet/views.py:152
+#: wallet/views.py:157
 msgid "WALLET_TRANSFER_ERROR_WALLET_NOTEXIST"
 msgstr "Wallet does not exist"
 
-#: wallet/views.py:156
+#: wallet/views.py:161
 msgid "WALLET_TRANSFER_ERROR_CANT_TRANSFER"
 msgstr "You cant transfer funds between different account currencies"
 
-#: wallet/views.py:165
+#: wallet/views.py:170
 msgid "WALLET_TRANSFER_FROM_TRADING_ACCOUNT"
 msgstr "Transfer from trading account %(account_id)d"
 
-#: wallet/views.py:173 wallet/views.py:178
+#: wallet/views.py:177 wallet/views.py:182
 msgid "WALLET_TRANSFER_ERROR_NOT_VALID"
 msgstr "Transfer request not valid"
 
-#: wallet/views.py:176
+#: wallet/views.py:180
 msgid "WALLET_TRANSFER_CREATED_SUCCESSFULLY"
 msgstr "Transfer request successfully created"
 
-#: wallet/views.py:193
+#: wallet/views.py:197
 msgid "WALLET_TRANSFER_HISTORY_PAGE_TITLE"
 msgstr "Transactions History"
