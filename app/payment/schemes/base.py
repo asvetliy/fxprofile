@@ -4,10 +4,10 @@ from django.shortcuts import render
 from django.apps import apps
 from django.http import HttpResponse
 
-from wallet.helpers import ftoi, itos, ftos, itof
 from exchange import exchange
 from json_logging import log
 from mailer import Mailer
+from math_helper import ftoi, itos, ftos, itof
 
 from ..models import PaymentSystem
 from ..constants import PaymentStatus

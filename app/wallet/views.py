@@ -10,10 +10,11 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.safestring import SafeString
 
 from mailer import Mailer
+from math_helper import ftoi
 
 from .models import Wallet, Transaction
 from .forms import *
-from .helpers import *
+from .helpers import get_client_ip
 
 PaymentSystem = apps.get_model('payment', 'PaymentSystem')
 
