@@ -1,0 +1,7 @@
+User, {{ user.username }}, created a transfer request to personal account.
+
+Email: {{ user.email }}
+Transaction ID: {{ transaction.id }}
+Trading Account: {{ transaction.from_to_wallet }}
+Wallet: {{ transaction.wallet_id }} ({{ transaction.wallet.currency.code }})
+Transfer Amount: {{ transaction.transaction_amount }}

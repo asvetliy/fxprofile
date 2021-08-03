@@ -13,8 +13,7 @@ from mailer import Mailer
 from math_helper import ftoi
 
 from .models import Wallet, Transaction
-from .forms import *
-from .helpers import get_client_ip
+from .forms import TransferForm, WithdrawForm
 
 PaymentSystem = apps.get_model('payment', 'PaymentSystem')
 
@@ -164,7 +163,7 @@ class WalletTransferView(View, LoginRequiredMixin):
                         messages.add_message(request, messages.ERROR,
                                              _('WALLET_TRANSFER_ERROR_CANT_TRANSFER'))
                         return redirect('wallet-transfer')
-                    tr = Transaction(
+                    transaction = Transaction.objects.create(
                         amount=ftoi(amount),
                         wallet_id=to_account,
                         user=request.user,
@@ -173,7 +172,10 @@ class WalletTransferView(View, LoginRequiredMixin):
                         status_id=2,
                         description=_('WALLET_TRANSFER_FROM_TRADING_ACCOUNT') % {'account_id': mt4_account.id}
                     )
-                    tr.save()
+                    Mailer.send_managers('transfer_in_created', 'Transfer from trading account', {
+                        'user': request.user,
+                        'transaction': transaction,
+                    })
                 else:
                     messages.add_message(request, messages.ERROR, _('WALLET_TRANSFER_ERROR_INSUFFICIENT_FUNDS'))
                     return redirect('wallet-transfer')

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User created a transfer request to personal account</title>
+</head>
+<body>
+<p>User, {{ user.username }}, created a transfer request to personal account.</p>
+<ul style="list-style-type:none;">
+  <li>Email: {{ user.email }}</li>
+  <li>Transaction ID: {{ transaction.id }}</li>
+  <li>Trading Account: {{ transaction.from_to_wallet }}</li>
+  <li>Wallet: {{ transaction.wallet_id }} ({{ transaction.wallet.currency.code }})</li>
+  <li>Transfer Amount: {{ transaction.transaction_amount }}</li>
+</ul>
+</body>
+</html>
