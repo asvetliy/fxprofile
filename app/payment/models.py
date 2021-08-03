@@ -26,6 +26,9 @@ class PaymentSystem(models.Model):
         default=dict
     )
 
+    def __str__(self):
+        return self.code
+
     class Meta:
         db_table = 'payment_systems'
 
@@ -33,6 +36,9 @@ class PaymentSystem(models.Model):
 class EportalWallet(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, models.DO_NOTHING, null=True, blank=False)
     ewallet = models.CharField(max_length=42, blank=False, null=False)
+
+    def __str__(self):
+        return str(self.id)
 
     class Meta:
         db_table = 'payment_eportal_wallets'
@@ -44,6 +50,9 @@ class BlockchainWallet(models.Model):
     picked_at = models.DateTimeField(default=None, blank=True, null=True)
     expired_at = models.DateTimeField(default=None, blank=True, null=True)
     is_used = models.BooleanField(blank=False, default=False)
+
+    def __str__(self):
+        return str(self.id)
 
     class Meta:
         db_table = 'payment_blockchain_wallets'

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'fxprofile.apps.FxprofileConfig',
+    'math_helper.apps.MathHelperConfig',
     'users.apps.UsersConfig',
     'mailer.apps.MailerConfig',
     'currency.apps.CurrencyConfig',

@@ -1,8 +1,8 @@
-import json
 from django.conf import settings
 from django.db import models
 from django.core.validators import MinValueValidator
-from .helpers import int_to_amount, itof
+
+from math_helper import int_to_amount, itof
 
 
 class Wallet(models.Model):
@@ -63,19 +63,11 @@ class Transaction(models.Model):
     wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, models.CASCADE)
     amount = models.BigIntegerField()
-    from_to_wallet = models.CharField(max_length=32, default=None, blank=False)
+    from_to_wallet = models.CharField(max_length=32, default=None, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     type = models.ForeignKey(TransactionType, on_delete=models.CASCADE)
     status = models.ForeignKey(TransactionStatus, on_delete=models.CASCADE)
-    description = models.CharField(max_length=128, default=None)
-    _params = models.TextField(
-        db_column='params',
-        verbose_name='params',
-        name='params',
-        blank=True,
-        default=None,
-        null=True
-    )
+    description = models.CharField(max_length=128, default=None, blank=True)
 
     def __init__(self, *args, **kwargs):
         self.changed_data = {}
@@ -83,14 +75,6 @@ class Transaction(models.Model):
 
     def __str__(self):
         return str(self.id)
-
-    def _get_params(self):
-        return json.loads(self._params)
-
-    def _set_params(self, value):
-        self._params = json.dumps(value)
-
-    config = property(_get_params, _set_params)
 
     def get_wallet(self):
         return self.wallet

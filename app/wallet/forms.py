@@ -1,12 +1,13 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
+from math_helper import int_to_amount, amount_to_int
+
 from .models import Transaction
-from .helpers import int_to_amount, amount_to_int
 
 
 class TransactionAdminForm(forms.ModelForm):
-    transaction_amount = forms.FloatField(required=True, localize=True)
+    transaction_amount = forms.FloatField(required=True, localize=True, label='Amount')
     _is_new: bool
 
     def __init__(self, *args, **kwargs):

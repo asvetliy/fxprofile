@@ -7,8 +7,10 @@ from django.urls import reverse
 from django.utils import timezone
 
 from rangefilter.filters import DateRangeFilter
+from math_helper import int_to_amount
 
 from .models import *
+from .forms import PartnerTransactionAdminForm
 
 
 class CardInline(admin.TabularInline):
@@ -119,13 +121,12 @@ class PartnerTransactionAdmin(admin.ModelAdmin):
     list_filter = ('user__groups__name', 'type', 'status', ('created_at', DateRangeFilter), )
     list_per_page = 20
     actions = ['export_as_csv']
+    readonly_fields = ['created_at']
+    form = PartnerTransactionAdminForm
 
     def export_as_csv(self, request, queryset):
         meta = self.model._meta
         field_names = [field.name for field in meta.fields]
-
-        field_names.insert(3, 'transaction_amount')
-        field_names.remove('amount')
 
         response = HttpResponse(content_type='text/csv')
         response['Content-Disposition'] = f'attachment; filename={meta}-{timezone.now().timestamp()}.csv'
@@ -134,6 +135,7 @@ class PartnerTransactionAdmin(admin.ModelAdmin):
         writer.writerow(field_names)
 
         for obj in queryset:
+            obj.amount = int_to_amount(obj.amount, obj.wallet.currency.digest)
             writer.writerow([getattr(obj, field) for field in field_names])
 
         return response
@@ -161,3 +163,9 @@ class PartnerTransactionAdmin(admin.ModelAdmin):
 
     user_username.admin_order_field = 'user'
     user_username.short_description = 'user'
+
+    def transaction_amount(self, obj: Transaction):
+        return obj.transaction_amount
+
+    transaction_amount.admin_order_field = 'amount'
+    transaction_amount.short_description = 'amount'
