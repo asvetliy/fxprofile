@@ -6,6 +6,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.translation import gettext_lazy as _
 from django.db.models import Q
 
+from mailer import Mailer
+
 from .models import QuestionRequest, QuestionMessage
 from .forms import *
 
@@ -21,12 +23,16 @@ class TicketsURLDispatcher(LoginRequiredMixin, View):
                 question_request = request.user.questionrequest_set.get(id=ticket)
                 question_messages = QuestionMessage.objects.filter(request=question_request).order_by('created_at').last()
                 if question_messages.user.id != request.user.id and question_request.status_id <= 2:
-                    QuestionMessage.objects.create(
+                    question = QuestionMessage.objects.create(
                         user=request.user,
                         request_id=ticket,
                         text=ticket_text,
                         status_id=1,
                     )
+                    Mailer.send_managers('question_message_created', 'New question message created', {
+                        'user': request.user,
+                        'question': question,
+                    })
                 else:
                     messages.add_message(request, messages.ERROR, _('QUESTION_COMMENT_ADD_DISABLED'))
                     return redirect('question-ticket-action', ticket, 'view')
@@ -83,12 +89,16 @@ class CreateTicketView(LoginRequiredMixin, View):
                 user=request.user,
                 status_id=1,
             )
-            QuestionMessage.objects.create(
+            question = QuestionMessage.objects.create(
                 user=request.user,
                 request=question_request,
                 text=ticket_text,
                 status_id=1,
             )
+            Mailer.send_managers('question_request_created', 'New question request created', {
+                'user': request.user,
+                'question': question,
+            })
             messages.add_message(request, messages.SUCCESS, _('QUESTION_TICKET_CREATE_SUCCESS'))
             return redirect('question-tickets')
         messages.add_message(request, messages.ERROR, _('QUESTION_TICKET_CREATE_FAIL'))

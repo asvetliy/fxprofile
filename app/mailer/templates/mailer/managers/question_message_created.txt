@@ -1,0 +1,5 @@
+User, {{ user.username }}, created a new question message.
+Email: {{ user.email }}
+Request ID: {{ question.request_id }}
+Message ID: {{ question.id }}
+Message: {{ question.text }}

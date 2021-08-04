@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User created a new question message</title>
+</head>
+<body>
+<p>User, {{ user.username }}, created a new question message.</p>
+<ul style="list-style-type:none;">
+  <li>Email: {{ user.email }}</li>
+  <li>Request ID: {{ question.request_id }}</li>
+  <li>Message ID: {{ question.id }}</li>
+  <li>Message: {{ question.text }}</li>
+</ul>
+</body>
+</html>
