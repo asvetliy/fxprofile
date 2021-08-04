@@ -12,7 +12,7 @@ Transaction = apps.get_model('wallet', 'Transaction')
 def change_balance(instance, description):
     mt4_server = Mt4Server()
     account_object = AccountObject()
-    account_object.user_ip = instance.user_ip if instance.user_ip else ''
+    account_object.user_ip = instance.user_ip if hasattr(instance, 'user_ip') else ''
     account_object.account_id = str(instance.from_to_wallet)
     result = mt4_server.change_balance(
         account_object,
