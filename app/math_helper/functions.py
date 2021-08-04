@@ -2,8 +2,8 @@ def int_to_amount(amount: int, digest: int = 2) -> str:
     return '%.*f' % (digest, amount / pow(10, digest))
 
 
-def amount_to_int(amount: str, digest: int = 2) -> str:
-    return '%u' % (int(float(amount) * pow(10, digest)))
+def amount_to_int(amount: str, digest: int = 2) -> int:
+    return int(float(amount) * pow(10, digest))
 
 
 def ftoi(f: float, d: int = 2) -> int:
