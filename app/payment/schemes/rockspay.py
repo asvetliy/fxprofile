@@ -64,7 +64,7 @@ class RockspayPayment(BaseScheme):
                     )
                 return redirect('wallet-deposit')
             if response.get('isSuccess', None):
-                return redirect(f"https://rockspay.net/pay?type=1&guid={response['value'].get('guid', None)}", permanent=True)
+                return redirect(f"https://rockspay.net/checkout?guid={response['value'].get('guid', None)}", permanent=True)
         else:
             messages.add_message(
                 request,
