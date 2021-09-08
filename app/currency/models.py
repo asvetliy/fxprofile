@@ -13,6 +13,15 @@ class Currency(models.Model):
     def __str__(self):
         return self.iso
 
+    def get_base(self):
+        return self.objects.get(is_base=True)
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        if self.is_base:
+            self.objects.filter(is_base=True).update(is_base=False)
+        super(Currency, self).save(force_insert, force_update, using, update_fields)
+
     class Meta:
         db_table = 'currencies'
         verbose_name_plural = 'currencies'

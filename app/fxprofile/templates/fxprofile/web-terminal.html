@@ -3,15 +3,26 @@
 {% get_current_language as LANGUAGE_CODE %}
 {% block content %}
   <div class="row">
-  <div class="card card-plain">
-    <iframe style="border: none; height: calc(100vh - 123px); width: 100%; min-width: 1066px;" src="https://trade.mql5.com/trade?servers=GREENTRADE-MT4&amp;trade_server=GREENTRADE-MT4&amp;demo_server=GREENTRADE-MT4&amp;lang={{ LANGUAGE_CODE }}" allowfullscreen="allowfullscreen"></iframe>
-  </div>
+    <div class="card card-plain">
+      <div id="webterminal" style="border: none; height: calc(100vh - 123px); width: 100%; min-width: 1066px;"></div>
+    </div>
   </div>
 {% endblock %}
 {% block scripts %}
+  <script type="text/javascript" src="https://trade.mql5.com/trade/widget.js"></script>
   <script type="text/javascript">
   $(document).ready(function () {
     $('body').addClass('sidebar-mini');
+    new MetaTraderWebTerminal( "webterminal", {
+      version: 4,
+      servers: ["IntrasolHolding-MT4"],
+      server: "IntrasolHolding-MT4",
+      demoAllServers: false,
+      utmSource: "{{ request.get_host }}",
+      startMode: "login",
+      language: "{{ LANGUAGE_CODE }}",
+      colorScheme: "black_on_white"
+    } );
   });
   </script>
 {% endblock %}
