@@ -20,6 +20,14 @@ class RockspayPayment(BaseScheme):
     API_URL = 'https://api.rockspay.ru'
     CREATE_INVOICE_URL = API_URL + '/v1/p2p/payments/invoice'
 
+    def __init__(self, payment_system):
+        super().__init__(payment_system)
+        self.redirect_url = None
+        if self.system.config.get('version', 1) == 2:
+            self.redirect_url = 'https://card.rockspay.net/payment/'
+        else:
+            self.redirect_url = 'https://rockspay.net/checkout?guid='
+
     def generate_signature(self, data: list) -> str:
         hashable_str = ''.join(map(str, data))
         log.info(f'hashable_str = {hashable_str}')
@@ -64,7 +72,7 @@ class RockspayPayment(BaseScheme):
                     )
                 return redirect('wallet-deposit')
             if response.get('isSuccess', None):
-                return redirect(f"https://rockspay.net/checkout?guid={response['value'].get('guid', None)}", permanent=True)
+                return redirect(f"{self.redirect_url}{response['value'].get('guid', None)}", permanent=True)
         else:
             messages.add_message(
                 request,
