@@ -31,3 +31,12 @@ EMAIL_HOST_PASSWORD = 'b4c5fail00!'
 
 ADMINS = [('Administrator', 'htc.fail.hell@gmail.com')]
 MANAGERS = ['htc.fail.hell@gmail.com']
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 8,
+        }
+    }
+]

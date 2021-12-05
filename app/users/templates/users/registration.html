@@ -164,8 +164,8 @@
         return this.optional(element) || /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i.test(value);
       }, "{% trans 'Please enter a valid email address' %}");
       jQuery.validator.addMethod("pwd_check", function(value, element) {
-        return this.optional(element) || /^(?=.*\d)(?=.*[A-Z])(?=.*\W).*$/i.test(value);
-      }, "{% trans 'Password must contain one capital letter, one numerical and one special character' %}");
+        return this.optional(element) || /^(?=.*\d)(?=.*[a-z]).*$/i.test(value);
+      }, "{% trans 'Password must contain one letter, one numerical character' %}");
       jQuery.validator.addMethod("phone_check", function(value, element) {
         return this.optional(element) || /^\+?1?\d{9,15}$/i.test(value);
       }, '{% trans 'USERS_PHONE_VALIDATION_ERROR' %}');

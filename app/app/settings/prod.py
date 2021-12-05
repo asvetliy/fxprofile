@@ -27,3 +27,12 @@ EMAIL_HOST_PASSWORD = 's5l^Ab06'
 ADMINS = [('Administrator', 'admin@xyz.trading')]
 MANAGERS = ['support@xyz.trading']
 DEFAULT_FROM_EMAIL = 'XYZ.TRADING <noreply@xyz.trading>'
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 8,
+        }
+    }
+]
