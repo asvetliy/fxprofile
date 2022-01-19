@@ -29,6 +29,7 @@ class GrowPayment(BaseScheme):
         self.server_url = self.system.config.get('server_url', '')
         self.cancel_url = self.system.config.get('cancel_url', '')
         self.api5_key = self.system.config.get('api5_key', '')
+        self.exact_currency = self.system.config.get('exact_currency', 0)
 
     def generate_signature(self, hash_list: list) -> str:
         hash_list.sort()
@@ -52,6 +53,7 @@ class GrowPayment(BaseScheme):
             'response_url': self.response_url,
             'cancel_url': self.cancel_url,
             'server_url': self.server_url,
+            'exact_currency': self.exact_currency,
         })
         if init_response.status_code == 200:
             response = init_response.json()
