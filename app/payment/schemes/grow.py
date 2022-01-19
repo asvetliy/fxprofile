@@ -36,7 +36,7 @@ class GrowPayment(BaseScheme):
         hash_string = '|'.join(map(str, hash_list))
         hash_string = self.api5_key + '|' + hash_string
         log.info(hash_string)
-        return hashlib.sha1(hash_string).hexdigest().lower()
+        return hashlib.sha1(hash_string.encode('utf-8')).hexdigest().lower()
 
     def grow_init(self, init_data):
         return requests.post(self.api_url + self.CREATE_INVOICE_PATH, headers={
