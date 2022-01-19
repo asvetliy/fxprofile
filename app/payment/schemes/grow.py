@@ -40,7 +40,7 @@ class GrowPayment(BaseScheme):
         return requests.post(self.api_url + self.CREATE_INVOICE_PATH, headers={
             'Authorization': f'Bearer {self.api5_key}',
             'content-type': 'application/json',
-        }, data=init_data)
+        }, json=init_data)
 
     def init_payment(self, request):
         super(GrowPayment, self).init_payment(request)
