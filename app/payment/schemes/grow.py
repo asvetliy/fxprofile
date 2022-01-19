@@ -89,7 +89,6 @@ class GrowPayment(BaseScheme):
             callback.get('merchant_amount', ''),
             callback.get('account_info', ''),
             callback.get('status', ''),
-            callback.get('signature', ''),
         ])
         if signature == new_signature:
             callback_type = int(callback.get('status', None))
