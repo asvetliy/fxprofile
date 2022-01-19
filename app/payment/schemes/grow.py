@@ -82,15 +82,14 @@ class GrowPayment(BaseScheme):
         signature = callback.get('signature', None)
         if signature == self.generate_signature([
             self.merchant_id,
-            callback.get('invoice_id'),
-            callback.get('order_id'),
-            callback.get('amount'),
-            callback.get('amount_currency'),
-            callback.get('currency'),
-            callback.get('merchant_amount'),
-            callback.get('order_desc'),
-            callback.get('account_info'),
-            callback.get('status'),
+            callback.get('invoice_id', ''),
+            callback.get('order_id', ''),
+            callback.get('amount', ''),
+            callback.get('amount_currency', ''),
+            callback.get('currency', ''),
+            callback.get('merchant_amount', ''),
+            callback.get('account_info', ''),
+            callback.get('status', ''),
         ]):
             callback_type = callback.get('status', None)
             transaction_id = int(callback.get('order_id'))
