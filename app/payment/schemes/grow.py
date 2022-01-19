@@ -89,6 +89,7 @@ class GrowPayment(BaseScheme):
             callback.get('merchant_amount', ''),
             callback.get('account_info', ''),
             callback.get('status', ''),
+            callback.get('signature', ''),
         ]):
             callback_type = int(callback.get('status', None))
             transaction_id = int(callback.get('order_id'))
