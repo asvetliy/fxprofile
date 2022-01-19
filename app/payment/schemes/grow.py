@@ -35,7 +35,6 @@ class GrowPayment(BaseScheme):
         hash_list.sort()
         hash_string = '|'.join(map(str, hash_list))
         hash_string = self.api5_key + '|' + hash_string
-        log.info(hash_string)
         return hashlib.sha1(hash_string.encode('utf-8')).hexdigest().lower()
 
     def grow_init(self, init_data):
@@ -78,8 +77,8 @@ class GrowPayment(BaseScheme):
 
     def process_payment(self, request, params=None):
         callback = request.POST
-        log.info(callback)
         signature = callback.get('signature', None)
+        log.info(callback)
         if signature == self.generate_signature([
             self.merchant_id,
             callback.get('invoice_id', ''),
@@ -91,7 +90,7 @@ class GrowPayment(BaseScheme):
             callback.get('account_info', ''),
             callback.get('status', ''),
         ]):
-            callback_type = callback.get('status', None)
+            callback_type = int(callback.get('status', None))
             transaction_id = int(callback.get('order_id'))
             self.set_transaction_by_id(transaction_id)
             if self.transaction:
@@ -121,4 +120,6 @@ class GrowPayment(BaseScheme):
                             'received_data': json.dumps(callback),
                             'payment_system': self.system.code,
                         })
+        else:
+            log.info('Wrong signature')
         return HttpResponse('')
