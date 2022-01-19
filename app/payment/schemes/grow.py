@@ -35,6 +35,7 @@ class GrowPayment(BaseScheme):
         hash_list.sort()
         hash_string = '|'.join(map(str, hash_list))
         hash_string = self.api5_key + '|' + hash_string
+        log.info(hash_string)
         return hashlib.sha1(hash_string.encode('utf-8')).hexdigest().lower()
 
     def grow_init(self, init_data):
@@ -78,7 +79,6 @@ class GrowPayment(BaseScheme):
     def process_payment(self, request, params=None):
         callback = request.POST
         signature = callback.get('signature', None)
-        log.info(callback)
         new_signature = self.generate_signature([
             self.merchant_id,
             callback.get('invoice_id', ''),
