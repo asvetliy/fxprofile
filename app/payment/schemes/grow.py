@@ -79,7 +79,7 @@ class GrowPayment(BaseScheme):
         callback = request.POST
         signature = callback.get('signature', None)
         log.info(callback)
-        if signature == self.generate_signature([
+        new_signature = self.generate_signature([
             self.merchant_id,
             callback.get('invoice_id', ''),
             callback.get('order_id', ''),
@@ -90,7 +90,8 @@ class GrowPayment(BaseScheme):
             callback.get('account_info', ''),
             callback.get('status', ''),
             callback.get('signature', ''),
-        ]):
+        ])
+        if signature == new_signature:
             callback_type = int(callback.get('status', None))
             transaction_id = int(callback.get('order_id'))
             self.set_transaction_by_id(transaction_id)
@@ -123,4 +124,5 @@ class GrowPayment(BaseScheme):
                         })
         else:
             log.info('Wrong signature')
+            log.info(f'{signature} != {new_signature}')
         return HttpResponse('')
