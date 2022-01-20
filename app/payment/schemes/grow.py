@@ -18,6 +18,7 @@ class GrowPayment(BaseScheme):
 
     @staticmethod
     def get_sorted_values_by_key(d: dict) -> list:
+        d.pop('signature')
         keys = sorted(d.keys())
         sorted_values = []
         for i in range(len(keys)):
@@ -84,10 +85,11 @@ class GrowPayment(BaseScheme):
             return redirect('wallet-deposit')
 
     def process_payment(self, request, params=None):
-        callback = dict(request.POST)
-        signature = callback.pop('signature', None)
+        callback = request.POST
+        callback_dict = dict(callback)
+        signature = callback.get('signature', None)
         log.info(callback)
-        new_signature = self.generate_signature(self.get_sorted_values_by_key(callback))
+        new_signature = self.generate_signature(self.get_sorted_values_by_key(callback_dict))
         if signature == new_signature:
             callback_type = int(callback.get('status', None))
             transaction_id = int(callback.get('order_id'))
