@@ -85,19 +85,9 @@ class GrowPayment(BaseScheme):
 
     def process_payment(self, request, params=None):
         callback = request.POST
-        signature = callback.get('signature', None)
+        signature = callback.pop('signature', None)
         log.info(callback)
-        new_signature = self.generate_signature(self.get_sorted_values_by_key({
-            'merchant_id': self.merchant_id,
-            'invoice_id': callback.get('invoice_id', ''),
-            'order_id': callback.get('order_id', ''),
-            'amount': callback.get('amount', ''),
-            'amount_currency': callback.get('amount_currency', ''),
-            'currency': callback.get('currency', ''),
-            'merchant_amount': callback.get('merchant_amount', ''),
-            'account_info': callback.get('account_info', ''),
-            'status': callback.get('status', ''),
-        }))
+        new_signature = self.generate_signature(self.get_sorted_values_by_key(callback))
         if signature == new_signature:
             callback_type = int(callback.get('status', None))
             transaction_id = int(callback.get('order_id'))
