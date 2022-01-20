@@ -79,6 +79,7 @@ class GrowPayment(BaseScheme):
     def process_payment(self, request, params=None):
         callback = request.POST
         signature = callback.get('signature', None)
+        log.info(callback)
         new_signature = self.generate_signature([
             self.merchant_id,
             callback.get('invoice_id', ''),
