@@ -84,7 +84,7 @@ class GrowPayment(BaseScheme):
             return redirect('wallet-deposit')
 
     def process_payment(self, request, params=None):
-        callback = request.POST
+        callback = dict(request.POST)
         signature = callback.pop('signature', None)
         log.info(callback)
         new_signature = self.generate_signature(self.get_sorted_values_by_key(callback))
