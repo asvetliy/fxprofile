@@ -16,6 +16,14 @@ from .base import BaseScheme
 class GrowPayment(BaseScheme):
     CREATE_INVOICE_PATH = '/api/v5/invoice/get'
 
+    @staticmethod
+    def get_sorted_values_by_key(d: dict) -> list:
+        keys = sorted(d.keys())
+        sorted_values = []
+        for i in range(len(keys)):
+            sorted_values.append(d[keys[i]])
+        return sorted_values
+
     def __init__(self, payment_system):
         super().__init__(payment_system)
         self.sandbox_enabled = self.system.config.get('sandbox_enabled', False)
@@ -32,7 +40,6 @@ class GrowPayment(BaseScheme):
         self.exact_currency = self.system.config.get('exact_currency', 0)
 
     def generate_signature(self, hash_list: list) -> str:
-        hash_list.sort()
         hash_string = '|'.join(map(str, hash_list))
         hash_string = self.api5_key + '|' + hash_string
         log.info(hash_string)
@@ -80,17 +87,17 @@ class GrowPayment(BaseScheme):
         callback = request.POST
         signature = callback.get('signature', None)
         log.info(callback)
-        new_signature = self.generate_signature([
-            self.merchant_id,
-            callback.get('invoice_id', ''),
-            callback.get('order_id', ''),
-            callback.get('amount', ''),
-            callback.get('amount_currency', ''),
-            callback.get('currency', ''),
-            callback.get('merchant_amount', ''),
-            callback.get('account_info', ''),
-            callback.get('status', ''),
-        ])
+        new_signature = self.generate_signature(self.get_sorted_values_by_key({
+            'merchant_id': self.merchant_id,
+            'invoice_id': callback.get('invoice_id', ''),
+            'order_id': callback.get('order_id', ''),
+            'amount': callback.get('amount', ''),
+            'amount_currency': callback.get('amount_currency', ''),
+            'currency': callback.get('currency', ''),
+            'merchant_amount': callback.get('merchant_amount', ''),
+            'account_info': callback.get('account_info', ''),
+            'status': callback.get('status', ''),
+        }))
         if signature == new_signature:
             callback_type = int(callback.get('status', None))
             transaction_id = int(callback.get('order_id'))
