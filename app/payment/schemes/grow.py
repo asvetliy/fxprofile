@@ -22,7 +22,7 @@ class GrowPayment(BaseScheme):
         keys = sorted(d.keys())
         sorted_values = []
         for i in range(len(keys)):
-            sorted_values.append(d[keys[i]])
+            sorted_values.append(d.get(keys[i]))
         return sorted_values
 
     def __init__(self, payment_system):
