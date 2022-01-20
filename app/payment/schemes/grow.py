@@ -86,7 +86,7 @@ class GrowPayment(BaseScheme):
 
     def process_payment(self, request, params=None):
         callback = request.POST
-        callback_dict = dict(callback)
+        callback_dict = callback.dict()
         signature = callback.get('signature', None)
         log.info(callback)
         new_signature = self.generate_signature(self.get_sorted_values_by_key(callback_dict))
