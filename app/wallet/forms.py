@@ -36,7 +36,7 @@ class WithdrawForm(forms.Form):
     amount = forms.FloatField(min_value=0, required=True)
     account = forms.IntegerField(min_value=0, required=True)
     payment_system = forms.CharField(min_length=1, required=True)
-    to_wallet = forms.CharField(max_length=32, required=True)
+    to_wallet = forms.CharField(max_length=64, required=True)
 
 
 class TransferForm(forms.Form):
