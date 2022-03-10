@@ -1,8 +1,10 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from mailer.utils import Mailer
 from django.utils.translation import gettext_lazy as _
 from django.apps import apps
+
+from mailer.utils import Mailer
+
 from .models import UserAccounts
 from .server import Mt4Server, AccountObject
 

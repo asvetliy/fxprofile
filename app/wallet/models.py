@@ -63,7 +63,7 @@ class Transaction(models.Model):
     wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, models.CASCADE)
     amount = models.BigIntegerField()
-    from_to_wallet = models.CharField(max_length=32, default=None, blank=True)
+    from_to_wallet = models.CharField(max_length=64, default=None, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     type = models.ForeignKey(TransactionType, on_delete=models.CASCADE)
     status = models.ForeignKey(TransactionStatus, on_delete=models.CASCADE)
