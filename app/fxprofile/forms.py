@@ -75,7 +75,9 @@ class UserUpdateForm(UserChangeForm):
 class UserPasswordChangeForm(PasswordChangeForm):
     old_password = forms.CharField(
         strip=False,
-        widget=forms.PasswordInput(attrs={'class': 'form-control', 'autocomplete': 'current-password', 'autofocus': True}),
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control', 'autocomplete': 'current-password', 'autofocus': True}
+        ),
     )
 
     new_password1 = forms.CharField(
